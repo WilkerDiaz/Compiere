@@ -1,0 +1,28 @@
+<AD_Users>
+  <AD_User>
+    <C_BPartner_ID><Info>Crazy Town</Info></C_BPartner_ID>
+    <Name>
+      <Value>Alpha</Value>
+    </Name>
+    <EMail>
+      <Value>Alphacare2@test2.com</Value>
+    </EMail>
+    <Phone>
+      <Value>01698 392 500/ 415</Value>
+    </Phone>
+  </AD_User>
+  <AD_User>
+    <C_BPartner_ID>
+      <Info>Crazy Town</Info>
+    </C_BPartner_ID>
+    <Name>
+      <Value>test99</Value>
+    </Name>
+    <EMail>
+      <Value>garden2@test.com</Value>
+    </EMail>
+    <Phone>
+      <Value>11111</Value>
+    </Phone>
+  </AD_User>
+</AD_Users>

@@ -1,0 +1,871 @@
+/** Compiere Web Store (c) Jorg Janke */
+/** $Id: standard.css,v 1.6 2006/05/15 23:02:35 mdeaelfweald Exp $ */
+
+
+/* GLOBAL STYLES */
+html{
+}
+
+body {
+	font-family: Arial, Helvetica, sans-serif;
+	color: #333333;
+    font-size: .9em; 
+	background: #ffffff url('res/backgroundGradient.jpg') repeat-x scroll 0 0;
+	height: 100%;
+	width: 100%;
+    }
+        
+#page{
+	background-color: #ffffff;
+	margin: 0 auto;
+	width: 68em; 
+	height: 100%;
+    }
+
+#main {
+	margin: 0 0 0 0;
+	border: 0px;
+    }
+
+a {
+	color: #000066;
+	text-decoration: none;
+    }
+
+a:hover {
+	text-decoration: underline;
+    }
+
+h1 {
+	color: #003366;
+	font-size: 1.1em;
+    }
+    
+ 
+    
+h2 {
+	border-bottom:1px solid #D7D7D7;
+	color:#1B1B1B;
+	font-weight:bold;
+	margin-bottom:5px;
+	margin-top:4px;
+	padding:3px 0;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 1.1em;
+}    
+
+h3 {
+	color: #006699;
+	font-weight: bold;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 1.1em;	
+    }
+
+h4 {
+	color: #6600CC;
+	font-size: medium;
+	font-style: italic;
+    }
+h5 {
+	color: #660099;
+	font-size: medium;
+	font-weight: normal;
+    }
+
+h6 {
+	font-size: larger;
+	font-weight: bold;
+    }
+
+hr {
+	padding-bottom: 0;
+	padding-top: 0;
+    }
+
+p {
+	text-align: justify;
+   }
+
+th {
+	background:#0A496D none repeat scroll 0 0;
+	border-bottom:0.3em solid #FFFFFF;
+	color:#FFFFFF;
+	font-weight: normal;
+	padding:4px 5px; 
+}
+/* clear floats style */
+
+.clr {
+	clear: both; 
+	width: 100%; 
+	height: 0; 
+	line-height: 0; 
+	font-size: 0; 
+	margin: 0; 
+	padding: 0; 
+	border: 0;
+}
+
+ol, ul {
+	list-style-image:none;
+	list-style-position:outside;
+	list-style-type:none;
+}
+
+ol, ul, li {
+	margin: 0;
+	padding: 0;
+}
+
+em {
+	font-size: .8em;	
+	color: #666666;
+}
+
+/* HEADER STYLE */
+
+#header{
+	background-color:#FFFFFF;
+  	width: 68em; 
+  	height: 80px;
+  	margin: 0 0 0 0;
+    }
+
+#headerIcon {	
+	margin-left: 10px;
+	margin-top: 20px;
+	border: 0px;
+	float: left;
+	width: 250px;
+    }
+
+#headerIcon img{
+	width: 160px;
+	height: 34px;
+    }
+
+#headerContent {
+	text-align: right;
+	float: right;
+	width: 100%;
+	margin: 0 0 0 0;
+    }
+    
+
+#help {
+	text-align: right;
+	height: 31px;
+	width: 40px; 
+	float: right; 
+	margin-right: 15px;
+	padding-top: 7px;
+    }
+    
+#help a {
+	text-decoration: none;
+}    
+
+
+#help img {
+  	display: block;
+  	border: 0;
+  	float: right;
+  }
+   
+#help h2 {
+    font-family: Arial, Helvetica, Sans;
+    font-size:13px;
+    font-weight:bold;
+    display: block;
+    color:#0A496D;
+    font-style: normal;
+    margin-top: 0;
+    }
+
+#login {
+	float:right;
+	height: 40px;
+	width: 350px;
+	margin-right: 5px;
+	padding-top:7px;
+	text-align: right;
+}
+
+
+#login a {
+	text-decoration: none;
+}
+
+#webstore {
+	text-align: right;
+	height: 40px;
+	width: 100px; 
+	float: right; 
+	margin-right: 5px;
+	padding-top: 7px;
+}
+
+#webstore a {
+	text-decoration: none;
+}
+
+#webstore img {
+  display: block;
+  border: 0;
+  margin-left: auto;
+  margin-right: auto;
+  }
+
+#headerBottomBorder{
+    text-align:left;
+    margin-top:0px;
+    width:100%;
+    height:8px;
+    background-color:#0A496D;
+    }
+
+
+
+/* MAIN BODY STYLES  */
+
+#content {
+	background-color: #FFFFFF;
+	float: left;
+	width: 53em;
+	margin-left: 10px;
+	margin-right: 10px;
+    }
+
+#banner {
+    width:714px;
+    height:93px;
+    background-image:url(banner.jpg);
+    background-repeat:no-repeat;
+    }
+
+.trainingIcon {
+    background-image:url(icon_training.png);
+    background-repeat:no-repeat;
+    width:32px;
+    height:32px;
+    margin: 0 4px 20px 40px;
+    float:left;
+    vertical-align:middle;
+   }
+
+#newsBlurb {
+    font-family: Verdana, Arial;
+    font-size: 16px;
+    font-style: italic;
+    color: #0A496D;
+    }
+
+.newsBlurbValue {
+     color: #6C848E;
+    }
+
+#rightcontent {
+	float: right;
+	width: 20em; 
+	background-color: #FFFFFF;
+	margin-left: 0px;
+	margin-right: 10px;	
+}
+
+#rightcontent table {
+	font-size: .9em;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+#rightcontent th {
+	background: #FFFFFF;
+	color:#000000;
+	text-align: left;
+}
+
+#leftcontent {
+	background-color: #FFFFFF;
+	float: left;
+	width: 53em;
+	margin-left: 10px;
+	margin-right: 10px;
+ }
+
+/* SIDE MENU */
+
+#menu {
+	/*margin-top: 10px;*/
+	/*padding: 2px;*/
+}
+.sidenav {
+    vertical-align:top;
+    margin-left: 20px;
+    float: left;
+    width: 12%;
+    }
+
+.sidenav ul {
+	padding: 0;
+	border-top: 1px solid #596D76;
+    margin:0;
+    }
+
+.sidenav li {border-bottom:1px solid #596D76; list-style-type:none}
+.sidenav li a {
+    font-family:Arial, Helvetica, Sans;
+	font-size: 16px;
+	color: #E4E9EB;
+    background-image:url(menubg.png);
+    background-repeat:repeat-x;
+	display: block;
+	padding: 6px 0 6px 5%;
+	text-decoration: none;
+	width: 100%;
+    }
+
+.sidenav li a:hover {
+	color: #FFFFFF;
+	padding: 6px 0 6px 5%;
+    background-image:url(menubg_hover.png);
+    background-repeat:repeat-x;
+    text-decoration: none;
+    }
+
+
+
+       /* DATA TABLE STYLES */
+           .contentTable{
+	            width: 100%;
+				border-collapse:collapse;
+				border-spacing:0;                          
+                }
+			
+           .contentTable td {           		
+                padding:4px;
+                font-size: 90%; 
+                }
+
+			
+           .tableNav {
+	            vertical-align: top;
+	            text-align: left;
+	            width: 100%;
+                }
+
+           .internalTable{
+                width: 100%;
+                padding: 0px;
+                margin: 0;
+                border-style: none;
+                }
+
+           .adTable{
+	            width: 100%;
+	            border: 1px;
+	            border-spacing: 1px;
+	            padding: 5px;
+                }
+
+           .oddRow{
+	            background-color: #F2F0F0;
+                }
+                
+           .oddRow td {
+           		border-bottom:0.15em solid #FFFFFF;
+				color:#515151;
+				padding:5px;
+           }
+
+           .evenRow{
+	            background:#E5E5E5;	 
+                }
+                
+           .evenRow td {
+           		border-bottom:0.15em solid #FFFFFF;
+				color:#515151;
+				padding:5px;           
+           }
+           
+           .amount{
+	            text-align: right;
+                }
+
+           .quantity{
+	            text-align: right;
+                }
+
+           .numeric{
+	            text-align: right;
+                }
+                
+           .center {
+           		text-align: center;
+           } 
+           
+           .left {
+           		text-align: left;
+           } 
+           
+           .right {
+           		text-align: right;
+           } 
+                     
+
+/* FOOTER STYLES */
+
+#footer{	
+	background-color:#FFFFFF;
+  	width: 875px;
+  	height: 80px;
+  	margin: 0 0 0 0;
+  	font-size: 0.9em;
+    }
+
+#footerParam4{
+	margin-left: 10px;
+	width: 130px;
+	text-align: left;
+    display:inline;
+    float: left;
+	white-space: nowrap;
+    }
+
+#footerParam5{
+	text-align: left;
+    display:inline;
+    float: left;
+	white-space: nowrap;
+    }
+
+#footerParam6{
+	text-align: right;
+    display:inline;
+    float: right;
+	white-space: nowrap;
+    }
+
+
+caption {
+	color: #660099;
+	text-align: left;
+	font-style: italic;
+	font-weight: bolder;
+    }
+.menuDetail{
+	color: #006699;
+	font-family: Arial,Helvetica,sans-serif;
+	font-size: 1em;
+	padding-bottom: 0;
+	padding-left: 20px;
+	padding-top: 0;
+	text-decoration: none;
+    }
+.menuDetail:hover{
+	color: #006699;
+	font-family: Arial,Helvetica,sans-serif;
+	font-size: 1em;
+	padding-bottom: 0;
+	padding-left: 20px;
+	padding-top: 0;
+	text-decoration: underline;
+    }
+    
+.menuMain{
+	color: #ffffff;
+	background-color: #718493;
+	font-family: Arial,Helvetica,sans-serif;
+	font-size: 1em;
+	text-align: left;
+	text-decoration: none;
+	display: block;
+	padding: 5px 0px 5px 15px;
+	margin-top: 3px;
+	margin-bottom: 3px;
+    }
+.menuMain:hover{
+	color: #DAE4E6;
+	background-color: #718493;
+	text-decoration: none;
+    }
+.menuSub{
+	color: #006699;
+	background-color: #DAE4E6;
+	font-family: Arial,Helvetica,sans-serif;
+	font-size: 1em;
+	padding-left: 10px;
+	display: block;
+	text-align: left;
+	text-decoration: none;
+    margin-top: 3px;
+	margin-bottom: 3px;	
+    }
+.menuSub:hover{
+	color: #ffffff;
+	font-family: Arial,Helvetica,sans-serif;
+	font-size: 1em;
+	padding-left: 10px;
+	display: block;
+	text-align: left;
+	text-decoration: none;
+    }
+.error{
+	border: 1px solid #FF4A4A;
+    color: #FF0000;
+    font-weight: bold;
+    text-align: center;
+    width: 100%;
+    }
+    
+/* FORM STYLES */
+
+form {
+	width: 100%;
+	font-family:Arial, Helvetica, Sans;
+	font-size: .9em;
+}
+    
+#formstyles {
+	width: 32em;
+} 
+    
+#formstyles .left {	
+	padding-bottom:10px;
+	position:relative;
+}
+
+#formstyles .right {
+	left: 200px;
+	position:absolute;
+	top:0;
+}
+
+
+.cvvcodes {	
+	font-size: .9em;
+	position: absolute;
+	left: 270px;
+	top:0;
+}
+    
+fieldset{
+	border: 1px solid #AAAAAA;
+    width: 95%;
+    margin-left: 10px;
+    }
+legend{
+	color: #003366;
+	background: #EEEEEE;
+	border: 1px solid #999999;
+	padding: 2px 6px;
+    }
+label{
+	clear: left;
+	float: left;
+	text-align: left;
+	margin-right: 2px;
+	display: block;
+    font-weight: bold;
+	vertical-align: baseline;
+	white-space: nowrap;	
+    }
+
+select{
+	color: #000000;
+	background: #ffffff;
+	border: 1px solid #CCCCCC;
+    }
+    
+.mandatory{
+	color: #CC0000;
+	text-decoration: none;
+	vertical-align: top;
+}
+
+
+#NewUserFields {
+	display:none;
+}
+
+
+#locationinfo label {
+	 font: .9em Arial, Helvetica, sans-serif;
+	 color: #333333;
+	 background-color: transparent;
+}
+
+#locationinfo input {	
+	 font: .9em Arial, Helvetica, sans-serif;
+	 color: #333333;
+	 background-color: #ffffa0;
+}
+
+#locationinfo  select {		 
+	 font: .9em Arial, Helvetica, sans-serif;
+	 color: #333333;
+	 background-color: #ffffa0;
+}
+
+
+.labelcell {
+	 font: .9em Arial, Helvetica, sans-serif;
+	 color: #333333;
+	 background-color: transparent;	 
+}
+
+.fieldcell {
+	 font: .9em Arial, Helvetica, sans-serif;
+	 background-color: #ffffa0;
+}
+
+
+.textcell {
+	 font: .9em Arial, Helvetica, sans-serif;
+	 background-color: transparent;
+}
+
+
+.fieldcell .input {
+	 font: .9em Arial, Helvetica, sans-serif;
+	 background-color: #ffffa0;
+}
+
+input.disabled{
+	border: 0px;
+	background: transparent;
+    }
+.buttons{
+	text-align:center;
+    }
+    
+   
+ 
+.Cbasket{
+	font-size: 9px;
+	display: inline;
+    }
+#imgButton{
+	border-style:outset;
+    }
+#imgButtonPressed{
+	border-style:inset;
+    }
+#status{
+    background-color: #fff8dc;
+    color: #000000;
+    display: none;
+    }
+
+#validationInfo{
+    text-align: center;
+    }
+
+
+///// modal dialog styles
+#modalPage
+{
+	display: none;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0px; left: 0px;
+}
+.modalBackground
+{
+	filter: Alpha(Opacity=40); -moz-opacity:0.4; opacity: 0.4;
+	width: 100%; height: 100%; background-color: #999999;
+	position: absolute;
+	z-index: 500;
+	top: 0px; left: 0px;
+}
+.modalContainer
+{
+	position: absolute;
+	width: 600px;
+	left: 50%;
+	top: 50%;
+	z-index: 750;
+}
+.modal
+{
+	background-color: white;
+	border: solid 1px black; position: relative;
+	top: -180px;
+	left: -300px;
+	z-index: 1000;
+	width: 600px;
+	height: 370px;
+	padding: 0px;
+}
+.modalTop
+{
+	width: 600px;
+	background-color: white;
+	padding: 4px;
+	color: black;
+	text-align: right;
+	overflow: auto;
+}
+.modalBody
+{
+	padding: 10px;
+}
+
+//////
+
+
+
+
+#visaBox{
+    width: 40%;
+    float:left;
+    text-align: right;
+}
+#amexBox{
+    width: 40%;
+    float:right;
+    text-align: left;
+}
+.availProduct{
+    /* comment out next line to show the Availability column */
+    display:none;
+}
+#productSearch{
+   
+}
+
+#productSearch .labelcell {
+	font: .9em Arial, Helvetica, sans-serif;
+	color: #333333;
+	background-color: transparent;
+	margin-top: 5px;	 
+}
+
+#productSearch input {
+	font: .9em Arial, Helvetica, sans-serif;
+	color: #333333;
+}
+
+#productSearch select {
+	color: #000000;
+	background: #ffffff;
+	border: 1px solid #CCCCCC;
+	font: .9em Arial, Helvetica, sans-serif;
+}
+
+.nobr{
+    white-space: nowrap;
+}
+.wideText{
+    width:100%;
+}
+.lineItem{
+    vertical-align: top;
+    font: .9em  Arial, Helvetica, sans-serif;
+	color: #333333;
+}
+
+.lineItem  label { 
+	font: .9em Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	color: #333333;
+	background-color: transparent;
+	margin-right: 10px;
+}
+
+.entryNote{
+	font: .9em Arial, Helvetica, sans-serif;
+	font-weight: normal;
+	color: #333333;
+	background-color: transparent;	    
+}
+.emphasized{
+    font-weight: bold;
+}
+.disabledMsg{
+	display: none;
+	font: .9em Arial, Helvetica, sans-serif;
+	font-weight: normal;
+	color: #333333;
+	background-color: transparent;	    	
+}
+
+.searchForm {
+	float: right;
+	width: 460px;
+	margin-right: 10px;
+	margin-bottom: 10px;
+	margin-top: 0px;
+}
+
+#modalBackground { 
+	position: absolute; 
+	left: expression(ignoreMe = document.documentElement.scrollLeft + "px"); 
+	top: expression(ignoreMe = document.documentElement.scrollTop + "px"); 
+	width: expression(document.documentElement.clientWidth + "px"); 
+	height: expression(document.documentElement.clientHeight + "px"); 
+}
+
+#sidebarPrimary {
+	float: left;
+	width: 13.3em;
+}
+
+#secondaryNav { 
+	margin-left: 10px;
+
+}
+    
+
+#secondaryNav a, #secondaryNav em {
+    color: #fff;
+    display: block;
+    font-size: 92%;
+    padding: 6px 6px 4px 13px;
+}
+  
+#secondaryNav a:hover { 
+	background: #0A496D; 
+	text-decoration: none; 
+}
+  
+  
+#secondaryNav ul.lvl1 { 
+	background: #758f9a;
+}
+
+#secondaryNav ul.lvl1 li { 
+	background: transparent url('res/lvl1_item_bg.png') repeat-x scroll 0 0; 
+}
+
+
+#secondaryNav ul.lvl1 li.f { 
+	background: 0; 
+}
+
+#secondaryNav ul.lvl1 li.a { 
+	background: #ebeff0 url('res/lvl1_item_a_bg.png') no-repeat 100% 0; 
+}
+
+#secondaryNav ul.lvl1 li a.a { 
+	color: #0a496d; font-weight: bold; 
+}
+
+#secondaryNav ul.lvl1 li a.a:hover { 
+	background: 0; color: #000; 
+}
+ 
+.bluebutton {
+	font-size: 1em;
+	text-decoration:none;	
+	color: #ffffff;
+	background: #315951;
+	background-image: url('res/bluebutton.png');
+	background-position: 0px 0px;	
+	border: none;
+	height: 30px;
+	padding: 0px 5px 1px 5px;
+ }
+ 
+
+ 
+ 

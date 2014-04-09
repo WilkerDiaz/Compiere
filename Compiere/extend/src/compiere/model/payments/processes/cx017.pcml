@@ -1,0 +1,16 @@
+<pcml version="4.0">
+	<!-- RPG module: CX017 -->
+	<!-- created: 2011-07-09-13.48.07 -->
+	<!-- modified: 2011-07-09-08.11.00 -->
+	<!-- source: CONSQL/QRPGLESRC(CX017) -->
+	<!-- 4147000 -->
+	<program name="CX017" path="/QSYS.LIB/CONSQL.LIB/CX017.PGM">
+		<data name="CODCIAPAR" type="packed" length="3" precision="0" usage="input" />
+		<data name="CODSUCPAR" type="packed" length="3" precision="0" usage="input" />
+		<data name="NOMARCPAR" type="char" length="20" usage="input" />
+		<data name="SISORIPAR" type="char" length="10" usage="input" />
+		<data name="NROCMPPAR" type="packed" length="6" precision="0" usage="input" />
+		<data name="NROLINPAR" type="packed" length="5" precision="0" usage="input" />
+		<data name="ESTREGPAR" type="char" length="2" usage="inputoutput" />
+	</program>
+</pcml>

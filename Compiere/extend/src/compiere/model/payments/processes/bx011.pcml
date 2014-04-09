@@ -1,0 +1,25 @@
+<pcml version="4.0">
+   <!-- RPG program: BX011  -->
+   <!-- created: 2013-06-03-10.36.41 -->
+   <!-- source: BANSQL2/QRPGLESRC(BX011) -->
+   <!-- 3201300 -->
+   <program name="BX011" path="/QSYS.LIB/BANSQL2.LIB/BX011.PGM">
+      <data name="CODCIAPAR" type="packed" length="3" precision="0" usage="input" />
+      <data name="NROPROPAR" type="packed" length="7" precision="0" usage="input" />
+      <data name="NOMPROPAR" type="char" length="70" usage="input" />
+      <data name="NRORIFPAR" type="char" length="12" usage="input" />
+      <data name="DIRPROPAR" type="char" length="100" usage="input" />
+      <data name="TIPPROPAR" type="char" length="2" usage="input" />
+      <data name="TLFPROPAR" type="char" length="30" usage="input" />
+      <data name="FAXPROPAR" type="char" length="12" usage="input" />
+      <data name="PERCO1PAR" type="char" length="30" usage="input" />
+      <data name="PERCO2PAR" type="char" length="30" usage="input" />
+      <data name="TIPPERPAR" type="char" length="1" usage="input" />
+      <data name="ESTPROPAR" type="char" length="1" usage="input" />
+      <data name="CTAPROPAR" type="char" length="14" usage="input" />
+      <data name="OPEREGPAR" type="char" length="1" usage="input" />
+      <data name="SISORIPAR" type="char" length="10" usage="input" />
+      <data name="CORREOPAR" type="char" length="50" usage="input" />
+      <data name="ESTREGPAR" type="char" length="2" usage="inputoutput" />
+   </program>
+</pcml>

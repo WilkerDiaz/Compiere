@@ -1,0 +1,125 @@
+<html>
+<head>
+<title>Compiere Launch Page</title>
+<meta name="description" content="Compiere Application Home">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<script language="JavaScript" type="text/javascript">
+<!--
+var javawsInstalled = false;
+if (navigator.mimeTypes && navigator.mimeTypes.length)
+  javawsInstalled = navigator.mimeTypes['application/x-java-jnlp-file'];
+else
+  isIE = true;
+
+function insertLink (url, name) 
+{
+  if (javawsInstalled) 
+  {
+  }
+  else 
+  {
+    document.write("You need to install Java or configure Java Web Start");
+	document.write("<br>visit ");
+	document.write("<a href=\"http://java.sun.com/javase/downloads/index.jsp\">" );
+	document.write("Java Installation");
+	document.write("</a><br>");
+  }
+}
+//-->
+</script>
+<script language="VBScript" type="text/vbscript">
+on error resume next
+If isIE Then
+  If Not(IsObject(CreateObject("JavaWebStart.IsInstalled"))) Then
+	javawsInstalled = false
+  Else
+	javawsInstalled = true
+  End If
+End If
+</script>
+</head>
+<body text="#333333" link="#6990a6" vlink="#6990A6" alink="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td height="73"><table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr>
+          <td width="477" align="left" valign="middle"><h1><a href="http://www.compiere.com" target="_blank"><img src="http://www.compiere.com/images/logo.png" alt="Compiere ERP &amp; CRM " name="compiere_logo" width="160" height="34" border="0"></a></h1></td>
+          <td align="left" valign="middle"><h2><font color="#EC1922" face="Arial, Helvetica, sans-serif">Compiere<sup><font size="3">&reg;</font></sup> 3.6.2</font></h2></td>
+        </tr>
+    </table></td>
+  </tr>
+  <tr>
+    <td height="60" bgcolor="#0a496d"><table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr>
+          <td align="left" valign="middle"><font color="#FFFFFF" size="4" face="Arial, Helvetica, sans-serif">Compiere Launch Page <br>
+          </font><font face="Arial, Helvetica, sans-serif"><a href="http://www.compiere.com/support/index.php" target="_blank"><font size="2">Compiere Support Web Site</font></a><font size="2"> <font color="#FFFFFF">-</font> <a href="http://www.compiere.com/support/release-notes.php" target="_blank"> Release Notes</a></font></font></td>
+        </tr>
+    </table></td>
+  </tr>
+  <tr>
+    <td height="77"><table width="100%" border="1" cellpadding="5" cellspacing="0" bordercolor="#CCCCCC" id="Compiere">
+        <!--DWLayoutTable-->
+        <tr>
+          <td width="22%" align="left" valign="top" bgcolor="#FFFFFF">
+		  	<h3>
+		  <font color="#000066" face="Arial, Helvetica, sans-serif"><font color="#0a486c">Web Start</font></font> </h3>		  </td>
+          <td width="78%" align="left" valign="top" bgcolor="#FFFFFF">
+		    <p>
+			  <font face="Arial, Helvetica, sans-serif"><a href="compiere.jnlp"><img src="webstart.jpg" width="247" height="60" border="0" align="right"></a>
+			  <script language="JavaScript" type="text/javascript">
+			<!--
+			insertLink ("compiere.jnlp","Compiere Web Start");
+			// -->
+			  </script>
+			  Install &nbsp;<a href="http://www.java.com/getjava" target="_blank">Java 1.6.0 JRE (Runtime)</a>
+			and press WebStart<br>
+            If you have trouble starting, try <a href="/admin/compiereHome/compiereDirect.jnlp">this</a>
+		  (or via <a href="/admin/applet.html">Applet</a>)		    </font></p>		  </td>
+        </tr>
+        <tr>
+          <td align="left" valign="top" bgcolor="#FFFFFF"><h3><font color="#000066" face="Arial, Helvetica, sans-serif"><font color="#0a486c">Local Install </font></font></h3></td>
+          <td align="left" valign="top" bgcolor="#FFFFFF"><font face="Arial, Helvetica, sans-serif"><a href="/admin/compiereHome/Compiere2Client.zip"></a>Install &nbsp;<a href="http://www.java.com/getjava" target="_blank">Java 1.6.0 JRE (Runtime)</a><br>
+            Download and extract the Compiere Client <a href="/admin/compiereHome/Compiere2Client.zip" title="Download Compiere Client">zip</a> file on your Client;. <br>
+          Start Compiere via RUN_Compiere2 </font></td>
+        </tr>
+        <tr>
+          <td align="left" valign="top" bgcolor="#FFFFFF"><h3><font color="#0a486c" face="Arial, Helvetica, sans-serif">Web Application</font></h3></td>
+          <td align="left" valign="top" bgcolor="#FFFFFF"><p><font face="Arial, Helvetica, sans-serif"><a href="/apps/Compiere.html">Compiere Web Application Login</a> (Requires Compiere Professional Edition)</font></p></td>
+        </tr>
+        <tr>
+          <td align="left" valign="top" bgcolor="#FFFFFF"><h3><font color="#0a486c" face="Arial, Helvetica, sans-serif">Self Service</font></h3></td>
+          <td align="left" valign="top" bgcolor="#FFFFFF"><p><font face="Arial, Helvetica, sans-serif"><a href="/wstore/index.jsp">Web Store<br>
+          </a></font><font face="Arial, Helvetica, sans-serif"><a href="/wstore/request.jsp">Send Request</a></font></p>
+          </td>
+        </tr>
+        <tr>
+          <td align="left" valign="top" bgcolor="#FFFFFF"><h3><font color="#0a486c" face="Arial, Helvetica, sans-serif">Server Admin</font></h3></td>
+          <td align="left" valign="top" bgcolor="#FFFFFF"><p><font face="Arial, Helvetica, sans-serif"><a href="/admin/compiereMonitor">Compiere Server Management</a>
+              <!--a href="/jmx-console" target="_blank">JBoss 3.3.0 Management Server Agent</a -->
+          </font></p></td>
+        </tr>
+        <tr>
+          <td align="left" valign="top" bgcolor="#FFFFFF"><h3><font color="#0a486c" face="Arial, Helvetica, sans-serif">Compiere Support</font></h3></td>
+          <td align="left" valign="top" bgcolor="#FFFFFF"><p><font face="Arial, Helvetica, sans-serif"><a href="http://www.compiere.com/" target="_blank"><img src="http://www.compiere.com/images/logo.png" alt="Support from Compiere " width="160" height="34" border="0" align="right"></a><a href="http://www.compiere.com/support/support-requests.php" target="_blank">Support Requests</a><br>
+                <a href="http://www.compiere.com/services/training/index.php" target="_blank">Instructor-Led Training<br></a>
+                <a href="http://www.compiere.com/services/elearning/index.php" target="_blank">eLearning<br></a>
+                <a href="http://wiki.compiere.com" target="_blank">Community Wiki<br></a>
+                <a href="http://www.compiere.com/services/documentation.php" target="_blank">Get User Documentation</a>
+                </font></p>
+          </td>
+        </tr>
+      </table></td>
+  </tr>
+  <tr>
+    <td height="55" bgcolor="#0A496D"><table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr>
+          <td><font color="#FFFFFF">&copy; <font face="Arial, Helvetica, sans-serif">Copyright 1999-2010 Compiere, Inc. - All rights reserved -</font></font><font face="Arial, Helvetica, sans-serif"> <a href="http://www.compiere.com/license.html" target="_blank">License</a></font></td>
+        </tr>
+    </table></td>
+  </tr>
+</table>
+<h1>&nbsp;</h1>
+<p>&nbsp;</p>
+<p><img src="http://www.web-stat.com/count.cgi?jjanke3::R362S::::::R362S::::0" alt="" width="1" height="1" border="0"></p>
+</body>
+</html>

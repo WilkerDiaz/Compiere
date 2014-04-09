@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="/tools"/>
+	<classpathentry kind="lib" path="/tools/lib/barbecue-1.0.6d.jar"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/ad"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/common"/>
+	<classpathentry kind="lib" path="/tools/lib/poi-3.0.1-FINAL-20070705.jar"/>
+	<classpathentry kind="lib" path="/lib/jPDF.jar"/>
+	<classpathentry kind="lib" path="/tools/lib/iText-2.1.7.jar"/>
+	<classpathentry kind="lib" path="/tools/lib/google-collect-snapshot-20080820.jar"/>
+	<classpathentry kind="output" path="lib"/>
+</classpath>

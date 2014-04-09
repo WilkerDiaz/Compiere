@@ -1,0 +1,58 @@
+<C_Payments>
+<C_Payment>
+
+<C_DocType_ID>
+<Info>AP Invoice</Info>
+</C_DocType_ID>
+
+<C_BPartner_ID>
+<Info>Standard</Info>
+</C_BPartner_ID>
+
+<C_BankAccount_ID>
+<Info>MoneyBank - 123456789_1234</Info>
+</C_BankAccount_ID>
+
+<Description>
+<Value>Credit Card Payment - WS</Value>
+</Description>
+
+<DateAcct>
+<Label>Account Date</Label>
+<Value>10/22/2009 00:00:00.0</Value>
+</DateAcct>
+
+<C_Currency_ID>
+<Info>USD</Info>
+</C_Currency_ID>
+
+<PayAmt>
+<Value>100</Value>
+</PayAmt>
+
+<TenderType>
+<Value>Credit Card</Value>
+</TenderType>
+
+<CreditCardType>
+<Info>MasterCard</Info>
+</CreditCardType>
+
+<CreditCardExpMM>
+<Value>1</Value>
+</CreditCardExpMM>
+
+<CreditCardExpYY>
+<Value>11</Value>
+</CreditCardExpYY>
+
+<CreditCardNumber>
+<Value>5105105105105100</Value>
+</CreditCardNumber>
+
+<DocAction>
+<Value>CO</Value>
+</DocAction>
+
+</C_Payment>
+</C_Payments>

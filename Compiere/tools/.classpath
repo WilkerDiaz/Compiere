@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry including="org/" path="Src" kind="src"/>
+	<classpathentry path="lib/jstl.jar" exported="true" kind="lib"/>
+	<classpathentry path="lib/standard.jar" exported="true" kind="lib"/>
+	<classpathentry path="org.eclipse.jdt.launching.JRE_CONTAINER" kind="con"/>
+	<classpathentry path="lib/log4j.jar" exported="true" kind="lib"/>
+	<classpathentry path="lib/activation.jar" exported="true" kind="lib"/>
+	<classpathentry path="lib/mail.jar" exported="true" kind="lib"/>
+	<classpathentry path="lib/j2ee.jar" exported="true" kind="lib"/>
+	<classpathentry path="lib/bsh-1.3.0.jar" exported="true" kind="lib"/>
+	<classpathentry path="lib/xdoclet-1.2.3.jar" exported="true" kind="lib"/>
+	<classpathentry path="lib/jpayment.jar" exported="true" kind="lib"/>
+	<classpathentry path="lib/jnlp.jar" exported="true" kind="lib"/>
+	<classpathentry path="lib/local" kind="output"/>
+</classpath>

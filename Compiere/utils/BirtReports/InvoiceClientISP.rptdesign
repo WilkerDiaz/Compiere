@@ -1,0 +1,1304 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.22" id="1">
+    <property name="createdBy">Eclipse BIRT Designer Version 4.3.1.v201309091055 Build &lt;4.3.1.v20130917-1035></property>
+    <list-property name="propertyBindings">
+        <structure>
+            <property name="name">queryText</property>
+            <property name="id">249</property>
+        </structure>
+        <structure>
+            <property name="name">queryTimeOut</property>
+            <property name="id">249</property>
+        </structure>
+    </list-property>
+    <property name="units">in</property>
+    <list-property name="propertyBindings">
+        <structure>
+            <property name="name">queryText</property>
+            <property name="id">249</property>
+        </structure>
+        <structure>
+            <property name="name">queryTimeOut</property>
+            <property name="id">249</property>
+        </structure>
+    </list-property>
+    <property name="iconFile">/templates/first_report.gif</property>
+    <property name="cheatSheet">org.eclipse.birt.report.designer.ui.cheatsheet.firstreport</property>
+    <property name="layoutPreference">fixed layout</property>
+    <property name="bidiLayoutOrientation">ltr</property>
+    <property name="imageDPI">96</property>
+    <template-parameter-definitions>
+        <template-parameter-definition name="NewTemplateParameterDefinition" id="28">
+            <property name="allowedType">Table</property>
+            <text-property name="description">Customer Listing</text-property>
+            <default>
+                <table id="29">
+                    <property name="width">100%</property>
+                    <property name="pageBreakInterval">50</property>
+                    <column id="49"/>
+                    <column id="50"/>
+                    <column id="51"/>
+                    <column id="52"/>
+                    <header>
+                        <row id="30">
+                            <cell id="31">
+                                <label id="32">
+                                    <property name="fontFamily">sans-serif</property>
+                                    <property name="fontWeight">bold</property>
+                                    <text-property name="text">Contact</text-property>
+                                </label>
+                            </cell>
+                            <cell id="33">
+                                <label id="34">
+                                    <property name="fontFamily">sans-serif</property>
+                                    <property name="fontWeight">bold</property>
+                                    <text-property name="text">First</text-property>
+                                </label>
+                            </cell>
+                            <cell id="35">
+                                <label id="36">
+                                    <property name="fontFamily">sans-serif</property>
+                                    <property name="fontWeight">bold</property>
+                                    <text-property name="text">Last</text-property>
+                                </label>
+                            </cell>
+                            <cell id="37">
+                                <label id="38">
+                                    <property name="fontFamily">sans-serif</property>
+                                    <property name="fontWeight">bold</property>
+                                    <text-property name="text">Phone</text-property>
+                                </label>
+                            </cell>
+                        </row>
+                    </header>
+                    <detail>
+                        <row id="39">
+                            <cell id="40"/>
+                            <cell id="41"/>
+                            <cell id="42"/>
+                            <cell id="43"/>
+                        </row>
+                    </detail>
+                    <footer>
+                        <row id="44">
+                            <cell id="45"/>
+                            <cell id="46"/>
+                            <cell id="47"/>
+                            <cell id="48"/>
+                        </row>
+                    </footer>
+                </table>
+            </default>
+        </template-parameter-definition>
+        <template-parameter-definition name="NewTemplateParameterDefinition1" id="78">
+            <property name="allowedType">Table</property>
+            <text-property name="description">Customer Listing Table</text-property>
+            <default>
+                <table id="79">
+                    <property name="width">100%</property>
+                    <property name="refTemplateParameter">NewTemplateParameterDefinition</property>
+                    <property name="pageBreakInterval">50</property>
+                    <column id="99"/>
+                    <column id="100"/>
+                    <column id="101"/>
+                    <column id="102"/>
+                    <header>
+                        <row id="80">
+                            <cell id="81">
+                                <label id="82">
+                                    <property name="fontFamily">sans-serif</property>
+                                    <property name="fontWeight">bold</property>
+                                    <text-property name="text">Contact</text-property>
+                                </label>
+                            </cell>
+                            <cell id="83">
+                                <label id="84">
+                                    <property name="fontFamily">sans-serif</property>
+                                    <property name="fontWeight">bold</property>
+                                    <text-property name="text">First</text-property>
+                                </label>
+                            </cell>
+                            <cell id="85">
+                                <label id="86">
+                                    <property name="fontFamily">sans-serif</property>
+                                    <property name="fontWeight">bold</property>
+                                    <text-property name="text">Last</text-property>
+                                </label>
+                            </cell>
+                            <cell id="87">
+                                <label id="88">
+                                    <property name="fontFamily">sans-serif</property>
+                                    <property name="fontWeight">bold</property>
+                                    <text-property name="text">Phone</text-property>
+                                </label>
+                            </cell>
+                        </row>
+                    </header>
+                    <detail>
+                        <row id="89">
+                            <cell id="90"/>
+                            <cell id="91"/>
+                            <cell id="92"/>
+                            <cell id="93"/>
+                        </row>
+                    </detail>
+                    <footer>
+                        <row id="94">
+                            <cell id="95"/>
+                            <cell id="96"/>
+                            <cell id="97"/>
+                            <cell id="98"/>
+                        </row>
+                    </footer>
+                </table>
+            </default>
+        </template-parameter-definition>
+        <template-parameter-definition name="NewTemplateParameterDefinition2" id="132">
+            <property name="allowedType">Table</property>
+            <text-property name="description">Customer Listing Table</text-property>
+            <default>
+                <table id="133">
+                    <property name="width">100%</property>
+                    <property name="refTemplateParameter">NewTemplateParameterDefinition1</property>
+                    <property name="pageBreakInterval">50</property>
+                    <column id="157"/>
+                    <column id="158"/>
+                    <column id="159"/>
+                    <column id="160"/>
+                    <header>
+                        <row id="134">
+                            <cell id="135">
+                                <label id="136">
+                                    <property name="fontFamily">sans-serif</property>
+                                    <property name="fontWeight">bold</property>
+                                    <text-property name="text">Contact</text-property>
+                                </label>
+                            </cell>
+                            <cell id="137">
+                                <label id="138">
+                                    <property name="fontFamily">sans-serif</property>
+                                    <property name="fontWeight">bold</property>
+                                    <text-property name="text">First</text-property>
+                                </label>
+                            </cell>
+                            <cell id="139">
+                                <label id="140">
+                                    <property name="fontFamily">sans-serif</property>
+                                    <property name="fontWeight">bold</property>
+                                    <text-property name="text">Last</text-property>
+                                </label>
+                            </cell>
+                            <cell id="141">
+                                <label id="142">
+                                    <property name="fontFamily">sans-serif</property>
+                                    <property name="fontWeight">bold</property>
+                                    <text-property name="text">Phone</text-property>
+                                </label>
+                            </cell>
+                        </row>
+                    </header>
+                    <detail>
+                        <row id="143">
+                            <cell id="144">
+                                <data id="145"/>
+                            </cell>
+                            <cell id="146">
+                                <data id="147"/>
+                            </cell>
+                            <cell id="148">
+                                <data id="149"/>
+                            </cell>
+                            <cell id="150">
+                                <data id="151"/>
+                            </cell>
+                        </row>
+                    </detail>
+                    <footer>
+                        <row id="152">
+                            <cell id="153"/>
+                            <cell id="154"/>
+                            <cell id="155"/>
+                            <cell id="156"/>
+                        </row>
+                    </footer>
+                </table>
+            </default>
+        </template-parameter-definition>
+    </template-parameter-definitions>
+    <parameters>
+        <scalar-parameter name="idInvoice" id="250">
+            <property name="hidden">false</property>
+            <property name="valueType">static</property>
+            <property name="dataType">integer</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">5976485</value>
+            </simple-property-list>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+    </parameters>
+    <data-sources>
+        <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="Compiere" id="248">
+            <list-property name="privateDriverProperties">
+                <ex-property>
+                    <name>contentBidiFormatStr</name>
+                    <value>ILYNN</value>
+                </ex-property>
+                <ex-property>
+                    <name>metadataBidiFormatStr</name>
+                    <value>ILYNN</value>
+                </ex-property>
+                <ex-property>
+                    <name>disabledMetadataBidiFormatStr</name>
+                </ex-property>
+                <ex-property>
+                    <name>disabledContentBidiFormatStr</name>
+                </ex-property>
+            </list-property>
+            <property name="odaDriverClass">oracle.jdbc.OracleDriver</property>
+            <property name="odaURL">jdbc:oracle:thin:@192.168.1.139:1521:compiere</property>
+            <property name="odaUser">compiere</property>
+            <encrypted-property name="odaPassword" encryptionID="base64">czEwZTkwOWQ=</encrypted-property>
+        </oda-data-source>
+    </data-sources>
+    <data-sets>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="Invoice" id="249">
+            <property name="nullsOrdering">nulls lowest</property>
+            <list-property name="parameters">
+                <structure>
+                    <property name="name">idInvoice</property>
+                    <property name="paramName">idInvoice</property>
+                    <property name="dataType">integer</property>
+                    <property name="position">1</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">NOINV</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">NOCONTROL</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">PARTNER</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">CIPARTNER</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">5</property>
+                        <property name="name">NITPARTNER</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">6</property>
+                        <property name="name">DIRECCION</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">7</property>
+                        <property name="name">TELEFONO</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">8</property>
+                        <property name="name">NOORD</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">9</property>
+                        <property name="name">FECHAO</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">10</property>
+                        <property name="name">CONDICIONPAGO</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">11</property>
+                        <property name="name">CODPRODUCTO</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">12</property>
+                        <property name="name">PRODUCTO</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">13</property>
+                        <property name="name">CANTIDAD</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">14</property>
+                        <property name="name">PRECIOPRODUCTO</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">15</property>
+                        <property name="name">TAX</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">16</property>
+                        <property name="name">NETOPRODUCTO</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">17</property>
+                        <property name="name">DIAI</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">18</property>
+                        <property name="name">MESI</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">19</property>
+                        <property name="name">AÑOI</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">Compiere</property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">NOINV</property>
+                    <property name="nativeName">NOINV</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">NOCONTROL</property>
+                    <property name="nativeName">NOCONTROL</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">PARTNER</property>
+                    <property name="nativeName">PARTNER</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">4</property>
+                    <property name="name">CIPARTNER</property>
+                    <property name="nativeName">CIPARTNER</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">5</property>
+                    <property name="name">NITPARTNER</property>
+                    <property name="nativeName">NITPARTNER</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">6</property>
+                    <property name="name">DIRECCION</property>
+                    <property name="nativeName">DIRECCION</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">7</property>
+                    <property name="name">TELEFONO</property>
+                    <property name="nativeName">TELEFONO</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">8</property>
+                    <property name="name">NOORD</property>
+                    <property name="nativeName">NOORD</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">9</property>
+                    <property name="name">FECHAO</property>
+                    <property name="nativeName">FECHAO</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">10</property>
+                    <property name="name">CONDICIONPAGO</property>
+                    <property name="nativeName">CONDICIONPAGO</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">11</property>
+                    <property name="name">CODPRODUCTO</property>
+                    <property name="nativeName">CODPRODUCTO</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">12</property>
+                    <property name="name">PRODUCTO</property>
+                    <property name="nativeName">PRODUCTO</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">13</property>
+                    <property name="name">CANTIDAD</property>
+                    <property name="nativeName">CANTIDAD</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">14</property>
+                    <property name="name">PRECIOPRODUCTO</property>
+                    <property name="nativeName">PRECIOPRODUCTO</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">15</property>
+                    <property name="name">TAX</property>
+                    <property name="nativeName">TAX</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">16</property>
+                    <property name="name">NETOPRODUCTO</property>
+                    <property name="nativeName">NETOPRODUCTO</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">17</property>
+                    <property name="name">DIAI</property>
+                    <property name="nativeName">DIAI</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">18</property>
+                    <property name="name">MESI</property>
+                    <property name="nativeName">MESI</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">19</property>
+                    <property name="name">AÑOI</property>
+                    <property name="nativeName">AÑOI</property>
+                    <property name="dataType">string</property>
+                </structure>
+            </list-property>
+            <xml-property name="queryText"><![CDATA[select inv.documentNo as NoInv, inv.XX_ControlNumber as NoControl, par.name as Partner, 
+par.XX_CI_RIF as CIPartner, par.XX_Nit as NitPartner, (plo.ADDRESS1 || plo.ADDRESS2) as Direccion, par.XX_PHONE as Telefono, 
+ord.documentNo as NoOrd, to_char(ord.dateOrdered,'dd/MM/yyyy') as FechaO, pay.name as CondicionPago, 
+ref.value as codProducto, pro.name as Producto, QTYINVOICED as cantidad,
+inl.PriceEntered as precioProducto, tax.rate as tax, inl.LineNetAmt as netoProducto,
+to_char(DateInvoiced,'dd') as diaI, to_char(DateInvoiced,'MM') as mesI, 
+to_char(DateInvoiced,'yyyy') as añoI
+from C_Invoice inv
+inner join AD_Client par on (inv.AD_Client_ID = par.AD_Client_id)
+inner join C_Location plo on (par.C_Location_ID = plo.C_Location_ID)
+left outer join C_Order ord on (inv.C_Order_ID = ord.C_Order_ID)
+inner join C_PaymentTerm pay on (inv.C_PaymentTerm_ID = pay.C_PaymentTerm_ID)
+inner join C_InvoiceLine inl on (inv.C_Invoice_ID = inl.C_Invoice_ID)
+inner join M_Product pro on (inl.M_Product_ID = pro.M_Product_ID)
+inner join XX_VMR_VENDORPRODREF  ref on (pro.XX_VMR_VENDORPRODREF_ID = ref.XX_VMR_VENDORPRODREF_ID)
+inner join C_Tax tax on (inl.C_Tax_ID = tax.C_Tax_ID)
+where inv.C_Invoice_ID =  ?]]></xml-property>
+        </oda-data-set>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="Totales" id="489">
+            <list-property name="columnHints"/>
+            <list-property name="parameters">
+                <structure>
+                    <property name="name">idI1</property>
+                    <property name="paramName">idInvoice</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">integer</property>
+                    <property name="nativeDataType">0</property>
+                    <property name="position">1</property>
+                    <property name="isOptional">false</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">idI2</property>
+                    <property name="paramName">idInvoice</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">integer</property>
+                    <property name="nativeDataType">0</property>
+                    <property name="position">2</property>
+                    <property name="isOptional">false</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">SUBTOTAL</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">IVA</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">MONTO</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">IVATOTAL</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">Compiere</property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">SUBTOTAL</property>
+                    <property name="nativeName">SUBTOTAL</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">IVA</property>
+                    <property name="nativeName">IVA</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">MONTO</property>
+                    <property name="nativeName">MONTO</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">4</property>
+                    <property name="name">IVATOTAL</property>
+                    <property name="nativeName">IVATOTAL</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+            </list-property>
+            <xml-property name="queryText"><![CDATA[select sum(table2.subtotal) as subtotal, sum(table2.iva) as iva, sum(table2.subtotal+table2.iva) as monto, avg(table2.ivatotal) as ivatotal
+from
+(select table1.subtotal * tax.rate / 100 as iva, table1.subtotal as subtotal, tax.rate as ivatotal
+from
+    (select sum(inl.LineNetAmt)as subtotal, inl.C_Invoice_ID as idI, inl.C_Tax_ID as taxI
+    from C_InvoiceLine inl
+    where inl.C_Invoice_ID = ?
+    group by inl.LineNetAmt, inl.C_Invoice_ID, inl.C_Tax_ID) table1, C_Tax tax
+where table1.idI = ?
+and table1.taxI = tax.C_Tax_ID) table2
+]]></xml-property>
+        </oda-data-set>
+    </data-sets>
+    <styles>
+        <style name="report" id="110">
+            <property name="fontFamily">sans-serif</property>
+            <property name="fontSize">10pt</property>
+        </style>
+        <style name="crosstab-cell" id="246">
+            <property name="borderBottomColor">#CCCCCC</property>
+            <property name="borderBottomStyle">solid</property>
+            <property name="borderBottomWidth">1pt</property>
+            <property name="borderLeftColor">#CCCCCC</property>
+            <property name="borderLeftStyle">solid</property>
+            <property name="borderLeftWidth">1pt</property>
+            <property name="borderRightColor">#CCCCCC</property>
+            <property name="borderRightStyle">solid</property>
+            <property name="borderRightWidth">1pt</property>
+            <property name="borderTopColor">#CCCCCC</property>
+            <property name="borderTopStyle">solid</property>
+            <property name="borderTopWidth">1pt</property>
+        </style>
+        <style name="crosstab" id="247">
+            <property name="borderBottomColor">#CCCCCC</property>
+            <property name="borderBottomStyle">solid</property>
+            <property name="borderBottomWidth">1pt</property>
+            <property name="borderLeftColor">#CCCCCC</property>
+            <property name="borderLeftStyle">solid</property>
+            <property name="borderLeftWidth">1pt</property>
+            <property name="borderRightColor">#CCCCCC</property>
+            <property name="borderRightStyle">solid</property>
+            <property name="borderRightWidth">1pt</property>
+            <property name="borderTopColor">#CCCCCC</property>
+            <property name="borderTopStyle">solid</property>
+            <property name="borderTopWidth">1pt</property>
+        </style>
+    </styles>
+    <page-setup>
+        <simple-master-page name="Simple MasterPage" id="2">
+            <property name="leftMargin">0.21in</property>
+            <property name="bottomMargin">0.3229166666666667in</property>
+            <property name="rightMargin">0.14583333333333334in</property>
+            <property name="footerHeight">2in</property>
+            <page-footer>
+                <grid id="564">
+                    <property name="height">2.15625in</property>
+                    <property name="width">8.083333333333334in</property>
+                    <column id="565">
+                        <property name="width">4.197916666666667in</property>
+                    </column>
+                    <column id="683">
+                        <property name="width">2.1458333333333335in</property>
+                    </column>
+                    <column id="672">
+                        <property name="width">1.7395833333333333in</property>
+                    </column>
+                    <row id="566">
+                        <property name="height">0.7395833333333334in</property>
+                        <cell id="576">
+                            <property name="paddingBottom">1pt</property>
+                        </cell>
+                        <cell id="679">
+                            <property name="paddingBottom">1pt</property>
+                        </cell>
+                        <cell id="668">
+                            <property name="paddingBottom">1pt</property>
+                            <data id="577">
+                                <property name="fontFamily">monospace</property>
+                                <property name="marginBottom">50pt</property>
+                                <property name="paddingTop">1pt</property>
+                                <property name="paddingBottom">20pt</property>
+                                <property name="paddingRight">20pt</property>
+                                <structure name="numberFormat">
+                                    <property name="category">Currency</property>
+                                    <property name="pattern">#,##0.00</property>
+                                </structure>
+                                <property name="textAlign">right</property>
+                                <property name="dataSet">Totales</property>
+                                <list-property name="boundDataColumns">
+                                    <structure>
+                                        <property name="name">SUBTOTAL</property>
+                                        <text-property name="displayName">SUBTOTAL</text-property>
+                                        <expression name="expression" type="javascript">dataSetRow["SUBTOTAL"]</expression>
+                                        <property name="dataType">decimal</property>
+                                    </structure>
+                                </list-property>
+                                <property name="resultSetColumn">SUBTOTAL</property>
+                            </data>
+                        </cell>
+                    </row>
+                    <row id="662">
+                        <property name="height">0.3541666666666667in</property>
+                        <cell id="663">
+                            <property name="paddingBottom">1pt</property>
+                        </cell>
+                        <cell id="680">
+                            <property name="paddingBottom">1pt</property>
+                        </cell>
+                        <cell id="669">
+                            <property name="paddingBottom">1pt</property>
+                            <data id="673">
+                                <property name="fontFamily">monospace</property>
+                                <property name="marginBottom">50pt</property>
+                                <property name="paddingTop">1pt</property>
+                                <property name="paddingBottom">20pt</property>
+                                <property name="paddingRight">20pt</property>
+                                <structure name="numberFormat">
+                                    <property name="category">Currency</property>
+                                    <property name="pattern">#,##0.00</property>
+                                </structure>
+                                <property name="textAlign">right</property>
+                                <property name="dataSet">Totales</property>
+                                <list-property name="boundDataColumns">
+                                    <structure>
+                                        <property name="name">SUBTOTAL</property>
+                                        <text-property name="displayName">SUBTOTAL</text-property>
+                                        <expression name="expression" type="javascript">dataSetRow["SUBTOTAL"]</expression>
+                                        <property name="dataType">decimal</property>
+                                    </structure>
+                                </list-property>
+                                <property name="resultSetColumn">SUBTOTAL</property>
+                            </data>
+                        </cell>
+                    </row>
+                    <row id="580">
+                        <property name="height">0.4583333333333333in</property>
+                        <cell id="581">
+                            <property name="paddingBottom">1pt</property>
+                            <data id="661">
+                                <property name="fontFamily">monospace</property>
+                                <property name="marginTop">1pt</property>
+                                <property name="marginBottom">15pt</property>
+                                <property name="paddingTop">16pt</property>
+                                <property name="paddingBottom">7pt</property>
+                                <property name="paddingRight">1pt</property>
+                                <structure name="numberFormat">
+                                    <property name="category">Currency</property>
+                                    <property name="pattern">#,##0.00</property>
+                                </structure>
+                                <property name="textAlign">right</property>
+                                <property name="dataSet">Totales</property>
+                                <list-property name="boundDataColumns">
+                                    <structure>
+                                        <property name="name">IVA</property>
+                                        <text-property name="displayName">IVATOTAL</text-property>
+                                        <expression name="expression" type="javascript">dataSetRow["IVATOTAL"]</expression>
+                                        <property name="dataType">string</property>
+                                        <property name="allowExport">true</property>
+                                    </structure>
+                                </list-property>
+                                <property name="resultSetColumn">IVA</property>
+                            </data>
+                        </cell>
+                        <cell id="681">
+                            <property name="paddingBottom">1pt</property>
+                            <data id="684">
+                                <property name="fontFamily">monospace</property>
+                                <property name="marginBottom">50pt</property>
+                                <property name="paddingTop">16pt</property>
+                                <property name="paddingBottom">7pt</property>
+                                <property name="paddingRight">1pt</property>
+                                <structure name="numberFormat">
+                                    <property name="category">Currency</property>
+                                    <property name="pattern">#,##0.00</property>
+                                </structure>
+                                <property name="textAlign">right</property>
+                                <property name="dataSet">Totales</property>
+                                <list-property name="boundDataColumns">
+                                    <structure>
+                                        <property name="name">SUBTOTAL</property>
+                                        <text-property name="displayName">SUBTOTAL</text-property>
+                                        <expression name="expression" type="javascript">dataSetRow["SUBTOTAL"]</expression>
+                                        <property name="dataType">decimal</property>
+                                    </structure>
+                                </list-property>
+                                <property name="resultSetColumn">SUBTOTAL</property>
+                            </data>
+                        </cell>
+                        <cell id="670">
+                            <property name="paddingBottom">1pt</property>
+                            <data id="582">
+                                <property name="fontFamily">monospace</property>
+                                <property name="marginTop">1pt</property>
+                                <property name="marginBottom">15pt</property>
+                                <property name="paddingTop">6pt</property>
+                                <property name="paddingLeft">1pt</property>
+                                <property name="paddingBottom">7pt</property>
+                                <property name="paddingRight">20pt</property>
+                                <structure name="numberFormat">
+                                    <property name="category">Currency</property>
+                                    <property name="pattern">#,##0.00</property>
+                                </structure>
+                                <property name="textAlign">right</property>
+                                <property name="dataSet">Totales</property>
+                                <list-property name="boundDataColumns">
+                                    <structure>
+                                        <property name="name">IVA</property>
+                                        <text-property name="displayName">IVA</text-property>
+                                        <expression name="expression" type="javascript">dataSetRow["IVA"]</expression>
+                                        <property name="dataType">decimal</property>
+                                    </structure>
+                                </list-property>
+                                <property name="resultSetColumn">IVA</property>
+                            </data>
+                        </cell>
+                    </row>
+                    <row id="583">
+                        <property name="height">0.6041666666666666in</property>
+                        <cell id="584">
+                            <property name="paddingBottom">1pt</property>
+                        </cell>
+                        <cell id="682">
+                            <property name="paddingBottom">1pt</property>
+                        </cell>
+                        <cell id="671">
+                            <property name="paddingBottom">1pt</property>
+                            <data id="574">
+                                <property name="fontFamily">monospace</property>
+                                <property name="marginLeft">auto</property>
+                                <property name="marginBottom">30pt</property>
+                                <property name="paddingTop">15pt</property>
+                                <property name="paddingBottom">5pt</property>
+                                <property name="paddingRight">20pt</property>
+                                <structure name="numberFormat">
+                                    <property name="category">Currency</property>
+                                    <property name="pattern">#,##0.00</property>
+                                </structure>
+                                <property name="textAlign">right</property>
+                                <property name="dataSet">Totales</property>
+                                <list-property name="boundDataColumns">
+                                    <structure>
+                                        <property name="name">MONTO</property>
+                                        <text-property name="displayName">MONTO</text-property>
+                                        <expression name="expression" type="javascript">dataSetRow["MONTO"]</expression>
+                                        <property name="dataType">decimal</property>
+                                    </structure>
+                                </list-property>
+                                <property name="resultSetColumn">MONTO</property>
+                            </data>
+                        </cell>
+                    </row>
+                </grid>
+            </page-footer>
+        </simple-master-page>
+    </page-setup>
+    <body>
+        <table id="163">
+            <property name="width">8.09375in</property>
+            <property name="dataSet">Invoice</property>
+            <property name="refTemplateParameter">NewTemplateParameterDefinition2</property>
+            <list-property name="boundDataColumns">
+                <structure>
+                    <property name="name">CODPRODUCTO</property>
+                    <text-property name="displayName">CODPRODUCTO</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["CODPRODUCTO"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">PRODUCTO</property>
+                    <text-property name="displayName">PRODUCTO</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["PRODUCTO"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">TAX</property>
+                    <text-property name="displayName">TAX</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["TAX"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">PRECIOPRODUCTO</property>
+                    <text-property name="displayName">PRECIOPRODUCTO</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["PRECIOPRODUCTO"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">NETOPRODUCTO</property>
+                    <text-property name="displayName">NETOPRODUCTO</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["NETOPRODUCTO"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">SubTotal</property>
+                    <property name="dataType">float</property>
+                    <property name="aggregateFunction">SUM</property>
+                    <list-property name="arguments">
+                        <structure>
+                            <property name="name">Expression</property>
+                            <expression name="value" type="javascript">row["NETOPRODUCTO"]</expression>
+                        </structure>
+                    </list-property>
+                </structure>
+                <structure>
+                    <property name="name">NITPARTNER</property>
+                    <text-property name="displayName">NITPARTNER</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["NITPARTNER"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">CANTIDAD</property>
+                    <text-property name="displayName">CANTIDAD</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["CANTIDAD"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+            </list-property>
+            <property name="pageBreakInterval">50</property>
+            <column id="187">
+                <property name="width">0.4583333333333333in</property>
+            </column>
+            <column id="188">
+                <property name="width">0.9479166666666666in</property>
+            </column>
+            <column id="189">
+                <property name="width">4.447916666666667in</property>
+            </column>
+            <column id="190">
+                <property name="width">0.8958333333333334in</property>
+            </column>
+            <column id="332">
+                <property name="width">0.4791666666666667in</property>
+            </column>
+            <column id="336">
+                <property name="width">0.8645833333333334in</property>
+            </column>
+            <header>
+                <row id="164">
+                    <property name="height">2.9375in</property>
+                    <cell id="165">
+                        <property name="colSpan">6</property>
+                        <property name="rowSpan">1</property>
+                        <grid id="251">
+                            <property name="height">0.5833333333333334in</property>
+                            <property name="width">8.09375in</property>
+                            <column id="252">
+                                <property name="width">6.625in</property>
+                            </column>
+                            <column id="253">
+                                <property name="width">0.3854166666666667in</property>
+                            </column>
+                            <column id="254">
+                                <property name="width">0.5416666666666666in</property>
+                            </column>
+                            <column id="255">
+                                <property name="width">0.5416666666666666in</property>
+                            </column>
+                            <row id="256">
+                                <property name="height">0.5833333333333334in</property>
+                                <cell id="257">
+                                    <text id="585">
+                                        <property name="fontFamily">monospace</property>
+                                        <property name="fontSize">12pt</property>
+                                        <property name="paddingTop">1pt</property>
+                                        <property name="textAlign">right</property>
+                                        <property name="display">block</property>
+                                        <property name="contentType">auto</property>
+                                        <text-property name="content"><![CDATA[CARACAS]]></text-property>
+                                    </text>
+                                </cell>
+                                <cell id="258">
+                                    <data id="261">
+                                        <property name="fontFamily">monospace</property>
+                                        <property name="fontSize">12pt</property>
+                                        <property name="paddingTop">1pt</property>
+                                        <property name="paddingLeft">5pt</property>
+                                        <property name="paddingBottom">1pt</property>
+                                        <property name="textAlign">left</property>
+                                        <property name="dataSet">Invoice</property>
+                                        <list-property name="boundDataColumns">
+                                            <structure>
+                                                <property name="name">DIAI</property>
+                                                <text-property name="displayName">DIAI</text-property>
+                                                <expression name="expression" type="javascript">dataSetRow["DIAI"]</expression>
+                                                <property name="dataType">string</property>
+                                            </structure>
+                                        </list-property>
+                                        <property name="resultSetColumn">DIAI</property>
+                                    </data>
+                                </cell>
+                                <cell id="259">
+                                    <data id="262">
+                                        <property name="fontFamily">monospace</property>
+                                        <property name="fontSize">12pt</property>
+                                        <property name="paddingTop">1pt</property>
+                                        <property name="paddingLeft">2pt</property>
+                                        <property name="paddingBottom">1pt</property>
+                                        <property name="textAlign">left</property>
+                                        <property name="dataSet">Invoice</property>
+                                        <list-property name="boundDataColumns">
+                                            <structure>
+                                                <property name="name">MESI</property>
+                                                <text-property name="displayName">MESI</text-property>
+                                                <expression name="expression" type="javascript">dataSetRow["MESI"]</expression>
+                                                <property name="dataType">string</property>
+                                            </structure>
+                                        </list-property>
+                                        <property name="resultSetColumn">MESI</property>
+                                    </data>
+                                </cell>
+                                <cell id="260">
+                                    <data id="263">
+                                        <property name="fontFamily">monospace</property>
+                                        <property name="fontSize">12pt</property>
+                                        <property name="paddingTop">1pt</property>
+                                        <property name="paddingLeft">1pt</property>
+                                        <property name="paddingBottom">1pt</property>
+                                        <property name="paddingRight">20pt</property>
+                                        <property name="textAlign">left</property>
+                                        <property name="dataSet">Invoice</property>
+                                        <list-property name="boundDataColumns">
+                                            <structure>
+                                                <property name="name">AÑOI</property>
+                                                <text-property name="displayName">AÑOI</text-property>
+                                                <expression name="expression" type="javascript">dataSetRow["AÑOI"]</expression>
+                                                <property name="dataType">string</property>
+                                            </structure>
+                                        </list-property>
+                                        <property name="resultSetColumn">AÑOI</property>
+                                    </data>
+                                </cell>
+                            </row>
+                        </grid>
+                        <label id="547">
+                            <property name="paddingBottom">13pt</property>
+                            <text-property name="text"></text-property>
+                        </label>
+                        <grid id="287">
+                            <property name="height">1.9270833333333333in</property>
+                            <property name="width">8.104166666666666in</property>
+                            <column id="288">
+                                <property name="width">1.1041666666666667in</property>
+                            </column>
+                            <column id="289">
+                                <property name="width">1.375in</property>
+                            </column>
+                            <column id="307">
+                                <property name="width">3.4166666666666665in</property>
+                            </column>
+                            <column id="318">
+                                <property name="width">2.2083333333333335in</property>
+                            </column>
+                            <row id="290">
+                                <cell id="291">
+                                    <property name="colSpan">2</property>
+                                    <property name="rowSpan">1</property>
+                                    <data id="319">
+                                        <property name="fontFamily">monospace</property>
+                                        <property name="fontSize">12pt</property>
+                                        <property name="paddingTop">8pt</property>
+                                        <property name="paddingLeft">20pt</property>
+                                        <structure name="stringFormat">
+                                            <property name="category">></property>
+                                            <property name="pattern">></property>
+                                        </structure>
+                                        <property name="textAlign">left</property>
+                                        <property name="dataSet">Invoice</property>
+                                        <list-property name="boundDataColumns">
+                                            <structure>
+                                                <property name="name">PARTNER</property>
+                                                <text-property name="displayName">PARTNER</text-property>
+                                                <expression name="expression" type="javascript">dataSetRow["PARTNER"]</expression>
+                                                <property name="dataType">string</property>
+                                            </structure>
+                                        </list-property>
+                                        <property name="resultSetColumn">PARTNER</property>
+                                    </data>
+                                </cell>
+                                <cell id="590">
+                                    <data id="308">
+                                        <property name="fontFamily">monospace</property>
+                                        <property name="fontSize">12pt</property>
+                                        <property name="paddingTop">8pt</property>
+                                        <property name="paddingLeft">1pt</property>
+                                        <property name="textAlign">right</property>
+                                        <property name="dataSet">Invoice</property>
+                                        <list-property name="boundDataColumns">
+                                            <structure>
+                                                <property name="name">CIPARTNER</property>
+                                                <text-property name="displayName">CIPARTNER</text-property>
+                                                <expression name="expression" type="javascript">dataSetRow["CIPARTNER"]</expression>
+                                                <property name="dataType">string</property>
+                                            </structure>
+                                        </list-property>
+                                        <property name="resultSetColumn">CIPARTNER</property>
+                                    </data>
+                                </cell>
+                                <cell id="314">
+                                    <data id="591">
+                                        <property name="fontFamily">monospace</property>
+                                        <property name="paddingTop">8pt</property>
+                                        <property name="textAlign">center</property>
+                                        <property name="resultSetColumn">NITPARTNER</property>
+                                    </data>
+                                </cell>
+                            </row>
+                            <row id="293">
+                                <property name="height">0.4479166666666667in</property>
+                                <cell id="294">
+                                    <property name="colSpan">3</property>
+                                    <property name="rowSpan">1</property>
+                                    <data id="320">
+                                        <property name="fontFamily">monospace</property>
+                                        <property name="fontSize">12pt</property>
+                                        <property name="paddingTop">10pt</property>
+                                        <property name="paddingLeft">20pt</property>
+                                        <structure name="stringFormat">
+                                            <property name="category">></property>
+                                            <property name="pattern">></property>
+                                        </structure>
+                                        <property name="textAlign">left</property>
+                                        <property name="dataSet">Invoice</property>
+                                        <list-property name="boundDataColumns">
+                                            <structure>
+                                                <property name="name">DIRECCION</property>
+                                                <text-property name="displayName">DIRECCION</text-property>
+                                                <expression name="expression" type="javascript">dataSetRow["DIRECCION"]</expression>
+                                                <property name="dataType">string</property>
+                                            </structure>
+                                        </list-property>
+                                        <property name="resultSetColumn">DIRECCION</property>
+                                    </data>
+                                </cell>
+                                <cell id="594"/>
+                            </row>
+                            <row id="656">
+                                <property name="height">0.3229166666666667in</property>
+                                <cell id="657"/>
+                                <cell id="658"/>
+                                <cell id="659"/>
+                                <cell id="660">
+                                    <data id="311">
+                                        <property name="fontFamily">monospace</property>
+                                        <property name="fontSize">12pt</property>
+                                        <property name="paddingTop">5pt</property>
+                                        <property name="paddingLeft">1pt</property>
+                                        <property name="paddingBottom">1pt</property>
+                                        <property name="textAlign">center</property>
+                                        <property name="dataSet">Invoice</property>
+                                        <list-property name="boundDataColumns">
+                                            <structure>
+                                                <property name="name">TELEFONO</property>
+                                                <text-property name="displayName">TELEFONO</text-property>
+                                                <expression name="expression" type="javascript">dataSetRow["TELEFONO"]</expression>
+                                                <property name="dataType">string</property>
+                                            </structure>
+                                        </list-property>
+                                        <property name="resultSetColumn">TELEFONO</property>
+                                    </data>
+                                </cell>
+                            </row>
+                            <row id="299">
+                                <cell id="300">
+                                    <data id="312">
+                                        <property name="fontFamily">monospace</property>
+                                        <property name="fontSize">12pt</property>
+                                        <property name="marginTop">1pt</property>
+                                        <property name="paddingTop">7pt</property>
+                                        <property name="paddingLeft">15pt</property>
+                                        <property name="paddingBottom">15pt</property>
+                                        <property name="paddingRight">15pt</property>
+                                        <property name="textAlign">left</property>
+                                        <property name="dataSet">Invoice</property>
+                                        <list-property name="boundDataColumns">
+                                            <structure>
+                                                <property name="name">NOORD</property>
+                                                <text-property name="displayName">NOORD</text-property>
+                                                <expression name="expression" type="javascript">dataSetRow["NOORD"]</expression>
+                                                <property name="dataType">string</property>
+                                            </structure>
+                                        </list-property>
+                                        <property name="resultSetColumn">NOORD</property>
+                                    </data>
+                                </cell>
+                                <cell id="301">
+                                    <property name="paddingLeft">1pt</property>
+                                    <data id="550">
+                                        <property name="fontFamily">monospace</property>
+                                        <property name="fontSize">10pt</property>
+                                        <property name="paddingTop">7pt</property>
+                                        <property name="paddingLeft">6pt</property>
+                                        <property name="paddingBottom">15pt</property>
+                                        <property name="paddingRight">15pt</property>
+                                        <property name="textAlign">left</property>
+                                        <property name="dataSet">Invoice</property>
+                                        <list-property name="boundDataColumns">
+                                            <structure>
+                                                <property name="name">FECHAO</property>
+                                                <text-property name="displayName">FECHAO</text-property>
+                                                <expression name="expression" type="javascript">dataSetRow["FECHAO"]</expression>
+                                                <property name="dataType">string</property>
+                                            </structure>
+                                        </list-property>
+                                        <property name="resultSetColumn">FECHAO</property>
+                                    </data>
+                                </cell>
+                                <cell id="306">
+                                    <property name="colSpan">2</property>
+                                    <property name="rowSpan">1</property>
+                                    <data id="322">
+                                        <property name="fontFamily">monospace</property>
+                                        <property name="fontSize">10pt</property>
+                                        <property name="paddingTop">7pt</property>
+                                        <property name="paddingLeft">5pt</property>
+                                        <property name="paddingBottom">15pt</property>
+                                        <property name="paddingRight">15pt</property>
+                                        <structure name="stringFormat">
+                                            <property name="category">></property>
+                                            <property name="pattern">></property>
+                                        </structure>
+                                        <property name="textAlign">left</property>
+                                        <property name="dataSet">Invoice</property>
+                                        <list-property name="boundDataColumns">
+                                            <structure>
+                                                <property name="name">CONDICIONPAGO</property>
+                                                <text-property name="displayName">CONDICIONPAGO</text-property>
+                                                <expression name="expression" type="javascript">dataSetRow["CONDICIONPAGO"]</expression>
+                                                <property name="dataType">string</property>
+                                            </structure>
+                                        </list-property>
+                                        <property name="resultSetColumn">CONDICIONPAGO</property>
+                                    </data>
+                                </cell>
+                            </row>
+                        </grid>
+                    </cell>
+                </row>
+            </header>
+            <detail>
+                <row id="647">
+                    <cell id="648">
+                        <data id="655">
+                            <property name="fontFamily">monospace</property>
+                            <property name="resultSetColumn">CANTIDAD</property>
+                        </data>
+                    </cell>
+                    <cell id="649">
+                        <data id="654">
+                            <property name="fontFamily">monospace</property>
+                            <property name="resultSetColumn">CODPRODUCTO</property>
+                        </data>
+                    </cell>
+                    <cell id="650">
+                        <data id="595">
+                            <property name="fontFamily">monospace</property>
+                            <property name="paddingLeft">30pt</property>
+                            <property name="paddingBottom">8pt</property>
+                            <property name="textAlign">left</property>
+                            <property name="resultSetColumn">PRODUCTO</property>
+                        </data>
+                    </cell>
+                    <cell id="651">
+                        <data id="646">
+                            <property name="fontFamily">monospace</property>
+                            <structure name="numberFormat">
+                                <property name="category">Currency</property>
+                                <property name="pattern">#,##0.00{RoundingMode=HALF_UP}</property>
+                            </structure>
+                            <property name="resultSetColumn">PRECIOPRODUCTO</property>
+                        </data>
+                    </cell>
+                    <cell id="652">
+                        <data id="596">
+                            <property name="fontFamily">monospace</property>
+                            <property name="paddingLeft">3pt</property>
+                            <property name="paddingBottom">3pt</property>
+                            <property name="textAlign">left</property>
+                            <property name="resultSetColumn">TAX</property>
+                        </data>
+                    </cell>
+                    <cell id="653">
+                        <data id="597">
+                            <property name="fontFamily">monospace</property>
+                            <property name="paddingBottom">7pt</property>
+                            <property name="paddingRight">7pt</property>
+                            <structure name="numberFormat">
+                                <property name="category">Currency</property>
+                                <property name="pattern">#,##0.00</property>
+                            </structure>
+                            <property name="resultSetColumn">NETOPRODUCTO</property>
+                        </data>
+                    </cell>
+                </row>
+                <row id="173">
+                    <cell id="174">
+                        <property name="colSpan">4</property>
+                        <property name="rowSpan">1</property>
+                    </cell>
+                    <cell id="330"/>
+                    <cell id="334"/>
+                </row>
+            </detail>
+            <footer>
+                <row id="182">
+                    <property name="height">0.2708333333333333in</property>
+                    <cell id="183">
+                        <property name="colSpan">6</property>
+                        <property name="rowSpan">1</property>
+                    </cell>
+                </row>
+            </footer>
+        </table>
+    </body>
+</report>

@@ -1,0 +1,39 @@
+<M_Inventory>
+
+<AD_Client_ID>
+<Info>GardenWorld</Info>
+</AD_Client_ID>
+
+<AD_Org_ID>
+<Info>HQ</Info>
+</AD_Org_ID>
+
+<C_DocType_ID>
+<Info>Material Physical Inventory</Info>
+</C_DocType_ID>
+
+<M_Warehouse_ID>
+<Info>HQ Warehouse</Info>
+</M_Warehouse_ID>
+
+<MovementDate>
+<Label>Movement Date</Label>
+<Value>01/22/2010</Value>
+</MovementDate>
+
+<Description>
+<Label>Description</Label>
+<Value>Test Web Service Physical Move </Value>
+</Description>
+
+<IsActive>
+<Label>Active</Label>
+<Value>Y</Value>
+</IsActive>
+
+<UnLock>
+<Value>N</Value>
+</UnLock>
+
+
+</M_Inventory>

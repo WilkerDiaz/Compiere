@@ -1,0 +1,433 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.22" id="1">
+    <property name="createdBy">Eclipse BIRT Designer Version 4.2.2.v201301221637 Build &lt;4.2.2.v20130206-1509></property>
+    <property name="units">in</property>
+    <property name="iconFile">/templates/blank_report.gif</property>
+    <property name="layoutPreference">auto layout</property>
+    <property name="bidiLayoutOrientation">ltr</property>
+    <property name="imageDPI">96</property>
+    <parameters>
+        <scalar-parameter name="company" id="9">
+            <property name="valueType">static</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">1000012</value>
+            </simple-property-list>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="hasta" id="10">
+            <property name="valueType">static</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">31/08/2013</value>
+            </simple-property-list>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="desde" id="11">
+            <property name="valueType">static</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">01/08/2013</value>
+            </simple-property-list>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+    </parameters>
+    <data-sources>
+        <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="Data Source" id="7">
+            <list-property name="privateDriverProperties">
+                <ex-property>
+                    <name>metadataBidiFormatStr</name>
+                    <value>ILYNN</value>
+                </ex-property>
+                <ex-property>
+                    <name>disabledMetadataBidiFormatStr</name>
+                </ex-property>
+                <ex-property>
+                    <name>contentBidiFormatStr</name>
+                    <value>ILYNN</value>
+                </ex-property>
+                <ex-property>
+                    <name>disabledContentBidiFormatStr</name>
+                </ex-property>
+            </list-property>
+            <property name="odaDriverClass">oracle.jdbc.driver.OracleDriver</property>
+            <property name="odaURL">jdbc:oracle:thin:@192.168.1.139:1521:compiere</property>
+            <property name="odaUser">compiere</property>
+            <encrypted-property name="odaPassword" encryptionID="base64">czEwZTkwOWQ=</encrypted-property>
+        </oda-data-source>
+    </data-sources>
+    <data-sets>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="Datos Tabla" id="8">
+            <list-property name="columnHints"/>
+            <list-property name="parameters">
+                <structure>
+                    <property name="name">desde</property>
+                    <property name="paramName">desde</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">0</property>
+                    <property name="position">1</property>
+                    <property name="isOptional">false</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">hasta</property>
+                    <property name="paramName">hasta</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">0</property>
+                    <property name="position">2</property>
+                    <property name="isOptional">false</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">company</property>
+                    <property name="paramName">company</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">0</property>
+                    <property name="position">3</property>
+                    <property name="isOptional">false</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">FECHA_RECEPCION</property>
+                        <property name="dataType">date-time</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">COMPAÑIA_IMPORTADORA</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">OC</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">CATEGORIA</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">5</property>
+                        <property name="name">GUIA_EMBARQUE</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">6</property>
+                        <property name="name">FLETE_AGENTE_CARGA</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">7</property>
+                        <property name="name">MONTO_SEGURO_REAL</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">Data Source</property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">FECHA_RECEPCION</property>
+                    <property name="nativeName">FECHA_RECEPCION</property>
+                    <property name="dataType">date-time</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">COMPAÑIA_IMPORTADORA</property>
+                    <property name="nativeName">COMPAÑIA_IMPORTADORA</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">OC</property>
+                    <property name="nativeName">OC</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">4</property>
+                    <property name="name">CATEGORIA</property>
+                    <property name="nativeName">CATEGORIA</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">5</property>
+                    <property name="name">GUIA_EMBARQUE</property>
+                    <property name="nativeName">GUIA_EMBARQUE</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">6</property>
+                    <property name="name">FLETE_AGENTE_CARGA</property>
+                    <property name="nativeName">FLETE_AGENTE_CARGA</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">7</property>
+                    <property name="name">MONTO_SEGURO_REAL</property>
+                    <property name="nativeName">MONTO_SEGURO_REAL</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+            </list-property>
+            <xml-property name="queryText"><![CDATA[SELECT trunc(B.XX_CDARRIVALREALDATE) FECHA_RECEPCION, C.NAME COMPAÑIA_IMPORTADORA , O.DOCUMENTNO OC,  CA.VALUE||'-'||CA.NAME CATEGORIA, 
+B.VALUE GUIA_EMBARQUE, B.XX_InterFretRealAmount  FLETE_AGENTE_CARGA, XX_RealInsuranceAmountFac MONTO_SEGURO_REAL
+FROM c_order O  LEFT JOIN XX_VLO_BoardingGuide B ON (B.XX_VLO_BoardingGuide_ID = O.XX_VLO_BoardingGuide_ID)
+JOIN XX_VMR_CATEGORY CA ON (O.XX_VMR_CATEGORY_ID = CA.XX_VMR_CATEGORY_ID)
+LEFT JOIN  XX_VSI_Client C ON (O.XX_ImportingCompany_ID = C.XX_VSI_Client_ID)
+WHERE
+trunc(B.XX_CDARRIVALREALDATE) >=  TO_DATE(?,'DD/MM/YYYY')  and trunc(B.XX_CDARRIVALREALDATE) <=  TO_DATE(?,'DD/MM/YYYY')
+AND O.ISSOTRX = 'N' 
+AND O.XX_ORDERTYPE = 'Importada'
+AND  O.AD_CLIENT_ID = ?
+ORDER BY B.XX_CDARRIVALREALDATE, C.NAME , O.DOCUMENTNO]]></xml-property>
+        </oda-data-set>
+    </data-sets>
+    <styles>
+        <style name="report" id="4">
+            <property name="fontFamily">sans-serif</property>
+            <property name="fontSize">10pt</property>
+        </style>
+        <style name="crosstab-cell" id="5">
+            <property name="borderBottomColor">#CCCCCC</property>
+            <property name="borderBottomStyle">solid</property>
+            <property name="borderBottomWidth">1pt</property>
+            <property name="borderLeftColor">#CCCCCC</property>
+            <property name="borderLeftStyle">solid</property>
+            <property name="borderLeftWidth">1pt</property>
+            <property name="borderRightColor">#CCCCCC</property>
+            <property name="borderRightStyle">solid</property>
+            <property name="borderRightWidth">1pt</property>
+            <property name="borderTopColor">#CCCCCC</property>
+            <property name="borderTopStyle">solid</property>
+            <property name="borderTopWidth">1pt</property>
+        </style>
+        <style name="crosstab" id="6">
+            <property name="borderBottomColor">#CCCCCC</property>
+            <property name="borderBottomStyle">solid</property>
+            <property name="borderBottomWidth">1pt</property>
+            <property name="borderLeftColor">#CCCCCC</property>
+            <property name="borderLeftStyle">solid</property>
+            <property name="borderLeftWidth">1pt</property>
+            <property name="borderRightColor">#CCCCCC</property>
+            <property name="borderRightStyle">solid</property>
+            <property name="borderRightWidth">1pt</property>
+            <property name="borderTopColor">#CCCCCC</property>
+            <property name="borderTopStyle">solid</property>
+            <property name="borderTopWidth">1pt</property>
+        </style>
+    </styles>
+    <page-setup>
+        <simple-master-page name="Simple MasterPage" id="2">
+            <page-footer>
+                <text id="3">
+                    <property name="contentType">html</property>
+                </text>
+            </page-footer>
+        </simple-master-page>
+    </page-setup>
+    <body>
+        <table id="415">
+            <property name="canShrink">false</property>
+            <property name="width">14.947916666666666in</property>
+            <property name="dataSet">Datos Tabla</property>
+            <list-property name="boundDataColumns">
+                <structure>
+                    <property name="name">FECHA_RECEPCION</property>
+                    <text-property name="displayName">FECHA_RECEPCION</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["FECHA_RECEPCION"]</expression>
+                    <property name="dataType">date</property>
+                    <property name="allowExport">true</property>
+                </structure>
+                <structure>
+                    <property name="name">COMPAÑIA_IMPORTADORA</property>
+                    <text-property name="displayName">COMPAÑIA_IMPORTADORA</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["COMPAÑIA_IMPORTADORA"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">OC</property>
+                    <text-property name="displayName">OC</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["OC"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">CATEGORIA</property>
+                    <text-property name="displayName">CATEGORIA</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["CATEGORIA"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">GUIA_EMBARQUE</property>
+                    <text-property name="displayName">GUIA_EMBARQUE</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["GUIA_EMBARQUE"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">FLETE_AGENTE_CARGA</property>
+                    <text-property name="displayName">FLETE_AGENTE_CARGA</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["FLETE_AGENTE_CARGA"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">MONTO_SEGURO_REAL</property>
+                    <text-property name="displayName">MONTO_SEGURO_REAL</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["MONTO_SEGURO_REAL"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+            </list-property>
+            <structure name="toc"/>
+            <column id="454">
+                <property name="width">1.5416666666666667in</property>
+            </column>
+            <column id="455">
+                <property name="width">3.6666666666666665in</property>
+            </column>
+            <column id="456">
+                <property name="width">1.6458333333333333in</property>
+            </column>
+            <column id="457">
+                <property name="width">2.3541666666666665in</property>
+            </column>
+            <column id="458">
+                <property name="width">1.8958333333333333in</property>
+            </column>
+            <column id="459">
+                <property name="width">1.9375in</property>
+            </column>
+            <column id="460">
+                <property name="width">1.90625in</property>
+            </column>
+            <header>
+                <row id="416">
+                    <property name="fontFamily">serif</property>
+                    <property name="fontWeight">bold</property>
+                    <cell id="417">
+                        <label id="418">
+                            <text-property name="text">FECHA_RECEPCION</text-property>
+                        </label>
+                    </cell>
+                    <cell id="419">
+                        <label id="420">
+                            <text-property name="text">COMPAÑIA_IMPORTADORA</text-property>
+                        </label>
+                    </cell>
+                    <cell id="421">
+                        <label id="422">
+                            <text-property name="text">OC</text-property>
+                        </label>
+                    </cell>
+                    <cell id="423">
+                        <label id="424">
+                            <text-property name="text">CATEGORIA</text-property>
+                        </label>
+                    </cell>
+                    <cell id="425">
+                        <label id="426">
+                            <text-property name="text">GUIA_EMBARQUE</text-property>
+                        </label>
+                    </cell>
+                    <cell id="427">
+                        <label id="428">
+                            <text-property name="text">FLETE_AGENTE_CARGA</text-property>
+                        </label>
+                    </cell>
+                    <cell id="429">
+                        <label id="430">
+                            <text-property name="text">MONTO_SEGURO_REAL</text-property>
+                        </label>
+                    </cell>
+                </row>
+            </header>
+            <detail>
+                <row id="431">
+                    <property name="fontFamily">serif</property>
+                    <cell id="432">
+                        <data id="433">
+                            <property name="resultSetColumn">FECHA_RECEPCION</property>
+                        </data>
+                    </cell>
+                    <cell id="434">
+                        <data id="435">
+                            <property name="fontSize">10pt</property>
+                            <property name="resultSetColumn">COMPAÑIA_IMPORTADORA</property>
+                        </data>
+                    </cell>
+                    <cell id="436">
+                        <data id="437">
+                            <property name="textAlign">right</property>
+                            <property name="resultSetColumn">OC</property>
+                        </data>
+                    </cell>
+                    <cell id="438">
+                        <data id="439">
+                            <property name="resultSetColumn">CATEGORIA</property>
+                        </data>
+                    </cell>
+                    <cell id="440">
+                        <data id="441">
+                            <property name="resultSetColumn">GUIA_EMBARQUE</property>
+                        </data>
+                    </cell>
+                    <cell id="442">
+                        <data id="443">
+                            <structure name="numberFormat">
+                                <property name="category">Currency</property>
+                                <property name="pattern">#,##0.00{RoundingMode=HALF_UP}</property>
+                            </structure>
+                            <property name="textAlign">right</property>
+                            <property name="resultSetColumn">FLETE_AGENTE_CARGA</property>
+                        </data>
+                    </cell>
+                    <cell id="444">
+                        <data id="445">
+                            <structure name="numberFormat">
+                                <property name="category">Currency</property>
+                                <property name="pattern">#,##0.00{RoundingMode=HALF_UP}</property>
+                            </structure>
+                            <property name="textAlign">right</property>
+                            <property name="resultSetColumn">MONTO_SEGURO_REAL</property>
+                        </data>
+                    </cell>
+                </row>
+            </detail>
+            <footer>
+                <row id="446">
+                    <cell id="447"/>
+                    <cell id="448"/>
+                    <cell id="449"/>
+                    <cell id="450"/>
+                    <cell id="451"/>
+                    <cell id="452"/>
+                    <cell id="453"/>
+                </row>
+            </footer>
+        </table>
+    </body>
+</report>

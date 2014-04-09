@@ -1,0 +1,1585 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.22" id="1">
+    <property name="createdBy">Eclipse BIRT Designer Version 2.6.2.r262_v20110209 Build &lt;2.6.2.v20110214-1523></property>
+    <property name="units">in</property>
+    <property name="iconFile">/templates/blank_report.gif</property>
+    <property name="bidiLayoutOrientation">ltr</property>
+    <property name="imageDPI">96</property>
+    <parameters>
+        <scalar-parameter name="invoiceID" id="476">
+            <property name="hidden">true</property>
+            <text-property name="helpText">ID de la Factura</text-property>
+            <text-property name="promptText">ID de la Factura</text-property>
+            <property name="valueType">static</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">5369985</value>
+            </simple-property-list>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+    </parameters>
+    <data-sources>
+        <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="Compiere_good" id="340">
+            <list-property name="privateDriverProperties">
+                <ex-property>
+                    <name>disabledMetadataBidiFormatStr</name>
+                </ex-property>
+                <ex-property>
+                    <name>disabledContentBidiFormatStr</name>
+                </ex-property>
+                <ex-property>
+                    <name>contentBidiFormatStr</name>
+                    <value>ILYNN</value>
+                </ex-property>
+                <ex-property>
+                    <name>metadataBidiFormatStr</name>
+                    <value>ILYNN</value>
+                </ex-property>
+            </list-property>
+            <property name="odaDriverClass">oracle.jdbc.OracleDriver</property>
+            <property name="odaURL">jdbc:oracle:thin:@192.168.1.139:1521:compiere</property>
+            <property name="odaUser">compiere</property>
+            <encrypted-property name="odaPassword" encryptionID="base64">czEwZTkwOWQ=</encrypted-property>
+        </oda-data-source>
+    </data-sources>
+    <data-sets>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="Company" id="342">
+            <list-property name="parameters">
+                <structure>
+                    <property name="name">invoice</property>
+                    <property name="paramName">invoiceID</property>
+                    <property name="dataType">string</property>
+                    <property name="position">1</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">NAME</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">XX_CI_RIF</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">XX_PHONE</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">ADDRESS</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">5</property>
+                        <property name="name">SIGNATURE</property>
+                        <property name="dataType">blob</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">Compiere_good</property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">NAME</property>
+                    <property name="nativeName">NAME</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">XX_CI_RIF</property>
+                    <property name="nativeName">XX_CI_RIF</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">XX_PHONE</property>
+                    <property name="nativeName">XX_PHONE</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">4</property>
+                    <property name="name">ADDRESS</property>
+                    <property name="nativeName">ADDRESS</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">5</property>
+                    <property name="name">SIGNATURE</property>
+                    <property name="nativeName">SIGNATURE</property>
+                    <property name="dataType">blob</property>
+                </structure>
+            </list-property>
+            <xml-property name="queryText"><![CDATA[SELECT A.NAME, A.XX_CI_RIF, A.XX_PHONE, UPPER(B.ADDRESS1) || ' ' || UPPER(B.ADDRESS2) AS ADDRESS,
+(SELECT BINARYDATA FROM AD_IMAGE WHERE AD_IMAGE_ID = A.XX_RETENTIONSIGNATURE) as signature
+FROM COMPIERE.AD_CLIENT A, COMPIERE.C_LOCATION B, COMPIERE.C_INVOICE C
+WHERE A.C_LOCATION_ID = B.C_LOCATION_ID 
+AND A.AD_CLIENT_ID = C.AD_CLIENT_ID AND C.C_INVOICE_ID = ?]]></xml-property>
+            <xml-property name="designerValues"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<model:DesignValues xmlns:design="http://www.eclipse.org/datatools/connectivity/oda/design" xmlns:model="http://www.eclipse.org/birt/report/model/adapter/odaModel">
+  <Version>2.0</Version>
+  <design:ResultSets derivedMetaData="true">
+    <design:resultSetDefinitions>
+      <design:resultSetColumns>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>NAME</design:name>
+              <design:position>1</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>60</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>NAME</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>NAME</design:label>
+            <design:formattingHints>
+              <design:displaySize>60</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>XX_CI_RIF</design:name>
+              <design:position>2</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>20</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>XX_CI_RIF</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>XX_CI_RIF</design:label>
+            <design:formattingHints>
+              <design:displaySize>20</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>XX_PHONE</design:name>
+              <design:position>3</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>20</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>XX_PHONE</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>XX_PHONE</design:label>
+            <design:formattingHints>
+              <design:displaySize>20</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>ADDRESS</design:name>
+              <design:position>4</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>121</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>ADDRESS</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>ADDRESS</design:label>
+            <design:formattingHints>
+              <design:displaySize>121</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+      </design:resultSetColumns>
+      <design:criteria/>
+    </design:resultSetDefinitions>
+  </design:ResultSets>
+</model:DesignValues>]]></xml-property>
+        </oda-data-set>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="Invoice" id="349">
+            <property name="nullsOrdering">nulls lowest</property>
+            <list-property name="parameters">
+                <structure>
+                    <property name="name">invoice</property>
+                    <property name="paramName">invoiceID</property>
+                    <property name="dataType">string</property>
+                    <property name="position">1</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">DOCUMENTNO</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">XX_CONTROLNUMBER</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">NAME</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">PAGADO</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">5</property>
+                        <property name="name">LINENETAMT</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">6</property>
+                        <property name="name">XX_PERCENTOFRETENTION</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">7</property>
+                        <property name="name">RETAINEDAMOUNT</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">Compiere_good</property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">DOCUMENTNO</property>
+                    <property name="nativeName">DOCUMENTNO</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">XX_CONTROLNUMBER</property>
+                    <property name="nativeName">XX_CONTROLNUMBER</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">NAME</property>
+                    <property name="nativeName">NAME</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">4</property>
+                    <property name="name">PAGADO</property>
+                    <property name="nativeName">PAGADO</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">5</property>
+                    <property name="name">LINENETAMT</property>
+                    <property name="nativeName">LINENETAMT</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">6</property>
+                    <property name="name">XX_PERCENTOFRETENTION</property>
+                    <property name="nativeName">XX_PERCENTOFRETENTION</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">7</property>
+                    <property name="name">RETAINEDAMOUNT</property>
+                    <property name="nativeName">RETAINEDAMOUNT</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+            </list-property>
+            <xml-property name="queryText"><![CDATA[SELECT A.DOCUMENTNO, A.XX_CONTROLNUMBER, C.NAME, sum(A.GRANDTOTAL)/count(*) AS PAGADO,
+  SUM(B.LINENETAMT) LINENETAMT, C.XX_PERCENTOFRETENTION, D.XX_RETAINEDAMOUNT AS RETAINEDAMOUNT
+FROM COMPIERE.C_INVOICE A, COMPIERE.C_INVOICELINE B,
+       COMPIERE.XX_VCN_ISLRRETENTION C, XX_VCN_ISLRAMOUNT D
+WHERE 
+A.DOCSTATUS = 'CO' AND
+A.C_INVOICE_ID = B.C_INVOICE_ID AND D.XX_RETAINEDAMOUNT <> 0
+    AND C.XX_VCN_ISLRRETENTION_ID = B.XX_VCN_ISLRRETENTION_ID AND D.XX_VCN_ISLRRETENTION_ID = B.XX_VCN_ISLRRETENTION_ID 
+    AND A.C_INVOICE_ID = ? AND A.C_INVOICE_ID = D.C_INVOICE_ID
+GROUP BY A.DOCUMENTNO, A.XX_CONTROLNUMBER, C.NAME, C.XX_PERCENTOFRETENTION, D.XX_RETAINEDAMOUNT]]></xml-property>
+            <xml-property name="designerValues"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<model:DesignValues xmlns:design="http://www.eclipse.org/datatools/connectivity/oda/design" xmlns:model="http://www.eclipse.org/birt/report/model/adapter/odaModel">
+  <Version>2.0</Version>
+  <design:ResultSets derivedMetaData="true">
+    <design:resultSetDefinitions>
+      <design:resultSetColumns>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>DOCUMENTNO</design:name>
+              <design:position>1</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>30</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>DOCUMENTNO</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>DOCUMENTNO</design:label>
+            <design:formattingHints>
+              <design:displaySize>30</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>XX_CONTROLNUMBER</design:name>
+              <design:position>2</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>20</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>XX_CONTROLNUMBER</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>XX_CONTROLNUMBER</design:label>
+            <design:formattingHints>
+              <design:displaySize>20</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>NAME</design:name>
+              <design:position>3</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>60</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>NAME</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>NAME</design:label>
+            <design:formattingHints>
+              <design:displaySize>60</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>PAGADO</design:name>
+              <design:position>4</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>2</design:nativeDataTypeCode>
+            <design:precision>0</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>PAGADO</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>PAGADO</design:label>
+            <design:formattingHints>
+              <design:displaySize>22</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>LINENETAMT</design:name>
+              <design:position>5</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>2</design:nativeDataTypeCode>
+            <design:precision>0</design:precision>
+            <design:scale>-127</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>LINENETAMT</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>LINENETAMT</design:label>
+            <design:formattingHints>
+              <design:displaySize>22</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>XX_PERCENTOFRETENTION</design:name>
+              <design:position>6</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>2</design:nativeDataTypeCode>
+            <design:precision>5</design:precision>
+            <design:scale>2</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>XX_PERCENTOFRETENTION</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>XX_PERCENTOFRETENTION</design:label>
+            <design:formattingHints>
+              <design:displaySize>22</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>RETAINEDAMOUNT</design:name>
+              <design:position>7</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>2</design:nativeDataTypeCode>
+            <design:precision>0</design:precision>
+            <design:scale>-127</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>RETAINEDAMOUNT</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>RETAINEDAMOUNT</design:label>
+            <design:formattingHints>
+              <design:displaySize>22</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+      </design:resultSetColumns>
+      <design:criteria/>
+    </design:resultSetDefinitions>
+  </design:ResultSets>
+</model:DesignValues>]]></xml-property>
+        </oda-data-set>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="Pagado" id="467">
+            <list-property name="parameters">
+                <structure>
+                    <property name="name">invoice</property>
+                    <property name="paramName">invoiceID</property>
+                    <property name="dataType">string</property>
+                    <property name="position">1</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">PAGADO</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">Compiere_good</property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">PAGADO</property>
+                    <property name="nativeName">PAGADO</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+            </list-property>
+            <xml-property name="queryText"><![CDATA[SELECT 
+GRANDTOTAL 
+-
+(SELECT SUM(C.XX_RETAINEDAMOUNT) FROM XX_VCN_ISLRAMOUNT C WHERE C.C_INVOICE_ID = A.C_INVOICE_ID) 
+AS PAGADO
+FROM COMPIERE.C_INVOICE A
+WHERE A.DocStatus = 'CO' and A.C_INVOICE_ID = ?]]></xml-property>
+            <xml-property name="designerValues"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<model:DesignValues xmlns:design="http://www.eclipse.org/datatools/connectivity/oda/design" xmlns:model="http://www.eclipse.org/birt/report/model/adapter/odaModel">
+  <Version>2.0</Version>
+  <design:ResultSets derivedMetaData="true">
+    <design:resultSetDefinitions>
+      <design:resultSetColumns>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>PAGADO</design:name>
+              <design:position>1</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>2</design:nativeDataTypeCode>
+            <design:precision>0</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>PAGADO</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>PAGADO</design:label>
+            <design:formattingHints>
+              <design:displaySize>22</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+      </design:resultSetColumns>
+      <design:criteria/>
+    </design:resultSetDefinitions>
+  </design:ResultSets>
+</model:DesignValues>]]></xml-property>
+        </oda-data-set>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="Vendor" id="469">
+            <list-property name="parameters">
+                <structure>
+                    <property name="name">invoice</property>
+                    <property name="paramName">invoiceID</property>
+                    <property name="dataType">string</property>
+                    <property name="position">1</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">NAME</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">RIF</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">PHONE</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">ADDRESS</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">5</property>
+                        <property name="name">RECEIPTNO</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">6</property>
+                        <property name="name">INVOICEDATE</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">Compiere_good</property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">NAME</property>
+                    <property name="nativeName">NAME</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">RIF</property>
+                    <property name="nativeName">RIF</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">PHONE</property>
+                    <property name="nativeName">PHONE</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">4</property>
+                    <property name="name">ADDRESS</property>
+                    <property name="nativeName">ADDRESS</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">5</property>
+                    <property name="name">RECEIPTNO</property>
+                    <property name="nativeName">RECEIPTNO</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">6</property>
+                    <property name="name">INVOICEDATE</property>
+                    <property name="nativeName">INVOICEDATE</property>
+                    <property name="dataType">string</property>
+                </structure>
+            </list-property>
+            <xml-property name="queryText"><![CDATA[SELECT B.NAME, B.XX_TYPEPERSON ||'-'|| B.XX_CI_RIF AS RIF, C.PHONE || ' ' || C.PHONE2 AS PHONE,
+  D.ADDRESS1 || ' ' || D.ADDRESS2 AS ADDRESS, A.XX_ISLRRECEIPTNO AS RECEIPTNO,
+  TO_CHAR(A.XX_ApprovalDate, 'DD') || ' de ' || TO_CHAR(A.XX_ApprovalDate, 'MONTH','NLS_DATE_LANGUAGE=Spanish') || ' de ' || TO_CHAR(A.XX_ApprovalDate, 'YYYY') AS INVOICEDATE
+  FROM COMPIERE.C_INVOICE A, COMPIERE.C_BPARTNER B,
+       COMPIERE.C_BPARTNER_LOCATION C, COMPIERE.C_LOCATION D
+  WHERE A.C_BPARTNER_ID = B.C_BPARTNER_ID AND B.C_BPARTNER_ID = C.C_BPARTNER_ID
+    AND C.C_LOCATION_ID = D.C_LOCATION_ID
+    AND A.C_INVOICE_ID = ?]]></xml-property>
+            <xml-property name="designerValues"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<model:DesignValues xmlns:design="http://www.eclipse.org/datatools/connectivity/oda/design" xmlns:model="http://www.eclipse.org/birt/report/model/adapter/odaModel">
+  <Version>2.0</Version>
+  <design:ResultSets derivedMetaData="true">
+    <design:resultSetDefinitions>
+      <design:resultSetColumns>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>NAME</design:name>
+              <design:position>1</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>60</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>NAME</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>NAME</design:label>
+            <design:formattingHints>
+              <design:displaySize>60</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>RIF</design:name>
+              <design:position>2</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>15</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>RIF</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>RIF</design:label>
+            <design:formattingHints>
+              <design:displaySize>15</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>PHONE</design:name>
+              <design:position>3</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>81</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>PHONE</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>PHONE</design:label>
+            <design:formattingHints>
+              <design:displaySize>81</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>ADDRESS</design:name>
+              <design:position>4</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>121</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>ADDRESS</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>ADDRESS</design:label>
+            <design:formattingHints>
+              <design:displaySize>121</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>RECEIPTNO</design:name>
+              <design:position>5</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>2</design:nativeDataTypeCode>
+            <design:precision>10</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>RECEIPTNO</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>RECEIPTNO</design:label>
+            <design:formattingHints>
+              <design:displaySize>22</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>INVOICEDATE</design:name>
+              <design:position>6</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>54</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>INVOICEDATE</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>INVOICEDATE</design:label>
+            <design:formattingHints>
+              <design:displaySize>54</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+      </design:resultSetColumns>
+      <design:criteria/>
+    </design:resultSetDefinitions>
+  </design:ResultSets>
+</model:DesignValues>]]></xml-property>
+        </oda-data-set>
+    </data-sets>
+    <styles>
+        <style name="report" id="4">
+            <property name="fontFamily">sans-serif</property>
+            <property name="fontSize">10pt</property>
+        </style>
+        <style name="crosstab-cell" id="5">
+            <property name="borderBottomColor">#CCCCCC</property>
+            <property name="borderBottomStyle">solid</property>
+            <property name="borderBottomWidth">1pt</property>
+            <property name="borderLeftColor">#CCCCCC</property>
+            <property name="borderLeftStyle">solid</property>
+            <property name="borderLeftWidth">1pt</property>
+            <property name="borderRightColor">#CCCCCC</property>
+            <property name="borderRightStyle">solid</property>
+            <property name="borderRightWidth">1pt</property>
+            <property name="borderTopColor">#CCCCCC</property>
+            <property name="borderTopStyle">solid</property>
+            <property name="borderTopWidth">1pt</property>
+        </style>
+        <style name="crosstab" id="6">
+            <property name="borderBottomColor">#CCCCCC</property>
+            <property name="borderBottomStyle">solid</property>
+            <property name="borderBottomWidth">1pt</property>
+            <property name="borderLeftColor">#CCCCCC</property>
+            <property name="borderLeftStyle">solid</property>
+            <property name="borderLeftWidth">1pt</property>
+            <property name="borderRightColor">#CCCCCC</property>
+            <property name="borderRightStyle">solid</property>
+            <property name="borderRightWidth">1pt</property>
+            <property name="borderTopColor">#CCCCCC</property>
+            <property name="borderTopStyle">solid</property>
+            <property name="borderTopWidth">1pt</property>
+        </style>
+    </styles>
+    <page-setup>
+        <simple-master-page name="Simple MasterPage" id="2">
+            <property name="orientation">landscape</property>
+        </simple-master-page>
+    </page-setup>
+    <body>
+        <data id="347">
+            <property name="fontSize">12pt</property>
+            <property name="fontWeight">bold</property>
+            <property name="textAlign">center</property>
+            <property name="whiteSpace">nowrap</property>
+            <property name="dataSet">Company</property>
+            <list-property name="boundDataColumns">
+                <structure>
+                    <property name="name">NAME</property>
+                    <text-property name="displayName">NAME</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["NAME"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+            </list-property>
+            <property name="resultSetColumn">NAME</property>
+        </data>
+        <grid id="63">
+            <property name="width">10.447916666666666in</property>
+            <column id="64">
+                <property name="width">5.010416666666667in</property>
+            </column>
+            <column id="65">
+                <property name="width">0.0625in</property>
+            </column>
+            <column id="66">
+                <property name="width">5.375in</property>
+            </column>
+            <row id="67">
+                <cell id="68">
+                    <property name="textAlign">right</property>
+                    <label id="71">
+                        <property name="fontSize">12pt</property>
+                        <property name="fontWeight">bold</property>
+                        <text-property name="text">R.I.F. N°</text-property>
+                    </label>
+                </cell>
+                <cell id="69"/>
+                <cell id="70">
+                    <data id="348">
+                        <property name="fontSize">12pt</property>
+                        <property name="fontWeight">bold</property>
+                        <property name="whiteSpace">nowrap</property>
+                        <property name="dataSet">Company</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">XX_CI_RIF</property>
+                                <text-property name="displayName">XX_CI_RIF</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["XX_CI_RIF"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                        </list-property>
+                        <property name="resultSetColumn">XX_CI_RIF</property>
+                    </data>
+                </cell>
+            </row>
+        </grid>
+        <text id="13">
+            <property name="fontSize">18pt</property>
+            <property name="textUnderline">underline</property>
+            <property name="paddingBottom">10pt</property>
+            <property name="textAlign">center</property>
+            <property name="contentType">auto</property>
+            <text-property name="content"><![CDATA[COMPROBANTE  DE  RETENCION]]></text-property>
+        </text>
+        <grid id="57">
+            <property name="width">10.447916666666666in</property>
+            <column id="58">
+                <property name="width">1.1145833333333333in</property>
+            </column>
+            <column id="59">
+                <property name="width">9.333333333333334in</property>
+            </column>
+            <row id="60">
+                <cell id="61">
+                    <text id="16">
+                        <property name="display">block</property>
+                        <structure name="toc"/>
+                        <property name="contentType">auto</property>
+                        <text-property name="content"><![CDATA[CARACAS, ]]></text-property>
+                    </text>
+                </cell>
+                <cell id="62">
+                    <data id="470">
+                        <property name="whiteSpace">nowrap</property>
+                        <property name="dataSet">Vendor</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">INVOICEDATE</property>
+                                <text-property name="displayName">INVOICEDATE</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["INVOICEDATE"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                        </list-property>
+                        <property name="resultSetColumn">INVOICEDATE</property>
+                    </data>
+                </cell>
+            </row>
+            <row id="145">
+                <cell id="146"/>
+                <cell id="147"/>
+            </row>
+        </grid>
+        <text id="17">
+            <property name="fontWeight">bold</property>
+            <property name="paddingTop">20pt</property>
+            <property name="contentType">auto</property>
+            <text-property name="content"><![CDATA[DATOS DEL AGENTE DE RETENCION]]></text-property>
+        </text>
+        <grid id="72">
+            <property name="width">10.458333333333334in</property>
+            <column id="73">
+                <property name="width">1.1354166666666667in</property>
+            </column>
+            <column id="74">
+                <property name="width">3.5416666666666665in</property>
+            </column>
+            <column id="111">
+                <property name="width">0.4583333333333333in</property>
+            </column>
+            <column id="116">
+                <property name="width">1.2291666666666667in</property>
+            </column>
+            <column id="75">
+                <property name="width">4.09375in</property>
+            </column>
+            <row id="77">
+                <cell id="78">
+                    <label id="97">
+                        <property name="fontWeight">bold</property>
+                        <text-property name="text">Nombre</text-property>
+                    </label>
+                </cell>
+                <cell id="79">
+                    <property name="colSpan">4</property>
+                    <property name="rowSpan">1</property>
+                    <data id="343">
+                        <property name="whiteSpace">nowrap</property>
+                        <property name="dataSet">Company</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">NAME</property>
+                                <text-property name="displayName">NAME</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["NAME"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                        </list-property>
+                        <property name="resultSetColumn">NAME</property>
+                    </data>
+                </cell>
+            </row>
+            <row id="82">
+                <cell id="83">
+                    <label id="98">
+                        <property name="fontWeight">bold</property>
+                        <text-property name="text">N° R.I.F</text-property>
+                    </label>
+                </cell>
+                <cell id="84">
+                    <property name="colSpan">4</property>
+                    <property name="rowSpan">1</property>
+                    <data id="344">
+                        <property name="whiteSpace">nowrap</property>
+                        <property name="dataSet">Company</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">XX_CI_RIF</property>
+                                <text-property name="displayName">XX_CI_RIF</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["XX_CI_RIF"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                        </list-property>
+                        <property name="resultSetColumn">XX_CI_RIF</property>
+                    </data>
+                </cell>
+            </row>
+            <row id="87">
+                <cell id="88">
+                    <label id="99">
+                        <property name="fontWeight">bold</property>
+                        <text-property name="text">Dirección</text-property>
+                    </label>
+                </cell>
+                <cell id="89">
+                    <property name="colSpan">4</property>
+                    <property name="rowSpan">1</property>
+                    <data id="346">
+                        <property name="whiteSpace">nowrap</property>
+                        <property name="dataSet">Company</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">ADDRESS</property>
+                                <text-property name="displayName">ADDRESS</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["ADDRESS"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                        </list-property>
+                        <property name="resultSetColumn">ADDRESS</property>
+                    </data>
+                </cell>
+            </row>
+            <row id="92">
+                <cell id="93">
+                    <label id="101">
+                        <property name="fontWeight">bold</property>
+                        <text-property name="text">Teléfonos</text-property>
+                    </label>
+                </cell>
+                <cell id="94">
+                    <data id="345">
+                        <property name="whiteSpace">nowrap</property>
+                        <property name="dataSet">Company</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">XX_PHONE</property>
+                                <text-property name="displayName">XX_PHONE</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["XX_PHONE"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                        </list-property>
+                        <property name="resultSetColumn">XX_PHONE</property>
+                    </data>
+                </cell>
+                <cell id="110"/>
+                <cell id="115">
+                    <label id="209">
+                        <property name="fontWeight">bold</property>
+                        <text-property name="text">N° Comprobante</text-property>
+                    </label>
+                </cell>
+                <cell id="95">
+                    <data id="475">
+                        <property name="whiteSpace">nowrap</property>
+                        <property name="dataSet">Vendor</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">RECEIPTNO</property>
+                                <text-property name="displayName">RECEIPTNO</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["RECEIPTNO"]</expression>
+                                <property name="dataType">decimal</property>
+                            </structure>
+                        </list-property>
+                        <property name="resultSetColumn">RECEIPTNO</property>
+                    </data>
+                </cell>
+            </row>
+        </grid>
+        <text id="18">
+            <property name="fontWeight">bold</property>
+            <property name="paddingTop">15pt</property>
+            <property name="contentType">auto</property>
+            <text-property name="content"><![CDATA[DATOS DEL BENEFICIARIO]]></text-property>
+        </text>
+        <grid id="123">
+            <property name="width">10.447916666666666in</property>
+            <column id="124">
+                <property name="width">1.125in</property>
+            </column>
+            <column id="125">
+                <property name="width">9.322916666666666in</property>
+            </column>
+            <row id="126">
+                <cell id="127">
+                    <label id="135">
+                        <property name="fontWeight">bold</property>
+                        <text-property name="text">Nombre</text-property>
+                    </label>
+                </cell>
+                <cell id="128">
+                    <data id="471">
+                        <property name="whiteSpace">nowrap</property>
+                        <property name="dataSet">Vendor</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">NAME</property>
+                                <text-property name="displayName">NAME</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["NAME"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                        </list-property>
+                        <property name="resultSetColumn">NAME</property>
+                    </data>
+                </cell>
+            </row>
+            <row id="129">
+                <cell id="130">
+                    <label id="142">
+                        <property name="fontWeight">bold</property>
+                        <text-property name="text">N° R.I.F</text-property>
+                    </label>
+                </cell>
+                <cell id="131">
+                    <data id="472">
+                        <property name="whiteSpace">nowrap</property>
+                        <property name="dataSet">Vendor</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">RIF</property>
+                                <text-property name="displayName">RIF</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["RIF"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                        </list-property>
+                        <property name="resultSetColumn">RIF</property>
+                    </data>
+                </cell>
+            </row>
+            <row id="132">
+                <cell id="133">
+                    <label id="143">
+                        <property name="fontWeight">bold</property>
+                        <text-property name="text">Dirección</text-property>
+                    </label>
+                </cell>
+                <cell id="134">
+                    <data id="473">
+                        <property name="whiteSpace">nowrap</property>
+                        <property name="dataSet">Vendor</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">ADDRESS</property>
+                                <text-property name="displayName">ADDRESS</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["ADDRESS"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                        </list-property>
+                        <property name="resultSetColumn">ADDRESS</property>
+                    </data>
+                </cell>
+            </row>
+            <row id="136">
+                <cell id="137">
+                    <label id="144">
+                        <property name="fontWeight">bold</property>
+                        <text-property name="text">Teléfonos</text-property>
+                    </label>
+                </cell>
+                <cell id="138">
+                    <data id="474">
+                        <property name="whiteSpace">nowrap</property>
+                        <property name="dataSet">Vendor</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">PHONE</property>
+                                <text-property name="displayName">PHONE</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["PHONE"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                        </list-property>
+                        <property name="resultSetColumn">PHONE</property>
+                    </data>
+                </cell>
+            </row>
+        </grid>
+        <text id="19">
+            <property name="fontWeight">bold</property>
+            <property name="paddingTop">15pt</property>
+            <property name="contentType">auto</property>
+            <text-property name="content"><![CDATA[DATOS DEL MONTO RETENIDO Y CONCEPTO]]></text-property>
+        </text>
+        <grid id="159">
+            <property name="width">10.447916666666666in</property>
+            <column id="160">
+                <property name="width">1.4479166666666667in</property>
+            </column>
+            <column id="161">
+                <property name="width">9in</property>
+            </column>
+            <row id="162">
+                <cell id="163">
+                    <label id="165">
+                        <property name="fontWeight">bold</property>
+                        <property name="paddingBottom">3pt</property>
+                        <text-property name="text">Pagado / Abonado</text-property>
+                    </label>
+                </cell>
+                <cell id="164">
+                    <data id="468">
+                        <property name="whiteSpace">nowrap</property>
+                        <property name="dataSet">Pagado</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">PAGADO</property>
+                                <text-property name="displayName">PAGADO</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["PAGADO"]</expression>
+                                <property name="dataType">decimal</property>
+                            </structure>
+                        </list-property>
+                        <property name="resultSetColumn">PAGADO</property>
+                    </data>
+                </cell>
+            </row>
+        </grid>
+        <table id="400">
+            <property name="width">9.989583333333334in</property>
+            <property name="dataSet">Invoice</property>
+            <list-property name="boundDataColumns">
+                <structure>
+                    <property name="name">DOCUMENTNO</property>
+                    <text-property name="displayName">DOCUMENTNO</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["DOCUMENTNO"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">XX_CONTROLNUMBER</property>
+                    <text-property name="displayName">XX_CONTROLNUMBER</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["XX_CONTROLNUMBER"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">NAME</property>
+                    <text-property name="displayName">NAME</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["NAME"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">PAGADO</property>
+                    <text-property name="displayName">PAGADO</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["PAGADO"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">LINENETAMT</property>
+                    <text-property name="displayName">LINENETAMT</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["LINENETAMT"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">XX_PERCENTOFRETENTION</property>
+                    <text-property name="displayName">XX_PERCENTOFRETENTION</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["XX_PERCENTOFRETENTION"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">RETAINEDAMOUNT</property>
+                    <text-property name="displayName">RETAINEDAMOUNT</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["RETAINEDAMOUNT"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">Aggregation</property>
+                    <text-property name="displayName">TotMontOrig</text-property>
+                    <property name="dataType">float</property>
+                    <property name="aggregateFunction">SUM</property>
+                    <list-property name="arguments">
+                        <structure>
+                            <property name="name">Expression</property>
+                            <expression name="value" type="javascript">row["LINENETAMT"]</expression>
+                        </structure>
+                    </list-property>
+                </structure>
+                <structure>
+                    <property name="name">Aggregation_1</property>
+                    <text-property name="displayName">TotMontRet</text-property>
+                    <property name="dataType">float</property>
+                    <property name="aggregateFunction">SUM</property>
+                    <list-property name="arguments">
+                        <structure>
+                            <property name="name">Expression</property>
+                            <expression name="value" type="javascript">row["RETAINEDAMOUNT"]</expression>
+                        </structure>
+                    </list-property>
+                </structure>
+                <structure>
+                    <property name="name">Aggregation_2</property>
+                    <text-property name="displayName">TotMontoPagado</text-property>
+                    <property name="dataType">float</property>
+                    <property name="aggregateFunction">SUM</property>
+                    <list-property name="arguments">
+                        <structure>
+                            <property name="name">Expression</property>
+                            <expression name="value" type="javascript">row["PAGADO"]</expression>
+                        </structure>
+                    </list-property>
+                </structure>
+                <structure>
+                    <property name="name">Aggregation_3</property>
+                    <text-property name="displayName">TotMontoPagado</text-property>
+                    <property name="dataType">float</property>
+                    <property name="aggregateFunction">SUM</property>
+                    <list-property name="arguments">
+                        <structure>
+                            <property name="name">Expression</property>
+                            <expression name="value" type="javascript">row["PAGADO"]</expression>
+                        </structure>
+                    </list-property>
+                </structure>
+            </list-property>
+            <column id="441">
+                <property name="width">1.1770833333333333in</property>
+            </column>
+            <column id="442">
+                <property name="width">1.2604166666666667in</property>
+            </column>
+            <column id="443">
+                <property name="width">3.4479166666666665in</property>
+            </column>
+            <column id="444">
+                <property name="width">1.1354166666666667in</property>
+            </column>
+            <column id="445">
+                <property name="width">1.21875in</property>
+            </column>
+            <column id="446">
+                <property name="width">0.6354166666666666in</property>
+            </column>
+            <column id="447">
+                <property name="width">1.1145833333333333in</property>
+            </column>
+            <header>
+                <row id="401">
+                    <cell id="402">
+                        <property name="borderBottomColor">#000000</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <label id="448">
+                            <property name="fontWeight">bold</property>
+                            <property name="textAlign">left</property>
+                            <text-property name="text">N° Documento</text-property>
+                        </label>
+                    </cell>
+                    <cell id="403">
+                        <property name="borderBottomColor">#000000</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <label id="450">
+                            <property name="fontWeight">bold</property>
+                            <text-property name="text">N° Control</text-property>
+                        </label>
+                    </cell>
+                    <cell id="404">
+                        <property name="borderBottomColor">#000000</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <label id="452">
+                            <property name="fontWeight">bold</property>
+                            <property name="textAlign">left</property>
+                            <text-property name="text">Concepto del Pago</text-property>
+                        </label>
+                    </cell>
+                    <cell id="405">
+                        <property name="borderBottomColor">#000000</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <label id="454">
+                            <property name="fontWeight">bold</property>
+                            <property name="textAlign">right</property>
+                            <text-property name="text">Monto Original</text-property>
+                        </label>
+                    </cell>
+                    <cell id="406">
+                        <property name="borderBottomColor">#000000</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <label id="456">
+                            <property name="fontWeight">bold</property>
+                            <property name="textAlign">right</property>
+                            <text-property name="text">Base Imponible</text-property>
+                        </label>
+                    </cell>
+                    <cell id="407">
+                        <property name="borderBottomColor">#000000</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <label id="458">
+                            <property name="fontWeight">bold</property>
+                            <text-property name="text">Porc.</text-property>
+                        </label>
+                    </cell>
+                    <cell id="408">
+                        <property name="borderBottomColor">#000000</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <label id="460">
+                            <property name="fontWeight">bold</property>
+                            <property name="textAlign">right</property>
+                            <text-property name="text">Monto Retenido</text-property>
+                        </label>
+                    </cell>
+                </row>
+            </header>
+            <detail>
+                <row id="409">
+                    <cell id="410">
+                        <data id="449">
+                            <property name="whiteSpace">nowrap</property>
+                            <property name="resultSetColumn">DOCUMENTNO</property>
+                        </data>
+                    </cell>
+                    <cell id="411">
+                        <data id="451">
+                            <property name="textAlign">center</property>
+                            <property name="whiteSpace">nowrap</property>
+                            <property name="resultSetColumn">XX_CONTROLNUMBER</property>
+                        </data>
+                    </cell>
+                    <cell id="412">
+                        <data id="453">
+                            <property name="whiteSpace">nowrap</property>
+                            <property name="resultSetColumn">NAME</property>
+                        </data>
+                    </cell>
+                    <cell id="413">
+                        <data id="477">
+                            <structure name="numberFormat">
+                                <property name="category">Currency</property>
+                                <property name="pattern">###0.00{RoundingMode=HALF_UP}</property>
+                            </structure>
+                            <property name="textAlign">right</property>
+                            <property name="whiteSpace">nowrap</property>
+                            <property name="resultSetColumn">PAGADO</property>
+                        </data>
+                    </cell>
+                    <cell id="414">
+                        <property name="textAlign">right</property>
+                        <data id="457">
+                            <structure name="numberFormat">
+                                <property name="category">Currency</property>
+                                <property name="pattern">#,##0.00{RoundingMode=HALF_UP}</property>
+                            </structure>
+                            <property name="whiteSpace">nowrap</property>
+                            <property name="resultSetColumn">LINENETAMT</property>
+                        </data>
+                    </cell>
+                    <cell id="415">
+                        <data id="459">
+                            <structure name="numberFormat">
+                                <property name="category">Currency</property>
+                                <property name="pattern">#,##0.00{RoundingMode=HALF_UP}</property>
+                            </structure>
+                            <property name="textAlign">center</property>
+                            <property name="whiteSpace">nowrap</property>
+                            <property name="resultSetColumn">XX_PERCENTOFRETENTION</property>
+                        </data>
+                    </cell>
+                    <cell id="416">
+                        <data id="461">
+                            <structure name="numberFormat">
+                                <property name="category">Currency</property>
+                                <property name="pattern">#,##0.00{RoundingMode=HALF_UP}</property>
+                            </structure>
+                            <property name="textAlign">right</property>
+                            <property name="whiteSpace">nowrap</property>
+                            <property name="resultSetColumn">RETAINEDAMOUNT</property>
+                        </data>
+                    </cell>
+                </row>
+            </detail>
+            <footer>
+                <row id="433">
+                    <cell id="434"/>
+                    <cell id="435"/>
+                    <cell id="436">
+                        <label id="462">
+                            <property name="fontWeight">bold</property>
+                            <property name="textAlign">right</property>
+                            <text-property name="text">Totales...</text-property>
+                        </label>
+                    </cell>
+                    <cell id="437">
+                        <property name="borderTopColor">#000000</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <data id="481">
+                            <structure name="numberFormat">
+                                <property name="category">Currency</property>
+                                <property name="pattern">###0.00{RoundingMode=HALF_UP}</property>
+                            </structure>
+                            <property name="textAlign">right</property>
+                            <property name="resultSetColumn">Aggregation_3</property>
+                        </data>
+                    </cell>
+                    <cell id="438">
+                        <property name="borderTopColor">#000000</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <data id="463">
+                            <structure name="numberFormat">
+                                <property name="category">Currency</property>
+                                <property name="pattern">#,##0.00{RoundingMode=HALF_UP}</property>
+                            </structure>
+                            <property name="textAlign">right</property>
+                            <property name="resultSetColumn">Aggregation</property>
+                        </data>
+                    </cell>
+                    <cell id="439"/>
+                    <cell id="440">
+                        <property name="borderTopColor">#000000</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <data id="465">
+                            <structure name="numberFormat">
+                                <property name="category">Currency</property>
+                                <property name="pattern">#,##0.00{RoundingMode=HALF_UP}</property>
+                            </structure>
+                            <property name="textAlign">right</property>
+                            <property name="resultSetColumn">Aggregation_1</property>
+                        </data>
+                    </cell>
+                </row>
+            </footer>
+        </table>
+        <grid id="149">
+            <property name="width">10.447916666666666in</property>
+            <column id="150">
+                <property name="width">5.010416666666667in</property>
+            </column>
+            <column id="151">
+                <property name="width">0.0625in</property>
+            </column>
+            <column id="152">
+                <property name="width">5.375in</property>
+            </column>
+            <row id="492">
+                <cell id="493">
+                    <property name="colSpan">3</property>
+                    <property name="rowSpan">1</property>
+                    <property name="textAlign">center</property>
+                    <image id="483">
+                        <property name="height">150px</property>
+                        <property name="width">350px</property>
+                        <property name="dataSet">Company</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">NAME</property>
+                                <expression name="expression" type="javascript">dataSetRow["NAME"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                            <structure>
+                                <property name="name">XX_CI_RIF</property>
+                                <expression name="expression" type="javascript">dataSetRow["XX_CI_RIF"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                            <structure>
+                                <property name="name">XX_PHONE</property>
+                                <expression name="expression" type="javascript">dataSetRow["XX_PHONE"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                            <structure>
+                                <property name="name">ADDRESS</property>
+                                <expression name="expression" type="javascript">dataSetRow["ADDRESS"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                            <structure>
+                                <property name="name">SIGNATURE</property>
+                                <expression name="expression" type="javascript">dataSetRow["SIGNATURE"]</expression>
+                                <property name="dataType">blob</property>
+                            </structure>
+                        </list-property>
+                        <property name="source">expr</property>
+                        <expression name="valueExpr">row["SIGNATURE"]</expression>
+                    </image>
+                </cell>
+            </row>
+            <row id="153">
+                <cell id="154">
+                    <property name="textAlign">right</property>
+                </cell>
+                <cell id="156"/>
+                <cell id="157"/>
+            </row>
+        </grid>
+    </body>
+</report>

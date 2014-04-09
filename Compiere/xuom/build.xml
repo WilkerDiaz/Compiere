@@ -1,0 +1,108 @@
+<!-- ============================================= -->
+<!-- Extending Compiere - Compoments               -->
+<!-- ============================================= -->
+<!-- $Id $ -->
+
+<project name="xuom" default="dist" basedir=".">
+
+  <description>
+    Sample script to build XUOM application extension and generate .car file
+	Notice that generation of XUOM car file will fail as only the owner of the 
+	application extension can generate the car file.
+	** Use only as a template for your own application extensions **
+  </description>
+
+  <!-- set global properties for this build -->
+  <property name="src" value="src"/>
+  <property name="build.dir" value="build"/>
+  <property name="dist.dir" value="."/>
+  <property name="jar.path" value="../lib"/>
+	<property name="tools.path" value="../tools/lib"/>
+  <property name="jar.name" value="xuom"/>
+  <property name="car.dir" value="../xuom"/>
+  <property name="data.dir" value="../data"/>
+
+  <!-- set path to include the necessary jar files for javac -->
+  <path id="project.class.path">
+    <pathelement path="${classpath}"/>
+    <pathelement path="${jar.path}/CCTools.jar"/>
+    <pathelement path="${jar.path}/Compiere.jar"/>
+    <pathelement path="${jar.path}/jPDF.jar"/>
+    <pathelement path="${jar.path}/jboss.jar"/>
+    <pathelement path="${jar.path}/oracle.jar"/>
+    <pathelement path="${jar.path}/postgreSQL.jar"/>
+  	<pathelement path="${tools.path}/google-collect-snapshot-20080820.jar"/>
+  </path>
+
+  <target name="init" description="initialization target">
+    <echo message="=========== Build xuom"/>
+    <!-- create the time stamp -->
+    <tstamp/>
+    <!-- create the build directory structure used by compile -->
+    <mkdir dir="${build.dir}"/>
+    <!-- check for the distribution directory -->
+    <available file="${dist.dir}" type="dir" property="dist.dir.exists"/>
+  </target>
+
+  <target name="makedir" depends="init" unless="dist.dir.exists">
+    <!-- create the distribution directory if not available -->
+    <mkdir dir="${dist}/${dist.dir}"/>
+  </target>
+  
+  <target name="compile" depends="makedir">
+    <!-- compile the java code from ${src} into ${build.dir} -->
+    <javac srcdir="${src}" destdir="${build.dir}" deprecation="on" debug="on">
+      <classpath refid="project.class.path"/>
+    </javac>
+    <!-- copy all image & sound files from src to the build directory -->
+    <copy todir="${build.dir}">
+      <fileset dir="${src}">
+        <include name="**/images/*"/>
+        <include name="**/*.gif"/>
+        <include name="**/*.jpg"/>
+        <include name="**/*.wav"/>
+        <include name="**/*.htm"/>
+        <include name="**/*.html"/>
+        <include name="**/*.properties"/>
+        <exclude name="**/package.html"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <!-- =========================================== -->
+  <!-- Create XUOM CAR                             -->
+  <!-- =========================================== -->
+  <target name="makeCAR" depends="dist">
+    <java classname="org.compiere.util.CreateComponent" failonerror="true">
+      <arg line="-E XUOM -C ${car.dir} -D ${car.dir}"/>
+      <classpath refid="project.class.path"/>
+    </java>
+  </target>
+
+  <!-- =========================================== -->
+  <!-- Distribution                                -->
+  <!-- =========================================== -->
+  <target name="dist" depends="compile">
+    <!-- put everything from ${build.dir} into the ${jar.name}.jar file -->
+    <jar jarfile="${dist.dir}/${jar.name}.jar" basedir="${build.dir}"/>
+
+    <java classname="org.compiere.util.CreateComponent" failonerror="true" fork="yes">
+      <arg line="-E XUOM -C ${car.dir} -D ${car.dir}"/>
+	  <!-- <jvmarg value="-DPropertyFile=../CompiereBECO.properties"/> -->
+      <classpath refid="project.class.path"/>
+    </java>
+
+    <!-- Copy xuom.car to the data  -->
+    <copy todir="${data.dir}/seed">
+      <fileset dir="${car.dir}" includes="**/*.car" />
+    </copy>
+  </target>
+
+
+  <target name="clean">
+    <!-- Delete the ${build.dir} directory trees -->
+    <delete dir="${build.dir}"/>
+    <delete file="${dist.dir}/${jar.name}.jar" failonerror="false"/>
+  </target>
+
+</project>

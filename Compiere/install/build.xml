@@ -1,0 +1,239 @@
+<?xml version="1.0"?>
+<!-- ============================================= -->
+<!-- Compiere Installer build file                 -->
+<!-- ============================================= -->
+<!-- $Id: build.xml 8456 2010-02-17 23:15:35Z freyes $-->
+
+<project name="install" default="installDistribution" basedir=".">
+
+  <description>
+	This buildfile is used to create the Compiere installer.
+  </description>
+
+  <property environment="env"/>
+  <property name="compiere.dir" location="../"/>
+  <property name="web.dir" location="../../compiereWeb"/>
+  <property name="dbStartup.dir" location="../db/database/Startup"/>
+  <property name="lib.dir" location="../lib"/>
+  <property name="utils.dir" location="../utils"/>
+  <property name="launch.dir" location="../launch"/>
+  <property name="keystore.dir" location="../keystore"/>
+  <property name="data.dir" location="../data"/>
+  <property name="jboss.dir" location="../jboss"/>
+
+  <property name="src" location="src"/>
+  <property name="compile.dir" location="lib"/>
+
+  <property name="src.dir" location="${basedir}/Compiere2"/>
+  <property name="build.dir" location="${basedir}/build"/>
+
+  <path id="project.class.path">
+	<pathelement path="${classpath}"/>
+	<pathelement path="${lib.dir}/CCTools.jar"/>
+	<pathelement path="${lib.dir}/Compiere.jar"/>
+	<pathelement path="${lib.dir}/jPDF.jar"/>
+	<pathelement path="${lib.dir}/postgreSQL.jar"/>
+	<pathelement path="${lib.dir}/oracle.jar"/>
+	<pathelement path="../tools/lib/ant.jar"/>
+	<pathelement path="../tools/lib/ant-launcher.jar"/>
+  </path>
+
+  <!-- ======================================================= -->
+  <!-- Init                                                    -->
+  <!-- ======================================================= -->
+  <target name="installInit" description="initialization target">
+	<echo message="=========== Build Install - ${env.ENCODING}"/>
+	<!-- create the time stamp -->
+	<tstamp/>
+	<mkdir dir="${build.dir}"/>
+	<mkdir dir="${compile.dir}"/>
+  </target>
+
+  <!-- ======================================================= -->
+  <!-- Compile & Jar                                           -->
+  <!-- ======================================================= -->
+  <target name="installCompile" depends="installInit">
+	<!-- compile the java code from ${src} into ${build.dir} -->
+	<javac srcdir="${src}" destdir="${compile.dir}" deprecation="on" debug="on">
+	  <classpath refid="project.class.path"/>
+	</javac>
+	<!-- copy all image & sound files from src to the build directory -->
+	<copy todir="${compile.dir}">
+	  <fileset dir="${src}">
+		<include name="**/images/*"/>
+		<include name="**/*.gif"/>
+		<include name="**/*.jpg"/>
+		<include name="**/*.wav"/>
+		<include name="**/*.htm"/>
+		<include name="**/*.html"/>
+		<include name="**/*.properties"/>
+		<exclude name="**/package.html"/>
+	  </fileset>
+	</copy>
+	
+	<!-- extract Ant (with ftp) files -->
+	<unjar src="../tools/lib/ant.jar" dest="${compile.dir}" />
+ 	<unjar src="../tools/lib/ant-launcher.jar" dest="${compile.dir}" />
+	<unjar src="../tools/lib/ant-commons-net.jar" dest="${compile.dir}" />
+	<unjar src="../tools/lib/commons-net-1.4.0.jar" dest="${compile.dir}" />
+	<delete file="${compile.dir}/META-INF/MANIFEST.MF" failonerror="false"/>
+
+	<!-- put everything into the $CInstall.jar file -->
+	<jar
+	  jarfile="CInstall.jar"
+	  basedir="${compile.dir}"
+	  index="yes">
+	  <manifest>
+		<attribute name="Specification-Title" value="CInstall"/>
+		<attribute name="Specification-Version" value="${env.COMPIERE_VERSION}"/>
+		<attribute name="Specification-Vendor" value="Compiere.com"/>
+		<attribute name="Implementation-Title" value="CInstall ${env.COMPIERE_VERSION}"/>
+		<attribute name="Implementation-Version" value="${env.COMPIERE_VERSION} ${DSTAMP}-${TSTAMP}"/>
+		<attribute name="Implementation-Vendor" value="${env.COMPIERE_VENDOR}"/>
+		<attribute name="Implementation-URL" value="http://www.compiere.org"/>
+		<attribute name="Main-Class" value="org.compiere.install.Setup"/>
+		<attribute name="Class-Path" value="CCTools.jar Compiere.jar"/>
+	  </manifest>
+	</jar>
+
+  </target>
+
+
+  <!-- ======================================================= -->
+  <!-- Update from Web Site + Clean .sh                        -->
+  <!-- ======================================================= -->
+  <target name="installUpdate" depends="installCompile"
+	description="Update install directory with copies of web site">
+
+	<fixcrlf srcdir="${src.dir}"
+		eol="lf" eof="remove"
+		includes="**/*.sh"/>
+	<fixcrlf srcdir="${utils.dir}"
+		eol="lf" eof="remove"
+		includes="**/*.sh"/>
+	<fixcrlf srcdir="${utils.dir}/unix"
+		eol="lf" eof="remove"
+		includes="*"/>
+  </target>
+
+
+  <!-- ======================================================= -->
+  <!-- Create Distribution                                     -->
+  <!-- ======================================================= -->
+  <target name="installDistribution" depends="installUpdate">
+	<mkdir dir="${build.dir}"/>
+	<mkdir dir="${build.dir}/Compiere2"/>
+	<mkdir dir="${build.dir}/Compiere2/images"/>
+
+
+	<!-- Base Directory			-->
+	<copy todir="${build.dir}/Compiere2">
+	  <fileset dir="${src.dir}"/>
+	</copy>
+	<copy todir="${build.dir}/Compiere2/images">
+	  <fileset dir="${src.dir}/images"/>
+	</copy>
+	<copy file="${utils.dir}/RUN_Compiere2.bat" todir="${build.dir}/Compiere2/"/>
+	<copy file="${utils.dir}/RUN_Compiere2.sh" todir="${build.dir}/Compiere2/"/>
+
+
+	<!-- Lib Directory			-->
+	<mkdir dir="${build.dir}/Compiere2/lib"/>
+	<copy file="${launch.dir}/jlaunch.ico" tofile="${build.dir}/Compiere2/lib/Compiere2.ico"/>
+	<copy file="${launch.dir}/jlaunchs.ico" tofile="${build.dir}/Compiere2/lib/Compiere2s.ico"/>
+  	<copy file="${launch.dir}/compierestart.ico" tofile="${build.dir}/Compiere2/lib/compierestart.ico"/>
+  	<copy file="${launch.dir}/compierestop.ico" tofile="${build.dir}/Compiere2/lib/compierestop.ico"/>
+	<copy todir="${build.dir}/Compiere2/lib">
+	  <fileset dir="${lib.dir}">
+	  	<include name="**/*ar"/>
+	  	<include name="**/*xml"/>
+	  	<include name="**/*0"/>
+	  	<include name="**/*properties"/>
+	  </fileset>
+	</copy>
+	<copy file="${launch.dir}/Release/Compiere2.exe" todir="${build.dir}/Compiere2/lib"/>
+	<copy file="CInstall.jar" todir="${build.dir}/Compiere2/lib"/>
+	<copy file="../tools/lib/j2ee.jar" todir="${build.dir}/Compiere2/lib"/>
+	<concat destfile="${build.dir}/Compiere2/lib/index.html">CompiereHome</concat>
+
+
+	<!-- Utils Directory		-->
+	<mkdir dir="${build.dir}/Compiere2/utils"/>
+	<copy todir="${build.dir}/Compiere2/utils">
+	  <fileset dir="${utils.dir}" excludes="**/pg/**,.project"/>
+	</copy>
+	<copy todir="${build.dir}/Compiere2/utils/oracle">
+	  <fileset dir="${dbStartup.dir}/oracle" includes="*.sql"/>
+	</copy>
+
+
+	<!-- Data Directory			-->
+	<mkdir dir="${build.dir}/Compiere2/data"/>
+	<copy todir="${build.dir}/Compiere2/data">
+	  <fileset dir="${data.dir}/seed" includes="**/*.car" />
+	</copy>
+	<mkdir dir="${build.dir}/Compiere2/data/import"/>
+	<copy todir="${build.dir}/Compiere2/data/import">
+	  <fileset dir="${data.dir}/import">
+	    <include name="**/Accounting*.*"/>
+	    <include name="Example*.csv"/>
+	  </fileset>
+	</copy> 
+  	<mkdir dir="${build.dir}/Compiere2/data/webservices/xml"/>
+  	<copy todir="${build.dir}/Compiere2/data/webservices/xml">
+  	  <fileset dir="${data.dir}/webservices/xml" includes="**/*.xml" />
+  	</copy>
+
+
+	<!-- JBoss Directory		-->
+	<mkdir dir="${build.dir}/Compiere2/jboss"/>
+	<mkdir dir="${build.dir}/Compiere2/jboss/bin"/>
+	<copy todir="${build.dir}/Compiere2/jboss/bin">
+	  <fileset dir="${jboss.dir}/bin" excludes="**/CVS/**"/>
+	</copy>
+	<mkdir dir="${build.dir}/Compiere2/jboss/lib"/>
+	<copy todir="${build.dir}/Compiere2/jboss/lib">
+	  <fileset dir="${jboss.dir}/lib" excludes="**/CVS/**"/>
+	</copy>
+	<mkdir dir="${build.dir}/Compiere2/jboss/server"/>
+	<copy todir="${build.dir}/Compiere2/jboss/server">
+	  <fileset dir="${jboss.dir}/server"
+		excludes="**/CVS/**"/>
+	</copy>
+    <!-- For JBoss 4.2.3 on JDK6 -->
+    <copy todir="${build.dir}/Compiere2/jboss/lib/endorsed" verbose="true">
+	  <filelist dir="${jboss.dir}/client" files="jboss-jaxrpc.jar, jboss-jaxws.jar, jboss-jaxws-ext.jar, jboss-saaj.jar, jaxb-api.jar"/>
+	</copy>
+  	<!-- <unwar src="${lib.dir}/compiereAppsBase.war" dest="${build.dir}/Compiere2/jboss/server/compiere/deploy/newInterface.war" /> -->
+
+
+	<!-- Create Install ZIP		-->
+	<zip zipfile="${build.dir}/Compiere_${env.COMPIERE_VERSION_FILE}.zip"
+	   basedir="${build.dir}"
+	   includes="Compiere2/**" />
+
+	<!-- Create Install TAR		-->
+	<tar longfile="gnu" tarfile="${build.dir}/Compiere_${env.COMPIERE_VERSION_FILE}.tar"
+	   basedir="${build.dir}"
+	   includes="Compiere2/**" />
+	<gzip zipfile="${build.dir}/Compiere_${env.COMPIERE_VERSION_FILE}.tar.gz"
+		  src="${build.dir}/Compiere_${env.COMPIERE_VERSION_FILE}.tar" />
+	<delete file="${build.dir}/Compiere_${env.COMPIERE_VERSION_FILE}.tar" />
+
+
+	<!-- Create Checksums		-->
+	<checksum file="${build.dir}/Compiere_${env.COMPIERE_VERSION_FILE}.tar.gz"/>
+	<concat destfile="${build.dir}/Compiere_${env.COMPIERE_VERSION_FILE}.tar.gz.MD5" append="yes"> *Compiere_${env.COMPIERE_VERSION_FILE}.tar.gz</concat>
+	<!-- Test with md5sum -c Compiere_251.zip.MD5	-->
+	<checksum file="${build.dir}/Compiere_${env.COMPIERE_VERSION_FILE}.zip"/>
+	<concat destfile="${build.dir}/Compiere_${env.COMPIERE_VERSION_FILE}.zip.MD5" append="yes"> *Compiere_${env.COMPIERE_VERSION_FILE}.zip</concat>
+
+  </target>
+
+
+  <target name="clean" description="deletes build">
+	<delete dir="${build.dir}"/>
+	<delete dir="${compile.dir}"/>
+  </target>
+
+</project>

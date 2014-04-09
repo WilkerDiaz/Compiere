@@ -1,0 +1,40 @@
+compiereWebCM.ear
+- Compiere.jar
+-- classpath = CompiereSLib.jar
+- CompiereSLib.jar
+-- (none)
+- compuiereWebCM.war
+-- classpath = Compiere.jar CompiereSLib.jar
+
+
+compiereRoot.ear
+- Compiere.jar
+-- classpath = CompiereSLib.jar
+- compiereRoot.jar
+-- classpath = Compiere.jar CompiereSLib.jar
+- CompiereSLib.jar
+-- (none)
+- compiereRoot.war
+-- classpath = Compiere.jar CompiereSLib.jar
+
+
+compiereApps.ear
+- Compiere.jar
+-- classpath = CompiereSLib.jar
+- compiereApps.jar
+-- classpath = Compiere.jar CompiereSLib.jar
+- compiereSLib.jar
+-- (none)
+- compiereApps.war 
+-- classpath = Compiere.jar CompiereSLib.jar
+
+
+compiereWebStore.ear
+- Compiere.jar
+-- classpath = CompiereSLib.jar
+- compiereApps.jar
+-- classpath = Compiere.jar CompiereSLib.jar
+- compiereSLib.jar
+-- (none)
+- compiereWebStore.war
+-- classpath = Compiere.jar CompiereSLib.jar compiereApps.jar

@@ -1,0 +1,98 @@
+/******************************************************************************
+ * Product: Compiere ERP & CRM Smart Business Solution
+ * Copyright (C) 1999-2006 ComPiere, Inc. All Rights Reserved.
+ * This program is free software; you can redistribute it and/or modify it
+ * under the terms version 2 of the GNU General Public License as published
+ * by the Free Software Foundation. This program is distributed in the hope
+ * that it will be useful, but WITHOUT ANY WARRANTY; without even the implied
+ * warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. 
+ * See the GNU General Public License for more details.
+ * You should have received a copy of the GNU General Public License along 
+ * with this program; if not, write to the Free Software Foundation, Inc., 
+ * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA.
+ * You may reach us at: ComPiere, Inc. - http://www.compiere.org/license.html
+ * 3600 Bride Parkway #102, Redwood City, CA 94065, USA or info@compiere.org 
+ *****************************************************************************/
+
+package compiere.model;
+
+import java.sql.*;
+import org.compiere.model.*;
+import org.compiere.util.*;
+import com.sun.corba.se.impl.logging.*;
+
+
+/**
+ *	
+ *	
+ *  @author Administrator
+ *  @version $Id$
+ */
+public class MVisit extends X_XX_Visit
+{
+
+	/**
+	 * 	MVisit
+	 *	@param ctx
+	 *	@param XX_Visit_ID
+	 *	@param trxName
+	 */
+	public MVisit(Ctx ctx, int XX_Visit_ID, String trxName)
+	{
+		super(ctx, XX_Visit_ID, trxName);
+	}
+
+	/**
+	 * 	MVisit
+	 *	@param ctx
+	 *	@param rs
+	 *	@param trxName
+	 */
+	public MVisit(Ctx ctx, ResultSet rs, String trxName)
+	{
+		super(ctx, rs, trxName);
+	}
+	
+	public String setC_BPartner_ID (String oldValue, String newValue, int WindowNo)
+	{
+		if (Util.isEmpty(newValue) || newValue.equals("0"))
+		{
+		//	setC_BPartner_Location_ID(0);
+			if (p_changeVO != null)
+				p_changeVO.addChangedValue("C_BPartner_Location_ID", (String)null);
+			setAD_User_ID(0);
+			return null;
+		}
+		int C_BPartner_ID = convertToInt(newValue);
+		setC_BPartner_ID(C_BPartner_ID, true);
+		return null;
+	}
+	
+	public void setC_BPartner_ID(int C_BPartner_ID, boolean setLocAndUser)
+	{
+	    super.setC_BPartner_ID(C_BPartner_ID);
+	    if (!setLocAndUser)
+	    	return;
+	    MBPartner bp = new MBPartner(getCtx(), C_BPartner_ID, null);
+	    MBPartnerLocation[] locs = bp.getLocations(false);
+	    if (locs.length > 0)
+	    	setC_BPartner_Location_ID(locs[0].getC_BPartner_Location_ID());
+	    MUser[] users = bp.getContacts(false);
+	    if (users.length > 0)
+	    	setAD_User_ID(users[0].getAD_User_ID());
+	}
+	
+	
+	@Override
+	protected boolean beforeSave(boolean newRecord)
+	{
+		if ((newRecord || is_ValueChanged("Minutes")) 
+			&& getMinutes() < 60)
+		{
+			log.saveError("Error", "Stay a bit longer - at least 60 minutes");
+			setMinutes(60);		// would update WebUI but not Swing at this time
+			return false;
+		}
+	    return true;
+	}
+}

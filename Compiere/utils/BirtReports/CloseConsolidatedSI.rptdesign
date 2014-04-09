@@ -1,0 +1,1292 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.22" id="1">
+    <property name="createdBy">Eclipse BIRT Designer Version 2.6.2.r262_v20110209 Build &lt;2.6.2.v20110214-1523></property>
+    <property name="units">in</property>
+    <property name="iconFile">/templates/first_report.gif</property>
+    <property name="cheatSheet">org.eclipse.birt.report.designer.ui.cheatsheet.firstreport</property>
+    <property name="layoutPreference">fixed layout</property>
+    <property name="bidiLayoutOrientation">ltr</property>
+    <property name="imageDPI">96</property>
+    <template-parameter-definitions>
+        <template-parameter-definition name="NewTemplateParameterDefinition" id="28">
+            <property name="allowedType">Table</property>
+            <text-property name="description">Customer Listing</text-property>
+            <default>
+                <table id="29">
+                    <property name="width">100%</property>
+                    <property name="pageBreakInterval">50</property>
+                    <column id="49"/>
+                    <column id="50"/>
+                    <column id="51"/>
+                    <column id="52"/>
+                    <header>
+                        <row id="30">
+                            <cell id="31">
+                                <label id="32">
+                                    <property name="fontFamily">sans-serif</property>
+                                    <property name="fontWeight">bold</property>
+                                    <text-property name="text">Contact</text-property>
+                                </label>
+                            </cell>
+                            <cell id="33">
+                                <label id="34">
+                                    <property name="fontFamily">sans-serif</property>
+                                    <property name="fontWeight">bold</property>
+                                    <text-property name="text">First</text-property>
+                                </label>
+                            </cell>
+                            <cell id="35">
+                                <label id="36">
+                                    <property name="fontFamily">sans-serif</property>
+                                    <property name="fontWeight">bold</property>
+                                    <text-property name="text">Last</text-property>
+                                </label>
+                            </cell>
+                            <cell id="37">
+                                <label id="38">
+                                    <property name="fontFamily">sans-serif</property>
+                                    <property name="fontWeight">bold</property>
+                                    <text-property name="text">Phone</text-property>
+                                </label>
+                            </cell>
+                        </row>
+                    </header>
+                    <detail>
+                        <row id="39">
+                            <cell id="40"/>
+                            <cell id="41"/>
+                            <cell id="42"/>
+                            <cell id="43"/>
+                        </row>
+                    </detail>
+                    <footer>
+                        <row id="44">
+                            <cell id="45"/>
+                            <cell id="46"/>
+                            <cell id="47"/>
+                            <cell id="48"/>
+                        </row>
+                    </footer>
+                </table>
+            </default>
+        </template-parameter-definition>
+        <template-parameter-definition name="NewTemplateParameterDefinition1" id="78">
+            <property name="allowedType">Table</property>
+            <text-property name="description">Customer Listing Table</text-property>
+            <default>
+                <table id="79">
+                    <property name="width">100%</property>
+                    <property name="refTemplateParameter">NewTemplateParameterDefinition</property>
+                    <property name="pageBreakInterval">50</property>
+                    <column id="99"/>
+                    <column id="100"/>
+                    <column id="101"/>
+                    <column id="102"/>
+                    <header>
+                        <row id="80">
+                            <cell id="81">
+                                <label id="82">
+                                    <property name="fontFamily">sans-serif</property>
+                                    <property name="fontWeight">bold</property>
+                                    <text-property name="text">Contact</text-property>
+                                </label>
+                            </cell>
+                            <cell id="83">
+                                <label id="84">
+                                    <property name="fontFamily">sans-serif</property>
+                                    <property name="fontWeight">bold</property>
+                                    <text-property name="text">First</text-property>
+                                </label>
+                            </cell>
+                            <cell id="85">
+                                <label id="86">
+                                    <property name="fontFamily">sans-serif</property>
+                                    <property name="fontWeight">bold</property>
+                                    <text-property name="text">Last</text-property>
+                                </label>
+                            </cell>
+                            <cell id="87">
+                                <label id="88">
+                                    <property name="fontFamily">sans-serif</property>
+                                    <property name="fontWeight">bold</property>
+                                    <text-property name="text">Phone</text-property>
+                                </label>
+                            </cell>
+                        </row>
+                    </header>
+                    <detail>
+                        <row id="89">
+                            <cell id="90"/>
+                            <cell id="91"/>
+                            <cell id="92"/>
+                            <cell id="93"/>
+                        </row>
+                    </detail>
+                    <footer>
+                        <row id="94">
+                            <cell id="95"/>
+                            <cell id="96"/>
+                            <cell id="97"/>
+                            <cell id="98"/>
+                        </row>
+                    </footer>
+                </table>
+            </default>
+        </template-parameter-definition>
+        <template-parameter-definition name="NewTemplateParameterDefinition2" id="132">
+            <property name="allowedType">Table</property>
+            <text-property name="description">Customer Listing Table</text-property>
+            <default>
+                <table id="133">
+                    <property name="width">100%</property>
+                    <property name="refTemplateParameter">NewTemplateParameterDefinition1</property>
+                    <property name="pageBreakInterval">50</property>
+                    <column id="157"/>
+                    <column id="158"/>
+                    <column id="159"/>
+                    <column id="160"/>
+                    <header>
+                        <row id="134">
+                            <cell id="135">
+                                <label id="136">
+                                    <property name="fontFamily">sans-serif</property>
+                                    <property name="fontWeight">bold</property>
+                                    <text-property name="text">Contact</text-property>
+                                </label>
+                            </cell>
+                            <cell id="137">
+                                <label id="138">
+                                    <property name="fontFamily">sans-serif</property>
+                                    <property name="fontWeight">bold</property>
+                                    <text-property name="text">First</text-property>
+                                </label>
+                            </cell>
+                            <cell id="139">
+                                <label id="140">
+                                    <property name="fontFamily">sans-serif</property>
+                                    <property name="fontWeight">bold</property>
+                                    <text-property name="text">Last</text-property>
+                                </label>
+                            </cell>
+                            <cell id="141">
+                                <label id="142">
+                                    <property name="fontFamily">sans-serif</property>
+                                    <property name="fontWeight">bold</property>
+                                    <text-property name="text">Phone</text-property>
+                                </label>
+                            </cell>
+                        </row>
+                    </header>
+                    <detail>
+                        <row id="143">
+                            <cell id="144">
+                                <data id="145"/>
+                            </cell>
+                            <cell id="146">
+                                <data id="147"/>
+                            </cell>
+                            <cell id="148">
+                                <data id="149"/>
+                            </cell>
+                            <cell id="150">
+                                <data id="151"/>
+                            </cell>
+                        </row>
+                    </detail>
+                    <footer>
+                        <row id="152">
+                            <cell id="153"/>
+                            <cell id="154"/>
+                            <cell id="155"/>
+                            <cell id="156"/>
+                        </row>
+                    </footer>
+                </table>
+            </default>
+        </template-parameter-definition>
+    </template-parameter-definitions>
+    <parameters>
+        <scalar-parameter name="fechaDesde" id="251">
+            <property name="hidden">true</property>
+            <property name="valueType">static</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">01/11/2010</value>
+            </simple-property-list>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="fechaHasta" id="252">
+            <property name="hidden">true</property>
+            <property name="valueType">static</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">09/04/2012</value>
+            </simple-property-list>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="proveedor" id="335">
+            <property name="hidden">true</property>
+            <property name="valueType">static</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">0</value>
+            </simple-property-list>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="pais" id="337">
+            <property name="hidden">true</property>
+            <property name="valueType">static</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">0</value>
+            </simple-property-list>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="mes" id="359">
+            <property name="hidden">true</property>
+            <property name="valueType">static</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">6</value>
+            </simple-property-list>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+    </parameters>
+    <data-sources>
+        <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="Compiere" id="248">
+            <list-property name="privateDriverProperties">
+                <ex-property>
+                    <name>contentBidiFormatStr</name>
+                    <value>ILYNN</value>
+                </ex-property>
+                <ex-property>
+                    <name>metadataBidiFormatStr</name>
+                    <value>ILYNN</value>
+                </ex-property>
+                <ex-property>
+                    <name>disabledMetadataBidiFormatStr</name>
+                </ex-property>
+                <ex-property>
+                    <name>disabledContentBidiFormatStr</name>
+                </ex-property>
+            </list-property>
+            <property name="odaDriverClass">oracle.jdbc.OracleDriver</property>
+            <property name="odaURL">jdbc:oracle:thin:@192.168.1.139:1521:compiere</property>
+            <property name="odaUser">compiere</property>
+            <encrypted-property name="odaPassword" encryptionID="base64">czEwZTkwOWQ=</encrypted-property>
+        </oda-data-source>
+    </data-sources>
+    <data-sets>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="Consolidado" id="250">
+            <list-property name="parameters">
+                <structure>
+                    <property name="name">mes</property>
+                    <property name="paramName">mes</property>
+                    <property name="dataType">string</property>
+                    <property name="position">1</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">fechaDesde</property>
+                    <property name="paramName">fechaDesde</property>
+                    <property name="dataType">string</property>
+                    <property name="position">2</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">fechaHasta</property>
+                    <property name="paramName">fechaHasta</property>
+                    <property name="dataType">string</property>
+                    <property name="position">3</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">proveedor1</property>
+                    <property name="paramName">proveedor</property>
+                    <property name="dataType">integer</property>
+                    <property name="position">4</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">proveedor2</property>
+                    <property name="paramName">proveedor</property>
+                    <property name="dataType">integer</property>
+                    <property name="position">5</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">proveedor3</property>
+                    <property name="paramName">proveedor</property>
+                    <property name="dataType">integer</property>
+                    <property name="position">6</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">pais1</property>
+                    <property name="paramName">pais</property>
+                    <property name="dataType">integer</property>
+                    <property name="position">7</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">pais2</property>
+                    <property name="paramName">pais</property>
+                    <property name="dataType">integer</property>
+                    <property name="position">8</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">pais3</property>
+                    <property name="paramName">pais</property>
+                    <property name="dataType">integer</property>
+                    <property name="position">9</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">fechaDesdeAnt</property>
+                    <property name="paramName">fechaDesde</property>
+                    <property name="dataType">string</property>
+                    <property name="position">10</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">fechaHastaAnt</property>
+                    <property name="paramName">fechaHasta</property>
+                    <property name="dataType">string</property>
+                    <property name="position">11</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">proveedorAnt1</property>
+                    <property name="paramName">proveedor</property>
+                    <property name="dataType">string</property>
+                    <property name="position">12</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">proveedorAnt2</property>
+                    <property name="paramName">proveedor</property>
+                    <property name="dataType">string</property>
+                    <property name="position">13</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">proveedorAnt3</property>
+                    <property name="paramName">proveedor</property>
+                    <property name="dataType">string</property>
+                    <property name="position">14</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">paisAnt1</property>
+                    <property name="paramName">pais</property>
+                    <property name="dataType">string</property>
+                    <property name="position">15</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">paisAnt2</property>
+                    <property name="paramName">pais</property>
+                    <property name="dataType">string</property>
+                    <property name="position">16</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">paisAnt3</property>
+                    <property name="paramName">pais</property>
+                    <property name="dataType">string</property>
+                    <property name="position">17</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">VALUE</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">PARTNER</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">COMPANIA</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">HABER</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">5</property>
+                        <property name="name">DEBE</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">6</property>
+                        <property name="name">AMOUNTMN</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">7</property>
+                        <property name="name">HABERMO</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">8</property>
+                        <property name="name">DEBEMO</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">9</property>
+                        <property name="name">AMOUNTMI</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">Compiere</property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">VALUE</property>
+                    <property name="nativeName">VALUE</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">PARTNER</property>
+                    <property name="nativeName">PARTNER</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">COMPANIA</property>
+                    <property name="nativeName">COMPANIA</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">4</property>
+                    <property name="name">HABER</property>
+                    <property name="nativeName">HABER</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">5</property>
+                    <property name="name">DEBE</property>
+                    <property name="nativeName">DEBE</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">6</property>
+                    <property name="name">AMOUNTMN</property>
+                    <property name="nativeName">AMOUNTMN</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">7</property>
+                    <property name="name">HABERMO</property>
+                    <property name="nativeName">HABERMO</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">8</property>
+                    <property name="name">DEBEMO</property>
+                    <property name="nativeName">DEBEMO</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">9</property>
+                    <property name="name">AMOUNTMI</property>
+                    <property name="nativeName">AMOUNTMI</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+            </list-property>
+            <xml-property name="queryText"><![CDATA[select u.value, u.partner, u.compania, sum(u.haber) as haber, sum(u.debe) as debe, 
+u.amountMn, sum(u.haberMo) as haberMo, sum(u.debeMo) as debeMo, u.amountMi
+from (
+with
+saldo as
+(select XX_AmountMonthImport as amountMi, XX_AmountMonthNational as amountMn, 
+C_BPartner_ID as partner
+from XX_VCN_BalanceByPartner 
+where XX_Month = ?) 
+select par.value, par.name as partner, adc.name as compania,
+(case when (inv.XX_GrandTotalLocal) > 0 then inv.XX_GrandTotalLocal else 0 end) as haber,
+(case when (inv.XX_GrandTotalLocal) < 0 then inv.XX_GrandTotalLocal * (-1) else 0 end) as debe,
+(coalesce(sal.amountMn,0)) as amountMn,
+(case when (inv.GrandTotal) > 0 then inv.GrandTotal else 0 end) as haberMo,
+(case when (inv.GrandTotal) < 0 then inv.GrandTotal * (-1) else 0 end) as debeMo,
+(coalesce(sal.amountMi,0)) as amountMi
+from C_Invoice inv
+inner join AD_Client adc on (adc.AD_Client_ID = inv.AD_Client_ID)
+inner join C_BPartner par on (par.C_BPartner_ID = inv.C_BPartner_ID)
+left outer join C_Order ord on (ord.C_Order_ID = inv.C_Order_ID)
+left outer join XX_Contract con on (inv.XX_Contract_ID = con.XX_Contract_ID)
+left outer join C_Country cou on (inv.C_Currency_ID = cou.C_Currency_ID)
+left outer join saldo sal on (par.C_BPartner_ID = sal.partner)  
+where inv.DocStatus = 'CO'
+and inv.XX_InvoiceType = 'S'
+and (ord.XX_OrderType = 'Importada' or con.XX_ContractType = 'Importada')
+and (ord.XX_InvoiceDate is not null or inv.XX_Contract_ID is not null)
+and inv.XX_ApprovalDate between to_date(?,'dd/MM/yyyy') and to_date(?,'dd/MM/yyyy')
+and ((par.C_BPartner_ID = ? and ? <> 0) or ? = 0)
+and ((cou.C_Country_ID = ? and ? <> 0) or ? = 0)
+and (ord.XX_InvoicingStatus = 'AP' or con.XX_InvoicingStatus = 'AP')
+group by par.value, par.name, adc.name, sal.amountMi, sal.amountMn, inv.XX_GrandTotalLocal, inv.GrandTotal
+union
+select par.value, par.name as partner, adc.name as campania, 
+0 as haber, pay.XX_PayAmtLocal as debe, (coalesce(sal.amountMn,0)) as amountMn,
+0 as haberMo, pay.PayAmt as debeMo, (coalesce(sal.amountMi,0)) as amountMi
+from C_Payment pay
+inner join AD_Client adc on (adc.AD_Client_ID = pay.AD_Client_ID)
+inner join C_BPartner par on (par.C_BPartner_ID = pay.C_BPartner_ID)
+inner join C_Order ord on (ord.C_Order_ID = pay.C_Order_ID)
+left outer join saldo sal on (par.C_BPartner_ID = sal.partner)
+left outer join C_Country cou on (ord.C_Country_ID = cou.C_Country_ID)
+where pay.DocStatus = 'CO'
+and pay.XX_IsAdvance = 'Y'
+and pay.C_Currency_ID <> 205
+and pay.C_Order_ID is not null
+and ord.XX_POType = 'POA' and ord.XX_PurchaseType in ('SE') 
+--and pay.XX_SynchronizationBank = 'Y'
+--and pay.XX_DateFinalPay is not null
+and pay.DateTrx between to_date(?,'dd/MM/yyyy') and to_date(?,'dd/MM/yyyy')
+and ((par.C_BPartner_ID = ? and ? <> 0) or ? = 0)
+and ((cou.C_Country_ID = ? and ? <> 0) or ? = 0)
+group by adc.name, par.value, par.name, pay.PayAmt, pay.XX_PayAmtLocal, 
+sal.amountMn, sal.amountMi
+order by 2 asc
+) u
+group by u.value, u.partner, u.compania, u.amountMn, u.amountMi
+order by 2 asc]]></xml-property>
+            <xml-property name="designerValues"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<model:DesignValues xmlns:design="http://www.eclipse.org/datatools/connectivity/oda/design" xmlns:model="http://www.eclipse.org/birt/report/model/adapter/odaModel">
+  <Version>2.0</Version>
+  <design:ResultSets derivedMetaData="true">
+    <design:resultSetDefinitions>
+      <design:resultSetColumns>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>VALUE</design:name>
+              <design:position>1</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>40</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>VALUE</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>VALUE</design:label>
+            <design:formattingHints>
+              <design:displaySize>40</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>PARTNER</design:name>
+              <design:position>2</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>60</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>PARTNER</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>PARTNER</design:label>
+            <design:formattingHints>
+              <design:displaySize>60</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>COMPANIA</design:name>
+              <design:position>3</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>60</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>COMPANIA</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>COMPANIA</design:label>
+            <design:formattingHints>
+              <design:displaySize>60</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>HABER</design:name>
+              <design:position>4</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>2</design:nativeDataTypeCode>
+            <design:precision>0</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>HABER</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>HABER</design:label>
+            <design:formattingHints>
+              <design:displaySize>22</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>DEBE</design:name>
+              <design:position>5</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>2</design:nativeDataTypeCode>
+            <design:precision>0</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>DEBE</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>DEBE</design:label>
+            <design:formattingHints>
+              <design:displaySize>22</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+      </design:resultSetColumns>
+      <design:criteria/>
+    </design:resultSetDefinitions>
+  </design:ResultSets>
+</model:DesignValues>]]></xml-property>
+        </oda-data-set>
+    </data-sets>
+    <styles>
+        <style name="report" id="110">
+            <property name="fontFamily">sans-serif</property>
+            <property name="fontSize">10pt</property>
+        </style>
+        <style name="crosstab-cell" id="246">
+            <property name="borderBottomColor">#CCCCCC</property>
+            <property name="borderBottomStyle">solid</property>
+            <property name="borderBottomWidth">1pt</property>
+            <property name="borderLeftColor">#CCCCCC</property>
+            <property name="borderLeftStyle">solid</property>
+            <property name="borderLeftWidth">1pt</property>
+            <property name="borderRightColor">#CCCCCC</property>
+            <property name="borderRightStyle">solid</property>
+            <property name="borderRightWidth">1pt</property>
+            <property name="borderTopColor">#CCCCCC</property>
+            <property name="borderTopStyle">solid</property>
+            <property name="borderTopWidth">1pt</property>
+        </style>
+        <style name="crosstab" id="247">
+            <property name="borderBottomColor">#CCCCCC</property>
+            <property name="borderBottomStyle">solid</property>
+            <property name="borderBottomWidth">1pt</property>
+            <property name="borderLeftColor">#CCCCCC</property>
+            <property name="borderLeftStyle">solid</property>
+            <property name="borderLeftWidth">1pt</property>
+            <property name="borderRightColor">#CCCCCC</property>
+            <property name="borderRightStyle">solid</property>
+            <property name="borderRightWidth">1pt</property>
+            <property name="borderTopColor">#CCCCCC</property>
+            <property name="borderTopStyle">solid</property>
+            <property name="borderTopWidth">1pt</property>
+        </style>
+        <style name="Total" id="319">
+            <property name="fontFamily">monospace</property>
+            <property name="fontSize">medium</property>
+            <property name="textLineThrough">none</property>
+            <property name="textOverline">none</property>
+            <property name="textUnderline">none</property>
+            <structure name="numberFormat">
+                <property name="category">Currency</property>
+                <property name="pattern">#,##0.00;(#,##0.00)</property>
+            </structure>
+        </style>
+    </styles>
+    <page-setup>
+        <simple-master-page name="Simple MasterPage" id="2">
+            <property name="orientation">landscape</property>
+            <page-footer>
+                <auto-text id="336">
+                    <property name="fontFamily">monospace</property>
+                    <property name="fontSize">9pt</property>
+                    <property name="paddingLeft">8pt</property>
+                    <property name="paddingRight">1pt</property>
+                    <property name="textAlign">left</property>
+                    <property name="type">page-number</property>
+                </auto-text>
+            </page-footer>
+        </simple-master-page>
+    </page-setup>
+    <body>
+        <table id="163">
+            <property name="width">7.9375in</property>
+            <property name="dataSet">Consolidado</property>
+            <property name="refTemplateParameter">NewTemplateParameterDefinition2</property>
+            <list-property name="boundDataColumns">
+                <structure>
+                    <property name="name">PARTNER</property>
+                    <text-property name="displayName">PARTNER</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["PARTNER"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">DEBE</property>
+                    <text-property name="displayName">DEBE</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["DEBE"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">VALUE</property>
+                    <text-property name="displayName">VALUE</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["VALUE"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">HABER</property>
+                    <text-property name="displayName">HABER</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["HABER"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">Aggregation</property>
+                    <text-property name="displayName">TotalDebe</text-property>
+                    <property name="dataType">float</property>
+                    <property name="aggregateFunction">SUM</property>
+                    <list-property name="arguments">
+                        <structure>
+                            <property name="name">Expression</property>
+                            <expression name="value" type="javascript">row["DEBE"]</expression>
+                        </structure>
+                    </list-property>
+                </structure>
+                <structure>
+                    <property name="name">Aggregation_1</property>
+                    <text-property name="displayName">TotalHaber</text-property>
+                    <property name="dataType">float</property>
+                    <property name="aggregateFunction">SUM</property>
+                    <list-property name="arguments">
+                        <structure>
+                            <property name="name">Expression</property>
+                            <expression name="value" type="javascript">row["HABER"]</expression>
+                        </structure>
+                    </list-property>
+                </structure>
+                <structure>
+                    <property name="name">Aggregation_3</property>
+                    <property name="dataType">float</property>
+                    <property name="aggregateFunction">SUM</property>
+                    <list-property name="arguments">
+                        <structure>
+                            <property name="name">Expression</property>
+                            <expression name="value" type="javascript">row["Aggregation"]-row["Aggregation_1"]</expression>
+                        </structure>
+                    </list-property>
+                </structure>
+                <structure>
+                    <property name="name">prueba</property>
+                    <property name="dataType">integer</property>
+                    <property name="aggregateFunction">COUNT</property>
+                    <list-property name="arguments">
+                        <structure>
+                            <property name="name">Expression</property>
+                        </structure>
+                    </list-property>
+                    <expression name="filterExpr" type="javascript">row["Aggregation"]+row["Aggregation_1"]</expression>
+                </structure>
+                <structure>
+                    <property name="name">HABERMO</property>
+                    <text-property name="displayName">HABERMO</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["HABERMO"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">DEBEMO</property>
+                    <text-property name="displayName">DEBEMO</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["DEBEMO"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">totDebeMo</property>
+                    <property name="dataType">float</property>
+                    <property name="aggregateFunction">SUM</property>
+                    <list-property name="arguments">
+                        <structure>
+                            <property name="name">Expression</property>
+                            <expression name="value" type="javascript">row["DEBEMO"]</expression>
+                        </structure>
+                    </list-property>
+                </structure>
+                <structure>
+                    <property name="name">totHaberMo</property>
+                    <property name="dataType">float</property>
+                    <property name="aggregateFunction">SUM</property>
+                    <list-property name="arguments">
+                        <structure>
+                            <property name="name">Expression</property>
+                            <expression name="value" type="javascript">row["DEBEMO"]</expression>
+                        </structure>
+                    </list-property>
+                </structure>
+                <structure>
+                    <property name="name">subAmountMi</property>
+                    <property name="dataType">float</property>
+                    <property name="aggregateFunction">SUM</property>
+                    <list-property name="arguments">
+                        <structure>
+                            <property name="name">Expression</property>
+                            <expression name="value" type="javascript">dataSetRow["AMOUNTMI"]</expression>
+                        </structure>
+                    </list-property>
+                </structure>
+                <structure>
+                    <property name="name">subAmountMn</property>
+                    <property name="dataType">float</property>
+                    <property name="aggregateFunction">SUM</property>
+                    <list-property name="arguments">
+                        <structure>
+                            <property name="name">Expression</property>
+                            <expression name="value" type="javascript">dataSetRow["AMOUNTMN"]</expression>
+                        </structure>
+                    </list-property>
+                </structure>
+                <structure>
+                    <property name="name">totalSalMn</property>
+                    <expression name="expression" type="javascript">row["subAmountMn"]+row["Aggregation_1"]-row["Aggregation"]</expression>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="name">totalSalMi</property>
+                    <expression name="expression" type="javascript">row["subAmountMi"]+row["totHaberMo"]-row["totDebeMo"]</expression>
+                    <property name="dataType">float</property>
+                </structure>
+            </list-property>
+            <property name="pageBreakInterval">50</property>
+            <column id="187">
+                <property name="width">0.9270833333333334in</property>
+            </column>
+            <column id="188">
+                <property name="width">4.541666666666667in</property>
+            </column>
+            <column id="189">
+                <property name="width">1.2916666666666667in</property>
+            </column>
+            <column id="190">
+                <property name="width">1.1770833333333333in</property>
+            </column>
+            <column id="344">
+                <property name="width">1.1770833333333333in</property>
+            </column>
+            <column id="350">
+                <property name="width">1.1770833333333333in</property>
+            </column>
+            <header>
+                <row id="326">
+                    <property name="height">1.4583333333333333in</property>
+                    <cell id="327">
+                        <property name="colSpan">6</property>
+                        <property name="rowSpan">1</property>
+                        <data id="257">
+                            <property name="fontFamily">monospace</property>
+                            <property name="fontSize">20pt</property>
+                            <property name="fontWeight">normal</property>
+                            <property name="paddingTop">8pt</property>
+                            <property name="paddingBottom">8pt</property>
+                            <property name="dataSet">Consolidado</property>
+                            <list-property name="boundDataColumns">
+                                <structure>
+                                    <property name="name">COMPANIA</property>
+                                    <text-property name="displayName">COMPANIA</text-property>
+                                    <expression name="expression" type="javascript">dataSetRow["COMPANIA"]</expression>
+                                    <property name="dataType">string</property>
+                                </structure>
+                            </list-property>
+                            <property name="resultSetColumn">COMPANIA</property>
+                        </data>
+                        <label id="245">
+                            <property name="fontFamily">monospace</property>
+                            <property name="fontSize">10pt</property>
+                            <property name="fontWeight">bold</property>
+                            <property name="marginRight">0pt</property>
+                            <property name="paddingTop">1pt</property>
+                            <property name="textAlign">center</property>
+                            <text-property name="text">CIERRE DE CUENTAS POR PAGAR DE PROVEEDORES DE SERVICIOS IMPORTADO</text-property>
+                        </label>
+                        <label id="338">
+                            <property name="fontFamily">monospace</property>
+                            <property name="fontSize">11pt</property>
+                            <property name="fontWeight">bold</property>
+                            <text-property name="text">CONSOLIDADO</text-property>
+                        </label>
+                        <grid id="288">
+                            <property name="width">7.947916666666667in</property>
+                            <column id="289">
+                                <property name="width">3.0208333333333335in</property>
+                            </column>
+                            <column id="297">
+                                <property name="width">0.9375in</property>
+                            </column>
+                            <column id="290">
+                                <property name="width">0.20833333333333334in</property>
+                            </column>
+                            <column id="295">
+                                <property name="width">3.78125in</property>
+                            </column>
+                            <row id="291">
+                                <cell id="292">
+                                    <label id="300">
+                                        <property name="fontFamily">monospace</property>
+                                        <property name="fontSize">9pt</property>
+                                        <property name="paddingRight">5pt</property>
+                                        <property name="textAlign">right</property>
+                                        <text-property name="text">DEL</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="296">
+                                    <data id="332">
+                                        <property name="style">Total</property>
+                                        <property name="fontSize">9pt</property>
+                                        <property name="paddingLeft">3pt</property>
+                                        <structure name="dateTimeFormat">
+                                            <property name="category">Medium Date</property>
+                                            <property name="pattern">Medium Date</property>
+                                        </structure>
+                                        <property name="textAlign">left</property>
+                                        <list-property name="boundDataColumns">
+                                            <structure>
+                                                <property name="name">fechaDesde</property>
+                                                <expression name="expression" type="javascript">params["fechaDesde"]</expression>
+                                                <property name="dataType">string</property>
+                                            </structure>
+                                        </list-property>
+                                        <property name="resultSetColumn">fechaDesde</property>
+                                    </data>
+                                </cell>
+                                <cell id="293">
+                                    <label id="301">
+                                        <property name="fontFamily">monospace</property>
+                                        <property name="fontSize">9pt</property>
+                                        <property name="textAlign">center</property>
+                                        <text-property name="text">AL</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="294">
+                                    <data id="333">
+                                        <property name="style">Total</property>
+                                        <property name="fontSize">9pt</property>
+                                        <property name="paddingLeft">3pt</property>
+                                        <structure name="dateTimeFormat">
+                                            <property name="category">Medium Date</property>
+                                            <property name="pattern">Medium Date</property>
+                                        </structure>
+                                        <property name="textAlign">left</property>
+                                        <list-property name="boundDataColumns">
+                                            <structure>
+                                                <property name="name">fechaHasta</property>
+                                                <expression name="expression" type="javascript">params["fechaHasta"]</expression>
+                                                <property name="dataType">string</property>
+                                            </structure>
+                                        </list-property>
+                                        <property name="resultSetColumn">fechaHasta</property>
+                                    </data>
+                                </cell>
+                            </row>
+                        </grid>
+                    </cell>
+                </row>
+                <row id="164">
+                    <property name="height">0.3541666666666667in</property>
+                    <cell id="165">
+                        <label id="166">
+                            <property name="backgroundColor">#FFFFFF</property>
+                            <property name="fontFamily">monospace</property>
+                            <property name="fontSize">9pt</property>
+                            <property name="fontWeight">normal</property>
+                            <property name="borderBottomColor">#000000</property>
+                            <property name="borderBottomStyle">dashed</property>
+                            <property name="borderBottomWidth">thin</property>
+                            <property name="borderTopColor">#000000</property>
+                            <property name="borderTopStyle">dashed</property>
+                            <property name="borderTopWidth">thin</property>
+                            <property name="textAlign">center</property>
+                            <text-property name="text">CODIGO</text-property>
+                        </label>
+                    </cell>
+                    <cell id="167">
+                        <label id="168">
+                            <property name="backgroundColor">#FFFFFF</property>
+                            <property name="fontFamily">monospace</property>
+                            <property name="fontSize">9pt</property>
+                            <property name="fontWeight">normal</property>
+                            <property name="borderBottomColor">#000000</property>
+                            <property name="borderBottomStyle">dashed</property>
+                            <property name="borderBottomWidth">thin</property>
+                            <property name="borderTopColor">#000000</property>
+                            <property name="borderTopStyle">dashed</property>
+                            <property name="borderTopWidth">thin</property>
+                            <text-property name="text">NOMBRE DEL PROVEEDOR</text-property>
+                        </label>
+                    </cell>
+                    <cell id="169">
+                        <label id="170">
+                            <property name="backgroundColor">#FFFFFF</property>
+                            <property name="fontFamily">monospace</property>
+                            <property name="fontSize">9pt</property>
+                            <property name="fontWeight">normal</property>
+                            <property name="borderBottomColor">#000000</property>
+                            <property name="borderBottomStyle">dashed</property>
+                            <property name="borderBottomWidth">thin</property>
+                            <property name="borderTopColor">#000000</property>
+                            <property name="borderTopStyle">dashed</property>
+                            <property name="borderTopWidth">thin</property>
+                            <property name="textAlign">center</property>
+                            <text-property name="text">DEBE</text-property>
+                        </label>
+                    </cell>
+                    <cell id="171">
+                        <label id="172">
+                            <property name="backgroundColor">#FFFFFF</property>
+                            <property name="fontFamily">monospace</property>
+                            <property name="fontSize">9pt</property>
+                            <property name="fontWeight">normal</property>
+                            <property name="borderBottomColor">#000000</property>
+                            <property name="borderBottomStyle">dashed</property>
+                            <property name="borderBottomWidth">thin</property>
+                            <property name="borderTopColor">#000000</property>
+                            <property name="borderTopStyle">dashed</property>
+                            <property name="borderTopWidth">thin</property>
+                            <property name="textAlign">center</property>
+                            <text-property name="text">HABER</text-property>
+                        </label>
+                    </cell>
+                    <cell id="340">
+                        <label id="351">
+                            <property name="backgroundColor">#FFFFFF</property>
+                            <property name="fontFamily">monospace</property>
+                            <property name="fontSize">9pt</property>
+                            <property name="fontWeight">normal</property>
+                            <property name="borderBottomColor">#000000</property>
+                            <property name="borderBottomStyle">dashed</property>
+                            <property name="borderBottomWidth">thin</property>
+                            <property name="borderTopColor">#000000</property>
+                            <property name="borderTopStyle">dashed</property>
+                            <property name="borderTopWidth">thin</property>
+                            <property name="textAlign">center</property>
+                            <text-property name="text">DEBE MO</text-property>
+                        </label>
+                    </cell>
+                    <cell id="346">
+                        <label id="352">
+                            <property name="backgroundColor">#FFFFFF</property>
+                            <property name="fontFamily">monospace</property>
+                            <property name="fontSize">9pt</property>
+                            <property name="fontWeight">normal</property>
+                            <property name="borderBottomColor">#000000</property>
+                            <property name="borderBottomStyle">dashed</property>
+                            <property name="borderBottomWidth">thin</property>
+                            <property name="borderTopColor">#000000</property>
+                            <property name="borderTopStyle">dashed</property>
+                            <property name="borderTopWidth">thin</property>
+                            <property name="textAlign">center</property>
+                            <text-property name="text">HABER MO</text-property>
+                        </label>
+                    </cell>
+                </row>
+            </header>
+            <detail>
+                <row id="173">
+                    <property name="height">0.2604166666666667in</property>
+                    <cell id="174">
+                        <data id="255">
+                            <property name="fontFamily">monospace</property>
+                            <property name="fontSize">8pt</property>
+                            <property name="textAlign">center</property>
+                            <property name="resultSetColumn">VALUE</property>
+                        </data>
+                    </cell>
+                    <cell id="176">
+                        <data id="253">
+                            <property name="fontFamily">monospace</property>
+                            <property name="fontSize">8pt</property>
+                            <property name="resultSetColumn">PARTNER</property>
+                        </data>
+                    </cell>
+                    <cell id="178">
+                        <data id="254">
+                            <property name="fontFamily">monospace</property>
+                            <property name="fontSize">8pt</property>
+                            <structure name="numberFormat">
+                                <property name="category">Currency</property>
+                                <property name="pattern">#,##0.00</property>
+                            </structure>
+                            <property name="textAlign">right</property>
+                            <property name="resultSetColumn">DEBE</property>
+                        </data>
+                    </cell>
+                    <cell id="180">
+                        <data id="256">
+                            <property name="fontFamily">monospace</property>
+                            <property name="fontSize">8pt</property>
+                            <structure name="numberFormat">
+                                <property name="category">Currency</property>
+                                <property name="pattern">#,##0.00</property>
+                            </structure>
+                            <property name="textAlign">right</property>
+                            <property name="resultSetColumn">HABER</property>
+                        </data>
+                    </cell>
+                    <cell id="341">
+                        <data id="354">
+                            <property name="fontFamily">monospace</property>
+                            <property name="fontSize">8pt</property>
+                            <structure name="numberFormat">
+                                <property name="category">Currency</property>
+                                <property name="pattern">#,##0.00{RoundingMode=HALF_UP}</property>
+                            </structure>
+                            <property name="textAlign">right</property>
+                            <property name="whiteSpace">nowrap</property>
+                            <property name="resultSetColumn">DEBEMO</property>
+                        </data>
+                    </cell>
+                    <cell id="347">
+                        <data id="353">
+                            <property name="fontFamily">monospace</property>
+                            <property name="fontSize">8pt</property>
+                            <structure name="numberFormat">
+                                <property name="category">Currency</property>
+                                <property name="pattern">#,##0.00{RoundingMode=HALF_UP}</property>
+                            </structure>
+                            <property name="textAlign">right</property>
+                            <property name="whiteSpace">nowrap</property>
+                            <property name="resultSetColumn">HABERMO</property>
+                        </data>
+                    </cell>
+                </row>
+            </detail>
+            <footer>
+                <row id="303">
+                    <property name="height">0.375in</property>
+                    <cell id="304"/>
+                    <cell id="305">
+                        <label id="308">
+                            <property name="fontFamily">monospace</property>
+                            <property name="fontSize">10pt</property>
+                            <property name="fontWeight">bold</property>
+                            <property name="marginLeft">150pt</property>
+                            <property name="paddingTop">5pt</property>
+                            <property name="paddingBottom">1pt</property>
+                            <property name="textAlign">left</property>
+                            <text-property name="text">TOTAL SALDO .........</text-property>
+                        </label>
+                    </cell>
+                    <cell id="306">
+                        <property name="colSpan">1</property>
+                        <property name="rowSpan">1</property>
+                    </cell>
+                    <cell id="321">
+                        <data id="360">
+                            <property name="fontFamily">monospace</property>
+                            <property name="fontSize">9pt</property>
+                            <property name="fontWeight">bold</property>
+                            <property name="paddingTop">5pt</property>
+                            <property name="paddingRight">2pt</property>
+                            <structure name="numberFormat">
+                                <property name="category">Currency</property>
+                                <property name="pattern">#,##0.00{RoundingMode=HALF_UP}</property>
+                            </structure>
+                            <property name="textAlign">right</property>
+                            <property name="resultSetColumn">totalSalMn</property>
+                        </data>
+                    </cell>
+                    <cell id="343"/>
+                    <cell id="349">
+                        <data id="361">
+                            <property name="fontFamily">monospace</property>
+                            <property name="fontSize">9pt</property>
+                            <property name="fontWeight">bold</property>
+                            <property name="paddingTop">5pt</property>
+                            <property name="paddingRight">2pt</property>
+                            <structure name="numberFormat">
+                                <property name="category">Currency</property>
+                                <property name="pattern">#,##0.00{RoundingMode=HALF_UP}</property>
+                            </structure>
+                            <property name="textAlign">right</property>
+                            <property name="resultSetColumn">totalSalMi</property>
+                        </data>
+                    </cell>
+                </row>
+            </footer>
+        </table>
+    </body>
+    <property name="pageVariables">
+        <variable-element name="grantotal">
+            <expression name="value" type="javascript">0</expression>
+            <property name="type">report</property>
+        </variable-element>
+    </property>
+</report>

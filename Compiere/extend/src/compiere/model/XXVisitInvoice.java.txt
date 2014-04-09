@@ -1,0 +1,112 @@
+/******************************************************************************
+ * Product: Compiere ERP & CRM Smart Business Solution
+ * Copyright (C) 1999-2006 ComPiere, Inc. All Rights Reserved.
+ * This program is free software; you can redistribute it and/or modify it
+ * under the terms version 2 of the GNU General Public License as published
+ * by the Free Software Foundation. This program is distributed in the hope
+ * that it will be useful, but WITHOUT ANY WARRANTY; without even the implied
+ * warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. 
+ * See the GNU General Public License for more details.
+ * You should have received a copy of the GNU General Public License along 
+ * with this program; if not, write to the Free Software Foundation, Inc., 
+ * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA.
+ * You may reach us at: ComPiere, Inc. - http://www.compiere.org/license.html
+ * 3600 Bride Parkway #102, Redwood City, CA 94065, USA or info@compiere.org 
+ *****************************************************************************/
+
+package compiere.model;
+
+import java.math.*;
+import java.sql.*;
+import java.util.logging.*;
+import org.compiere.model.*;
+import org.compiere.process.*;
+import org.compiere.util.*;
+
+
+/**
+ *	
+ *	
+ *  @author Administrator
+ *  @version $Id$
+ */
+public class VisitInvoice extends SvrProcess
+{
+	private int		p_XX_Visit_ID;
+	private int		p_C_DocType_ID;
+
+	/**
+	 * 	prepare
+	 *	@see org.compiere.process.SvrProcess#prepare()
+	 */
+	@Override
+	protected void prepare()
+	{
+		ProcessInfoParameter[] para = getParameter();
+		for (int i = 0; i < para.length; i++)
+		{
+			String name = para[i].getParameterName();
+			if (para[i].getParameter() == null && para[i].getParameter_To() == null)
+				;
+			else if (name.equals("C_DocType_ID"))
+				p_C_DocType_ID = para[i].getParameterAsInt();
+			else
+				log.log(Level.SEVERE, "Unknown Parameter: " + name);
+			
+		}
+		p_XX_Visit_ID = getRecord_ID();
+	}
+
+	/**
+	 * 	Process
+	 *	@return summary
+	 *	@throws Exception
+	 */
+	protected String doIt() throws Exception
+	{
+		log.info("XX_Visit_ID=" + p_XX_Visit_ID + ", C_DocType_ID=" + p_C_DocType_ID);
+		if (p_XX_Visit_ID < 1)
+			throw new IllegalArgumentException("@NotFound@ @XX_Visit_ID@");
+		MVisit visit = new MVisit(getCtx(), p_XX_Visit_ID, get_TrxName());
+		if (visit.get_ID() != p_XX_Visit_ID)
+			throw new CompiereSystemException("@NotFound@ @XX_Visit_ID@ = " + p_XX_Visit_ID);
+		
+		if (visit.isProcessed())
+			throw new CompiereUserException("@XX_Visit_ID@ " + visit.getName() + " @Processed@");
+		
+		MInvoice invoice = new MInvoice(getCtx(), 0, get_TrxName());
+		invoice.setC_DocTypeTarget_ID(p_C_DocType_ID);
+		//	Business Partner & Defaults
+		MBPartner bp = new MBPartner(getCtx(), visit.getC_BPartner_ID(), null);
+		invoice.setBPartner(bp);
+		invoice.setC_BPartner_Location_ID(visit.getC_BPartner_Location_ID());
+		invoice.setAD_User_ID(visit.getAD_User_ID());
+		//
+		invoice.setDateInvoiced(visit.getVisitTime());
+		invoice.setSalesRep_ID(visit.getSalesRep_ID());
+		//
+		if (!invoice.save())
+			throw new CompiereSystemException("@NotSaved@ @C_Invoice_ID@");
+		
+		MInvoiceLine line = new MInvoiceLine(invoice);
+		line.setQty(visit.getMinutes());
+		line.setPriceActual(new BigDecimal(5));
+		line.setDescription(visit.getName());
+		
+		if (!line.save())
+			throw new CompiereSystemException("@NotSaved@ @C_InvoiceLine_ID@");
+		
+		//	Be careful! Does not call Workflow
+		invoice.processIt(MInvoice.ACTION_Complete);
+		invoice.save();
+		
+		//
+		visit.setProcessed(true);
+		visit.setC_Invoice_ID(invoice.getC_Invoice_ID());
+		if (!visit.save())
+			throw new CompiereSystemException("@NotUpdared@ @XX_Visit_ID@");
+		
+		return "@C_Invoice_ID@: " + invoice.getDocumentNo();
+	}
+
+}

@@ -1,0 +1,50 @@
+<C_BPartner_Locations>
+<C_BPartner_Location>
+		<C_BPartner_ID><Info>Crazy Town</Info></C_BPartner_ID>
+		<C_Location_ID>		
+			<IsActive><Value>Y</Value></IsActive>
+			<Address1><Value>123 House Number</Value></Address1>
+			<Address2><Value>57 Baker Street</Value></Address2>
+			<Address3><Value></Value></Address3>
+			<Address4><Value></Value></Address4>
+			<City><Value>Croydon</Value></City>
+			<Postal><Value>CR0 5QT</Value></Postal>
+			<RegionName><Value>Surrey</Value></RegionName>
+			<C_Country_ID><Info>United Kingdom</Info></C_Country_ID>
+		</C_Location_ID>
+		<C_SalesRegion_ID><Value></Value></C_SalesRegion_ID>
+		<Phone><Value>111</Value></Phone>
+		<Phone2><Value>222</Value></Phone2>
+		<Fax><Value>1</Value></Fax>
+		<ISDN><Value>2</Value></ISDN>
+		<IsActive><Value>Y</Value></IsActive>
+		<IsBillTo><Value>Y</Value></IsBillTo>
+		<IsPayFrom><Value>Y</Value></IsPayFrom>
+		<IsRemitTo><Value>Y</Value></IsRemitTo>
+		<IsShipTo><Value>Y</Value></IsShipTo>
+</C_BPartner_Location>
+<C_BPartner_Location>
+		<C_BPartner_ID><Info>Crazy Town</Info></C_BPartner_ID>
+		<C_Location_ID>		
+			<IsActive><Value>Y</Value></IsActive>
+			<Address1><Value>3600 Bridge Parkway</Value></Address1>
+			<Address2><Value>Suite 200</Value></Address2>
+			<Address3><Value></Value></Address3>
+			<Address4><Value></Value></Address4>
+			<City><Value>Redwood Shores</Value></City>
+			<Postal><Value>94500</Value></Postal>
+			<RegionName><Value></Value></RegionName>
+			<C_Country_ID><Info>United States</Info></C_Country_ID>
+		</C_Location_ID>
+		<C_SalesRegion_ID><Value></Value></C_SalesRegion_ID>
+		<Phone><Value>111</Value></Phone>
+		<Phone2><Value>222</Value></Phone2>
+		<Fax><Value>1</Value></Fax>
+		<ISDN><Value>2</Value></ISDN>
+		<IsActive><Value>Y</Value></IsActive>
+		<IsBillTo><Value>Y</Value></IsBillTo>
+		<IsPayFrom><Value>Y</Value></IsPayFrom>
+		<IsRemitTo><Value>Y</Value></IsRemitTo>
+		<IsShipTo><Value>Y</Value></IsShipTo>
+</C_BPartner_Location>
+</C_BPartner_Locations>

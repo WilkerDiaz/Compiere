@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><M_RequisitionLine>
+<M_Requisition_ID>
+<Value>1000013</Value>
+</M_Requisition_ID>
+
+<M_Product_ID>
+<Info>Elm Tree</Info>
+</M_Product_ID>
+
+<C_UOM_ID>
+<Info>Each</Info>
+</C_UOM_ID>
+
+<QtyEntered>
+<Value>5</Value>
+</QtyEntered>
+
+<PriceEntered>
+<Value>38</Value>
+</PriceEntered>
+
+
+<PriceActual>
+<Value>38</Value>
+</PriceActual>
+
+</M_RequisitionLine>

@@ -1,0 +1,47 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<jnlp spec = "1.0+" version = "3.6.2" 
+	codebase = "$$context/compiereHome" 
+	href = "$$context/compiere.jnlp">  
+	<information>
+		<title>Compiere Client 3.6.2 $$context</title>
+		<vendor>ComPiere, Inc.</vendor>
+		<homepage href = "http://www.compiere.org"/>
+		<offline-allowed/>
+		<description>Compiere ERP+CRM ($$context) - Smart Business Solution for Distribution and Service - globally</description>
+		<description kind = "short">Compiere ERP+CRM ($$context)</description>
+		<description kind = "one-line">Compiere ERP+CRM</description>
+		<description kind = "tooltip">Compiere ERP+CRM ($$context)</description>
+		<icon href = "$$context/C32.gif"/>
+		<shortcut online="true">
+			<desktop/>
+			<menu submenu="Compiere 3.6.2 $$context"/>
+		</shortcut>
+	</information>  
+	<resources>
+		<!-- Get the IBM jre -->
+		<j2se version="WASClient6.1.0" href="/WebSphereClientRuntimeWeb/Runtime/WebSphereJre/AppClientRT.jsp"/>
+
+		<!-- Get the WAS client specific jars -->
+		<extension name="WAS Thin EJB Client Library" href="/WebSphereClientRuntimeWeb/Runtime/WebSphereJars/AppClientLib.jsp"/>
+
+		<!-- Launch the WAS client launcher -->
+		<jar href="/WebSphereClientRuntimeWeb/Runtime/WebSphereJars/WebSphereClientLauncher.jar" main="true"/>
+
+		<!-- Compiere application jar -->
+		<jar href="Compiere.jar" download="eager"/>
+		<jar href="CompiereCLib.jar" download="eager"/>
+
+		<!-- WAS client launcher will lauch this class -->
+		<property name="com.ibm.websphere.client.launcher.main" value="org.compiere.Compiere"/>
+
+		<property name="compiereJNLP" value="$$context"/> 
+	</resources>  
+
+	<application-desc>
+		<argument>-CCDcom.ibm.CORBA.secruityEnabled=false</argument>
+	</application-desc>
+
+	<security>
+		<all-permissions/>  
+	</security>
+</jnlp>

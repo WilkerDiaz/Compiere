@@ -1,0 +1,31 @@
+<%--
+  - Author:  Jorg Janke
+  - Version: $Id: header.jspf,v 1.2 2006/05/06 00:41:33 mdeaelfweald Exp $
+  - Compiere ERP & CRM Smart Business Solution - Copyright (c) 1999-2005 Jorg Janke
+  - - -
+  - Web Store Header
+  --%>
+<div id="header">
+	<div id="headerIcon">
+	  <a href="http://<c:out value='${pageContext.request.serverName}'/>/">
+	  <img src="res/logo.png" border="0" alt="Compiere&#8482; - Copyright &copy; 1999-2005 Jorg Janke"></a>
+	</div>
+	
+	<div id="help">
+	    <a class="toolbarLink" href="help.jsp">Help<br /><img src="res/help.jpg" alt="Help"/></a>
+    </div>
+    
+    <div id="webstore">
+    	<a class="toolbarLink" href="cart.jsp">Shopping Cart<img src="res/shoppingcart.gif" alt="Shopping Cart" border="0" /></a>
+    </div>
+    <div id="login">
+         <cws:loginLink/>
+    </div> 
+    
+	<div id="headerContent">	       
+	  <c:if test='${not empty hdrInfo}'><em><c:out value='${hdrInfo}'/></em>&nbsp;&nbsp;</c:if>
+      <c:if test='${not empty hdrMessage}'><font color="#FF0000">** <c:out value='${hdrMessage}'/> **</font></c:if>
+	</div>  
+      
+	
+</div>

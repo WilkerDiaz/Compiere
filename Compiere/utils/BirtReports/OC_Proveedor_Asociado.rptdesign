@@ -1,0 +1,1007 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.22" id="1">
+    <property name="createdBy">Eclipse BIRT Designer Version 4.2.2.v201301221637 Build &lt;4.2.2.v20130206-1509></property>
+    <property name="units">in</property>
+    <property name="iconFile">/templates/blank_report.gif</property>
+    <property name="layoutPreference">auto layout</property>
+    <property name="bidiLayoutOrientation">ltr</property>
+    <property name="imageDPI">96</property>
+    <parameters>
+        <scalar-parameter name="company" id="9">
+            <property name="valueType">static</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">1000012</value>
+            </simple-property-list>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="hasta" id="10">
+            <property name="valueType">static</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">01/02/2013</value>
+            </simple-property-list>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="desde" id="11">
+            <property name="valueType">static</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">01/01/2013</value>
+            </simple-property-list>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+    </parameters>
+    <data-sources>
+        <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="compiere" id="7">
+            <list-property name="privateDriverProperties">
+                <ex-property>
+                    <name>metadataBidiFormatStr</name>
+                    <value>ILYNN</value>
+                </ex-property>
+                <ex-property>
+                    <name>disabledMetadataBidiFormatStr</name>
+                </ex-property>
+                <ex-property>
+                    <name>contentBidiFormatStr</name>
+                    <value>ILYNN</value>
+                </ex-property>
+                <ex-property>
+                    <name>disabledContentBidiFormatStr</name>
+                </ex-property>
+            </list-property>
+            <property name="odaDriverClass">oracle.jdbc.OracleDriver</property>
+            <property name="odaURL">jdbc:oracle:thin:@192.168.1.139:1521:compiere</property>
+            <property name="odaUser">compiere</property>
+            <encrypted-property name="odaPassword" encryptionID="base64">czEwZTkwOWQ=</encrypted-property>
+        </oda-data-source>
+    </data-sources>
+    <data-sets>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="Data Set" id="8">
+            <property name="nullsOrdering">nulls lowest</property>
+            <list-property name="columnHints"/>
+            <list-property name="parameters">
+                <structure>
+                    <property name="name">company</property>
+                    <property name="paramName">company</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">integer</property>
+                    <property name="nativeDataType">0</property>
+                    <property name="position">1</property>
+                    <property name="isOptional">false</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">desde</property>
+                    <property name="paramName">desde</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">0</property>
+                    <property name="position">2</property>
+                    <property name="isOptional">false</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">hasta</property>
+                    <property name="paramName">hasta</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">0</property>
+                    <property name="position">3</property>
+                    <property name="isOptional">false</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">ORD_IMP</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">DEPTO</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">COLECCION</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">FACTOR_DEFINITIVO</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">5</property>
+                        <property name="name">MONEDA</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">6</property>
+                        <property name="name">ORDEN_NAC</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">7</property>
+                        <property name="name">COMPAÑIA_IMPORTADORA</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">8</property>
+                        <property name="name">PROVEE_IMT</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">9</property>
+                        <property name="name">COSTO_IMP</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">10</property>
+                        <property name="name">COSTO_NAC</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">11</property>
+                        <property name="name">FACTURA_SIN_IVA</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">12</property>
+                        <property name="name">FACTURA_CON_IVA</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">13</property>
+                        <property name="name">FECHA_CHEQ</property>
+                        <property name="dataType">date-time</property>
+                    </structure>
+                    <structure>
+                        <property name="position">14</property>
+                        <property name="name">ESTADO_OC</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">15</property>
+                        <property name="name">CATEGORIA</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">16</property>
+                        <property name="name">TASACAMBIO</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">17</property>
+                        <property name="name">FACTOR_DEF_NAC</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">18</property>
+                        <property name="name">MONT_SEG</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">19</property>
+                        <property name="name">MONT_AGEN_CARG</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">20</property>
+                        <property name="name">MONT_TES_NAC</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">21</property>
+                        <property name="name">MONT_SENIAT</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">22</property>
+                        <property name="name">MONT_AGEN_ADU</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">compiere</property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">ORD_IMP</property>
+                    <property name="nativeName">ORD_IMP</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">DEPTO</property>
+                    <property name="nativeName">DEPTO</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">COLECCION</property>
+                    <property name="nativeName">COLECCION</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">4</property>
+                    <property name="name">FACTOR_DEFINITIVO</property>
+                    <property name="nativeName">FACTOR_DEFINITIVO</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">5</property>
+                    <property name="name">MONEDA</property>
+                    <property name="nativeName">MONEDA</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">6</property>
+                    <property name="name">ORDEN_NAC</property>
+                    <property name="nativeName">ORDEN_NAC</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">7</property>
+                    <property name="name">COMPAÑIA_IMPORTADORA</property>
+                    <property name="nativeName">COMPAÑIA_IMPORTADORA</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">8</property>
+                    <property name="name">PROVEE_IMT</property>
+                    <property name="nativeName">PROVEE_IMT</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">9</property>
+                    <property name="name">COSTO_IMP</property>
+                    <property name="nativeName">COSTO_IMP</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">10</property>
+                    <property name="name">COSTO_NAC</property>
+                    <property name="nativeName">COSTO_NAC</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">11</property>
+                    <property name="name">FACTURA_SIN_IVA</property>
+                    <property name="nativeName">FACTURA_SIN_IVA</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">12</property>
+                    <property name="name">FACTURA_CON_IVA</property>
+                    <property name="nativeName">FACTURA_CON_IVA</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">13</property>
+                    <property name="name">FECHA_CHEQ</property>
+                    <property name="nativeName">FECHA_CHEQ</property>
+                    <property name="dataType">date-time</property>
+                </structure>
+                <structure>
+                    <property name="position">14</property>
+                    <property name="name">ESTADO_OC</property>
+                    <property name="nativeName">ESTADO_OC</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">15</property>
+                    <property name="name">CATEGORIA</property>
+                    <property name="nativeName">CATEGORIA</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">16</property>
+                    <property name="name">TASACAMBIO</property>
+                    <property name="nativeName">TASACAMBIO</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">17</property>
+                    <property name="name">FACTOR_DEF_NAC</property>
+                    <property name="nativeName">FACTOR_DEF_NAC</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">18</property>
+                    <property name="name">MONT_SEG</property>
+                    <property name="nativeName">MONT_SEG</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">19</property>
+                    <property name="name">MONT_AGEN_CARG</property>
+                    <property name="nativeName">MONT_AGEN_CARG</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">20</property>
+                    <property name="name">MONT_TES_NAC</property>
+                    <property name="nativeName">MONT_TES_NAC</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">21</property>
+                    <property name="name">MONT_SENIAT</property>
+                    <property name="nativeName">MONT_SENIAT</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">22</property>
+                    <property name="name">MONT_AGEN_ADU</property>
+                    <property name="nativeName">MONT_AGEN_ADU</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+            </list-property>
+            <xml-property name="queryText"><![CDATA[select 
+(select b.documentno from c_order b where a.ref_order_id = b.c_order_id) as Ord_Imp,
+d.value as depto, 
+f.name as Coleccion,
+(select b.XX_DEFINITIVEFACTOR from c_order b where a.ref_order_id = b.c_order_id) as Factor_Definitivo,
+(select c.iso_code from c_order b, c_currency c where a.ref_order_id = b.c_order_id and b.c_currency_id = c.c_currency_id) as Moneda,
+a.documentno as Orden_Nac, 
+j.name as compañia_importadora,
+(select d.name from c_order b, c_bpartner d where a.ref_order_id = b.c_order_id and b.c_bpartner_id = d.c_bpartner_id) as Provee_Imt,
+(select b.totallines from c_order b where a.ref_order_id = b.c_order_id) as Costo_Imp,
+a.TOTALLINES as Costo_Nac, 
+(select sum(k.totallines) from c_invoice k where k.c_order_id = a.c_order_id and C_DOCTYPETARGET_ID = 1000349) as Factura_sin_Iva,
+(select sum(k.grandtotal) from c_invoice k where k.c_order_id = a.c_order_id and C_DOCTYPETARGET_ID = 1000349) as Factura_con_Iva,
+a.xx_checkupdate as fecha_cheq,
+(CASE WHEN a.xx_orderstatus = 'CH' THEN 'CHEQUEADA' 
+WHEN a.xx_orderstatus = 'RE' THEN 'RECIBIDA' 
+ELSE '-' END ) Estado_OC,
+(c.value || '-' || c.name) as categoria,
+(select zz.XX_REALEXCHANGERATE from c_order zz where a.ref_order_id = zz.c_order_id)as tasacambio,
+((a.TOTALLINES) / (select (case when b.totallines <> 0 then b.totallines else 1 end) from c_order b where a.ref_order_id = b.c_order_id)) as Factor_Def_Nac,
+(select b.XX_VendorInvoiceAmount * (g.XX_RealInsuranceAmount   / 
+(SELECT SUM(XX_VendorInvoiceAmount) FROM C_ORDER z where
+z.xx_vlo_boardingguide_id = g.xx_vlo_boardingguide_id
+and z.ISSOTRX = 'N'))
+from xx_vlo_boardingguide g, c_order b where a.ref_order_id = b.c_order_id and b.xx_vlo_boardingguide_id = g.xx_vlo_boardingguide_id) as Mont_Seg,
+(select b.XX_VendorInvoiceAmount * (g.XX_InterFretRealAmount   / 
+(SELECT SUM(XX_VendorInvoiceAmount) FROM C_ORDER z where 
+z.xx_vlo_boardingguide_id = g.xx_vlo_boardingguide_id
+and z.ISSOTRX = 'N'))
+from xx_vlo_boardingguide g, c_order b where a.ref_order_id = b.c_order_id and b.xx_vlo_boardingguide_id = g.xx_vlo_boardingguide_id) as Mont_Agen_Carg,
+(select b.XX_VendorInvoiceAmount * (g.XX_NACTREASREALAMOUNT   / 
+(SELECT SUM(XX_VendorInvoiceAmount) FROM C_ORDER z where
+z.xx_vlo_boardingguide_id = g.xx_vlo_boardingguide_id
+and z.ISSOTRX = 'N'))
+from xx_vlo_boardingguide g, c_order b where a.ref_order_id = b.c_order_id and b.xx_vlo_boardingguide_id = g.xx_vlo_boardingguide_id) as Mont_Tes_Nac,
+(select b.XX_VendorInvoiceAmount * (g.XX_SENIATREALESTEEMEDAMOUNT   / 
+(SELECT SUM(XX_VendorInvoiceAmount) FROM C_ORDER z where
+z.xx_vlo_boardingguide_id = g.xx_vlo_boardingguide_id
+and z.ISSOTRX = 'N'))
+from xx_vlo_boardingguide g, c_order b where a.ref_order_id = b.c_order_id and b.xx_vlo_boardingguide_id = g.xx_vlo_boardingguide_id) as Mont_Seniat,
+(select b.XX_VendorInvoiceAmount * (g.XX_AARealAmount   / 
+(SELECT SUM(XX_VendorInvoiceAmount) FROM C_ORDER z where
+z.xx_vlo_boardingguide_id = g.xx_vlo_boardingguide_id
+and z.ISSOTRX = 'N'))
+from xx_vlo_boardingguide g, c_order b where a.ref_order_id = b.c_order_id and b.xx_vlo_boardingguide_id = g.xx_vlo_boardingguide_id) as Mont_Agen_Adu
+from c_order a, xx_vmr_department d, xx_vmr_collection f, c_bpartner j, XX_VMR_Category c 
+where a.ad_client_id = ? and 
+trunc(a.xx_receptiondate) >= to_date(?, 'dd/mm/yyyy') and
+trunc(a.xx_receptiondate) <= to_date(?, 'dd/mm/yyyy') and
+a.XX_ORDERSTATUS in ('RE', 'AP', 'CH') and a.xx_ordertype = 'Nacional' and
+a.issotrx = 'N'and XX_COMESFROMSITME = 'Y'
+and a.xx_vmr_department_id = d.xx_vmr_department_id
+and a.xx_vmr_collection_id = f.xx_vmr_collection_id
+and a.c_bpartner_id = j.c_bpartner_id
+and a.XX_VMR_Category_ID = c.XX_VMR_Category_ID
+order by a.documentno]]></xml-property>
+        </oda-data-set>
+    </data-sets>
+    <styles>
+        <style name="report" id="4">
+            <property name="fontFamily">sans-serif</property>
+            <property name="fontSize">10pt</property>
+        </style>
+        <style name="crosstab-cell" id="5">
+            <property name="borderBottomColor">#CCCCCC</property>
+            <property name="borderBottomStyle">solid</property>
+            <property name="borderBottomWidth">1pt</property>
+            <property name="borderLeftColor">#CCCCCC</property>
+            <property name="borderLeftStyle">solid</property>
+            <property name="borderLeftWidth">1pt</property>
+            <property name="borderRightColor">#CCCCCC</property>
+            <property name="borderRightStyle">solid</property>
+            <property name="borderRightWidth">1pt</property>
+            <property name="borderTopColor">#CCCCCC</property>
+            <property name="borderTopStyle">solid</property>
+            <property name="borderTopWidth">1pt</property>
+        </style>
+        <style name="crosstab" id="6">
+            <property name="borderBottomColor">#CCCCCC</property>
+            <property name="borderBottomStyle">solid</property>
+            <property name="borderBottomWidth">1pt</property>
+            <property name="borderLeftColor">#CCCCCC</property>
+            <property name="borderLeftStyle">solid</property>
+            <property name="borderLeftWidth">1pt</property>
+            <property name="borderRightColor">#CCCCCC</property>
+            <property name="borderRightStyle">solid</property>
+            <property name="borderRightWidth">1pt</property>
+            <property name="borderTopColor">#CCCCCC</property>
+            <property name="borderTopStyle">solid</property>
+            <property name="borderTopWidth">1pt</property>
+        </style>
+    </styles>
+    <page-setup>
+        <simple-master-page name="Simple MasterPage" id="2">
+            <page-footer>
+                <text id="3">
+                    <property name="contentType">html</property>
+                </text>
+            </page-footer>
+        </simple-master-page>
+    </page-setup>
+    <body>
+        <table id="87">
+            <property name="width">24.104166666666668in</property>
+            <property name="dataSet">Data Set</property>
+            <list-property name="boundDataColumns">
+                <structure>
+                    <property name="name">ORD_IMP</property>
+                    <text-property name="displayName">ORD_IMP</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["ORD_IMP"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">DEPTO</property>
+                    <text-property name="displayName">DEPTO</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["DEPTO"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">COLECCION</property>
+                    <text-property name="displayName">COLECCION</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["COLECCION"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">FACTOR_DEFINITIVO</property>
+                    <text-property name="displayName">FACTOR_DEFINITIVO</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["FACTOR_DEFINITIVO"]</expression>
+                    <property name="dataType">decimal</property>
+                    <property name="allowExport">true</property>
+                </structure>
+                <structure>
+                    <property name="name">MONEDA</property>
+                    <text-property name="displayName">MONEDA</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["MONEDA"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">ORDEN_NAC</property>
+                    <text-property name="displayName">ORDEN_NAC</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["ORDEN_NAC"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">COMPAÑIA_IMPORTADORA</property>
+                    <text-property name="displayName">COMPAÑIA_IMPORTADORA</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["COMPAÑIA_IMPORTADORA"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">PROVEE_IMT</property>
+                    <text-property name="displayName">PROVEE_IMT</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["PROVEE_IMT"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">COSTO_IMP</property>
+                    <text-property name="displayName">COSTO_IMP</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["COSTO_IMP"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">COSTO_NAC</property>
+                    <text-property name="displayName">COSTO_NAC</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["COSTO_NAC"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">FACTURA_SIN_IVA</property>
+                    <text-property name="displayName">FACTURA_SIN_IVA</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["FACTURA_SIN_IVA"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">FACTURA_CON_IVA</property>
+                    <text-property name="displayName">FACTURA_CON_IVA</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["FACTURA_CON_IVA"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">FECHA_CHEQ</property>
+                    <text-property name="displayName">FECHA_CHEQ</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["FECHA_CHEQ"]</expression>
+                    <property name="dataType">date</property>
+                    <property name="allowExport">true</property>
+                </structure>
+                <structure>
+                    <property name="name">ESTADO_OC</property>
+                    <text-property name="displayName">ESTADO_OC</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["ESTADO_OC"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">CATEGORIA</property>
+                    <text-property name="displayName">CATEGORIA</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["CATEGORIA"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">TASACAMBIO</property>
+                    <text-property name="displayName">TASACAMBIO</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["TASACAMBIO"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">FACTOR_DEF_NAC</property>
+                    <text-property name="displayName">FACTOR_DEF_NAC</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["FACTOR_DEF_NAC"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">MONT_SEG</property>
+                    <text-property name="displayName">MONT_SEG</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["MONT_SEG"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">MONT_AGEN_CARG</property>
+                    <text-property name="displayName">MONT_AGEN_CARG</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["MONT_AGEN_CARG"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">MONT_TES_NAC</property>
+                    <text-property name="displayName">MONT_TES_NAC</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["MONT_TES_NAC"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">MONT_SENIAT</property>
+                    <text-property name="displayName">MONT_SENIAT</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["MONT_SENIAT"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">MONT_AGEN_ADU</property>
+                    <text-property name="displayName">MONT_AGEN_ADU</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["MONT_AGEN_ADU"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">Column Binding</property>
+                    <text-property name="displayName">TOTAL_GASTOS_IMP</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["MONT_SEG"]+dataSetRow["MONT_AGEN_CARG"]+dataSetRow["MONT_TES_NAC"]+dataSetRow["MONT_SENIAT"]+dataSetRow["MONT_AGEN_ADU"]</expression>
+                    <property name="dataType">decimal</property>
+                    <property name="allowExport">true</property>
+                </structure>
+                <structure>
+                    <property name="name">FACTOR_DEFINITIVO_1</property>
+                    <text-property name="displayName">FACTOR_DEFINITIVO</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["FACTOR_DEFINITIVO"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+            </list-property>
+            <column id="133">
+                <property name="width">1.3333333333333333in</property>
+            </column>
+            <column id="134">
+                <property name="width">1.2916666666666667in</property>
+            </column>
+            <column id="139">
+                <property name="width">2.84375in</property>
+                <property name="repeat">1</property>
+            </column>
+            <column id="140">
+                <property name="width">2.5520833333333335in</property>
+                <property name="repeat">1</property>
+            </column>
+            <column id="137">
+                <property name="width">1.3125in</property>
+            </column>
+            <column id="138">
+                <property name="width">1.4791666666666667in</property>
+            </column>
+            <column id="209">
+                <property name="width">1.3125in</property>
+            </column>
+            <column id="215">
+                <property name="width">1.4479166666666667in</property>
+            </column>
+            <column id="136">
+                <property name="width">1.8125in</property>
+                <property name="repeat">1</property>
+            </column>
+            <column id="225">
+                <property name="width">2.1041666666666665in</property>
+                <property name="repeat">1</property>
+            </column>
+            <column id="221">
+                <property name="width">1.5520833333333333in</property>
+                <property name="repeat">1</property>
+            </column>
+            <column id="245">
+                <property name="width">1.8125in</property>
+                <property name="repeat">1</property>
+            </column>
+            <column id="241">
+                <property name="width">1.8958333333333333in</property>
+                <property name="repeat">1</property>
+            </column>
+            <column id="237">
+                <property name="width">1.7291666666666667in</property>
+                <property name="repeat">1</property>
+            </column>
+            <column id="233">
+                <property name="width">1.8125in</property>
+                <property name="repeat">1</property>
+            </column>
+            <column id="229">
+                <property name="width">1.8125in</property>
+                <property name="repeat">1</property>
+            </column>
+            <column id="141">
+                <property name="width">1.7291666666666667in</property>
+            </column>
+            <column id="142">
+                <property name="width">1.8229166666666667in</property>
+            </column>
+            <column id="143">
+                <property name="width">1.6041666666666667in</property>
+            </column>
+            <column id="144">
+                <property name="width">1.7604166666666667in</property>
+            </column>
+            <column id="145">
+                <property name="width">1.71875in</property>
+            </column>
+            <column id="146">
+                <property name="width">1.1770833333333333in</property>
+            </column>
+            <header>
+                <row id="88">
+                    <property name="fontWeight">bold</property>
+                    <property name="color">blue</property>
+                    <cell id="89">
+                        <label id="161">
+                            <text-property name="text">ORD_IMP</text-property>
+                        </label>
+                    </cell>
+                    <cell id="90">
+                        <label id="170">
+                            <text-property name="text">ORDEN_NAC</text-property>
+                        </label>
+                    </cell>
+                    <cell id="95">
+                        <label id="172">
+                            <text-property name="text">COMPAÑIA_IMPORTADORA</text-property>
+                        </label>
+                    </cell>
+                    <cell id="96">
+                        <label id="174">
+                            <text-property name="text">PROVEE_IMT</text-property>
+                        </label>
+                    </cell>
+                    <cell id="93">
+                        <label id="168">
+                            <text-property name="text">MONEDA</text-property>
+                        </label>
+                    </cell>
+                    <cell id="94">
+                        <label id="162">
+                            <text-property name="text">DPTO</text-property>
+                        </label>
+                    </cell>
+                    <cell id="206">
+                        <label id="210">
+                            <text-property name="text">CATEGORÍA</text-property>
+                        </label>
+                    </cell>
+                    <cell id="212">
+                        <label id="216">
+                            <text-property name="text">TASA_DE_CAMBIO</text-property>
+                        </label>
+                    </cell>
+                    <cell id="92">
+                        <label id="166">
+                            <text-property name="text">FACTOR_DEFINITIVO_IMP</text-property>
+                        </label>
+                    </cell>
+                    <cell id="222">
+                        <label id="246">
+                            <text-property name="text">FACTOR_DEFINITIVO_NAC</text-property>
+                        </label>
+                    </cell>
+                    <cell id="218">
+                        <label id="247">
+                            <text-property name="text">MONTO_DE_SEGURO</text-property>
+                        </label>
+                    </cell>
+                    <cell id="242">
+                        <label id="248">
+                            <text-property name="text">MONTO_AGENTE_CARGA</text-property>
+                        </label>
+                    </cell>
+                    <cell id="238">
+                        <label id="249">
+                            <text-property name="text">MONTO_TESORERÍA_NAC</text-property>
+                        </label>
+                    </cell>
+                    <cell id="234">
+                        <label id="250">
+                            <text-property name="text">MONTO_SENIAT</text-property>
+                        </label>
+                    </cell>
+                    <cell id="230">
+                        <label id="251">
+                            <text-property name="text">MONTO_AGENTE_ADUANAL</text-property>
+                        </label>
+                    </cell>
+                    <cell id="226">
+                        <label id="252">
+                            <text-property name="text">TOTAL_GASTOS_IMP</text-property>
+                        </label>
+                    </cell>
+                    <cell id="97">
+                        <label id="176">
+                            <text-property name="text">COSTO_IMP</text-property>
+                        </label>
+                    </cell>
+                    <cell id="98">
+                        <label id="178">
+                            <text-property name="text">COSTO_NAC</text-property>
+                        </label>
+                    </cell>
+                    <cell id="99">
+                        <label id="180">
+                            <text-property name="text">FACTURA_SIN_IVA</text-property>
+                        </label>
+                    </cell>
+                    <cell id="100">
+                        <label id="182">
+                            <text-property name="text">FACTURA_CON_IVA</text-property>
+                        </label>
+                    </cell>
+                    <cell id="101">
+                        <label id="184">
+                            <text-property name="text">FECHA_CHEQ</text-property>
+                        </label>
+                    </cell>
+                    <cell id="102">
+                        <label id="192">
+                            <text-property name="text">ESTADO_OC</text-property>
+                        </label>
+                    </cell>
+                </row>
+            </header>
+            <detail>
+                <row id="103">
+                    <property name="textAlign">left</property>
+                    <cell id="104">
+                        <data id="188">
+                            <property name="resultSetColumn">ORD_IMP</property>
+                        </data>
+                    </cell>
+                    <cell id="105">
+                        <data id="171">
+                            <property name="resultSetColumn">ORDEN_NAC</property>
+                        </data>
+                    </cell>
+                    <cell id="110">
+                        <data id="173">
+                            <property name="resultSetColumn">COMPAÑIA_IMPORTADORA</property>
+                        </data>
+                    </cell>
+                    <cell id="111">
+                        <data id="175">
+                            <property name="resultSetColumn">PROVEE_IMT</property>
+                        </data>
+                    </cell>
+                    <cell id="108">
+                        <data id="169">
+                            <property name="resultSetColumn">MONEDA</property>
+                        </data>
+                    </cell>
+                    <cell id="109">
+                        <data id="163">
+                            <property name="resultSetColumn">DEPTO</property>
+                        </data>
+                    </cell>
+                    <cell id="207">
+                        <data id="211">
+                            <property name="resultSetColumn">CATEGORIA</property>
+                        </data>
+                    </cell>
+                    <cell id="213">
+                        <data id="217">
+                            <property name="resultSetColumn">TASACAMBIO</property>
+                        </data>
+                    </cell>
+                    <cell id="107">
+                        <data id="264">
+                            <property name="resultSetColumn">FACTOR_DEFINITIVO</property>
+                        </data>
+                    </cell>
+                    <cell id="223">
+                        <data id="254">
+                            <structure name="numberFormat">
+                                <property name="category">Custom</property>
+                                <property name="pattern">#0.00</property>
+                            </structure>
+                            <property name="resultSetColumn">FACTOR_DEF_NAC</property>
+                        </data>
+                    </cell>
+                    <cell id="219">
+                        <data id="255">
+                            <structure name="numberFormat">
+                                <property name="category">Custom</property>
+                                <property name="pattern">#0.00</property>
+                            </structure>
+                            <property name="resultSetColumn">MONT_SEG</property>
+                        </data>
+                    </cell>
+                    <cell id="243">
+                        <data id="256">
+                            <structure name="numberFormat">
+                                <property name="category">Custom</property>
+                                <property name="pattern">#0.00</property>
+                            </structure>
+                            <property name="resultSetColumn">MONT_AGEN_CARG</property>
+                        </data>
+                    </cell>
+                    <cell id="239">
+                        <data id="257">
+                            <structure name="numberFormat">
+                                <property name="category">Custom</property>
+                                <property name="pattern">#0.00</property>
+                            </structure>
+                            <property name="resultSetColumn">MONT_TES_NAC</property>
+                        </data>
+                    </cell>
+                    <cell id="235">
+                        <data id="258">
+                            <structure name="numberFormat">
+                                <property name="category">Custom</property>
+                                <property name="pattern">#0.00</property>
+                            </structure>
+                            <property name="resultSetColumn">MONT_SENIAT</property>
+                        </data>
+                    </cell>
+                    <cell id="231">
+                        <data id="259">
+                            <structure name="numberFormat">
+                                <property name="category">Custom</property>
+                                <property name="pattern">#0.00</property>
+                            </structure>
+                            <property name="resultSetColumn">MONT_AGEN_ADU</property>
+                        </data>
+                    </cell>
+                    <cell id="227">
+                        <data id="263">
+                            <structure name="numberFormat">
+                                <property name="category">Custom</property>
+                                <property name="pattern">#0.00</property>
+                            </structure>
+                            <property name="resultSetColumn">Column Binding</property>
+                        </data>
+                    </cell>
+                    <cell id="112">
+                        <data id="177">
+                            <structure name="numberFormat">
+                                <property name="category">Currency</property>
+                                <property name="pattern">#,##0.00{RoundingMode=HALF_UP}</property>
+                            </structure>
+                            <property name="textAlign">right</property>
+                            <property name="resultSetColumn">COSTO_IMP</property>
+                        </data>
+                    </cell>
+                    <cell id="113">
+                        <data id="179">
+                            <structure name="numberFormat">
+                                <property name="category">Currency</property>
+                                <property name="pattern">#,##0.00{RoundingMode=HALF_UP}</property>
+                            </structure>
+                            <property name="textAlign">right</property>
+                            <property name="resultSetColumn">COSTO_NAC</property>
+                        </data>
+                    </cell>
+                    <cell id="114">
+                        <data id="181">
+                            <structure name="numberFormat">
+                                <property name="category">Currency</property>
+                                <property name="pattern">#,##0.00{RoundingMode=HALF_UP}</property>
+                            </structure>
+                            <property name="textAlign">right</property>
+                            <property name="resultSetColumn">FACTURA_SIN_IVA</property>
+                        </data>
+                    </cell>
+                    <cell id="115">
+                        <data id="183">
+                            <structure name="numberFormat">
+                                <property name="category">Currency</property>
+                                <property name="pattern">#,##0.00{RoundingMode=HALF_UP}</property>
+                            </structure>
+                            <property name="textAlign">right</property>
+                            <property name="resultSetColumn">FACTURA_CON_IVA</property>
+                        </data>
+                    </cell>
+                    <cell id="116">
+                        <data id="185">
+                            <structure name="dateTimeFormat">
+                                <property name="category">Medium Date</property>
+                                <property name="pattern">Medium Date</property>
+                            </structure>
+                            <property name="textAlign">right</property>
+                            <property name="resultSetColumn">FECHA_CHEQ</property>
+                        </data>
+                    </cell>
+                    <cell id="117">
+                        <data id="193">
+                            <property name="resultSetColumn">ESTADO_OC</property>
+                        </data>
+                    </cell>
+                </row>
+            </detail>
+            <footer>
+                <row id="118">
+                    <cell id="119"/>
+                    <cell id="120"/>
+                    <cell id="125"/>
+                    <cell id="126"/>
+                    <cell id="123"/>
+                    <cell id="124"/>
+                    <cell id="208"/>
+                    <cell id="214"/>
+                    <cell id="122"/>
+                    <cell id="224"/>
+                    <cell id="220"/>
+                    <cell id="244"/>
+                    <cell id="240"/>
+                    <cell id="236"/>
+                    <cell id="232"/>
+                    <cell id="228"/>
+                    <cell id="127"/>
+                    <cell id="128"/>
+                    <cell id="129"/>
+                    <cell id="130"/>
+                    <cell id="131"/>
+                    <cell id="132"/>
+                </row>
+            </footer>
+        </table>
+    </body>
+</report>

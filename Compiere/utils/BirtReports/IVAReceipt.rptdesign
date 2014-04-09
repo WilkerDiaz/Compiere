@@ -1,0 +1,2189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.22" id="1">
+    <property name="createdBy">Eclipse BIRT Designer Version 2.6.2.r262_v20110209 Build &lt;2.6.2.v20110214-1523></property>
+    <property name="units">in</property>
+    <property name="iconFile">/templates/blank_report.gif</property>
+    <property name="bidiLayoutOrientation">ltr</property>
+    <property name="imageDPI">96</property>
+    <parameters>
+        <scalar-parameter name="PurchasesBookID" id="49">
+            <property name="hidden">true</property>
+            <property name="valueType">static</property>
+            <property name="dataType">integer</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">1366049</value>
+            </simple-property-list>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+    </parameters>
+    <data-sources>
+        <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="Compiere" id="47">
+            <list-property name="privateDriverProperties">
+                <ex-property>
+                    <name>disabledMetadataBidiFormatStr</name>
+                </ex-property>
+                <ex-property>
+                    <name>disabledContentBidiFormatStr</name>
+                </ex-property>
+                <ex-property>
+                    <name>contentBidiFormatStr</name>
+                    <value>ILYNN</value>
+                </ex-property>
+                <ex-property>
+                    <name>metadataBidiFormatStr</name>
+                    <value>ILYNN</value>
+                </ex-property>
+            </list-property>
+            <property name="odaDriverClass">oracle.jdbc.OracleDriver</property>
+            <property name="odaURL">jdbc:oracle:thin:@192.168.1.139:1521:compiere</property>
+            <property name="odaUser">compiere</property>
+            <encrypted-property name="odaPassword" encryptionID="base64">czEwZTkwOWQ=</encrypted-property>
+        </oda-data-source>
+    </data-sources>
+    <data-sets>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="Header" id="48">
+            <list-property name="parameters">
+                <structure>
+                    <property name="name">PurchasesBookID</property>
+                    <property name="paramName">PurchasesBookID</property>
+                    <property name="dataType">integer</property>
+                    <property name="position">1</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">XX_DOCUMENTNO_ID</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">XX_INVOICEDATE</property>
+                        <property name="dataType">date-time</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">C_ORDER_ID</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">AD_CLIENT_ID</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">5</property>
+                        <property name="name">AD_ORG_ID</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">6</property>
+                        <property name="name">ISACTIVE</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">7</property>
+                        <property name="name">CREATED</property>
+                        <property name="dataType">date-time</property>
+                    </structure>
+                    <structure>
+                        <property name="position">8</property>
+                        <property name="name">CREATEDBY</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">9</property>
+                        <property name="name">UPDATED</property>
+                        <property name="dataType">date-time</property>
+                    </structure>
+                    <structure>
+                        <property name="position">10</property>
+                        <property name="name">UPDATEDBY</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">11</property>
+                        <property name="name">XX_VCN_PURCHABOOKCABEVIEW_ID</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">12</property>
+                        <property name="name">XX_VCN_PURCHASESBOOK_ID</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">13</property>
+                        <property name="name">XX_WITHHOLDING</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">14</property>
+                        <property name="name">C_BPARTNER_ID</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">15</property>
+                        <property name="name">XX_CI_RIF</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">16</property>
+                        <property name="name">XX_NOCOMPROBANTE</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">17</property>
+                        <property name="name">XX_NOCOMPROBANTEAUX</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">18</property>
+                        <property name="name">XX_DATE</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">19</property>
+                        <property name="name">XX_CLIENT</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">20</property>
+                        <property name="name">XX_RIF</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">21</property>
+                        <property name="name">XX_ADDRESS</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">22</property>
+                        <property name="name">XX_COUNTRY</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">23</property>
+                        <property name="name">SIGNATURE</property>
+                        <property name="dataType">blob</property>
+                    </structure>
+                    <structure>
+                        <property name="position">24</property>
+                        <property name="name">BPARTNER</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">Compiere</property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">XX_DOCUMENTNO_ID</property>
+                    <property name="nativeName">XX_DOCUMENTNO_ID</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">XX_INVOICEDATE</property>
+                    <property name="nativeName">XX_INVOICEDATE</property>
+                    <property name="dataType">date-time</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">C_ORDER_ID</property>
+                    <property name="nativeName">C_ORDER_ID</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">4</property>
+                    <property name="name">AD_CLIENT_ID</property>
+                    <property name="nativeName">AD_CLIENT_ID</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">5</property>
+                    <property name="name">AD_ORG_ID</property>
+                    <property name="nativeName">AD_ORG_ID</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">6</property>
+                    <property name="name">ISACTIVE</property>
+                    <property name="nativeName">ISACTIVE</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">7</property>
+                    <property name="name">CREATED</property>
+                    <property name="nativeName">CREATED</property>
+                    <property name="dataType">date-time</property>
+                </structure>
+                <structure>
+                    <property name="position">8</property>
+                    <property name="name">CREATEDBY</property>
+                    <property name="nativeName">CREATEDBY</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">9</property>
+                    <property name="name">UPDATED</property>
+                    <property name="nativeName">UPDATED</property>
+                    <property name="dataType">date-time</property>
+                </structure>
+                <structure>
+                    <property name="position">10</property>
+                    <property name="name">UPDATEDBY</property>
+                    <property name="nativeName">UPDATEDBY</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">11</property>
+                    <property name="name">XX_VCN_PURCHABOOKCABEVIEW_ID</property>
+                    <property name="nativeName">XX_VCN_PURCHABOOKCABEVIEW_ID</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">12</property>
+                    <property name="name">XX_VCN_PURCHASESBOOK_ID</property>
+                    <property name="nativeName">XX_VCN_PURCHASESBOOK_ID</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">13</property>
+                    <property name="name">XX_WITHHOLDING</property>
+                    <property name="nativeName">XX_WITHHOLDING</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">14</property>
+                    <property name="name">C_BPARTNER_ID</property>
+                    <property name="nativeName">C_BPARTNER_ID</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">15</property>
+                    <property name="name">XX_CI_RIF</property>
+                    <property name="nativeName">XX_CI_RIF</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">16</property>
+                    <property name="name">XX_NOCOMPROBANTE</property>
+                    <property name="nativeName">XX_NOCOMPROBANTE</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">17</property>
+                    <property name="name">XX_NOCOMPROBANTEAUX</property>
+                    <property name="nativeName">XX_NOCOMPROBANTEAUX</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">18</property>
+                    <property name="name">XX_DATE</property>
+                    <property name="nativeName">XX_DATE</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">19</property>
+                    <property name="name">XX_CLIENT</property>
+                    <property name="nativeName">XX_CLIENT</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">20</property>
+                    <property name="name">XX_RIF</property>
+                    <property name="nativeName">XX_RIF</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">21</property>
+                    <property name="name">XX_ADDRESS</property>
+                    <property name="nativeName">XX_ADDRESS</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">22</property>
+                    <property name="name">XX_COUNTRY</property>
+                    <property name="nativeName">XX_COUNTRY</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">23</property>
+                    <property name="name">SIGNATURE</property>
+                    <property name="nativeName">SIGNATURE</property>
+                    <property name="dataType">blob</property>
+                </structure>
+                <structure>
+                    <property name="position">24</property>
+                    <property name="name">BPARTNER</property>
+                    <property name="nativeName">BPARTNER</property>
+                    <property name="dataType">string</property>
+                </structure>
+            </list-property>
+            <xml-property name="queryText"><![CDATA[SELECT P.*,
+(SELECT BINARYDATA FROM AD_IMAGE WHERE AD_IMAGE_ID = 
+(select XX_RETENTIONSIGNATURE from AD_Client where ad_client_id = P.ad_client_id)) as signature,
+(select name from c_bpartner where c_bpartner_id = P.C_Bpartner_id) bpartner
+FROM XX_VCN_PURCHABOOKCABEVIEW P
+WHERE P.XX_VCN_PURCHASESBOOK_ID = ?]]></xml-property>
+        </oda-data-set>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="Detail" id="50">
+            <list-property name="parameters">
+                <structure>
+                    <property name="name">PurchasesBookID</property>
+                    <property name="paramName">PurchasesBookID</property>
+                    <property name="dataType">integer</property>
+                    <property name="position">1</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">XX_DOCUMENTDATE</property>
+                        <property name="dataType">date-time</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">DOCUMENTNO</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">XX_CONTROLNUMBER</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">XX_REF_INVOICEDEB</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">5</property>
+                        <property name="name">XX_REF_INVOICECRE</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">6</property>
+                        <property name="name">XX_TYPETRANS</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">7</property>
+                        <property name="name">XX_REF_INVOICE</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">8</property>
+                        <property name="name">XX_EXEMPTBASE</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">9</property>
+                        <property name="name">XX_TAXABLEBASE</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">10</property>
+                        <property name="name">RATE</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">11</property>
+                        <property name="name">XX_TAXAMOUNT</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">12</property>
+                        <property name="name">XX_WITHHOLDINGTAX</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">13</property>
+                        <property name="name">XX_TOTALINVCOST</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">14</property>
+                        <property name="name">AD_CLIENT_ID</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">15</property>
+                        <property name="name">AD_ORG_ID</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">16</property>
+                        <property name="name">ISACTIVE</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">17</property>
+                        <property name="name">CREATED</property>
+                        <property name="dataType">date-time</property>
+                    </structure>
+                    <structure>
+                        <property name="position">18</property>
+                        <property name="name">CREATEDBY</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">19</property>
+                        <property name="name">UPDATED</property>
+                        <property name="dataType">date-time</property>
+                    </structure>
+                    <structure>
+                        <property name="position">20</property>
+                        <property name="name">UPDATEDBY</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">21</property>
+                        <property name="name">C_ORDER_ID</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">22</property>
+                        <property name="name">XX_VCN_PURCHASESBOOKVIEW_ID</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">23</property>
+                        <property name="name">XX_VCN_PURCHASESBOOK_ID</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">24</property>
+                        <property name="name">XX_WITHHOLDING</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">25</property>
+                        <property name="name">C_BPARTNER_ID</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">26</property>
+                        <property name="name">XX_CI_RIF</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">27</property>
+                        <property name="name">XX_NOCOMPROBANTE</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">28</property>
+                        <property name="name">XX_DATE</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">29</property>
+                        <property name="name">XX_CLIENT</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">30</property>
+                        <property name="name">XX_RIF</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">31</property>
+                        <property name="name">XX_ADDRESS</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">32</property>
+                        <property name="name">XX_COUNTRY</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">Compiere</property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">XX_DOCUMENTDATE</property>
+                    <property name="nativeName">XX_DOCUMENTDATE</property>
+                    <property name="dataType">date-time</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">DOCUMENTNO</property>
+                    <property name="nativeName">DOCUMENTNO</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">XX_CONTROLNUMBER</property>
+                    <property name="nativeName">XX_CONTROLNUMBER</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">4</property>
+                    <property name="name">XX_REF_INVOICEDEB</property>
+                    <property name="nativeName">XX_REF_INVOICEDEB</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">5</property>
+                    <property name="name">XX_REF_INVOICECRE</property>
+                    <property name="nativeName">XX_REF_INVOICECRE</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">6</property>
+                    <property name="name">XX_TYPETRANS</property>
+                    <property name="nativeName">XX_TYPETRANS</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">7</property>
+                    <property name="name">XX_REF_INVOICE</property>
+                    <property name="nativeName">XX_REF_INVOICE</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">8</property>
+                    <property name="name">XX_EXEMPTBASE</property>
+                    <property name="nativeName">XX_EXEMPTBASE</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">9</property>
+                    <property name="name">XX_TAXABLEBASE</property>
+                    <property name="nativeName">XX_TAXABLEBASE</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">10</property>
+                    <property name="name">RATE</property>
+                    <property name="nativeName">RATE</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">11</property>
+                    <property name="name">XX_TAXAMOUNT</property>
+                    <property name="nativeName">XX_TAXAMOUNT</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">12</property>
+                    <property name="name">XX_WITHHOLDINGTAX</property>
+                    <property name="nativeName">XX_WITHHOLDINGTAX</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">13</property>
+                    <property name="name">XX_TOTALINVCOST</property>
+                    <property name="nativeName">XX_TOTALINVCOST</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">14</property>
+                    <property name="name">AD_CLIENT_ID</property>
+                    <property name="nativeName">AD_CLIENT_ID</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">15</property>
+                    <property name="name">AD_ORG_ID</property>
+                    <property name="nativeName">AD_ORG_ID</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">16</property>
+                    <property name="name">ISACTIVE</property>
+                    <property name="nativeName">ISACTIVE</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">17</property>
+                    <property name="name">CREATED</property>
+                    <property name="nativeName">CREATED</property>
+                    <property name="dataType">date-time</property>
+                </structure>
+                <structure>
+                    <property name="position">18</property>
+                    <property name="name">CREATEDBY</property>
+                    <property name="nativeName">CREATEDBY</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">19</property>
+                    <property name="name">UPDATED</property>
+                    <property name="nativeName">UPDATED</property>
+                    <property name="dataType">date-time</property>
+                </structure>
+                <structure>
+                    <property name="position">20</property>
+                    <property name="name">UPDATEDBY</property>
+                    <property name="nativeName">UPDATEDBY</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">21</property>
+                    <property name="name">C_ORDER_ID</property>
+                    <property name="nativeName">C_ORDER_ID</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">22</property>
+                    <property name="name">XX_VCN_PURCHASESBOOKVIEW_ID</property>
+                    <property name="nativeName">XX_VCN_PURCHASESBOOKVIEW_ID</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">23</property>
+                    <property name="name">XX_VCN_PURCHASESBOOK_ID</property>
+                    <property name="nativeName">XX_VCN_PURCHASESBOOK_ID</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">24</property>
+                    <property name="name">XX_WITHHOLDING</property>
+                    <property name="nativeName">XX_WITHHOLDING</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">25</property>
+                    <property name="name">C_BPARTNER_ID</property>
+                    <property name="nativeName">C_BPARTNER_ID</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">26</property>
+                    <property name="name">XX_CI_RIF</property>
+                    <property name="nativeName">XX_CI_RIF</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">27</property>
+                    <property name="name">XX_NOCOMPROBANTE</property>
+                    <property name="nativeName">XX_NOCOMPROBANTE</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">28</property>
+                    <property name="name">XX_DATE</property>
+                    <property name="nativeName">XX_DATE</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">29</property>
+                    <property name="name">XX_CLIENT</property>
+                    <property name="nativeName">XX_CLIENT</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">30</property>
+                    <property name="name">XX_RIF</property>
+                    <property name="nativeName">XX_RIF</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">31</property>
+                    <property name="name">XX_ADDRESS</property>
+                    <property name="nativeName">XX_ADDRESS</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">32</property>
+                    <property name="name">XX_COUNTRY</property>
+                    <property name="nativeName">XX_COUNTRY</property>
+                    <property name="dataType">string</property>
+                </structure>
+            </list-property>
+            <xml-property name="queryText"><![CDATA[SELECT * FROM XX_VCN_PURCHASESBOOKVIEW
+WHERE XX_VCN_PURCHASESBOOK_ID = ?
+order by DocumentNo]]></xml-property>
+        </oda-data-set>
+    </data-sets>
+    <styles>
+        <style name="report" id="4">
+            <property name="fontFamily">sans-serif</property>
+            <property name="fontSize">9pt</property>
+        </style>
+        <style name="crosstab-cell" id="5">
+            <property name="borderBottomColor">#CCCCCC</property>
+            <property name="borderBottomStyle">solid</property>
+            <property name="borderBottomWidth">1pt</property>
+            <property name="borderLeftColor">#CCCCCC</property>
+            <property name="borderLeftStyle">solid</property>
+            <property name="borderLeftWidth">1pt</property>
+            <property name="borderRightColor">#CCCCCC</property>
+            <property name="borderRightStyle">solid</property>
+            <property name="borderRightWidth">1pt</property>
+            <property name="borderTopColor">#CCCCCC</property>
+            <property name="borderTopStyle">solid</property>
+            <property name="borderTopWidth">1pt</property>
+        </style>
+        <style name="crosstab" id="6">
+            <property name="borderBottomColor">#CCCCCC</property>
+            <property name="borderBottomStyle">solid</property>
+            <property name="borderBottomWidth">1pt</property>
+            <property name="borderLeftColor">#CCCCCC</property>
+            <property name="borderLeftStyle">solid</property>
+            <property name="borderLeftWidth">1pt</property>
+            <property name="borderRightColor">#CCCCCC</property>
+            <property name="borderRightStyle">solid</property>
+            <property name="borderRightWidth">1pt</property>
+            <property name="borderTopColor">#CCCCCC</property>
+            <property name="borderTopStyle">solid</property>
+            <property name="borderTopWidth">1pt</property>
+        </style>
+    </styles>
+    <page-setup>
+        <simple-master-page name="Simple MasterPage" id="2">
+            <property name="orientation">landscape</property>
+        </simple-master-page>
+    </page-setup>
+    <body>
+        <grid id="7">
+            <property name="height">6.864583333333333in</property>
+            <property name="width">10.447916666666666in</property>
+            <column id="8">
+                <property name="width">5.21875in</property>
+            </column>
+            <column id="46">
+                <property name="width">3.3541666666666665in</property>
+            </column>
+            <column id="41">
+                <property name="width">1.875in</property>
+            </column>
+            <row id="9">
+                <property name="height">0.3854166666666667in</property>
+                <cell id="10">
+                    <property name="colSpan">3</property>
+                    <property name="rowSpan">1</property>
+                    <property name="verticalAlign">middle</property>
+                    <label id="15">
+                        <property name="fontWeight">bold</property>
+                        <property name="textAlign">center</property>
+                        <text-property name="text">COMPROBANTE DE RETENCIÓN DEL IMPUESTO AL VALOR AGREGADO</text-property>
+                    </label>
+                </cell>
+            </row>
+            <row id="11">
+                <property name="height">3.875in</property>
+                <cell id="12">
+                    <property name="colSpan">3</property>
+                    <property name="rowSpan">1</property>
+                    <table id="79">
+                        <property name="width">10.375in</property>
+                        <property name="dataSet">Detail</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">XX_DOCUMENTDATE</property>
+                                <text-property name="displayName">XX_DOCUMENTDATE</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["XX_DOCUMENTDATE"]</expression>
+                                <property name="dataType">date-time</property>
+                            </structure>
+                            <structure>
+                                <property name="name">DOCUMENTNO</property>
+                                <text-property name="displayName">DOCUMENTNO</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["DOCUMENTNO"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                            <structure>
+                                <property name="name">XX_CONTROLNUMBER</property>
+                                <text-property name="displayName">XX_CONTROLNUMBER</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["XX_CONTROLNUMBER"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                            <structure>
+                                <property name="name">XX_REF_INVOICEDEB</property>
+                                <text-property name="displayName">XX_REF_INVOICEDEB</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["XX_REF_INVOICEDEB"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                            <structure>
+                                <property name="name">XX_REF_INVOICECRE</property>
+                                <text-property name="displayName">XX_REF_INVOICECRE</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["XX_REF_INVOICECRE"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                            <structure>
+                                <property name="name">XX_TYPETRANS</property>
+                                <text-property name="displayName">XX_TYPETRANS</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["XX_TYPETRANS"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                            <structure>
+                                <property name="name">XX_REF_INVOICE</property>
+                                <text-property name="displayName">XX_REF_INVOICE</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["XX_REF_INVOICE"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                            <structure>
+                                <property name="name">XX_EXEMPTBASE</property>
+                                <text-property name="displayName">XX_EXEMPTBASE</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["XX_EXEMPTBASE"]</expression>
+                                <property name="dataType">decimal</property>
+                            </structure>
+                            <structure>
+                                <property name="name">XX_TAXABLEBASE</property>
+                                <text-property name="displayName">XX_TAXABLEBASE</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["XX_TAXABLEBASE"]</expression>
+                                <property name="dataType">decimal</property>
+                            </structure>
+                            <structure>
+                                <property name="name">RATE</property>
+                                <text-property name="displayName">RATE</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["RATE"]</expression>
+                                <property name="dataType">decimal</property>
+                            </structure>
+                            <structure>
+                                <property name="name">XX_TAXAMOUNT</property>
+                                <text-property name="displayName">XX_TAXAMOUNT</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["XX_TAXAMOUNT"]</expression>
+                                <property name="dataType">decimal</property>
+                            </structure>
+                            <structure>
+                                <property name="name">XX_WITHHOLDINGTAX</property>
+                                <text-property name="displayName">XX_WITHHOLDINGTAX</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["XX_WITHHOLDINGTAX"]</expression>
+                                <property name="dataType">decimal</property>
+                            </structure>
+                            <structure>
+                                <property name="name">XX_TOTALINVCOST</property>
+                                <text-property name="displayName">XX_TOTALINVCOST</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["XX_TOTALINVCOST"]</expression>
+                                <property name="dataType">decimal</property>
+                            </structure>
+                            <structure>
+                                <property name="name">AD_CLIENT_ID</property>
+                                <text-property name="displayName">AD_CLIENT_ID</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["AD_CLIENT_ID"]</expression>
+                                <property name="dataType">decimal</property>
+                            </structure>
+                            <structure>
+                                <property name="name">AD_ORG_ID</property>
+                                <text-property name="displayName">AD_ORG_ID</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["AD_ORG_ID"]</expression>
+                                <property name="dataType">decimal</property>
+                            </structure>
+                            <structure>
+                                <property name="name">ISACTIVE</property>
+                                <text-property name="displayName">ISACTIVE</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["ISACTIVE"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                            <structure>
+                                <property name="name">CREATED</property>
+                                <text-property name="displayName">CREATED</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["CREATED"]</expression>
+                                <property name="dataType">date-time</property>
+                            </structure>
+                            <structure>
+                                <property name="name">CREATEDBY</property>
+                                <text-property name="displayName">CREATEDBY</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["CREATEDBY"]</expression>
+                                <property name="dataType">decimal</property>
+                            </structure>
+                            <structure>
+                                <property name="name">UPDATED</property>
+                                <text-property name="displayName">UPDATED</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["UPDATED"]</expression>
+                                <property name="dataType">date-time</property>
+                            </structure>
+                            <structure>
+                                <property name="name">UPDATEDBY</property>
+                                <text-property name="displayName">UPDATEDBY</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["UPDATEDBY"]</expression>
+                                <property name="dataType">decimal</property>
+                            </structure>
+                            <structure>
+                                <property name="name">C_ORDER_ID</property>
+                                <text-property name="displayName">C_ORDER_ID</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["C_ORDER_ID"]</expression>
+                                <property name="dataType">decimal</property>
+                            </structure>
+                            <structure>
+                                <property name="name">XX_VCN_PURCHASESBOOKVIEW_ID</property>
+                                <text-property name="displayName">XX_VCN_PURCHASESBOOKVIEW_ID</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["XX_VCN_PURCHASESBOOKVIEW_ID"]</expression>
+                                <property name="dataType">decimal</property>
+                            </structure>
+                            <structure>
+                                <property name="name">XX_VCN_PURCHASESBOOK_ID</property>
+                                <text-property name="displayName">XX_VCN_PURCHASESBOOK_ID</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["XX_VCN_PURCHASESBOOK_ID"]</expression>
+                                <property name="dataType">decimal</property>
+                            </structure>
+                            <structure>
+                                <property name="name">XX_WITHHOLDING</property>
+                                <text-property name="displayName">XX_WITHHOLDING</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["XX_WITHHOLDING"]</expression>
+                                <property name="dataType">decimal</property>
+                            </structure>
+                            <structure>
+                                <property name="name">C_BPARTNER_ID</property>
+                                <text-property name="displayName">C_BPARTNER_ID</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["C_BPARTNER_ID"]</expression>
+                                <property name="dataType">decimal</property>
+                            </structure>
+                            <structure>
+                                <property name="name">XX_CI_RIF</property>
+                                <text-property name="displayName">XX_CI_RIF</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["XX_CI_RIF"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                            <structure>
+                                <property name="name">XX_NOCOMPROBANTE</property>
+                                <text-property name="displayName">XX_NOCOMPROBANTE</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["XX_NOCOMPROBANTE"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                            <structure>
+                                <property name="name">XX_DATE</property>
+                                <text-property name="displayName">XX_DATE</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["XX_DATE"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                            <structure>
+                                <property name="name">XX_CLIENT</property>
+                                <text-property name="displayName">XX_CLIENT</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["XX_CLIENT"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                            <structure>
+                                <property name="name">XX_RIF</property>
+                                <text-property name="displayName">XX_RIF</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["XX_RIF"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                            <structure>
+                                <property name="name">XX_ADDRESS</property>
+                                <text-property name="displayName">XX_ADDRESS</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["XX_ADDRESS"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                            <structure>
+                                <property name="name">XX_COUNTRY</property>
+                                <text-property name="displayName">XX_COUNTRY</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["XX_COUNTRY"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                            <structure>
+                                <property name="name">withholdingtaxT</property>
+                                <property name="dataType">float</property>
+                                <property name="aggregateFunction">SUM</property>
+                                <list-property name="arguments">
+                                    <structure>
+                                        <property name="name">Expression</property>
+                                        <expression name="value" type="javascript">row["XX_WITHHOLDINGTAX"]</expression>
+                                    </structure>
+                                </list-property>
+                            </structure>
+                            <structure>
+                                <property name="name">taxAmountT</property>
+                                <property name="dataType">float</property>
+                                <property name="aggregateFunction">SUM</property>
+                                <list-property name="arguments">
+                                    <structure>
+                                        <property name="name">Expression</property>
+                                        <expression name="value" type="javascript">row["XX_TAXAMOUNT"]</expression>
+                                    </structure>
+                                </list-property>
+                            </structure>
+                            <structure>
+                                <property name="name">taxableBaseT</property>
+                                <property name="dataType">float</property>
+                                <property name="aggregateFunction">SUM</property>
+                                <list-property name="arguments">
+                                    <structure>
+                                        <property name="name">Expression</property>
+                                        <expression name="value" type="javascript">row["XX_TAXABLEBASE"]</expression>
+                                    </structure>
+                                </list-property>
+                            </structure>
+                            <structure>
+                                <property name="name">totalCostT</property>
+                                <property name="dataType">float</property>
+                                <property name="aggregateFunction">SUM</property>
+                                <list-property name="arguments">
+                                    <structure>
+                                        <property name="name">Expression</property>
+                                        <expression name="value" type="javascript">row["XX_TOTALINVCOST"]</expression>
+                                    </structure>
+                                </list-property>
+                            </structure>
+                        </list-property>
+                        <column id="122">
+                            <property name="width">0.7708333333333334in</property>
+                        </column>
+                        <column id="123">
+                            <property name="width">0.7708333333333334in</property>
+                        </column>
+                        <column id="124">
+                            <property name="width">0.7916666666666666in</property>
+                        </column>
+                        <column id="125">
+                            <property name="width">0.78125in</property>
+                        </column>
+                        <column id="126">
+                            <property name="width">0.7708333333333334in</property>
+                        </column>
+                        <column id="127">
+                            <property name="width">0.8125in</property>
+                        </column>
+                        <column id="128">
+                            <property name="width">0.7708333333333334in</property>
+                        </column>
+                        <column id="129">
+                            <property name="width">0.8958333333333334in</property>
+                        </column>
+                        <column id="130">
+                            <property name="width">0.7708333333333334in</property>
+                        </column>
+                        <column id="131">
+                            <property name="width">0.8854166666666666in</property>
+                        </column>
+                        <column id="132">
+                            <property name="width">0.34375in</property>
+                        </column>
+                        <column id="133">
+                            <property name="width">1.125in</property>
+                        </column>
+                        <column id="134">
+                            <property name="width">0.8854166666666666in</property>
+                        </column>
+                        <header>
+                            <row id="257">
+                                <property name="height">2.3229166666666665in</property>
+                                <cell id="258">
+                                    <property name="colSpan">13</property>
+                                    <property name="rowSpan">1</property>
+                                    <grid id="271">
+                                        <property name="height">2.2291666666666665in</property>
+                                        <property name="width">10.302083333333334in</property>
+                                        <column id="272">
+                                            <property name="width">5.21875in</property>
+                                        </column>
+                                        <column id="273">
+                                            <property name="width">3.3541666666666665in</property>
+                                        </column>
+                                        <column id="274">
+                                            <property name="width">1.7291666666666667in</property>
+                                        </column>
+                                        <row id="275">
+                                            <property name="height">0.6041666666666666in</property>
+                                            <cell id="276">
+                                                <text id="32">
+                                                    <property name="textAlign">justify</property>
+                                                    <property name="contentType">auto</property>
+                                                    <text-property name="content"><![CDATA[Ley IVA - Art. 11: "Serán responsables del pago de impuesto en calidad de agentes de retención, los compradores o adquirientes de determinados bienes muebles y los receptores de ciertos servicios, a quienes la Administración Tributaria designe como tal"]]></text-property>
+                                                </text>
+                                            </cell>
+                                            <cell id="277">
+                                                <property name="borderBottomColor">#000000</property>
+                                                <property name="borderBottomStyle">solid</property>
+                                                <property name="borderBottomWidth">thin</property>
+                                                <property name="borderLeftColor">#000000</property>
+                                                <property name="borderLeftStyle">solid</property>
+                                                <property name="borderLeftWidth">thin</property>
+                                                <property name="borderRightColor">#000000</property>
+                                                <property name="borderRightStyle">solid</property>
+                                                <property name="borderRightWidth">thin</property>
+                                                <property name="borderTopColor">#000000</property>
+                                                <property name="borderTopStyle">solid</property>
+                                                <property name="borderTopWidth">thin</property>
+                                                <label id="33">
+                                                    <property name="textAlign">left</property>
+                                                    <text-property name="text">Número de Comprobante</text-property>
+                                                </label>
+                                                <data id="51">
+                                                    <property name="textAlign">left</property>
+                                                    <property name="whiteSpace">nowrap</property>
+                                                    <property name="dataSet">Header</property>
+                                                    <list-property name="boundDataColumns">
+                                                        <structure>
+                                                            <property name="name">XX_NOCOMPROBANTEAUX</property>
+                                                            <text-property name="displayName">XX_NOCOMPROBANTEAUX</text-property>
+                                                            <expression name="expression" type="javascript">dataSetRow["XX_NOCOMPROBANTEAUX"]</expression>
+                                                            <property name="dataType">string</property>
+                                                        </structure>
+                                                    </list-property>
+                                                    <property name="resultSetColumn">XX_NOCOMPROBANTEAUX</property>
+                                                </data>
+                                            </cell>
+                                            <cell id="278">
+                                                <property name="borderBottomColor">#000000</property>
+                                                <property name="borderBottomStyle">solid</property>
+                                                <property name="borderBottomWidth">thin</property>
+                                                <property name="borderLeftColor">#000000</property>
+                                                <property name="borderLeftStyle">solid</property>
+                                                <property name="borderLeftWidth">thin</property>
+                                                <property name="borderRightColor">#000000</property>
+                                                <property name="borderRightStyle">solid</property>
+                                                <property name="borderRightWidth">thin</property>
+                                                <property name="borderTopColor">#000000</property>
+                                                <property name="borderTopStyle">solid</property>
+                                                <property name="borderTopWidth">thin</property>
+                                                <label id="34">
+                                                    <property name="textAlign">left</property>
+                                                    <text-property name="text">Fecha de Emisión y Entrega</text-property>
+                                                </label>
+                                                <data id="52">
+                                                    <structure name="dateTimeFormat">
+                                                        <property name="category">Medium Date</property>
+                                                        <property name="pattern">Medium Date</property>
+                                                    </structure>
+                                                    <property name="textAlign">left</property>
+                                                    <property name="whiteSpace">nowrap</property>
+                                                    <property name="dataSet">Header</property>
+                                                    <list-property name="boundDataColumns">
+                                                        <structure>
+                                                            <property name="name">XX_INVOICEDATE</property>
+                                                            <text-property name="displayName">XX_INVOICEDATE</text-property>
+                                                            <expression name="expression" type="javascript">dataSetRow["XX_INVOICEDATE"]</expression>
+                                                            <property name="dataType">date-time</property>
+                                                        </structure>
+                                                    </list-property>
+                                                    <property name="resultSetColumn">XX_INVOICEDATE</property>
+                                                </data>
+                                            </cell>
+                                        </row>
+                                        <row id="279">
+                                            <property name="height">0.5416666666666666in</property>
+                                            <property name="borderBottomColor">#000000</property>
+                                            <property name="borderBottomStyle">solid</property>
+                                            <property name="borderBottomWidth">thin</property>
+                                            <property name="borderLeftColor">#000000</property>
+                                            <property name="borderLeftStyle">solid</property>
+                                            <property name="borderLeftWidth">thin</property>
+                                            <property name="borderRightColor">#000000</property>
+                                            <property name="borderRightStyle">solid</property>
+                                            <property name="borderRightWidth">thin</property>
+                                            <property name="borderTopColor">#000000</property>
+                                            <property name="borderTopStyle">solid</property>
+                                            <property name="borderTopWidth">thin</property>
+                                            <cell id="280">
+                                                <property name="borderRightColor">#000000</property>
+                                                <property name="borderRightStyle">solid</property>
+                                                <property name="borderRightWidth">thin</property>
+                                                <label id="62">
+                                                    <property name="textAlign">left</property>
+                                                    <text-property name="text">Nombre o Razón Social del Agente de Retención</text-property>
+                                                </label>
+                                                <data id="67">
+                                                    <property name="textAlign">left</property>
+                                                    <property name="whiteSpace">nowrap</property>
+                                                    <property name="dataSet">Detail</property>
+                                                    <list-property name="boundDataColumns">
+                                                        <structure>
+                                                            <property name="name">XX_CLIENT</property>
+                                                            <text-property name="displayName">XX_CLIENT</text-property>
+                                                            <expression name="expression" type="javascript">dataSetRow["XX_CLIENT"]</expression>
+                                                            <property name="dataType">string</property>
+                                                        </structure>
+                                                    </list-property>
+                                                    <property name="resultSetColumn">XX_CLIENT</property>
+                                                </data>
+                                            </cell>
+                                            <cell id="281">
+                                                <property name="borderRightColor">#000000</property>
+                                                <property name="borderRightStyle">solid</property>
+                                                <property name="borderRightWidth">thin</property>
+                                                <label id="63">
+                                                    <property name="textAlign">left</property>
+                                                    <text-property name="text">Registro de Información Fiscal del Agente de Retención</text-property>
+                                                </label>
+                                                <data id="68">
+                                                    <property name="textAlign">left</property>
+                                                    <property name="whiteSpace">nowrap</property>
+                                                    <property name="dataSet">Detail</property>
+                                                    <list-property name="boundDataColumns">
+                                                        <structure>
+                                                            <property name="name">XX_RIF</property>
+                                                            <text-property name="displayName">XX_RIF</text-property>
+                                                            <expression name="expression" type="javascript">dataSetRow["XX_RIF"]</expression>
+                                                            <property name="dataType">string</property>
+                                                        </structure>
+                                                    </list-property>
+                                                    <property name="resultSetColumn">XX_RIF</property>
+                                                </data>
+                                            </cell>
+                                            <cell id="282">
+                                                <label id="64">
+                                                    <property name="textAlign">left</property>
+                                                    <text-property name="text">Período Fiscal</text-property>
+                                                </label>
+                                                <data id="69">
+                                                    <property name="textAlign">left</property>
+                                                    <property name="whiteSpace">nowrap</property>
+                                                    <property name="dataSet">Detail</property>
+                                                    <list-property name="boundDataColumns">
+                                                        <structure>
+                                                            <property name="name">XX_DATE</property>
+                                                            <text-property name="displayName">XX_DATE</text-property>
+                                                            <expression name="expression" type="javascript">dataSetRow["XX_DATE"]</expression>
+                                                            <property name="dataType">string</property>
+                                                        </structure>
+                                                    </list-property>
+                                                    <property name="resultSetColumn">XX_DATE</property>
+                                                </data>
+                                            </cell>
+                                        </row>
+                                        <row id="283">
+                                            <property name="height">0.5416666666666666in</property>
+                                            <cell id="284">
+                                                <property name="colSpan">3</property>
+                                                <property name="rowSpan">1</property>
+                                                <property name="borderBottomColor">#000000</property>
+                                                <property name="borderBottomStyle">solid</property>
+                                                <property name="borderBottomWidth">thin</property>
+                                                <property name="borderLeftColor">#000000</property>
+                                                <property name="borderLeftStyle">solid</property>
+                                                <property name="borderLeftWidth">thin</property>
+                                                <property name="borderRightColor">#000000</property>
+                                                <property name="borderRightStyle">solid</property>
+                                                <property name="borderRightWidth">thin</property>
+                                                <property name="borderTopColor">#000000</property>
+                                                <property name="borderTopStyle">solid</property>
+                                                <property name="borderTopWidth">thin</property>
+                                                <property name="textAlign">left</property>
+                                                <label id="74">
+                                                    <text-property name="text">Dirección Fiscal del Agente de Retención</text-property>
+                                                </label>
+                                                <data id="75">
+                                                    <property name="whiteSpace">nowrap</property>
+                                                    <property name="dataSet">Header</property>
+                                                    <list-property name="boundDataColumns">
+                                                        <structure>
+                                                            <property name="name">XX_ADDRESS</property>
+                                                            <text-property name="displayName">XX_ADDRESS</text-property>
+                                                            <expression name="expression" type="javascript">dataSetRow["XX_ADDRESS"]</expression>
+                                                            <property name="dataType">string</property>
+                                                        </structure>
+                                                    </list-property>
+                                                    <property name="resultSetColumn">XX_ADDRESS</property>
+                                                </data>
+                                            </cell>
+                                        </row>
+                                        <row id="287">
+                                            <property name="height">0.5416666666666666in</property>
+                                            <cell id="288">
+                                                <property name="borderBottomColor">#000000</property>
+                                                <property name="borderBottomStyle">solid</property>
+                                                <property name="borderBottomWidth">thin</property>
+                                                <property name="borderLeftColor">#000000</property>
+                                                <property name="borderLeftStyle">solid</property>
+                                                <property name="borderLeftWidth">thin</property>
+                                                <property name="borderRightColor">#000000</property>
+                                                <property name="borderRightStyle">solid</property>
+                                                <property name="borderRightWidth">thin</property>
+                                                <property name="borderTopColor">#000000</property>
+                                                <property name="borderTopStyle">solid</property>
+                                                <property name="borderTopWidth">thin</property>
+                                                <property name="textAlign">left</property>
+                                                <label id="65">
+                                                    <text-property name="text">Nombre o Razón Social del sujero Retentor</text-property>
+                                                </label>
+                                                <data id="78">
+                                                    <property name="whiteSpace">nowrap</property>
+                                                    <property name="dataSet">Header</property>
+                                                    <list-property name="boundDataColumns">
+                                                        <structure>
+                                                            <property name="name">BPARTNER</property>
+                                                            <text-property name="displayName">BPARTNER</text-property>
+                                                            <expression name="expression" type="javascript">dataSetRow["BPARTNER"]</expression>
+                                                            <property name="dataType">string</property>
+                                                        </structure>
+                                                    </list-property>
+                                                    <property name="resultSetColumn">BPARTNER</property>
+                                                </data>
+                                            </cell>
+                                            <cell id="289">
+                                                <property name="colSpan">2</property>
+                                                <property name="rowSpan">1</property>
+                                                <property name="borderBottomColor">#000000</property>
+                                                <property name="borderBottomStyle">solid</property>
+                                                <property name="borderBottomWidth">thin</property>
+                                                <property name="borderLeftColor">#000000</property>
+                                                <property name="borderLeftStyle">solid</property>
+                                                <property name="borderLeftWidth">thin</property>
+                                                <property name="borderRightColor">#000000</property>
+                                                <property name="borderRightStyle">solid</property>
+                                                <property name="borderRightWidth">thin</property>
+                                                <property name="borderTopColor">#000000</property>
+                                                <property name="borderTopStyle">solid</property>
+                                                <property name="borderTopWidth">thin</property>
+                                                <property name="textAlign">left</property>
+                                                <label id="66">
+                                                    <text-property name="text">Registro de Información Fiscal del Sujeto Retenido</text-property>
+                                                </label>
+                                                <data id="77">
+                                                    <property name="whiteSpace">nowrap</property>
+                                                    <property name="dataSet">Header</property>
+                                                    <list-property name="boundDataColumns">
+                                                        <structure>
+                                                            <property name="name">XX_CI_RIF</property>
+                                                            <text-property name="displayName">XX_CI_RIF</text-property>
+                                                            <expression name="expression" type="javascript">dataSetRow["XX_CI_RIF"]</expression>
+                                                            <property name="dataType">string</property>
+                                                        </structure>
+                                                    </list-property>
+                                                    <property name="resultSetColumn">XX_CI_RIF</property>
+                                                </data>
+                                            </cell>
+                                        </row>
+                                    </grid>
+                                </cell>
+                            </row>
+                            <row id="80">
+                                <property name="height">0.28125in</property>
+                                <property name="borderLeftColor">#000000</property>
+                                <property name="borderLeftStyle">solid</property>
+                                <property name="borderLeftWidth">thin</property>
+                                <property name="borderRightColor">#000000</property>
+                                <property name="borderRightStyle">solid</property>
+                                <property name="borderRightWidth">thin</property>
+                                <cell id="81">
+                                    <property name="colSpan">1</property>
+                                    <property name="rowSpan">3</property>
+                                    <property name="borderBottomColor">#000000</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftColor">#000000</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightColor">#000000</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopColor">#000000</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <label id="163">
+                                        <text-property name="text">Fecha de la Factura</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="82">
+                                    <property name="colSpan">1</property>
+                                    <property name="rowSpan">3</property>
+                                    <property name="borderBottomColor">#000000</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftColor">#000000</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightColor">#000000</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopColor">#000000</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <label id="179">
+                                        <text-property name="text">Número de Factura</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="83">
+                                    <property name="colSpan">1</property>
+                                    <property name="rowSpan">3</property>
+                                    <property name="borderBottomColor">#000000</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftColor">#000000</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightColor">#000000</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopColor">#000000</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <label id="180">
+                                        <text-property name="text">Número Control de Factura</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="84">
+                                    <property name="colSpan">1</property>
+                                    <property name="rowSpan">3</property>
+                                    <property name="borderBottomColor">#000000</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftColor">#000000</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightColor">#000000</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopColor">#000000</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <label id="181">
+                                        <text-property name="text">Número Nota de Débito</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="85">
+                                    <property name="colSpan">1</property>
+                                    <property name="rowSpan">3</property>
+                                    <property name="borderBottomColor">#000000</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftColor">#000000</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightColor">#000000</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopColor">#000000</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <label id="182">
+                                        <text-property name="text">Número Nota de Crédito</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="86">
+                                    <property name="colSpan">1</property>
+                                    <property name="rowSpan">3</property>
+                                    <property name="borderBottomColor">#000000</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftColor">#000000</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightColor">#000000</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopColor">#000000</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <label id="183">
+                                        <text-property name="text">Tipo de Transacción</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="87">
+                                    <property name="colSpan">1</property>
+                                    <property name="rowSpan">3</property>
+                                    <property name="borderBottomColor">#000000</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftColor">#000000</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightColor">#000000</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopColor">#000000</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <label id="184">
+                                        <text-property name="text">Número de Factura Afectada</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="88">
+                                    <property name="colSpan">1</property>
+                                    <property name="rowSpan">3</property>
+                                    <property name="borderBottomColor">#000000</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftColor">#000000</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightColor">#000000</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopColor">#000000</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <label id="185">
+                                        <text-property name="text">Total Compras Incluyendo IVA</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="89">
+                                    <property name="colSpan">1</property>
+                                    <property name="rowSpan">3</property>
+                                    <property name="borderBottomColor">#000000</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftColor">#000000</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightColor">#000000</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopColor">#000000</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <label id="186">
+                                        <text-property name="text">Compras sin derecho  a Crédito IVA</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="90">
+                                    <property name="colSpan">3</property>
+                                    <property name="rowSpan">1</property>
+                                    <property name="borderBottomColor">#000000</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftColor">#000000</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightColor">#000000</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopColor">#000000</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <label id="174">
+                                        <text-property name="text">Compras Internas o Importaciones</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="93">
+                                    <property name="colSpan">1</property>
+                                    <property name="rowSpan">3</property>
+                                    <property name="borderBottomColor">#000000</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftColor">#000000</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightColor">#000000</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopColor">#000000</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <label id="187">
+                                        <text-property name="text">IVA Retenido Monto (Bs.)</text-property>
+                                    </label>
+                                </cell>
+                            </row>
+                            <row id="149">
+                                <property name="height">0.28125in</property>
+                                <property name="borderBottomColor">#000000</property>
+                                <property name="borderBottomStyle">solid</property>
+                                <property name="borderBottomWidth">thin</property>
+                                <property name="borderLeftColor">#000000</property>
+                                <property name="borderLeftStyle">solid</property>
+                                <property name="borderLeftWidth">thin</property>
+                                <property name="borderRightColor">#000000</property>
+                                <property name="borderRightStyle">solid</property>
+                                <property name="borderRightWidth">thin</property>
+                                <cell id="159">
+                                    <property name="colSpan">1</property>
+                                    <property name="rowSpan">2</property>
+                                    <property name="borderBottomColor">#000000</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftColor">#000000</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightColor">#000000</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopColor">#000000</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <label id="176">
+                                        <text-property name="text">Base Imponible</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="160">
+                                    <property name="colSpan">2</property>
+                                    <property name="rowSpan">1</property>
+                                    <property name="borderBottomColor">#000000</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftColor">#000000</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightColor">#000000</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopColor">#000000</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <label id="175">
+                                        <text-property name="text">Impuesto IVA</text-property>
+                                    </label>
+                                </cell>
+                            </row>
+                            <row id="135">
+                                <property name="height">0.28125in</property>
+                                <property name="borderBottomColor">#000000</property>
+                                <property name="borderBottomStyle">solid</property>
+                                <property name="borderBottomWidth">thin</property>
+                                <property name="borderLeftColor">#000000</property>
+                                <property name="borderLeftStyle">solid</property>
+                                <property name="borderLeftWidth">thin</property>
+                                <property name="borderRightColor">#000000</property>
+                                <property name="borderRightStyle">solid</property>
+                                <property name="borderRightWidth">thin</property>
+                                <cell id="146">
+                                    <property name="borderBottomColor">#000000</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftColor">#000000</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightColor">#000000</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopColor">#000000</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <label id="177">
+                                        <text-property name="text">%</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="147">
+                                    <property name="borderBottomColor">#000000</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftColor">#000000</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightColor">#000000</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopColor">#000000</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <label id="178">
+                                        <text-property name="text">Monto (Bs.)</text-property>
+                                    </label>
+                                </cell>
+                            </row>
+                        </header>
+                        <detail>
+                            <row id="94">
+                                <cell id="95">
+                                    <property name="borderBottomColor">#000000</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftColor">#000000</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightColor">#000000</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopColor">#000000</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <data id="188">
+                                        <structure name="dateTimeFormat">
+                                            <property name="category">Medium Date</property>
+                                            <property name="pattern">Medium Date</property>
+                                        </structure>
+                                        <property name="whiteSpace">nowrap</property>
+                                        <property name="resultSetColumn">XX_DOCUMENTDATE</property>
+                                    </data>
+                                </cell>
+                                <cell id="96">
+                                    <property name="borderBottomColor">#000000</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftColor">#000000</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightColor">#000000</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopColor">#000000</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <data id="189">
+                                        <property name="whiteSpace">nowrap</property>
+                                        <property name="resultSetColumn">DOCUMENTNO</property>
+                                    </data>
+                                </cell>
+                                <cell id="97">
+                                    <property name="borderBottomColor">#000000</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftColor">#000000</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightColor">#000000</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopColor">#000000</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <data id="190">
+                                        <property name="whiteSpace">nowrap</property>
+                                        <property name="resultSetColumn">XX_CONTROLNUMBER</property>
+                                    </data>
+                                </cell>
+                                <cell id="98">
+                                    <property name="borderBottomColor">#000000</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftColor">#000000</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightColor">#000000</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopColor">#000000</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <data id="191">
+                                        <property name="whiteSpace">nowrap</property>
+                                        <property name="resultSetColumn">XX_REF_INVOICEDEB</property>
+                                    </data>
+                                </cell>
+                                <cell id="99">
+                                    <property name="borderBottomColor">#000000</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftColor">#000000</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightColor">#000000</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopColor">#000000</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <data id="192">
+                                        <property name="whiteSpace">nowrap</property>
+                                        <property name="resultSetColumn">XX_REF_INVOICECRE</property>
+                                    </data>
+                                </cell>
+                                <cell id="100">
+                                    <property name="borderBottomColor">#000000</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftColor">#000000</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightColor">#000000</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopColor">#000000</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <data id="193">
+                                        <property name="whiteSpace">nowrap</property>
+                                        <property name="resultSetColumn">XX_TYPETRANS</property>
+                                    </data>
+                                </cell>
+                                <cell id="101">
+                                    <property name="borderBottomColor">#000000</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftColor">#000000</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightColor">#000000</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopColor">#000000</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <data id="194">
+                                        <property name="whiteSpace">nowrap</property>
+                                        <property name="resultSetColumn">XX_REF_INVOICE</property>
+                                    </data>
+                                </cell>
+                                <cell id="102">
+                                    <property name="borderBottomColor">#000000</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftColor">#000000</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightColor">#000000</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopColor">#000000</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <data id="195">
+                                        <structure name="numberFormat">
+                                            <property name="category">Currency</property>
+                                            <property name="pattern">#,##0.00{RoundingMode=HALF_UP}</property>
+                                        </structure>
+                                        <property name="textAlign">right</property>
+                                        <property name="whiteSpace">nowrap</property>
+                                        <property name="resultSetColumn">XX_TOTALINVCOST</property>
+                                    </data>
+                                </cell>
+                                <cell id="103">
+                                    <property name="borderBottomColor">#000000</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftColor">#000000</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightColor">#000000</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopColor">#000000</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <data id="196">
+                                        <structure name="numberFormat">
+                                            <property name="category">Currency</property>
+                                            <property name="pattern">#,##0.00{RoundingMode=HALF_UP}</property>
+                                        </structure>
+                                        <property name="textAlign">right</property>
+                                        <property name="whiteSpace">nowrap</property>
+                                        <property name="resultSetColumn">XX_EXEMPTBASE</property>
+                                    </data>
+                                </cell>
+                                <cell id="104">
+                                    <property name="borderBottomColor">#000000</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftColor">#000000</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightColor">#000000</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopColor">#000000</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <data id="197">
+                                        <structure name="numberFormat">
+                                            <property name="category">Currency</property>
+                                            <property name="pattern">#,##0.00{RoundingMode=HALF_UP}</property>
+                                        </structure>
+                                        <property name="textAlign">right</property>
+                                        <property name="whiteSpace">nowrap</property>
+                                        <property name="resultSetColumn">XX_TAXABLEBASE</property>
+                                    </data>
+                                </cell>
+                                <cell id="105">
+                                    <property name="borderBottomColor">#000000</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftColor">#000000</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightColor">#000000</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopColor">#000000</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <data id="198">
+                                        <structure name="numberFormat">
+                                            <property name="category">Currency</property>
+                                            <property name="pattern">###0.0{RoundingMode=HALF_UP}</property>
+                                        </structure>
+                                        <property name="textAlign">right</property>
+                                        <property name="whiteSpace">nowrap</property>
+                                        <property name="resultSetColumn">RATE</property>
+                                    </data>
+                                </cell>
+                                <cell id="106">
+                                    <property name="borderBottomColor">#000000</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftColor">#000000</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightColor">#000000</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopColor">#000000</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <data id="199">
+                                        <structure name="numberFormat">
+                                            <property name="category">Currency</property>
+                                            <property name="pattern">#,##0.00{RoundingMode=HALF_UP}</property>
+                                        </structure>
+                                        <property name="textAlign">right</property>
+                                        <property name="whiteSpace">nowrap</property>
+                                        <property name="resultSetColumn">XX_TAXAMOUNT</property>
+                                    </data>
+                                </cell>
+                                <cell id="107">
+                                    <property name="borderBottomColor">#000000</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftColor">#000000</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightColor">#000000</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopColor">#000000</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <data id="293">
+                                        <structure name="numberFormat">
+                                            <property name="category">Currency</property>
+                                            <property name="pattern">#,##0.00{RoundingMode=HALF_UP}</property>
+                                        </structure>
+                                        <property name="textAlign">right</property>
+                                        <property name="whiteSpace">nowrap</property>
+                                        <property name="resultSetColumn">XX_WITHHOLDINGTAX</property>
+                                    </data>
+                                </cell>
+                            </row>
+                        </detail>
+                        <footer>
+                            <row id="108">
+                                <property name="borderBottomColor">#000000</property>
+                                <property name="borderBottomStyle">solid</property>
+                                <property name="borderBottomWidth">thin</property>
+                                <property name="borderLeftColor">#000000</property>
+                                <property name="borderLeftStyle">solid</property>
+                                <property name="borderLeftWidth">thin</property>
+                                <property name="borderRightColor">#000000</property>
+                                <property name="borderRightStyle">solid</property>
+                                <property name="borderRightWidth">thin</property>
+                                <property name="borderTopColor">#000000</property>
+                                <property name="borderTopStyle">solid</property>
+                                <property name="borderTopWidth">thin</property>
+                                <cell id="109">
+                                    <property name="colSpan">7</property>
+                                    <property name="rowSpan">1</property>
+                                    <property name="borderLeftColor">#000000</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightColor">#000000</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <label id="297">
+                                        <text-property name="text">Suma</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="116">
+                                    <property name="borderLeftColor">#000000</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightColor">#000000</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <data id="296">
+                                        <structure name="numberFormat">
+                                            <property name="category">Currency</property>
+                                            <property name="pattern">#,##0.00{RoundingMode=HALF_UP}</property>
+                                        </structure>
+                                        <property name="textAlign">right</property>
+                                        <property name="resultSetColumn">totalCostT</property>
+                                    </data>
+                                </cell>
+                                <cell id="117">
+                                    <property name="borderLeftColor">#000000</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightColor">#000000</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                </cell>
+                                <cell id="118">
+                                    <property name="borderLeftColor">#000000</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightColor">#000000</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <data id="295">
+                                        <structure name="numberFormat">
+                                            <property name="category">Currency</property>
+                                            <property name="pattern">#,##0.00{RoundingMode=HALF_UP}</property>
+                                        </structure>
+                                        <property name="textAlign">right</property>
+                                        <property name="resultSetColumn">taxableBaseT</property>
+                                    </data>
+                                </cell>
+                                <cell id="119">
+                                    <property name="borderLeftColor">#000000</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightColor">#000000</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                </cell>
+                                <cell id="120">
+                                    <property name="borderLeftColor">#000000</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightColor">#000000</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <data id="294">
+                                        <structure name="numberFormat">
+                                            <property name="category">Currency</property>
+                                            <property name="pattern">#,##0.00{RoundingMode=HALF_UP}</property>
+                                        </structure>
+                                        <property name="textAlign">right</property>
+                                        <property name="resultSetColumn">taxAmountT</property>
+                                    </data>
+                                </cell>
+                                <cell id="121">
+                                    <property name="borderLeftColor">#000000</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightColor">#000000</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <data id="292">
+                                        <structure name="numberFormat">
+                                            <property name="category">Currency</property>
+                                            <property name="pattern">#,##0.00{RoundingMode=HALF_UP}</property>
+                                        </structure>
+                                        <property name="textAlign">right</property>
+                                        <property name="resultSetColumn">withholdingtaxT</property>
+                                    </data>
+                                </cell>
+                            </row>
+                        </footer>
+                    </table>
+                </cell>
+            </row>
+            <row id="13">
+                <property name="height">2.5833333333333335in</property>
+                <cell id="14">
+                    <property name="verticalAlign">bottom</property>
+                    <label id="290">
+                        <text-property name="text">Original: Agente de Retención</text-property>
+                    </label>
+                    <label id="291">
+                        <text-property name="text">Copia: Proveedor</text-property>
+                    </label>
+                </cell>
+                <cell id="45">
+                    <property name="colSpan">2</property>
+                    <property name="rowSpan">1</property>
+                    <property name="textAlign">right</property>
+                    <property name="verticalAlign">bottom</property>
+                    <image id="53">
+                        <property name="height">150px</property>
+                        <property name="width">350px</property>
+                        <property name="dataSet">Header</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">XX_DOCUMENTNO_ID</property>
+                                <expression name="expression" type="javascript">dataSetRow["XX_DOCUMENTNO_ID"]</expression>
+                                <property name="dataType">decimal</property>
+                            </structure>
+                            <structure>
+                                <property name="name">XX_INVOICEDATE</property>
+                                <expression name="expression" type="javascript">dataSetRow["XX_INVOICEDATE"]</expression>
+                                <property name="dataType">date-time</property>
+                            </structure>
+                            <structure>
+                                <property name="name">C_ORDER_ID</property>
+                                <expression name="expression" type="javascript">dataSetRow["C_ORDER_ID"]</expression>
+                                <property name="dataType">decimal</property>
+                            </structure>
+                            <structure>
+                                <property name="name">AD_CLIENT_ID</property>
+                                <expression name="expression" type="javascript">dataSetRow["AD_CLIENT_ID"]</expression>
+                                <property name="dataType">decimal</property>
+                            </structure>
+                            <structure>
+                                <property name="name">AD_ORG_ID</property>
+                                <expression name="expression" type="javascript">dataSetRow["AD_ORG_ID"]</expression>
+                                <property name="dataType">decimal</property>
+                            </structure>
+                            <structure>
+                                <property name="name">ISACTIVE</property>
+                                <expression name="expression" type="javascript">dataSetRow["ISACTIVE"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                            <structure>
+                                <property name="name">CREATED</property>
+                                <expression name="expression" type="javascript">dataSetRow["CREATED"]</expression>
+                                <property name="dataType">date-time</property>
+                            </structure>
+                            <structure>
+                                <property name="name">CREATEDBY</property>
+                                <expression name="expression" type="javascript">dataSetRow["CREATEDBY"]</expression>
+                                <property name="dataType">decimal</property>
+                            </structure>
+                            <structure>
+                                <property name="name">UPDATED</property>
+                                <expression name="expression" type="javascript">dataSetRow["UPDATED"]</expression>
+                                <property name="dataType">date-time</property>
+                            </structure>
+                            <structure>
+                                <property name="name">UPDATEDBY</property>
+                                <expression name="expression" type="javascript">dataSetRow["UPDATEDBY"]</expression>
+                                <property name="dataType">decimal</property>
+                            </structure>
+                            <structure>
+                                <property name="name">XX_VCN_PURCHABOOKCABEVIEW_ID</property>
+                                <expression name="expression" type="javascript">dataSetRow["XX_VCN_PURCHABOOKCABEVIEW_ID"]</expression>
+                                <property name="dataType">decimal</property>
+                            </structure>
+                            <structure>
+                                <property name="name">XX_VCN_PURCHASESBOOK_ID</property>
+                                <expression name="expression" type="javascript">dataSetRow["XX_VCN_PURCHASESBOOK_ID"]</expression>
+                                <property name="dataType">decimal</property>
+                            </structure>
+                            <structure>
+                                <property name="name">XX_WITHHOLDING</property>
+                                <expression name="expression" type="javascript">dataSetRow["XX_WITHHOLDING"]</expression>
+                                <property name="dataType">decimal</property>
+                            </structure>
+                            <structure>
+                                <property name="name">C_BPARTNER_ID</property>
+                                <expression name="expression" type="javascript">dataSetRow["C_BPARTNER_ID"]</expression>
+                                <property name="dataType">decimal</property>
+                            </structure>
+                            <structure>
+                                <property name="name">XX_CI_RIF</property>
+                                <expression name="expression" type="javascript">dataSetRow["XX_CI_RIF"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                            <structure>
+                                <property name="name">XX_NOCOMPROBANTE</property>
+                                <expression name="expression" type="javascript">dataSetRow["XX_NOCOMPROBANTE"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                            <structure>
+                                <property name="name">XX_NOCOMPROBANTEAUX</property>
+                                <expression name="expression" type="javascript">dataSetRow["XX_NOCOMPROBANTEAUX"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                            <structure>
+                                <property name="name">XX_DATE</property>
+                                <expression name="expression" type="javascript">dataSetRow["XX_DATE"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                            <structure>
+                                <property name="name">XX_CLIENT</property>
+                                <expression name="expression" type="javascript">dataSetRow["XX_CLIENT"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                            <structure>
+                                <property name="name">XX_RIF</property>
+                                <expression name="expression" type="javascript">dataSetRow["XX_RIF"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                            <structure>
+                                <property name="name">XX_ADDRESS</property>
+                                <expression name="expression" type="javascript">dataSetRow["XX_ADDRESS"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                            <structure>
+                                <property name="name">XX_COUNTRY</property>
+                                <expression name="expression" type="javascript">dataSetRow["XX_COUNTRY"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                            <structure>
+                                <property name="name">SIGNATURE</property>
+                                <expression name="expression" type="javascript">dataSetRow["SIGNATURE"]</expression>
+                                <property name="dataType">blob</property>
+                            </structure>
+                        </list-property>
+                        <property name="source">expr</property>
+                        <expression name="valueExpr">row["SIGNATURE"]</expression>
+                    </image>
+                </cell>
+            </row>
+        </grid>
+    </body>
+</report>

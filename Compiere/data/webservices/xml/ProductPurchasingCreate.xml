@@ -1,0 +1,37 @@
+<M_Product_POs>
+	<M_Product_PO>
+		<C_BPartner_ID>
+			<Value>120</Value>
+		</C_BPartner_ID>
+		<C_Currency_ID>
+			<Info>USD</Info>
+		</C_Currency_ID>
+		<C_UOM_ID>
+			<Info>Each</Info>
+		</C_UOM_ID>
+		<IsActive>
+			<Value>Y</Value>
+		</IsActive>
+		<IsCurrentVendor>
+			<Value>Y</Value>
+		</IsCurrentVendor>
+		<M_Product_ID>
+			<Value>153</Value>
+		</M_Product_ID>
+		<PriceEffective>
+			<Value>13/09/2009</Value>
+		</PriceEffective>
+		<PriceList>
+			<Value>29.350</Value>
+		</PriceList>
+		<PricePO>
+			<Value>29.350</Value>
+		</PricePO>
+		<VendorCategory>
+			<Value></Value>
+		</VendorCategory>
+		<VendorProductNo>
+			<Value>32911163</Value>
+		</VendorProductNo>
+	</M_Product_PO>
+</M_Product_POs>

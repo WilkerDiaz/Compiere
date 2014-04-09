@@ -1,0 +1,7 @@
+open @COMPIERE_FTP_SERVER@
+@COMPIERE_FTP_USER@
+@COMPIERE_FTP_PASSWORD@
+bin
+ls Compiere.jar
+get Compiere.jar
+quit

@@ -1,0 +1,28 @@
+<AD_Users>
+  <AD_User>
+    <C_BPartner_ID><Info>John Doe</Info></C_BPartner_ID>
+    <Name>
+      <Value>Gema</Value>
+    </Name>
+    <EMail>
+      <Value>customercare@test.com</Value>
+    </EMail>
+    <Phone>
+      <Value>01698 392 500/ 415</Value>
+    </Phone>
+  </AD_User>
+  <AD_User>
+    <C_BPartner_ID>
+      <Info>John Doe1</Info>
+    </C_BPartner_ID>
+    <Name>
+      <Value>test</Value>
+    </Name>
+    <EMail>
+      <Value></Value>
+    </EMail>
+    <Phone>
+      <Value>11111</Value>
+    </Phone>
+  </AD_User>
+</AD_Users>

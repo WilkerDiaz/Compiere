@@ -1,0 +1,471 @@
+<C_Payments>
+<C_Payment AD_Table_ID="335">
+
+<AD_Client_ID>
+<Label>Tenant</Label>
+<Info>GardenWorld</Info>
+<UniqueID>GardenWorld</UniqueID>
+</AD_Client_ID>
+
+<AD_OrgTrx_ID>
+<Label>Trx Organization</Label>
+<Value/>
+<Info/>
+<UniqueID/>
+</AD_OrgTrx_ID>
+
+<AD_Org_ID>
+<Label>Organization</Label>
+<Value>11</Value>
+<Info>HQ</Info>
+<UniqueID>HQ</UniqueID>
+</AD_Org_ID>
+
+<A_City>
+<Label>Account City</Label>
+<Value/>
+</A_City>
+
+<A_Country>
+<Label>Account Country</Label>
+<Value/>
+</A_Country>
+
+<A_EMail>
+<Label>Account EMail</Label>
+<Value/>
+</A_EMail>
+
+<A_Ident_DL>
+<Label>Driver License</Label>
+<Value/>
+</A_Ident_DL>
+
+<A_Ident_SSN>
+<Label>Social Security No</Label>
+<Value/>
+</A_Ident_SSN>
+
+<A_Name>
+<Label>Account Name</Label>
+<Value/>
+</A_Name>
+
+<A_State>
+<Label>Account State</Label>
+<Value/>
+</A_State>
+
+<A_Street>
+<Label>Account Street</Label>
+<Value/>
+</A_Street>
+
+<A_Zip>
+<Label>Account Zip/Postal</Label>
+<Value/>
+</A_Zip>
+
+<AccountNo>
+<Label>Account No</Label>
+<Value/>
+</AccountNo>
+
+<C_Activity_ID>
+<Label>Activity</Label>
+<Value/>
+<Info/>
+<UniqueID/>
+</C_Activity_ID>
+
+<C_BP_BankAccount_ID>
+<Label>Partner Bank Account</Label>
+<Value/>
+<Info/>
+<UniqueID/>
+</C_BP_BankAccount_ID>
+
+<C_BPartner_ID>
+<Label>Business Partner</Label>
+<Value>112</Value>
+<Info>Standard</Info>
+<UniqueID>Standard</UniqueID>
+</C_BPartner_ID>
+
+<C_BankAccount_ID>
+<Label>Bank Account</Label>
+<Info>MoneyBank - 123456789_1234</Info>
+<UniqueID>MoneyBank.123456789.1234</UniqueID>
+</C_BankAccount_ID>
+
+<C_Campaign_ID>
+<Label>Campaign</Label>
+<Value/>
+<Info/>
+<UniqueID/>
+</C_Campaign_ID>
+
+<C_Charge_ID>
+<Label>Charge</Label>
+<Value/>
+<Info/>
+<UniqueID/>
+</C_Charge_ID>
+
+<C_ConversionType_ID>
+<Label>Rate Type</Label>
+<Value/>
+<Info/>
+<UniqueID/>
+</C_ConversionType_ID>
+
+<C_Currency_ID>
+<Label>Currency</Label>
+<Value>100</Value>
+<Info>USD</Info>
+<UniqueID>USD</UniqueID>
+</C_Currency_ID>
+
+<C_DocType_ID>
+<Label>Document Type</Label>
+<Value>119</Value>
+<Info>AR Receipt</Info>
+<UniqueID>AR Receipt</UniqueID>
+</C_DocType_ID>
+
+<C_Invoice_ID>
+<Label>Invoice</Label>
+<Value>101</Value>
+<Info>200001_2002-02-22 00:00:00.0_100.7</Info>
+<UniqueID>200001.2002-02-22 00:00:00.0.100.7</UniqueID>
+</C_Invoice_ID>
+
+<C_Order_ID>
+<Label>Order</Label>
+<Value/>
+<Info/>
+<UniqueID/>
+</C_Order_ID>
+
+<C_PaymentBatch_ID>
+<Label>Payment Batch</Label>
+<Value/>
+<Info/>
+<UniqueID/>
+</C_PaymentBatch_ID>
+
+<C_Payment_ID>
+<Label>Payment</Label>
+<Value>100</Value>
+</C_Payment_ID>
+
+<C_Project_ID>
+<Label>Project</Label>
+<Value/>
+<Info/>
+<UniqueID/>
+</C_Project_ID>
+
+<ChargeAmt>
+<Label>Charge amount</Label>
+<Value>0</Value>
+</ChargeAmt>
+
+<CheckNo>
+<Label>Check No</Label>
+<Value/>
+</CheckNo>
+
+<Created>
+<Label>Created On</Label>
+<Value>2002-02-22 22:52:25.0</Value>
+</Created>
+
+<CreatedBy>
+<Label>Created By</Label>
+<Value>100</Value>
+<Info>SuperUser</Info>
+<UniqueID>SuperUser</UniqueID>
+</CreatedBy>
+
+<CreditCardExpMM>
+<Label>Exp. Month</Label>
+<Value>1</Value>
+</CreditCardExpMM>
+
+<CreditCardExpYY>
+<Label>Exp. Year</Label>
+<Value>1</Value>
+</CreditCardExpYY>
+
+<CreditCardNumber>
+<Label>Number</Label>
+<Value/>
+</CreditCardNumber>
+
+<CreditCardType>
+<Label>Credit Card</Label>
+<Value>M</Value>
+<Info>MasterCard</Info>
+<UniqueID>C_Payment CreditCard Type.M</UniqueID>
+</CreditCardType>
+
+<DateAcct>
+<Label>Account Date</Label>
+<Value>2002-02-22 00:00:00.0</Value>
+</DateAcct>
+
+<DateTrx>
+<Label>Transaction Date</Label>
+<Value>2002-02-22 00:00:00.0</Value>
+</DateTrx>
+
+<Description>
+<Label>Description</Label>
+<Value/>
+</Description>
+
+<DiscountAmt>
+<Label>Discount Amount</Label>
+<Value>1.9</Value>
+</DiscountAmt>
+
+<DocAction>
+<Label>Document Action</Label>
+<Value>--</Value>
+</DocAction>
+
+<DocStatus>
+<Label>Document Status</Label>
+<Value>CO</Value>
+<Info>Completed</Info>
+<UniqueID>_Document Status.CO</UniqueID>
+</DocStatus>
+
+<DocumentNo>
+<Label>Document No</Label>
+<Value>400000</Value>
+</DocumentNo>
+
+<IsActive>
+<Label>Active</Label>
+<Value>Y</Value>
+</IsActive>
+
+<IsAllocated>
+<Label>Allocated</Label>
+<Value>Y</Value>
+</IsAllocated>
+
+<IsApproved>
+<Label>Approved</Label>
+<Value>N</Value>
+</IsApproved>
+
+<IsDelayedCapture>
+<Label>Delayed Capture</Label>
+<Value>N</Value>
+</IsDelayedCapture>
+
+<IsOnline>
+<Label>Online Access</Label>
+<Value>N</Value>
+</IsOnline>
+
+<IsOverUnderPayment>
+<Label>Over/Under Payment</Label>
+<Value>N</Value>
+</IsOverUnderPayment>
+
+<IsPrepayment>
+<Label>Prepayment</Label>
+<Value>N</Value>
+</IsPrepayment>
+
+<IsReceipt>
+<Label>Receipt</Label>
+<Value>Y</Value>
+</IsReceipt>
+
+<IsReconciled>
+<Label>Reconciled</Label>
+<Value>Y</Value>
+</IsReconciled>
+
+<IsSelfService>
+<Label>Self-Service</Label>
+<Value>N</Value>
+</IsSelfService>
+
+<Micr>
+<Label>Micr</Label>
+<Value/>
+</Micr>
+
+<OProcessing>
+<Label>Online Processing</Label>
+<Value>N</Value>
+</OProcessing>
+
+<Orig_TrxID>
+<Label>Original Transaction ID</Label>
+<Value/>
+</Orig_TrxID>
+
+<OverUnderAmt>
+<Label>Over/Under Payment</Label>
+<Value>0</Value>
+</OverUnderAmt>
+
+<PONum>
+<Label>PO Number</Label>
+<Value/>
+</PONum>
+
+<PayAmt>
+<Label>Payment amount</Label>
+<Value>98.5</Value>
+</PayAmt>
+
+<Posted>
+<Label>Posted</Label>
+<Value>N</Value>
+</Posted>
+
+<Processed>
+<Label>Processed</Label>
+<Value>Y</Value>
+</Processed>
+
+<Processing>
+<Label>Process Now</Label>
+<Value>N</Value>
+</Processing>
+
+<R_AuthCode>
+<Label>Authorization Code</Label>
+<Value/>
+</R_AuthCode>
+
+<R_AuthCode_DC>
+<Label>Authorization Code (DC)</Label>
+<Value/>
+</R_AuthCode_DC>
+
+<R_AvsAddr>
+<Label>Address verified</Label>
+<Value/>
+<Info/>
+<UniqueID/>
+</R_AvsAddr>
+
+<R_AvsZip>
+<Label>Zip verified</Label>
+<Value/>
+<Info/>
+<UniqueID/>
+</R_AvsZip>
+
+<R_CVV2Match>
+<Label>CVV Match</Label>
+<Value>N</Value>
+</R_CVV2Match>
+
+<R_Info>
+<Label>Info</Label>
+<Value/>
+</R_Info>
+
+<R_PnRef>
+<Label>Reference</Label>
+<Value/>
+</R_PnRef>
+
+<R_PnRef_DC>
+<Label>Reference (DC)</Label>
+<Value/>
+</R_PnRef_DC>
+
+<R_RespMsg>
+<Label>Response Message</Label>
+<Value/>
+</R_RespMsg>
+
+<R_Result>
+<Label>Result</Label>
+<Value/>
+</R_Result>
+
+<Ref_Payment_ID>
+<Label>Referenced Payment</Label>
+<Value/>
+<Info/>
+<UniqueID/>
+</Ref_Payment_ID>
+
+<RoutingNo>
+<Label>Routing No</Label>
+<Value/>
+</RoutingNo>
+
+<Swipe>
+<Label>Swipe</Label>
+<Value/>
+</Swipe>
+
+<TaxAmt>
+<Label>Tax Amount</Label>
+<Value>0</Value>
+</TaxAmt>
+
+<TenderType>
+<Label>Tender type</Label>
+<Value>K</Value>
+<Info>Check</Info>
+<UniqueID>C_Payment Tender Type.K</UniqueID>
+</TenderType>
+
+<TrxType>
+<Label>Transaction Type</Label>
+<Value>S</Value>
+<Info>Sales</Info>
+<UniqueID>C_Payment Trx Type.S</UniqueID>
+</TrxType>
+
+<Updated>
+<Label>Updated</Label>
+<Value>2002-02-22 22:52:28.0</Value>
+</Updated>
+
+<UpdatedBy>
+<Label>Updated By</Label>
+<Value>0</Value>
+<Info>null</Info>
+<UniqueID>null</UniqueID>
+</UpdatedBy>
+
+<User1_ID>
+<Label>User List 1</Label>
+<Value/>
+<Info/>
+<UniqueID/>
+</User1_ID>
+
+<User2_ID>
+<Label>User List 2</Label>
+<Value/>
+<Info/>
+<UniqueID/>
+</User2_ID>
+
+<VoiceAuthCode>
+<Label>Voice authorization code</Label>
+<Value/>
+</VoiceAuthCode>
+
+<WriteOffAmt>
+<Label>Write-off Amount</Label>
+<Value>0.3</Value>
+</WriteOffAmt>
+</C_Payment>
+</C_Payments>

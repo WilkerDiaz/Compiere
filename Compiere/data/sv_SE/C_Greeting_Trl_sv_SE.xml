@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Compiere(tm) Release 2.5.1f_2004-09-09 - Smart ERP & CRM - Copyright (c) 1999-2004 Jorg Janke; Implementation: johan 20050616-0918 - Unsupported--><!--<!DOCTYPE compiereTrl PUBLIC "-//ComPiere, Inc.//DTD Compiere Translation 1.0//EN" "http://www.compiere.org/dtd/compiereTrl.dtd">--><compiereTrl language="sv_SE" table="C_Greeting"><row id="100" trl="Y"><value column="Name" original="Mr">Mr</value><value column="Greeting" original="Mr">Mr</value></row></compiereTrl>

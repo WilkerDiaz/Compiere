@@ -1,0 +1,119 @@
+<C_Invoices>
+
+<C_Invoice>
+
+<AD_Client_ID>
+<Info>GardenWorld</Info>
+</AD_Client_ID>
+
+<AD_Org_ID>
+<Info>HQ</Info>
+</AD_Org_ID>
+
+<C_BPartner_ID>
+<Info>Standard</Info>
+</C_BPartner_ID>
+
+<C_BPartner_Location_ID>
+<Info>Monroe</Info>
+</C_BPartner_Location_ID>
+
+<C_Currency_ID>
+<Info>USD</Info>
+</C_Currency_ID>
+
+<C_DocType_ID>
+<Info>AR Invoice</Info>
+</C_DocType_ID>
+
+
+<C_PaymentTerm_ID>
+<Label>Payment Term</Label>
+<Info>Immediate</Info>
+<UniqueID>Immediate</UniqueID>
+</C_PaymentTerm_ID>
+
+<ChargeAmt>
+<Label>Charge amount</Label>
+<Value>0</Value>
+</ChargeAmt>
+
+
+<DateAcct>
+<Label>Account Date</Label>
+<Value>06/22/2009</Value>
+</DateAcct>
+
+<DateInvoiced>
+<Label>Date Invoiced</Label>
+<Value>06/22/2009</Value>
+</DateInvoiced>
+
+<Description>
+<Label>Description</Label>
+<Value>Test Web Service Create2 </Value>
+</Description>
+
+<IsActive>
+<Label>Active</Label>
+<Value>Y</Value>
+</IsActive>
+
+<IsDiscountPrinted>
+<Label>Discount Printed</Label>
+<Value>Y</Value>
+</IsDiscountPrinted>
+
+<IsPayScheduleValid>
+<Label>Pay Schedule valid</Label>
+<Value>N</Value>
+</IsPayScheduleValid>
+
+<IsPrinted>
+<Label>Printed</Label>
+<Value>N</Value>
+</IsPrinted>
+
+<IsReturnTrx>
+<Label>Return Transaction</Label>
+<Value>N</Value>
+</IsReturnTrx>
+
+<IsSOTrx>
+<Label>Sales Transaction</Label>
+<Value>Y</Value>
+</IsSOTrx>
+
+<IsSelfService>
+<Label>Self-Service</Label>
+<Value>N</Value>
+</IsSelfService>
+
+<IsTaxIncluded>
+<Label>Price includes Tax</Label>
+<Value>N</Value>
+</IsTaxIncluded>
+
+<IsTransferred>
+<Label>Transferred</Label>
+<Value>N</Value>
+</IsTransferred>
+
+<M_PriceList_ID>
+<Label>Price List</Label>
+<Info>Standard</Info>
+<UniqueID>Standard</UniqueID>
+</M_PriceList_ID>
+
+<PaymentRule>
+<Label>Payment Method</Label>
+<Value>B</Value>
+</PaymentRule>
+
+<SalesRep_ID>
+<Label>Representative</Label>
+<Info>GardenAdmin</Info>
+<UniqueID>GardenAdmin</UniqueID>
+</SalesRep_ID>
+</C_Invoice>
+</C_Invoices>

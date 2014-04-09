@@ -1,0 +1,311 @@
+/******************************************************************************
+ * Product: Compiere ERP & CRM Smart Business Solution                        *
+ * Copyright (C) 1999-2007 ComPiere, Inc. All Rights Reserved.                *
+ * This program is free software, you can redistribute it and/or modify it    *
+ * under the terms version 2 of the GNU General Public License as published   *
+ * by the Free Software Foundation. This program is distributed in the hope   *
+ * that it will be useful, but WITHOUT ANY WARRANTY, without even the implied *
+ * warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.           *
+ * See the GNU General Public License for more details.                       *
+ * You should have received a copy of the GNU General Public License along    *
+ * with this program, if not, write to the Free Software Foundation, Inc.,    *
+ * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA.                     *
+ * For the text or an alternative of this public license, you may reach us    *
+ * ComPiere, Inc., 3600 Bridge Parkway #102, Redwood City, CA 94065, USA      *
+ * or via info@compiere.org or http://www.compiere.org/license.html           *
+ *****************************************************************************/
+package compiere.model;
+
+/** Generated Model - DO NOT CHANGE */
+import org.compiere.model.*;
+import java.sql.*;
+import java.math.*;
+import org.compiere.framework.*;
+import org.compiere.util.*;
+/** Generated Model for XX_Visit
+ *  @author Jorg Janke (generated) 
+ *  @version Release 3.0.2 - $Id$ */
+public class X_XX_Visit extends PO
+{
+/** Standard Constructor
+@param ctx context
+@param XX_Visit_ID id
+@param trxName transaction
+*/
+public X_XX_Visit (Ctx ctx, int XX_Visit_ID, String trxName)
+{
+super (ctx, XX_Visit_ID, trxName);
+/** if (XX_Visit_ID == 0)
+{
+setC_BPartner_ID (0);
+setC_BPartner_Location_ID (0);
+setMinutes (0);	// 10
+setName (null);
+setSalesRep_ID (0);
+setVisitTime (new Timestamp(System.currentTimeMillis()));	// @#Date@
+setXX_Visit_ID (0);
+}
+ */
+}
+/** Load Constructor 
+@param ctx context
+@param rs result set 
+@param trxName transaction
+*/
+public X_XX_Visit (Ctx ctx, ResultSet rs, String trxName)
+{
+super (ctx, rs, trxName);
+}
+/** Serial Version No */
+static final long serialVersionUID = 27485756838789L;
+/** Last Updated Timestamp 2008-02-21 14:05:22.0 */
+public static final long updatedMS = 1203631522000L;
+/** AD_Table_ID=1000007 */
+public static final int Table_ID=1000007;
+
+/** TableName=XX_Visit */
+public static final String Table_Name="XX_Visit";
+
+protected static KeyNamePair Model = new KeyNamePair(1000007,"XX_Visit");
+
+protected BigDecimal accessLevel = new BigDecimal(1);
+/** AccessLevel
+@return 1 - Org 
+*/
+protected int get_AccessLevel()
+{
+return accessLevel.intValue();
+}
+/** Load Meta Data
+@param ctx context
+@return PO Info
+*/
+protected POInfo initPO (Ctx ctx)
+{
+POInfo poi = POInfo.getPOInfo (ctx, Table_ID);
+return poi;
+}
+/** Info
+@return info
+*/
+public String toString()
+{
+StringBuffer sb = new StringBuffer ("X_XX_Visit[").append(get_ID()).append("]");
+return sb.toString();
+}
+/** Set User/Contact.
+@param AD_User_ID User within the system - Internal or Business Partner Contact */
+public void setAD_User_ID (int AD_User_ID)
+{
+if (AD_User_ID <= 0) set_Value ("AD_User_ID", null);
+else
+set_Value ("AD_User_ID", new Integer(AD_User_ID));
+}
+/** Get User/Contact.
+@return User within the system - Internal or Business Partner Contact */
+public int getAD_User_ID() 
+{
+Integer ii = (Integer)get_Value("AD_User_ID");
+if (ii == null) return 0;
+return ii.intValue();
+}
+/** Set Business Partner .
+@param C_BPartner_ID Identifies a Business Partner */
+public void setC_BPartner_ID (int C_BPartner_ID)
+{
+if (C_BPartner_ID < 1) throw new IllegalArgumentException ("C_BPartner_ID is mandatory.");
+set_Value ("C_BPartner_ID", new Integer(C_BPartner_ID));
+}
+/** Get Business Partner .
+@return Identifies a Business Partner */
+public int getC_BPartner_ID() 
+{
+Integer ii = (Integer)get_Value("C_BPartner_ID");
+if (ii == null) return 0;
+return ii.intValue();
+}
+/** Set Partner Location.
+@param C_BPartner_Location_ID Identifies the (ship to) address for this Business Partner */
+public void setC_BPartner_Location_ID (int C_BPartner_Location_ID)
+{
+if (C_BPartner_Location_ID < 1) throw new IllegalArgumentException ("C_BPartner_Location_ID is mandatory.");
+set_Value ("C_BPartner_Location_ID", new Integer(C_BPartner_Location_ID));
+}
+/** Get Partner Location.
+@return Identifies the (ship to) address for this Business Partner */
+public int getC_BPartner_Location_ID() 
+{
+Integer ii = (Integer)get_Value("C_BPartner_Location_ID");
+if (ii == null) return 0;
+return ii.intValue();
+}
+/** Set Invoice.
+@param C_Invoice_ID Invoice Identifier */
+public void setC_Invoice_ID (int C_Invoice_ID)
+{
+if (C_Invoice_ID <= 0) set_ValueNoCheck ("C_Invoice_ID", null);
+else
+set_ValueNoCheck ("C_Invoice_ID", new Integer(C_Invoice_ID));
+}
+/** Get Invoice.
+@return Invoice Identifier */
+public int getC_Invoice_ID() 
+{
+Integer ii = (Integer)get_Value("C_Invoice_ID");
+if (ii == null) return 0;
+return ii.intValue();
+}
+/** Set Description.
+@param Description Optional short description of the record */
+public void setDescription (String Description)
+{
+if (Description != null && Description.length() > 2000)
+{
+log.warning("Length > 2000 - truncated");
+Description = Description.substring(0,2000);
+}
+set_Value ("Description", Description);
+}
+/** Get Description.
+@return Optional short description of the record */
+public String getDescription() 
+{
+return (String)get_Value("Description");
+}
+/** Set Minutes.
+@param Minutes Minutes */
+public void setMinutes (int Minutes)
+{
+set_Value ("Minutes", new Integer(Minutes));
+}
+/** Get Minutes.
+@return Minutes */
+public int getMinutes() 
+{
+Integer ii = (Integer)get_Value("Minutes");
+if (ii == null) return 0;
+return ii.intValue();
+}
+/** Set Name.
+@param Name Alphanumeric identifier of the entity */
+public void setName (String Name)
+{
+if (Name == null) throw new IllegalArgumentException ("Name is mandatory.");
+if (Name.length() > 120)
+{
+log.warning("Length > 120 - truncated");
+Name = Name.substring(0,120);
+}
+set_Value ("Name", Name);
+}
+/** Get Name.
+@return Alphanumeric identifier of the entity */
+public String getName() 
+{
+return (String)get_Value("Name");
+}
+/** Get Record ID/ColumnName
+@return ID/ColumnName pair */
+public KeyNamePair getKeyNamePair() 
+{
+return new KeyNamePair(get_ID(), getName());
+}
+/** Set Processed.
+@param Processed The document has been processed */
+public void setProcessed (boolean Processed)
+{
+set_Value ("Processed", new Boolean(Processed));
+}
+/** Get Processed.
+@return The document has been processed */
+public boolean isProcessed() 
+{
+Object oo = get_Value("Processed");
+if (oo != null) 
+{
+ if (oo instanceof Boolean) return ((Boolean)oo).booleanValue();
+ return "Y".equals(oo);
+}
+return false;
+}
+/** Set Process Now.
+@param Processing Process Now */
+public void setProcessing (boolean Processing)
+{
+set_Value ("Processing", new Boolean(Processing));
+}
+/** Get Process Now.
+@return Process Now */
+public boolean isProcessing() 
+{
+Object oo = get_Value("Processing");
+if (oo != null) 
+{
+ if (oo instanceof Boolean) return ((Boolean)oo).booleanValue();
+ return "Y".equals(oo);
+}
+return false;
+}
+/** Set Interest Area.
+@param R_InterestArea_ID Interest Area or Topic */
+public void setR_InterestArea_ID (int R_InterestArea_ID)
+{
+if (R_InterestArea_ID <= 0) set_Value ("R_InterestArea_ID", null);
+else
+set_Value ("R_InterestArea_ID", new Integer(R_InterestArea_ID));
+}
+/** Get Interest Area.
+@return Interest Area or Topic */
+public int getR_InterestArea_ID() 
+{
+Integer ii = (Integer)get_Value("R_InterestArea_ID");
+if (ii == null) return 0;
+return ii.intValue();
+}
+
+/** SalesRep_ID AD_Reference_ID=190 */
+public static final int SALESREP_ID_AD_Reference_ID=190;
+/** Set Representative.
+@param SalesRep_ID Company Agent like Sales Representitive, Purchase Agent, Customer Service Representative, ... */
+public void setSalesRep_ID (int SalesRep_ID)
+{
+if (SalesRep_ID < 1) throw new IllegalArgumentException ("SalesRep_ID is mandatory.");
+set_Value ("SalesRep_ID", new Integer(SalesRep_ID));
+}
+/** Get Representative.
+@return Company Agent like Sales Representitive, Purchase Agent, Customer Service Representative, ... */
+public int getSalesRep_ID() 
+{
+Integer ii = (Integer)get_Value("SalesRep_ID");
+if (ii == null) return 0;
+return ii.intValue();
+}
+/** Set Visit Time.
+@param VisitTime Visit Time */
+public void setVisitTime (Timestamp VisitTime)
+{
+if (VisitTime == null) throw new IllegalArgumentException ("VisitTime is mandatory.");
+set_ValueNoCheck ("VisitTime", VisitTime);
+}
+/** Get Visit Time.
+@return Visit Time */
+public Timestamp getVisitTime() 
+{
+return (Timestamp)get_Value("VisitTime");
+}
+/** Set Visit.
+@param XX_Visit_ID Visit */
+public void setXX_Visit_ID (int XX_Visit_ID)
+{
+if (XX_Visit_ID < 1) throw new IllegalArgumentException ("XX_Visit_ID is mandatory.");
+set_ValueNoCheck ("XX_Visit_ID", new Integer(XX_Visit_ID));
+}
+/** Get Visit.
+@return Visit */
+public int getXX_Visit_ID() 
+{
+Integer ii = (Integer)get_Value("XX_Visit_ID");
+if (ii == null) return 0;
+return ii.intValue();
+}
+}

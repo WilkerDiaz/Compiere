@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><C_Payments>
+<C_Payment>
+
+<C_Invoice_ID>
+<Value>1000168</Value>
+</C_Invoice_ID>
+
+
+<C_BankAccount_ID>
+<Info>MoneyBank - 123456789_1234</Info>
+</C_BankAccount_ID>
+
+<Description>
+<Value>AR Invoice Payment- WS</Value>
+</Description>
+
+<DateAcct>
+<Value>10/22/2009</Value>
+</DateAcct>
+
+<C_Currency_ID>
+<Info>USD</Info>
+</C_Currency_ID>
+
+<PayAmt>
+<Value>35</Value>
+</PayAmt>
+
+<DocAction>
+<Value>CO</Value>
+</DocAction>
+
+</C_Payment>
+</C_Payments>

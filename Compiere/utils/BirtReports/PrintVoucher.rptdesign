@@ -1,0 +1,879 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.22" id="1">
+    <property name="createdBy">Eclipse BIRT Designer Version 4.2.1.v201209101448 Build &lt;4.2.1.v20120912-1721></property>
+    <list-property name="includeScripts">
+        <property>JS/covertirNumLetrasCheque.js</property>
+    </list-property>
+    <list-property name="propertyBindings">
+        <structure>
+            <property name="name">queryText</property>
+            <property name="id">200</property>
+        </structure>
+        <structure>
+            <property name="name">queryTimeOut</property>
+            <property name="id">200</property>
+        </structure>
+        <structure>
+            <property name="name">rowFetchSize</property>
+            <property name="id">200</property>
+        </structure>
+    </list-property>
+    <property name="units">in</property>
+    <property name="iconFile">/templates/blank_report.gif</property>
+    <property name="bidiLayoutOrientation">ltr</property>
+    <property name="imageDPI">96</property>
+    <parameters>
+        <scalar-parameter name="pago" id="201">
+            <text-property name="helpText">Id del pago</text-property>
+            <text-property name="promptText">Id del pago</text-property>
+            <property name="valueType">static</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="empresa" id="202">
+            <text-property name="helpText">Nombre de empresa</text-property>
+            <text-property name="promptText">Nombre de empresa</text-property>
+            <property name="valueType">static</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+    </parameters>
+    <data-sources>
+        <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="CompierDiario" id="14">
+            <list-property name="privateDriverProperties">
+                <ex-property>
+                    <name>metadataBidiFormatStr</name>
+                    <value>ILYNN</value>
+                </ex-property>
+                <ex-property>
+                    <name>disabledMetadataBidiFormatStr</name>
+                </ex-property>
+                <ex-property>
+                    <name>contentBidiFormatStr</name>
+                    <value>ILYNN</value>
+                </ex-property>
+                <ex-property>
+                    <name>disabledContentBidiFormatStr</name>
+                </ex-property>
+            </list-property>
+            <property name="odaDriverClass">oracle.jdbc.OracleDriver</property>
+            <property name="odaURL">jdbc:oracle:thin:@192.168.1.139:1521:compiere</property>
+            <property name="odaUser">compiere</property>
+            <encrypted-property name="odaPassword" encryptionID="base64">czEwZTkwOWQ=</encrypted-property>
+        </oda-data-source>
+    </data-sources>
+    <data-sets>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="QUERY" id="200">
+            <property name="nullsOrdering">nulls lowest</property>
+            <list-property name="columnHints"/>
+            <list-property name="parameters">
+                <structure>
+                    <property name="name">pago</property>
+                    <property name="paramName">pago</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">0</property>
+                    <property name="position">1</property>
+                    <property name="isOptional">false</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">MONTO</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">NOMBRE</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">CHEQUE</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">BANCO</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">5</property>
+                        <property name="name">CONCEPTO</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">6</property>
+                        <property name="name">FORMATO</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">CompierDiario</property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">MONTO</property>
+                    <property name="nativeName">MONTO</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">NOMBRE</property>
+                    <property name="nativeName">NOMBRE</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">CHEQUE</property>
+                    <property name="nativeName">CHEQUE</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">4</property>
+                    <property name="name">BANCO</property>
+                    <property name="nativeName">BANCO</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">5</property>
+                    <property name="name">CONCEPTO</property>
+                    <property name="nativeName">CONCEPTO</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">6</property>
+                    <property name="name">FORMATO</property>
+                    <property name="nativeName">FORMATO</property>
+                    <property name="dataType">string</property>
+                </structure>
+            </list-property>
+            <xml-property name="queryText"><![CDATA[SELECT P.PAYAMT AS MONTO, P.A_NAME AS NOMBRE, P.CHECKNO AS CHEQUE, B.NAME AS BANCO, 'PAGO '|| P.DESCRIPTION AS CONCEPTO, to_char(P.PAYAMT, '999G999G999G999D99') AS FORMATO
+FROM C_PAYMENT P, C_BANKACCOUNT BA, C_BANK B
+WHERE C_PAYMENT_ID= ? AND P.C_BANKACCOUNT_ID=BA.C_BANKACCOUNT_ID AND B.C_BANK_ID=BA.C_BANK_ID
+]]></xml-property>
+        </oda-data-set>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="QUERY1" id="314">
+            <list-property name="columnHints"/>
+            <list-property name="parameters">
+                <structure>
+                    <property name="name">pago</property>
+                    <property name="paramName">pago</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">0</property>
+                    <property name="position">1</property>
+                    <property name="isOptional">false</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">CUENTA</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">VALUE</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">DESCRIPTION</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">DEBE</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">5</property>
+                        <property name="name">DETALLE</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">CompierDiario</property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">CUENTA</property>
+                    <property name="nativeName">CUENTA</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">VALUE</property>
+                    <property name="nativeName">VALUE</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">DESCRIPTION</property>
+                    <property name="nativeName">DESCRIPTION</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">4</property>
+                    <property name="name">DEBE</property>
+                    <property name="nativeName">DEBE</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">5</property>
+                    <property name="name">DETALLE</property>
+                    <property name="nativeName">DETALLE</property>
+                    <property name="dataType">string</property>
+                </structure>
+            </list-property>
+            <xml-property name="queryText"><![CDATA[SELECT
+    F.ACCOUNT_ID AS CUENTA, EV.value AS VALUE, EV.description AS DESCRIPTION, to_char(F.AMTACCTDR, '999G999G999G999D99') AS DEBE, F.XX_OFFICE||F.XX_DIVISION||F.XX_DEPARTAMENT||F.XX_SECTIONCODE||' '||F.XX_AUX AS DETALLE
+FROM FACT_ACCT F, C_ElementValue EV
+WHERE F.ACCOUNT_ID=C_ElementValue_ID AND RECORD_ID=? AND AMTACCTDR != 0]]></xml-property>
+        </oda-data-set>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="QUERY2" id="338">
+            <list-property name="columnHints"/>
+            <list-property name="parameters">
+                <structure>
+                    <property name="name">pago</property>
+                    <property name="paramName">pago</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">0</property>
+                    <property name="position">1</property>
+                    <property name="isOptional">false</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">CUENTA</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">VALUE</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">DESCRIPTION</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">HABER</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">5</property>
+                        <property name="name">DETALLE</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">CompierDiario</property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">CUENTA</property>
+                    <property name="nativeName">CUENTA</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">VALUE</property>
+                    <property name="nativeName">VALUE</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">DESCRIPTION</property>
+                    <property name="nativeName">DESCRIPTION</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">4</property>
+                    <property name="name">HABER</property>
+                    <property name="nativeName">HABER</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">5</property>
+                    <property name="name">DETALLE</property>
+                    <property name="nativeName">DETALLE</property>
+                    <property name="dataType">string</property>
+                </structure>
+            </list-property>
+            <xml-property name="queryText"><![CDATA[SELECT
+    F.ACCOUNT_ID AS CUENTA, EV.value AS VALUE, EV.description AS DESCRIPTION, to_char(F.AMTACCTCR, '999G999G999G999D99') AS HABER, F.XX_OFFICE||F.XX_DIVISION||F.XX_DEPARTAMENT||F.XX_SECTIONCODE||' '||F.XX_AUX AS DETALLE
+FROM FACT_ACCT F, C_ElementValue EV
+WHERE F.ACCOUNT_ID=C_ElementValue_ID AND RECORD_ID=? AND AMTACCTDR = 0]]></xml-property>
+        </oda-data-set>
+    </data-sets>
+    <styles>
+        <style name="report" id="4">
+            <property name="fontFamily">sans-serif</property>
+            <property name="fontSize">10pt</property>
+        </style>
+        <style name="crosstab-cell" id="5">
+            <property name="borderBottomColor">#CCCCCC</property>
+            <property name="borderBottomStyle">solid</property>
+            <property name="borderBottomWidth">1pt</property>
+            <property name="borderLeftColor">#CCCCCC</property>
+            <property name="borderLeftStyle">solid</property>
+            <property name="borderLeftWidth">1pt</property>
+            <property name="borderRightColor">#CCCCCC</property>
+            <property name="borderRightStyle">solid</property>
+            <property name="borderRightWidth">1pt</property>
+            <property name="borderTopColor">#CCCCCC</property>
+            <property name="borderTopStyle">solid</property>
+            <property name="borderTopWidth">1pt</property>
+        </style>
+        <style name="crosstab" id="6">
+            <property name="borderBottomColor">#CCCCCC</property>
+            <property name="borderBottomStyle">solid</property>
+            <property name="borderBottomWidth">1pt</property>
+            <property name="borderLeftColor">#CCCCCC</property>
+            <property name="borderLeftStyle">solid</property>
+            <property name="borderLeftWidth">1pt</property>
+            <property name="borderRightColor">#CCCCCC</property>
+            <property name="borderRightStyle">solid</property>
+            <property name="borderRightWidth">1pt</property>
+            <property name="borderTopColor">#CCCCCC</property>
+            <property name="borderTopStyle">solid</property>
+            <property name="borderTopWidth">1pt</property>
+        </style>
+    </styles>
+    <page-setup>
+        <simple-master-page name="Simple MasterPage" id="2"/>
+    </page-setup>
+    <body>
+        <grid id="7">
+            <property name="height">4.416666666666667in</property>
+            <property name="width">7.947916666666667in</property>
+            <column id="8">
+                <property name="width">1.3645833333333333in</property>
+            </column>
+            <column id="9">
+                <property name="width">2.125in</property>
+            </column>
+            <column id="10">
+                <property name="width">2.5in</property>
+            </column>
+            <column id="83">
+                <property name="width">1.9583333333333333in</property>
+            </column>
+            <row id="11">
+                <property name="height">0.22916666666666666in</property>
+                <cell id="12">
+                    <property name="colSpan">3</property>
+                    <property name="rowSpan">1</property>
+                    <text id="23">
+                        <property name="fontFamily">"Arial"</property>
+                        <property name="textAlign">right</property>
+                        <property name="contentType">auto</property>
+                        <text-property name="content"><![CDATA[Bs]]></text-property>
+                    </text>
+                </cell>
+                <cell id="72">
+                    <data id="205">
+                        <property name="textAlign">right</property>
+                        <property name="dataSet">QUERY</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">FORMATO</property>
+                                <text-property name="displayName">FORMATO</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["FORMATO"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                        </list-property>
+                        <property name="resultSetColumn">FORMATO</property>
+                    </data>
+                </cell>
+            </row>
+            <row id="15">
+                <property name="height">0.2708333333333333in</property>
+                <cell id="16">
+                    <property name="colSpan">4</property>
+                    <property name="rowSpan">1</property>
+                    <data id="204">
+                        <property name="dataSet">QUERY</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">NOMBRE</property>
+                                <text-property name="displayName">NOMBRE</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["NOMBRE"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                        </list-property>
+                        <property name="resultSetColumn">NOMBRE</property>
+                    </data>
+                </cell>
+            </row>
+            <row id="19">
+                <property name="height">0.46875in</property>
+                <cell id="20">
+                    <property name="colSpan">4</property>
+                    <property name="rowSpan">1</property>
+                    <data id="288">
+                        <property name="dataSet">QUERY</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">MONTO</property>
+                                <text-property name="displayName">MONTO</text-property>
+                                <expression name="expression" type="javascript">""+covertirNumLetrasCheque(dataSetRow["MONTO"])</expression>
+                                <property name="dataType">string</property>
+                                <property name="allowExport">true</property>
+                            </structure>
+                        </list-property>
+                        <property name="resultSetColumn">MONTO</property>
+                    </data>
+                </cell>
+            </row>
+            <row id="26">
+                <property name="height">0.5520833333333334in</property>
+                <cell id="27">
+                    <property name="colSpan">4</property>
+                    <property name="rowSpan">1</property>
+                    <data id="283">
+                        <property name="fontFamily">"Arial"</property>
+                        <property name="fontSize">10pt</property>
+                        <property name="textAlign">left</property>
+                        <property name="dataSet">QUERY</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">BANCO</property>
+                                <text-property name="displayName">Primero</text-property>
+                                <expression name="expression" type="javascript">var fecha="CARACAS      "; &#13;
+var year= BirtDateTime.year(BirtDateTime.today()); var mes = BirtDateTime.month(BirtDateTime.today()); var dia = BirtDateTime.day(BirtDateTime.today());&#13;
+//DIA&#13;
+fecha= fecha + dia+"    ";&#13;
+//MES&#13;
+	if(mes==1) fecha= fecha+"ENERO"; 	if(mes==2) fecha= fecha+"FEBRERO"; 	if(mes==3) fecha= fecha+"MARZO"; 	if(mes==4) fecha= fecha+"ABRIL";&#13;
+	if(mes==5) fecha= fecha+"MAYO"; 	if(mes==6) fecha= fecha+"JUNIO"; 	if(mes==7) fecha= fecha+"JULIO"; 	if(mes==8) fecha= fecha+"AGOSTO";&#13;
+	if(mes==9) fecha= fecha+"SEPTIEMBRE"; 	if(mes==10) fecha= fecha+"OCTUBRE"; 	if(mes==11) fecha= fecha+"NOVIEMBRE"; 	if(mes==12) fecha= fecha+"DICIEMBRE";		&#13;
+//YEAR&#13;
+fecha= fecha+"  "+year;&#13;
+//IMPRIMIR FECHA&#13;
+fecha;</expression>
+                                <property name="dataType">string</property>
+                                <property name="allowExport">true</property>
+                            </structure>
+                        </list-property>
+                        <property name="resultSetColumn">BANCO</property>
+                    </data>
+                </cell>
+            </row>
+            <row id="30">
+                <property name="height">0.19791666666666666in</property>
+                <cell id="31">
+                    <property name="colSpan">4</property>
+                    <property name="rowSpan">1</property>
+                    <text id="197">
+                        <property name="contentType">auto</property>
+                        <text-property name="content"><![CDATA[- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -]]></text-property>
+                    </text>
+                </cell>
+            </row>
+            <row id="40">
+                <property name="height">0.3333333333333333in</property>
+                <cell id="41">
+                    <property name="colSpan">4</property>
+                    <property name="rowSpan">1</property>
+                    <data id="284">
+                        <property name="dataSet">QUERY</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">CHEQUE</property>
+                                <text-property name="displayName">CHEQUE</text-property>
+                                <expression name="expression" type="javascript">"CHEQUE  NRO:            "+dataSetRow["CHEQUE"]+"      A CARGO  DEL:   "+dataSetRow["BANCO"].toUpperCase()</expression>
+                                <property name="dataType">string</property>
+                                <property name="allowExport">true</property>
+                            </structure>
+                        </list-property>
+                        <property name="resultSetColumn">CHEQUE</property>
+                    </data>
+                </cell>
+            </row>
+            <row id="44">
+                <property name="height">0.2604166666666667in</property>
+                <cell id="45">
+                    <property name="colSpan">4</property>
+                    <property name="rowSpan">1</property>
+                    <data id="285">
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">empresa</property>
+                                <expression name="expression" type="javascript">"EMPRESA EMISORA:     "+params["empresa"].toUpperCase()</expression>
+                                <property name="dataType">string</property>
+                                <property name="allowExport">true</property>
+                            </structure>
+                        </list-property>
+                        <property name="resultSetColumn">empresa</property>
+                    </data>
+                </cell>
+            </row>
+            <row id="61">
+                <property name="height">0.2604166666666667in</property>
+                <cell id="62">
+                    <property name="colSpan">4</property>
+                    <property name="rowSpan">1</property>
+                    <data id="286">
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">empresa</property>
+                                <expression name="expression" type="javascript">"POR CUENTA DE . .  :     "+params["empresa"].toUpperCase()</expression>
+                                <property name="dataType">string</property>
+                                <property name="allowExport">true</property>
+                            </structure>
+                        </list-property>
+                        <property name="resultSetColumn">empresa</property>
+                    </data>
+                </cell>
+            </row>
+            <row id="67">
+                <property name="height">0.4895833333333333in</property>
+                <cell id="68">
+                    <property name="colSpan">4</property>
+                    <property name="rowSpan">1</property>
+                    <data id="287">
+                        <property name="dataSet">QUERY</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">CONCEPTO</property>
+                                <text-property name="displayName">CONCEPTO</text-property>
+                                <expression name="expression" type="javascript">"CONCEPTO . . . . . . . :     "+dataSetRow["CONCEPTO"]</expression>
+                                <property name="dataType">string</property>
+                                <property name="allowExport">true</property>
+                            </structure>
+                        </list-property>
+                        <property name="resultSetColumn">CONCEPTO</property>
+                    </data>
+                </cell>
+            </row>
+            <row id="48">
+                <property name="height">0.25in</property>
+                <cell id="49">
+                    <property name="colSpan">4</property>
+                    <property name="rowSpan">1</property>
+                    <text id="194">
+                        <property name="contentType">auto</property>
+                        <text-property name="content"><![CDATA[- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -]]></text-property>
+                    </text>
+                </cell>
+            </row>
+        </grid>
+        <table id="289">
+            <property name="width">7.947916666666667in</property>
+            <property name="dataSet">QUERY1</property>
+            <list-property name="boundDataColumns">
+                <structure>
+                    <property name="name">VALUE</property>
+                    <text-property name="displayName">VALUE</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["VALUE"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">DESCRIPTION</property>
+                    <text-property name="displayName">DESCRIPTION</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["DESCRIPTION"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">DEBE</property>
+                    <text-property name="displayName">DEBE</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["DEBE"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">DETALLE</property>
+                    <text-property name="displayName">DETALLE</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["DETALLE"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+            </list-property>
+            <column id="305">
+                <property name="width">1.5104166666666667in</property>
+            </column>
+            <column id="306">
+                <property name="width">2.3125in</property>
+            </column>
+            <column id="307">
+                <property name="width">2.5729166666666665in</property>
+            </column>
+            <column id="308">
+                <property name="width">1.5520833333333333in</property>
+            </column>
+            <header>
+                <row id="290">
+                    <property name="height">0.28125in</property>
+                    <cell id="291">
+                        <label id="310">
+                            <text-property name="text">CUENTA</text-property>
+                        </label>
+                        <label id="309"/>
+                    </cell>
+                    <cell id="292">
+                        <label id="311">
+                            <text-property name="text">OFC/DIV/DEPT/SECC AUXILIAR</text-property>
+                        </label>
+                    </cell>
+                    <cell id="293">
+                        <label id="312">
+                            <text-property name="text">DESCRIPCION</text-property>
+                        </label>
+                    </cell>
+                    <cell id="294">
+                        <label id="313">
+                            <text-property name="text">MONTO DEL CHQ</text-property>
+                        </label>
+                    </cell>
+                </row>
+            </header>
+            <detail>
+                <row id="295">
+                    <cell id="296">
+                        <data id="315">
+                            <property name="resultSetColumn">VALUE</property>
+                        </data>
+                    </cell>
+                    <cell id="297">
+                        <data id="390">
+                            <property name="resultSetColumn">DETALLE</property>
+                        </data>
+                    </cell>
+                    <cell id="298">
+                        <data id="316">
+                            <property name="fontSize">9pt</property>
+                            <property name="resultSetColumn">DESCRIPTION</property>
+                        </data>
+                    </cell>
+                    <cell id="299">
+                        <data id="317">
+                            <property name="resultSetColumn">DEBE</property>
+                        </data>
+                    </cell>
+                </row>
+            </detail>
+        </table>
+        <table id="318">
+            <property name="width">7.947916666666667in</property>
+            <property name="dataSet">QUERY2</property>
+            <list-property name="boundDataColumns">
+                <structure>
+                    <property name="name">VALUE</property>
+                    <text-property name="displayName">VALUE</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["VALUE"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">DESCRIPTION</property>
+                    <text-property name="displayName">DESCRIPTION</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["DESCRIPTION"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">HABER</property>
+                    <text-property name="displayName">HABER</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["HABER"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">DETALLE</property>
+                    <text-property name="displayName">DETALLE</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["DETALLE"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+            </list-property>
+            <column id="334">
+                <property name="width">1.5104166666666667in</property>
+            </column>
+            <column id="335">
+                <property name="width">2.3229166666666665in</property>
+            </column>
+            <column id="336">
+                <property name="width">2.5625in</property>
+            </column>
+            <column id="337">
+                <property name="width">1.5520833333333333in</property>
+            </column>
+            <detail>
+                <row id="324">
+                    <property name="height">0.6145833333333334in</property>
+                    <cell id="325">
+                        <data id="339">
+                            <property name="resultSetColumn">VALUE</property>
+                        </data>
+                    </cell>
+                    <cell id="326">
+                        <data id="391">
+                            <property name="resultSetColumn">DETALLE</property>
+                        </data>
+                    </cell>
+                    <cell id="327">
+                        <data id="340">
+                            <property name="fontSize">9pt</property>
+                            <property name="resultSetColumn">DESCRIPTION</property>
+                        </data>
+                    </cell>
+                    <cell id="328">
+                        <data id="341">
+                            <property name="textAlign">right</property>
+                            <property name="resultSetColumn">HABER</property>
+                        </data>
+                    </cell>
+                </row>
+            </detail>
+            <footer>
+                <row id="329">
+                    <property name="height">0.4583333333333333in</property>
+                    <cell id="330">
+                        <property name="colSpan">4</property>
+                        <property name="rowSpan">1</property>
+                        <text id="342">
+                            <property name="contentType">auto</property>
+                            <text-property name="content"><![CDATA[- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -]]></text-property>
+                        </text>
+                    </cell>
+                </row>
+                <row id="343">
+                    <property name="height">0.2916666666666667in</property>
+                    <cell id="344">
+                        <property name="colSpan">2</property>
+                        <property name="rowSpan">1</property>
+                        <label id="348">
+                            <text-property name="text">EMITIDO POR:</text-property>
+                        </label>
+                    </cell>
+                    <cell id="346">
+                        <property name="colSpan">2</property>
+                        <property name="rowSpan">1</property>
+                        <label id="349">
+                            <text-property name="text">APROBADO POR:</text-property>
+                        </label>
+                    </cell>
+                </row>
+                <row id="350">
+                    <property name="height">0.2916666666666667in</property>
+                    <cell id="351">
+                        <property name="colSpan">2</property>
+                        <property name="rowSpan">1</property>
+                        <label id="355">
+                            <text-property name="text">FECHA:</text-property>
+                        </label>
+                    </cell>
+                    <cell id="353">
+                        <property name="colSpan">2</property>
+                        <property name="rowSpan">1</property>
+                        <label id="356">
+                            <text-property name="text">FECHA:</text-property>
+                        </label>
+                    </cell>
+                </row>
+                <row id="357">
+                    <property name="height">0.2916666666666667in</property>
+                    <cell id="358">
+                        <property name="colSpan">4</property>
+                        <property name="rowSpan">1</property>
+                        <text id="362">
+                            <property name="contentType">auto</property>
+                            <text-property name="content"><![CDATA[- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -]]></text-property>
+                        </text>
+                    </cell>
+                </row>
+                <row id="363">
+                    <property name="height">0.2916666666666667in</property>
+                    <cell id="364">
+                        <property name="colSpan">2</property>
+                        <property name="rowSpan">1</property>
+                        <label id="378">
+                            <text-property name="text">RECIBIDO POR:</text-property>
+                        </label>
+                    </cell>
+                    <cell id="366">
+                        <property name="colSpan">2</property>
+                        <property name="rowSpan">1</property>
+                        <label id="379">
+                            <text-property name="text">APROBADO POR:</text-property>
+                        </label>
+                    </cell>
+                </row>
+                <row id="368">
+                    <property name="height">0.2916666666666667in</property>
+                    <cell id="369">
+                        <property name="colSpan">2</property>
+                        <property name="rowSpan">1</property>
+                        <label id="380">
+                            <text-property name="text">FECHA:</text-property>
+                        </label>
+                    </cell>
+                    <cell id="371">
+                        <property name="colSpan">2</property>
+                        <property name="rowSpan">1</property>
+                        <label id="381">
+                            <text-property name="text">FECHA:</text-property>
+                        </label>
+                    </cell>
+                </row>
+                <row id="373">
+                    <property name="height">0.2916666666666667in</property>
+                    <cell id="374">
+                        <property name="colSpan">4</property>
+                        <property name="rowSpan">1</property>
+                        <text id="382">
+                            <property name="contentType">auto</property>
+                            <text-property name="content"><![CDATA[- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -]]></text-property>
+                        </text>
+                    </cell>
+                </row>
+                <row id="383">
+                    <property name="height">0.2916666666666667in</property>
+                    <cell id="384">
+                        <property name="colSpan">2</property>
+                        <property name="rowSpan">1</property>
+                        <label id="388">
+                            <text-property name="text">ORDEN DE PAGO NRO:</text-property>
+                        </label>
+                    </cell>
+                    <cell id="386">
+                        <data id="389">
+                            <list-property name="boundDataColumns">
+                                <structure>
+                                    <property name="name">pago</property>
+                                    <expression name="expression" type="javascript">params["pago"]</expression>
+                                    <property name="dataType">string</property>
+                                </structure>
+                            </list-property>
+                            <property name="resultSetColumn">pago</property>
+                        </data>
+                    </cell>
+                    <cell id="387"/>
+                </row>
+            </footer>
+        </table>
+    </body>
+</report>

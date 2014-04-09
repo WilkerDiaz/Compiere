@@ -1,0 +1,7 @@
+<module>
+<source path="common"/>
+<source path="util"/>
+<source path="layout"/>
+<source path="vos"/>
+</module>
+

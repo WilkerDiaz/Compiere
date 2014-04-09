@@ -1,0 +1,30 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<jnlp spec = "1.6+" version = "3.6.2" 
+	codebase = "http://@COMPIERE_APPS_SERVER@/admin/compiereHome" 
+	href = "http://@COMPIERE_APPS_SERVER@/admin/compiereHome/compiereDirect.jnlp">  
+	<information>
+		<title>Compiere Client 3.6.2 @COMPIERE_APPS_SERVER@ Direct</title>
+		<vendor>Compiere, Inc.</vendor>
+		<homepage href = "http://www.compiere.org"/>
+		<offline-allowed/>
+		<description>Compiere ERP+CRM (local) - Smart Business Solution for Distribution and Service - globally</description>
+		<description kind = "short">Compiere ERP+CRM (local)</description>
+		<description kind = "one-line">Compiere ERP+CRM</description>
+		<description kind = "tooltip">Compiere ERP+CRM (Local Release)</description>
+		<icon href = "http://@COMPIERE_APPS_SERVER@/admin/C32.gif"/>
+		<shortcut online="true">
+			<desktop/>
+			<menu submenu="Compiere 3.6.2 @COMPIERE_APPS_SERVER@ Direct"/>
+		</shortcut>
+	</information>  
+	<resources>
+		<j2se version = "1.6" href = "http://java.sun.com/products/autodl/j2se" initial-heap-size = "32m" max-heap-size = "512m"/>
+		<jar href = "Compiere.jar" main = "true" download = "eager"/>
+		<jar href = "CompiereCLib.jar" main = "false" download = "eager"/>
+		<property name="compiereJNLP" value="@COMPIERE_APPS_SERVER@"/> 
+	</resources>  
+	<application-desc main-class = "org.compiere.Compiere"/>  
+	<security>
+		<all-permissions/>  
+	</security>
+</jnlp>

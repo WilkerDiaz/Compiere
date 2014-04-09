@@ -1,0 +1,1782 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.22" id="1">
+    <property name="createdBy">Eclipse BIRT Designer Version 4.2.1.v201209101448 Build &lt;4.2.1.v20120912-1721></property>
+    <list-property name="propertyBindings">
+        <structure>
+            <property name="name">queryText</property>
+            <property name="id">195</property>
+        </structure>
+        <structure>
+            <property name="name">queryTimeOut</property>
+            <property name="id">195</property>
+        </structure>
+        <structure>
+            <property name="name">rowFetchSize</property>
+            <property name="id">195</property>
+        </structure>
+    </list-property>
+    <property name="units">in</property>
+    <property name="iconFile">/templates/blank_report.gif</property>
+    <property name="bidiLayoutOrientation">ltr</property>
+    <property name="imageDPI">96</property>
+    <parameters>
+        <scalar-parameter name="COMPANY" id="194">
+            <property name="valueType">static</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">1000012</value>
+            </simple-property-list>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="DESDE" id="546">
+            <property name="valueType">static</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">01/01/1960</value>
+            </simple-property-list>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="HASTA" id="547">
+            <property name="valueType">static</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">01/04/2013</value>
+            </simple-property-list>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="DEPART" id="548">
+            <property name="valueType">static</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">1000195</value>
+            </simple-property-list>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="CATEG" id="549">
+            <property name="valueType">static</property>
+            <property name="dataType">integer</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">1000076</value>
+            </simple-property-list>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="TYPE" id="550">
+            <property name="valueType">static</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">ACC</value>
+            </simple-property-list>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="PROV" id="551">
+            <property name="valueType">static</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">1039163</value>
+            </simple-property-list>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+    </parameters>
+    <data-sources>
+        <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="Compiere" id="7">
+            <list-property name="privateDriverProperties">
+                <ex-property>
+                    <name>metadataBidiFormatStr</name>
+                    <value>ILYNN</value>
+                </ex-property>
+                <ex-property>
+                    <name>disabledMetadataBidiFormatStr</name>
+                </ex-property>
+                <ex-property>
+                    <name>contentBidiFormatStr</name>
+                    <value>ILYNN</value>
+                </ex-property>
+                <ex-property>
+                    <name>disabledContentBidiFormatStr</name>
+                </ex-property>
+            </list-property>
+            <property name="odaDriverClass">oracle.jdbc.OracleDriver</property>
+            <property name="odaURL">jdbc:oracle:thin:@192.168.1.139:1521:compiere</property>
+            <property name="odaUser">compiere</property>
+            <encrypted-property name="odaPassword" encryptionID="base64">czEwZTkwOWQ=</encrypted-property>
+        </oda-data-source>
+    </data-sources>
+    <data-sets>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="Principal" id="8">
+            <list-property name="parameters">
+                <structure>
+                    <property name="name">CLIENT</property>
+                    <property name="paramName">COMPANY</property>
+                    <property name="dataType">integer</property>
+                    <property name="position">1</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">HASTA</property>
+                    <property name="paramName">HASTA</property>
+                    <property name="dataType">string</property>
+                    <property name="position">2</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">DESDE</property>
+                    <property name="paramName">DESDE</property>
+                    <property name="dataType">string</property>
+                    <property name="position">3</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">PROV</property>
+                    <property name="paramName">PROV</property>
+                    <property name="dataType">integer</property>
+                    <property name="position">4</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">PROV_AUX</property>
+                    <property name="paramName">PROV</property>
+                    <property name="dataType">integer</property>
+                    <property name="position">5</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">TYPE</property>
+                    <property name="paramName">TYPE</property>
+                    <property name="dataType">string</property>
+                    <property name="position">6</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">TYPE_AUX</property>
+                    <property name="paramName">TYPE</property>
+                    <property name="dataType">string</property>
+                    <property name="position">7</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">DEP</property>
+                    <property name="paramName">DEPART</property>
+                    <property name="dataType">integer</property>
+                    <property name="position">8</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">DEP_AUX</property>
+                    <property name="paramName">DEPART</property>
+                    <property name="dataType">integer</property>
+                    <property name="position">9</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">CAT</property>
+                    <property name="paramName">CATEG</property>
+                    <property name="dataType">integer</property>
+                    <property name="position">10</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">CAT_AUX</property>
+                    <property name="paramName">CATEG</property>
+                    <property name="dataType">integer</property>
+                    <property name="position">11</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">VENDOR</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">COUNTRYID</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">COUNTRY</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">MONTHYEAR</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">5</property>
+                        <property name="name">DESCRIPTION</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">6</property>
+                        <property name="name">AMOUNT</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">7</property>
+                        <property name="name">IVA</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">8</property>
+                        <property name="name">TOTAL</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">9</property>
+                        <property name="name">XX_MONTH</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">10</property>
+                        <property name="name">XX_YEAR</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">11</property>
+                        <property name="name">XX_VMR_DEPARTMENT_ID</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">12</property>
+                        <property name="name">XX_VMR_CATEGORY_ID</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">13</property>
+                        <property name="name">VENDORID</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">14</property>
+                        <property name="name">CREDITID</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">15</property>
+                        <property name="name">C_ORDER_ID</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">16</property>
+                        <property name="name">DATECREATED</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">17</property>
+                        <property name="name">DEPARTAMENTO</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">18</property>
+                        <property name="name">CATEGORIA</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">19</property>
+                        <property name="name">DESC_REC</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">20</property>
+                        <property name="name">DESC_POST</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">21</property>
+                        <property name="name">DESC_CENT</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">22</property>
+                        <property name="name">DESC_PUBLI</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">23</property>
+                        <property name="name">CONCEPT</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">24</property>
+                        <property name="name">DOC_DATE</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">25</property>
+                        <property name="name">DOL</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">Compiere</property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">VENDOR</property>
+                    <property name="nativeName">VENDOR</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">COUNTRYID</property>
+                    <property name="nativeName">COUNTRYID</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">COUNTRY</property>
+                    <property name="nativeName">COUNTRY</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">4</property>
+                    <property name="name">MONTHYEAR</property>
+                    <property name="nativeName">MONTHYEAR</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">5</property>
+                    <property name="name">DESCRIPTION</property>
+                    <property name="nativeName">DESCRIPTION</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">6</property>
+                    <property name="name">AMOUNT</property>
+                    <property name="nativeName">AMOUNT</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">7</property>
+                    <property name="name">IVA</property>
+                    <property name="nativeName">IVA</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">8</property>
+                    <property name="name">TOTAL</property>
+                    <property name="nativeName">TOTAL</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">9</property>
+                    <property name="name">XX_MONTH</property>
+                    <property name="nativeName">XX_MONTH</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">10</property>
+                    <property name="name">XX_YEAR</property>
+                    <property name="nativeName">XX_YEAR</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">11</property>
+                    <property name="name">XX_VMR_DEPARTMENT_ID</property>
+                    <property name="nativeName">XX_VMR_DEPARTMENT_ID</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">12</property>
+                    <property name="name">XX_VMR_CATEGORY_ID</property>
+                    <property name="nativeName">XX_VMR_CATEGORY_ID</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">13</property>
+                    <property name="name">VENDORID</property>
+                    <property name="nativeName">VENDORID</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">14</property>
+                    <property name="name">CREDITID</property>
+                    <property name="nativeName">CREDITID</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">15</property>
+                    <property name="name">C_ORDER_ID</property>
+                    <property name="nativeName">C_ORDER_ID</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">16</property>
+                    <property name="name">DATECREATED</property>
+                    <property name="nativeName">DATECREATED</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">17</property>
+                    <property name="name">DEPARTAMENTO</property>
+                    <property name="nativeName">DEPARTAMENTO</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">18</property>
+                    <property name="name">CATEGORIA</property>
+                    <property name="nativeName">CATEGORIA</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">19</property>
+                    <property name="name">DESC_REC</property>
+                    <property name="nativeName">DESC_REC</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">20</property>
+                    <property name="name">DESC_POST</property>
+                    <property name="nativeName">DESC_POST</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">21</property>
+                    <property name="name">DESC_CENT</property>
+                    <property name="nativeName">DESC_CENT</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">22</property>
+                    <property name="name">DESC_PUBLI</property>
+                    <property name="nativeName">DESC_PUBLI</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">23</property>
+                    <property name="name">CONCEPT</property>
+                    <property name="nativeName">CONCEPT</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">24</property>
+                    <property name="name">DOC_DATE</property>
+                    <property name="nativeName">DOC_DATE</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">25</property>
+                    <property name="name">DOL</property>
+                    <property name="nativeName">DOL</property>
+                    <property name="dataType">string</property>
+                </structure>
+            </list-property>
+            <xml-property name="queryText"><![CDATA[select cb.value ||'-'|| cb.name vendor, co.C_COUNTRY_ID countryID, co.name country, 
+CASE WHEN det.XX_MONTH is NOT null THEN det.XX_MONTH ||' / '|| det.XX_YEAR ELSE TO_CHAR(cn.CREATED, 'MM/YYYY') END monthYear, 
+cn.description, round(cn.XX_AMOUNT,2) amount, round(cn.XX_AMOUNT_IVA,2) iva, round(cn.XX_AMOUNT+cn.XX_AMOUNT_IVA,2) total, 
+CASE WHEN det.XX_MONTH is NOT null THEN TO_CHAR(det.XX_MONTH) ELSE TO_CHAR(cn.CREATED, 'MM') END XX_MONTH, 
+CASE WHEN det.XX_YEAR is NOT null THEN TO_CHAR(det.XX_YEAR) ELSE TO_CHAR(cn.CREATED, 'YYYY') END XX_YEAR, 
+o.XX_VMR_DEPARTMENT_ID, o.XX_VMR_CATEGORY_ID, o.C_BPARTNER_ID vendorID, cn.XX_CREDITNOTIFYRETURN_ID creditID, cn.C_ORDER_ID, to_char(cn.created,'dd-mm-yyyy') dateCreated 
+,dep.VALUE||'-'||dep.NAME Departamento,cat.value ||'-'||cat.name Categoria,
+NVL(det.XX_DISCRECOGDECLAMOUNT, 0) DESC_REC, NVL(det.XX_DISCAFTERSALEAMOUNT, 0) DESC_POST, 
+NVL(det.XX_CENTRADISCDELIAMOUNT, 0) DESC_CENT, NVL(det.XX_PUBAMOUNT, 0) DESC_PUBLI, 
+
+(select ta.XX_CONCEPT from XX_VCN_TRADEAGREEMENTS ta, C_ORDER co, XX_CREDITNOTIFYRETURN cn
+where ta.DOCUMENTNOORDER=co.DOCUMENTNO and co.C_ORDER_ID=cn.C_ORDER_ID and cn.XX_NOTIFICATIONTYPE='CAC'
+and cn.XX_CREDITNOTIFYRETURN_ID = cn.XX_CREDITNOTIFYRETURN_ID) Concept, 
+(select to_char(ci.CREATED,'dd-mm-yyyy')
+from C_INVOICE ci
+where ci.DOCUMENTNO=cn.XX_DOCUMENTNO and ci.C_BPARTNER_ID = o.C_BPARTNER_ID
+and ci.C_DocTypeTarget_ID=1000351) DOC_DATE,
+
+(CASE WHEN co.C_COUNTRY_ID = 339 THEN (select TO_CHAR(rate.MULTIPLYRATE/round(cn.XX_AMOUNT+cn.XX_AMOUNT_IVA,2)) 
+from C_CONVERSION_RATE rate, C_PERIOD peri
+where rate.XX_PERIOD_ID=peri.C_PERIOD_ID and sysdate between STARTDATE
+and ENDDATE and C_CURRENCY_ID=100 AND ROWNUM=1)
+ELSE '' END) DOL
+
+
+FROM  XX_CREDITNOTIFYRETURN cn, C_BPARTNER cb, C_COUNTRY co, C_ORDER o, XX_VMR_DEPARTMENT dep, XX_VMR_CATEGORY cat, XX_VCN_DETAILADVICE det, 
+C_BPARTNER_LOCATION cbl, C_LOCATION clo where o.C_BPARTNER_ID=cb.C_BPARTNER_ID and cn.C_ORDER_ID=o.C_ORDER_ID AND XX_STATUS = 'CER' 
+AND dep.XX_VMR_DEPARTMENT_ID=o.XX_VMR_DEPARTMENT_ID and o.XX_VMR_CATEGORY_ID=cat.XX_VMR_CATEGORY_ID and cb.C_Bpartner_ID=cbl.C_Bpartner_ID 
+and clo.C_LOCATION_ID=cbl.C_LOCATION_ID and co.C_COUNTRY_ID=clo.C_COUNTRY_ID and det.XX_CREDITNOTIFYRETURN_ID(+)=cn.XX_CREDITNOTIFYRETURN_ID 
+
+and o.AD_CLIENT_ID=? 
+AND TRUNC(cn.CREATED)  <= TO_DATE(?, 'DD/MM/YYYY')  
+AND TRUNC(cn.CREATED)  >= TO_DATE(?, 'DD/MM/YYYY')  
+AND (cb.C_BPartner_ID=? OR 0=?)
+AND (XX_NOTIFICATIONTYPE = ? OR 'X'=?)
+AND (dep.XX_VMR_DEPARTMENT_ID = ? OR 0=?) 
+AND (o.XX_VMR_CATEGORY_ID = ? OR 0=?)
+
+group by cb.value, cb.name, co.C_COUNTRY_ID, co.name,cn.CREATED , cn.description, cn.XX_AMOUNT, XX_AMOUNT_IVA, det.XX_MONTH, det.XX_YEAR, o.XX_VMR_DEPARTMENT_ID, o.XX_VMR_CATEGORY_ID, o.C_BPARTNER_ID, cn.XX_CREDITNOTIFYRETURN_ID, cn.C_ORDER_ID
+,dep.VALUE,dep.NAME, cat.value,cat.name, det.XX_DISCRECOGDECLAMOUNT, det.XX_DISCAFTERSALEAMOUNT, det.XX_CENTRADISCDELIAMOUNT, det.XX_PUBAMOUNT, cn.XX_DOCUMENTNO ]]></xml-property>
+            <xml-property name="designerValues"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<model:DesignValues xmlns:design="http://www.eclipse.org/datatools/connectivity/oda/design" xmlns:model="http://www.eclipse.org/birt/report/model/adapter/odaModel">
+  <Version>2.0</Version>
+  <design:ResultSets derivedMetaData="true">
+    <design:resultSetDefinitions>
+      <design:resultSetColumns>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>VENDOR</design:name>
+              <design:position>1</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>101</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>VENDOR</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>VENDOR</design:label>
+            <design:formattingHints>
+              <design:displaySize>101</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>COUNTRYID</design:name>
+              <design:position>2</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>2</design:nativeDataTypeCode>
+            <design:precision>10</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>COUNTRYID</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>COUNTRYID</design:label>
+            <design:formattingHints>
+              <design:displaySize>22</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>COUNTRY</design:name>
+              <design:position>3</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>60</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>COUNTRY</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>COUNTRY</design:label>
+            <design:formattingHints>
+              <design:displaySize>60</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>MONTHYEAR</design:name>
+              <design:position>4</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>83</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>MONTHYEAR</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>MONTHYEAR</design:label>
+            <design:formattingHints>
+              <design:displaySize>83</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>DESCRIPTION</design:name>
+              <design:position>5</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>200</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>DESCRIPTION</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>DESCRIPTION</design:label>
+            <design:formattingHints>
+              <design:displaySize>200</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>AMOUNT</design:name>
+              <design:position>6</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>2</design:nativeDataTypeCode>
+            <design:precision>0</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>AMOUNT</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>AMOUNT</design:label>
+            <design:formattingHints>
+              <design:displaySize>22</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>IVA</design:name>
+              <design:position>7</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>2</design:nativeDataTypeCode>
+            <design:precision>0</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>IVA</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>IVA</design:label>
+            <design:formattingHints>
+              <design:displaySize>22</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>TOTAL</design:name>
+              <design:position>8</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>2</design:nativeDataTypeCode>
+            <design:precision>0</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>TOTAL</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>TOTAL</design:label>
+            <design:formattingHints>
+              <design:displaySize>22</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>XX_MONTH</design:name>
+              <design:position>9</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>40</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>XX_MONTH</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>XX_MONTH</design:label>
+            <design:formattingHints>
+              <design:displaySize>40</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>XX_YEAR</design:name>
+              <design:position>10</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>40</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>XX_YEAR</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>XX_YEAR</design:label>
+            <design:formattingHints>
+              <design:displaySize>40</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>XX_VMR_DEPARTMENT_ID</design:name>
+              <design:position>11</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>2</design:nativeDataTypeCode>
+            <design:precision>10</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>XX_VMR_DEPARTMENT_ID</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>XX_VMR_DEPARTMENT_ID</design:label>
+            <design:formattingHints>
+              <design:displaySize>22</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>XX_VMR_CATEGORY_ID</design:name>
+              <design:position>12</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>2</design:nativeDataTypeCode>
+            <design:precision>10</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>XX_VMR_CATEGORY_ID</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>XX_VMR_CATEGORY_ID</design:label>
+            <design:formattingHints>
+              <design:displaySize>22</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>VENDORID</design:name>
+              <design:position>13</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>2</design:nativeDataTypeCode>
+            <design:precision>10</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>VENDORID</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>VENDORID</design:label>
+            <design:formattingHints>
+              <design:displaySize>22</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>CREDITID</design:name>
+              <design:position>14</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>2</design:nativeDataTypeCode>
+            <design:precision>10</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>CREDITID</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>CREDITID</design:label>
+            <design:formattingHints>
+              <design:displaySize>22</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>C_ORDER_ID</design:name>
+              <design:position>15</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>2</design:nativeDataTypeCode>
+            <design:precision>10</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>C_ORDER_ID</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>C_ORDER_ID</design:label>
+            <design:formattingHints>
+              <design:displaySize>22</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>DATECREATED</design:name>
+              <design:position>16</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>10</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>DATECREATED</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>DATECREATED</design:label>
+            <design:formattingHints>
+              <design:displaySize>10</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+      </design:resultSetColumns>
+      <design:criteria/>
+    </design:resultSetDefinitions>
+  </design:ResultSets>
+</model:DesignValues>]]></xml-property>
+        </oda-data-set>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="Header" id="195">
+            <property name="nullsOrdering">nulls lowest</property>
+            <list-property name="parameters">
+                <structure>
+                    <property name="name">DEPART</property>
+                    <property name="paramName">DEPART</property>
+                    <property name="dataType">integer</property>
+                    <property name="position">1</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">CAT</property>
+                    <property name="paramName">CATEG</property>
+                    <property name="dataType">integer</property>
+                    <property name="position">2</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">PROV</property>
+                    <property name="paramName">PROV</property>
+                    <property name="dataType">integer</property>
+                    <property name="position">3</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">REF_TYPE</property>
+                    <property name="paramName">TYPE</property>
+                    <property name="dataType">string</property>
+                    <property name="position">4</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">Company</property>
+                    <property name="paramName">COMPANY</property>
+                    <property name="dataType">integer</property>
+                    <property name="position">5</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">SYSDATE</property>
+                        <property name="dataType">date-time</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">COMPANY</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">DEP</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">CAT</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">5</property>
+                        <property name="name">PROV</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">6</property>
+                        <property name="name">TYPE</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">Compiere</property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">SYSDATE</property>
+                    <property name="nativeName">SYSDATE</property>
+                    <property name="dataType">date-time</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">COMPANY</property>
+                    <property name="nativeName">COMPANY</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">DEP</property>
+                    <property name="nativeName">DEP</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">4</property>
+                    <property name="name">CAT</property>
+                    <property name="nativeName">CAT</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">5</property>
+                    <property name="name">PROV</property>
+                    <property name="nativeName">PROV</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">6</property>
+                    <property name="name">TYPE</property>
+                    <property name="nativeName">TYPE</property>
+                    <property name="dataType">string</property>
+                </structure>
+            </list-property>
+            <xml-property name="queryText"><![CDATA[SELECT sysdate, a.NAME COMPANY, b.value||' - '||b.NAME DEP, c.value||' - '||c.NAME CAT, d.value||' - '||d.NAME PROV, e.NAME TYPE
+FROM AD_CLIENT a 
+left outer join XX_VMR_DEPARTMENT b on (a.AD_CLIENT_ID = b.AD_CLIENT_ID AND XX_VMR_DEPARTMENT_ID = ?)
+left outer join XX_VMR_CATEGORY c on (a.AD_CLIENT_ID = c.AD_CLIENT_ID AND c.XX_VMR_CATEGORY_ID = ?)
+left outer join C_BPARTNER d on (a.AD_CLIENT_ID = c.AD_CLIENT_ID AND d.C_BPARTNER_ID = ?)
+left outer join AD_Ref_LIST e on (a.AD_CLIENT_ID = c.AD_CLIENT_ID AND e.AD_Reference_ID = 1000296 AND e.VALUE = ?) 
+WHERE a.AD_CLIENT_ID = ?]]></xml-property>
+        </oda-data-set>
+    </data-sets>
+    <styles>
+        <style name="report" id="4">
+            <property name="fontFamily">sans-serif</property>
+            <property name="fontSize">10pt</property>
+        </style>
+        <style name="crosstab-cell" id="5">
+            <property name="borderBottomColor">#CCCCCC</property>
+            <property name="borderBottomStyle">solid</property>
+            <property name="borderBottomWidth">1pt</property>
+            <property name="borderLeftColor">#CCCCCC</property>
+            <property name="borderLeftStyle">solid</property>
+            <property name="borderLeftWidth">1pt</property>
+            <property name="borderRightColor">#CCCCCC</property>
+            <property name="borderRightStyle">solid</property>
+            <property name="borderRightWidth">1pt</property>
+            <property name="borderTopColor">#CCCCCC</property>
+            <property name="borderTopStyle">solid</property>
+            <property name="borderTopWidth">1pt</property>
+        </style>
+        <style name="crosstab" id="6">
+            <property name="borderBottomColor">#CCCCCC</property>
+            <property name="borderBottomStyle">solid</property>
+            <property name="borderBottomWidth">1pt</property>
+            <property name="borderLeftColor">#CCCCCC</property>
+            <property name="borderLeftStyle">solid</property>
+            <property name="borderLeftWidth">1pt</property>
+            <property name="borderRightColor">#CCCCCC</property>
+            <property name="borderRightStyle">solid</property>
+            <property name="borderRightWidth">1pt</property>
+            <property name="borderTopColor">#CCCCCC</property>
+            <property name="borderTopStyle">solid</property>
+            <property name="borderTopWidth">1pt</property>
+        </style>
+    </styles>
+    <page-setup>
+        <simple-master-page name="Simple MasterPage" id="2">
+            <property name="type">custom</property>
+            <property name="height">11in</property>
+            <property name="width">22in</property>
+        </simple-master-page>
+    </page-setup>
+    <body>
+        <label id="579">
+            <property name="fontWeight">bold</property>
+            <property name="textAlign">center</property>
+            <text-property name="text">CONSULTA DE AVISOS RECUPERADOS</text-property>
+        </label>
+        <grid id="196">
+            <property name="width">4.572916666666667in</property>
+            <column id="197">
+                <property name="width">1.5520833333333333in</property>
+            </column>
+            <column id="198">
+                <property name="width">3.0208333333333335in</property>
+            </column>
+            <row id="200">
+                <cell id="201">
+                    <text id="343">
+                        <property name="fontWeight">bold</property>
+                        <property name="contentType">auto</property>
+                        <text-property name="content"><![CDATA[COMPAÑIA:]]></text-property>
+                    </text>
+                </cell>
+                <cell id="202">
+                    <data id="544">
+                        <property name="dataSet">Header</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">COMPANY</property>
+                                <text-property name="displayName">COMPANY</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["COMPANY"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                        </list-property>
+                        <property name="resultSetColumn">COMPANY</property>
+                    </data>
+                </cell>
+            </row>
+            <row id="204">
+                <cell id="205">
+                    <text id="543">
+                        <property name="fontWeight">bold</property>
+                        <property name="contentType">auto</property>
+                        <text-property name="content"><![CDATA[FECHA DE EMISIÓN:]]></text-property>
+                    </text>
+                </cell>
+                <cell id="206">
+                    <data id="545">
+                        <property name="dataSet">Header</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">SYSDATE</property>
+                                <text-property name="displayName">SYSDATE</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["SYSDATE"]</expression>
+                                <property name="dataType">date-time</property>
+                            </structure>
+                        </list-property>
+                        <property name="resultSetColumn">SYSDATE</property>
+                    </data>
+                </cell>
+            </row>
+            <row id="208">
+                <cell id="209">
+                    <label id="560">
+                        <property name="fontWeight">bold</property>
+                        <text-property name="text">FECHA DESDE:</text-property>
+                    </label>
+                </cell>
+                <cell id="210">
+                    <data id="580">
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">DESDE</property>
+                                <expression name="expression" type="javascript">params["DESDE"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                        </list-property>
+                        <property name="resultSetColumn">DESDE</property>
+                    </data>
+                </cell>
+            </row>
+            <row id="554">
+                <cell id="555">
+                    <label id="561">
+                        <property name="fontWeight">bold</property>
+                        <text-property name="text">FECHA HASTA:</text-property>
+                    </label>
+                </cell>
+                <cell id="556">
+                    <data id="581">
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">HASTA</property>
+                                <expression name="expression" type="javascript">params["HASTA"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                        </list-property>
+                        <property name="resultSetColumn">HASTA</property>
+                    </data>
+                </cell>
+            </row>
+            <row id="557">
+                <cell id="558">
+                    <label id="562">
+                        <property name="fontWeight">bold</property>
+                        <text-property name="text">DEPARTAMENTO</text-property>
+                    </label>
+                </cell>
+                <cell id="559">
+                    <data id="570">
+                        <property name="dataSet">Header</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">DEP</property>
+                                <text-property name="displayName">DEP</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["DEP"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                        </list-property>
+                        <property name="resultSetColumn">DEP</property>
+                    </data>
+                </cell>
+            </row>
+            <row id="563">
+                <cell id="564">
+                    <label id="569">
+                        <property name="fontWeight">bold</property>
+                        <text-property name="text">CATEGORIA</text-property>
+                    </label>
+                </cell>
+                <cell id="565">
+                    <data id="571">
+                        <property name="dataSet">Header</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">CAT</property>
+                                <text-property name="displayName">CAT</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["CAT"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                        </list-property>
+                        <property name="resultSetColumn">CAT</property>
+                    </data>
+                </cell>
+            </row>
+            <row id="566">
+                <cell id="567">
+                    <label id="577">
+                        <property name="fontWeight">bold</property>
+                        <text-property name="text">SOCIO DEL NEGOCIO</text-property>
+                    </label>
+                </cell>
+                <cell id="568">
+                    <data id="572">
+                        <property name="dataSet">Header</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">PROV</property>
+                                <text-property name="displayName">PROV</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["PROV"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                        </list-property>
+                        <property name="resultSetColumn">PROV</property>
+                    </data>
+                </cell>
+            </row>
+            <row id="573">
+                <cell id="574">
+                    <label id="578">
+                        <property name="fontWeight">bold</property>
+                        <text-property name="text">TIPO DE AVISO</text-property>
+                    </label>
+                </cell>
+                <cell id="575">
+                    <data id="576">
+                        <property name="dataSet">Header</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">TYPE</property>
+                                <text-property name="displayName">TYPE</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["TYPE"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                        </list-property>
+                        <property name="resultSetColumn">TYPE</property>
+                    </data>
+                </cell>
+            </row>
+        </grid>
+        <table id="9">
+            <property name="width">21.354166666666668in</property>
+            <property name="dataSet">Principal</property>
+            <list-property name="boundDataColumns">
+                <structure>
+                    <property name="name">VENDOR</property>
+                    <text-property name="displayName">VENDOR</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["VENDOR"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">COUNTRYID</property>
+                    <text-property name="displayName">COUNTRYID</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["COUNTRYID"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">COUNTRY</property>
+                    <text-property name="displayName">COUNTRY</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["COUNTRY"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">MONTHYEAR</property>
+                    <text-property name="displayName">MONTHYEAR</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["MONTHYEAR"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">DESCRIPTION</property>
+                    <text-property name="displayName">DESCRIPTION</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["DESCRIPTION"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">AMOUNT</property>
+                    <text-property name="displayName">AMOUNT</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["AMOUNT"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">IVA</property>
+                    <text-property name="displayName">IVA</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["IVA"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">TOTAL</property>
+                    <text-property name="displayName">TOTAL</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["TOTAL"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">XX_MONTH</property>
+                    <text-property name="displayName">XX_MONTH</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["XX_MONTH"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">XX_YEAR</property>
+                    <text-property name="displayName">XX_YEAR</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["XX_YEAR"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">XX_VMR_DEPARTMENT_ID</property>
+                    <text-property name="displayName">XX_VMR_DEPARTMENT_ID</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["XX_VMR_DEPARTMENT_ID"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">XX_VMR_CATEGORY_ID</property>
+                    <text-property name="displayName">XX_VMR_CATEGORY_ID</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["XX_VMR_CATEGORY_ID"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">VENDORID</property>
+                    <text-property name="displayName">VENDORID</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["VENDORID"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">CREDITID</property>
+                    <text-property name="displayName">CREDITID</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["CREDITID"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">C_ORDER_ID</property>
+                    <text-property name="displayName">C_ORDER_ID</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["C_ORDER_ID"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">DATECREATED</property>
+                    <text-property name="displayName">DATECREATED</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["DATECREATED"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">CONCEPT</property>
+                    <text-property name="displayName">CONCEPT</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["CONCEPT"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">DEPARTAMENTO</property>
+                    <text-property name="displayName">DEPARTAMENTO</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["DEPARTAMENTO"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">CATEGORIA</property>
+                    <text-property name="displayName">CATEGORIA</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["CATEGORIA"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">DESC_PUBLI</property>
+                    <text-property name="displayName">DESC_PUBLI</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["DESC_PUBLI"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">DESC_CENT</property>
+                    <text-property name="displayName">DESC_CENT</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["DESC_CENT"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">DESC_POST</property>
+                    <text-property name="displayName">DESC_POST</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["DESC_POST"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">DESC_REC</property>
+                    <text-property name="displayName">DESC_REC</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["DESC_REC"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">DOC_DATE</property>
+                    <text-property name="displayName">DOC_DATE</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["DOC_DATE"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+            </list-property>
+            <column id="28">
+                <property name="width">1.3229166666666667in</property>
+            </column>
+            <column id="29">
+                <property name="width">2.7916666666666665in</property>
+            </column>
+            <column id="30">
+                <property name="width">1.1041666666666667in</property>
+            </column>
+            <column id="82">
+                <property name="width">1.5625in</property>
+            </column>
+            <column id="72">
+                <property name="width">1.5104166666666667in</property>
+            </column>
+            <column id="66">
+                <property name="width">2.4479166666666665in</property>
+            </column>
+            <column id="171">
+                <property name="width">1.7083333333333333in</property>
+            </column>
+            <column id="189">
+                <property name="width">1.5104166666666667in</property>
+            </column>
+            <column id="31">
+                <property name="width">1.53125in</property>
+            </column>
+            <column id="181">
+                <property name="width">1.59375in</property>
+            </column>
+            <column id="163">
+                <property name="width">1.8125in</property>
+            </column>
+            <header>
+                <row id="10">
+                    <cell id="11"/>
+                    <cell id="12"/>
+                    <cell id="13"/>
+                    <cell id="77"/>
+                    <cell id="67"/>
+                    <cell id="61"/>
+                    <cell id="164"/>
+                    <cell id="182"/>
+                    <cell id="14"/>
+                    <cell id="174"/>
+                    <cell id="156"/>
+                </row>
+            </header>
+            <group id="42">
+                <property name="groupName">Header</property>
+                <expression name="keyExpr" type="javascript">row["CREDITID"]</expression>
+                <structure name="toc">
+                    <expression name="expressionValue" type="javascript">row["CREDITID"]</expression>
+                </structure>
+                <property name="repeatHeader">true</property>
+                <property name="hideDetail">false</property>
+                <header>
+                    <row id="126">
+                        <property name="backgroundColor">#C0C0C0</property>
+                        <cell id="127">
+                            <label id="134">
+                                <property name="fontWeight">bold</property>
+                                <property name="paddingTop">10pt</property>
+                                <property name="paddingBottom">4pt</property>
+                                <property name="textAlign">center</property>
+                                <text-property name="text">AVISO</text-property>
+                            </label>
+                        </cell>
+                        <cell id="128">
+                            <label id="135">
+                                <property name="fontWeight">bold</property>
+                                <property name="paddingTop">10pt</property>
+                                <property name="paddingBottom">4pt</property>
+                                <property name="textAlign">left</property>
+                                <text-property name="text">SOCIO DEL NEGOCIO</text-property>
+                            </label>
+                        </cell>
+                        <cell id="129">
+                            <label id="136">
+                                <property name="fontWeight">bold</property>
+                                <property name="paddingTop">10pt</property>
+                                <property name="paddingBottom">4pt</property>
+                                <property name="textAlign">left</property>
+                                <text-property name="text">PAIS</text-property>
+                            </label>
+                        </cell>
+                        <cell id="130">
+                            <label id="137">
+                                <property name="fontWeight">bold</property>
+                                <property name="paddingTop">10pt</property>
+                                <property name="paddingBottom">4pt</property>
+                                <property name="textAlign">center</property>
+                                <text-property name="text">CONCEPTO</text-property>
+                            </label>
+                        </cell>
+                        <cell id="131">
+                            <label id="75">
+                                <property name="fontWeight">bold</property>
+                                <property name="paddingTop">10pt</property>
+                                <property name="paddingBottom">4pt</property>
+                                <property name="textAlign">center</property>
+                                <text-property name="text">MES-AÑO</text-property>
+                            </label>
+                        </cell>
+                        <cell id="132">
+                            <label id="85">
+                                <property name="fontWeight">bold</property>
+                                <property name="paddingTop">10pt</property>
+                                <property name="paddingBottom">4pt</property>
+                                <property name="textAlign">center</property>
+                                <text-property name="text">TIPO DE AVISO</text-property>
+                            </label>
+                        </cell>
+                        <cell id="165">
+                            <label id="172">
+                                <property name="fontWeight">bold</property>
+                                <property name="marginTop">0pt</property>
+                                <property name="marginBottom">0pt</property>
+                                <property name="paddingTop">10pt</property>
+                                <property name="paddingBottom">4pt</property>
+                                <property name="textAlign">right</property>
+                                <text-property name="text">AMOUNT</text-property>
+                            </label>
+                        </cell>
+                        <cell id="183">
+                            <label id="190">
+                                <property name="fontWeight">bold</property>
+                                <property name="marginTop">0pt</property>
+                                <property name="marginBottom">0pt</property>
+                                <property name="paddingTop">10pt</property>
+                                <property name="paddingBottom">4pt</property>
+                                <property name="textAlign">right</property>
+                                <text-property name="text">IVA</text-property>
+                            </label>
+                        </cell>
+                        <cell id="133">
+                            <label id="40">
+                                <property name="fontWeight">bold</property>
+                                <property name="paddingTop">10pt</property>
+                                <property name="paddingBottom">4pt</property>
+                                <property name="textAlign">right</property>
+                                <text-property name="text">TOTAL</text-property>
+                            </label>
+                        </cell>
+                        <cell id="175">
+                            <label id="582">
+                                <property name="fontWeight">bold</property>
+                                <property name="paddingTop">10pt</property>
+                                <property name="paddingBottom">4pt</property>
+                                <property name="textAlign">right</property>
+                                <text-property name="text">MONTO TOTAL EN DOLARES</text-property>
+                            </label>
+                        </cell>
+                        <cell id="157">
+                            <label id="192">
+                                <property name="fontWeight">bold</property>
+                                <property name="marginTop">0pt</property>
+                                <property name="marginBottom">0pt</property>
+                                <property name="paddingTop">10pt</property>
+                                <property name="paddingBottom">4pt</property>
+                                <property name="textAlign">center</property>
+                                <text-property name="text">DATECREATED</text-property>
+                            </label>
+                        </cell>
+                    </row>
+                    <row id="43">
+                        <cell id="44">
+                            <data id="53">
+                                <property name="textAlign">center</property>
+                                <property name="resultSetColumn">CREDITID</property>
+                            </data>
+                        </cell>
+                        <cell id="45">
+                            <data id="54">
+                                <property name="resultSetColumn">VENDOR</property>
+                            </data>
+                        </cell>
+                        <cell id="46">
+                            <data id="39">
+                                <property name="textAlign">left</property>
+                                <property name="resultSetColumn">COUNTRY</property>
+                            </data>
+                        </cell>
+                        <cell id="78">
+                            <data id="84">
+                                <property name="resultSetColumn">CONCEPT</property>
+                            </data>
+                        </cell>
+                        <cell id="68">
+                            <data id="76">
+                                <property name="textAlign">center</property>
+                                <property name="resultSetColumn">MONTHYEAR</property>
+                            </data>
+                        </cell>
+                        <cell id="62">
+                            <data id="86">
+                                <property name="textAlign">center</property>
+                                <property name="resultSetColumn">DESCRIPTION</property>
+                            </data>
+                        </cell>
+                        <cell id="166">
+                            <data id="173">
+                                <property name="textAlign">right</property>
+                                <property name="resultSetColumn">AMOUNT</property>
+                            </data>
+                        </cell>
+                        <cell id="184">
+                            <data id="191">
+                                <property name="textAlign">right</property>
+                                <property name="resultSetColumn">IVA</property>
+                            </data>
+                        </cell>
+                        <cell id="47">
+                            <data id="41">
+                                <property name="textAlign">right</property>
+                                <property name="resultSetColumn">TOTAL</property>
+                            </data>
+                        </cell>
+                        <cell id="176"/>
+                        <cell id="158">
+                            <data id="193">
+                                <property name="textAlign">center</property>
+                                <property name="resultSetColumn">DATECREATED</property>
+                            </data>
+                        </cell>
+                    </row>
+                    <row id="106">
+                        <cell id="107"/>
+                        <cell id="108">
+                            <label id="116">
+                                <property name="fontWeight">bold</property>
+                                <property name="paddingTop">10pt</property>
+                                <property name="paddingBottom">4pt</property>
+                                <text-property name="text">DEPARTAMENTO</text-property>
+                            </label>
+                        </cell>
+                        <cell id="109">
+                            <label id="117">
+                                <property name="fontWeight">bold</property>
+                                <property name="paddingTop">10pt</property>
+                                <property name="paddingBottom">4pt</property>
+                                <text-property name="text">CATEGORIA</text-property>
+                            </label>
+                        </cell>
+                        <cell id="110">
+                            <label id="118">
+                                <property name="fontWeight">bold</property>
+                                <property name="paddingTop">10pt</property>
+                                <property name="paddingBottom">4pt</property>
+                                <property name="textAlign">right</property>
+                                <text-property name="text">DESCUENTO POR RECONOCIMIENTO</text-property>
+                            </label>
+                        </cell>
+                        <cell id="111">
+                            <label id="122">
+                                <property name="fontWeight">bold</property>
+                                <property name="paddingTop">10pt</property>
+                                <property name="paddingBottom">4pt</property>
+                                <property name="textAlign">right</property>
+                                <text-property name="text">DESCUENTO POST-VENTA</text-property>
+                            </label>
+                        </cell>
+                        <cell id="112">
+                            <label id="123">
+                                <property name="fontWeight">bold</property>
+                                <property name="paddingTop">10pt</property>
+                                <property name="paddingBottom">4pt</property>
+                                <property name="textAlign">right</property>
+                                <text-property name="text">DESCUENTO POR CENTRALIZACION DE ENTREGAS</text-property>
+                            </label>
+                        </cell>
+                        <cell id="167">
+                            <label id="124">
+                                <property name="fontWeight">bold</property>
+                                <property name="paddingTop">10pt</property>
+                                <property name="paddingBottom">4pt</property>
+                                <property name="textAlign">right</property>
+                                <text-property name="text">DESCUENTO POR APORTE A PUCLICIDAD</text-property>
+                            </label>
+                        </cell>
+                        <cell id="185"/>
+                        <cell id="113"/>
+                        <cell id="177"/>
+                        <cell id="159"/>
+                    </row>
+                </header>
+            </group>
+            <detail>
+                <row id="16">
+                    <cell id="17">
+                        <property name="paddingBottom">20pt</property>
+                    </cell>
+                    <cell id="18">
+                        <data id="87">
+                            <property name="resultSetColumn">DEPARTAMENTO</property>
+                        </data>
+                    </cell>
+                    <cell id="19">
+                        <data id="88">
+                            <structure name="numberFormat">
+                                <property name="category">Currency</property>
+                                <property name="pattern">###0.00{RoundingMode=HALF_UP}</property>
+                            </structure>
+                            <property name="resultSetColumn">CATEGORIA</property>
+                        </data>
+                    </cell>
+                    <cell id="79">
+                        <data id="147">
+                            <structure name="numberFormat">
+                                <property name="category">Currency</property>
+                                <property name="pattern">###0.00{RoundingMode=HALF_UP}</property>
+                            </structure>
+                            <property name="textAlign">right</property>
+                            <property name="resultSetColumn">DESC_REC</property>
+                        </data>
+                    </cell>
+                    <cell id="69">
+                        <data id="145">
+                            <structure name="numberFormat">
+                                <property name="category">Currency</property>
+                                <property name="pattern">###0.00{RoundingMode=HALF_UP}</property>
+                            </structure>
+                            <property name="textAlign">right</property>
+                            <property name="resultSetColumn">DESC_POST</property>
+                        </data>
+                    </cell>
+                    <cell id="63">
+                        <data id="143">
+                            <structure name="numberFormat">
+                                <property name="category">Currency</property>
+                                <property name="pattern">###0.00{RoundingMode=HALF_UP}</property>
+                            </structure>
+                            <property name="textAlign">right</property>
+                            <property name="resultSetColumn">DESC_CENT</property>
+                        </data>
+                    </cell>
+                    <cell id="168">
+                        <data id="141">
+                            <structure name="numberFormat">
+                                <property name="category">Currency</property>
+                                <property name="pattern">###0.00{RoundingMode=HALF_UP}</property>
+                            </structure>
+                            <property name="textAlign">right</property>
+                            <property name="resultSetColumn">DESC_PUBLI</property>
+                        </data>
+                    </cell>
+                    <cell id="186"/>
+                    <cell id="20"/>
+                    <cell id="178"/>
+                    <cell id="160"/>
+                </row>
+            </detail>
+            <footer>
+                <row id="22">
+                    <cell id="23"/>
+                    <cell id="24"/>
+                    <cell id="25"/>
+                    <cell id="81"/>
+                    <cell id="71"/>
+                    <cell id="65"/>
+                    <cell id="170"/>
+                    <cell id="188"/>
+                    <cell id="26"/>
+                    <cell id="180"/>
+                    <cell id="162"/>
+                </row>
+            </footer>
+        </table>
+    </body>
+</report>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><M_InventoryLine>
+<M_Inventory_ID>
+<Value>1000016</Value>
+</M_Inventory_ID>
+
+<M_Product_ID>
+<Info>Azalea Bush</Info>
+</M_Product_ID>
+
+<M_Locator_ID>
+<Info>HQ Warehouse_Default HQ Locator</Info>
+</M_Locator_ID>
+
+<QtyCount>
+<Value>500</Value>
+</QtyCount>
+
+<InventoryType>
+<Value>Inventory Difference</Value>
+</InventoryType>
+
+</M_InventoryLine>

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- ================================================ -->
+<!-- Compiere FSRV                                     -->
+<!-- Copyright 2007-2009 Compiere, Inc.               -->
+<!-- ================================================ -->
+<!-- $Id: build.xml 8232 2009-12-03 21:58:33Z nnayak $ -->
+
+<project name="fsrv" default="dist" basedir=".">
+  <description>
+    FSRV Demo Component
+  </description>
+
+	 <!-- set global properties for this build -->
+	  <property name="src" location="src"/>
+	  <property name="build.dir" location="build"/>
+	  <property name="dist.dir" location="."/>
+	  <property name="lib.dir" location="../lib"/>
+	  <property name="toolslib.dir" location="../tools/lib"/>
+	  <property name="jar.name" value="fsrv"/>
+	  <property name="jar.server.name" value="fsrvServer"/>
+	  <property environment="env"/>
+
+	  <!-- set path to include the necessary jar files for javac -->
+	  <path id="project.class.path">
+	    <pathelement path="../common/Common.jar"/>
+	    <pathelement path="../ad/AD.jar"/>
+	    <pathelement path="../base/Base.jar"/>
+	    <pathelement path="../print/Print.jar"/>
+	  <pathelement path="../lib/jPDF.jar"/>
+	  	<pathelement path="../gwtServer/gwtServer.jar"/> 
+	    <pathelement path="../lib/compiereRoot.jar"/>
+	  </path>
+
+  <target name="compile" description="Compile code">
+    <echo message="=========== Build FSRV"/>
+    <mkdir dir="${build.dir}" />
+    
+    <javac srcdir="${src}" 
+    	destdir="${build.dir}" 
+    	deprecation="on" 
+    	debug="on">
+      <classpath refid="project.class.path"/>
+    </javac>
+  </target>
+	
+	  <!-- =========================================== -->
+	  <!-- Distribution                                -->
+	  <!-- =========================================== -->
+	  <target name="dist" depends="compile">
+	    <tstamp/>
+	    <!-- put everything from ${build.dir} into the ${jar.name}.jar file -->
+	    <jar jarfile="${dist.dir}/${jar.name}.jar" basedir="${build.dir}"
+	    	excludes="**/server/**">
+			<manifest>
+				<attribute name="Specification-Title" value="Compiere FSRV" />
+				<attribute name="Specification-Version" value="${env.COMPIERE_VERSION}" />
+				<attribute name="Specification-Vendor" value="(C) 2008 ComPiere, Inc." />
+				<attribute name="Implementation-Title" value="Compiere Professional ${env.COMPIERE_VERSION}" />
+				<attribute name="Implementation-Version" value="${env.COMPIERE_VERSION} ${DSTAMP}-${TSTAMP}" />
+				<attribute name="Implementation-Vendor" value="${env.COMPIERE_VENDOR}" />
+				<attribute name="Implementation-URL" value="http://www.compiere.com" />
+			</manifest>
+	    </jar>
+	  	
+	  	<jar jarfile="${dist.dir}/${jar.server.name}.jar" basedir="${build.dir}"
+	  		    	includes="**/server/**">
+	  				<manifest>
+	  					<attribute name="Specification-Title" value="Compiere FSRV Server" />
+	  					<attribute name="Specification-Version" value="${env.COMPIERE_VERSION}" />
+	  					<attribute name="Specification-Vendor" value="(C) 2008 ComPiere, Inc." />
+	  					<attribute name="Implementation-Title" value="Compiere Professional ${env.COMPIERE_VERSION}" />
+	  					<attribute name="Implementation-Version" value="${env.COMPIERE_VERSION} ${DSTAMP}-${TSTAMP}" />
+	  					<attribute name="Implementation-Vendor" value="${env.COMPIERE_VENDOR}" />
+	  					<attribute name="Implementation-URL" value="http://www.compiere.com" />
+	  				</manifest>
+	  	</jar>
+	  		  	  	
+	</target>
+
+	<!-- =========================================== -->
+	<!-- Cleans up the current build                 -->
+	<!-- =========================================== -->
+	<target name="clean">
+	    <delete dir="${build.dir}"/>
+	    <delete file="${dist.dir}/${jar.name}.jar" failonerror="false"/>
+	    <delete file="${dist.dir}/${jar.server.name}.jar" failonerror="false"/>
+	</target>
+
+</project>

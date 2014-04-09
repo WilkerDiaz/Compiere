@@ -1,0 +1,17 @@
+<pcml version="4.0">
+	<!-- RPG module: BX014 -->
+	<!-- created: 11/07/2011-->
+	<!-- createdBy: Jessica Mendoza -->
+	<!-- modified: 05/06/2012 -->
+	<!-- source: BANSQL2/QRPGLESRC(BX014) -->
+	<!-- 4147000 -->
+	<program name="BX014V2" ENTRYPOINT="BANSQL2/BX014" path="/QSYS.LIB/BANSQL2.LIB/BX014.PGM">
+		<data name="CODCIAPAR" type="packed" length="3" precision="0" usage="input" />
+		<data name="CODSUCPAR" type="packed" length="3" precision="0" usage="input" />
+		<data name="NOMARCPAR" type="char" length="20" usage="input" />
+		<data name="SISORIPAR" type="char" length="10" usage="input" />
+		<data name="ESTREGPAR" type="char" length="2" usage="inputoutput" />		
+		<data name="TOTREGPAR" type="zoned" length="4" precision="0" usage="inputoutput" />
+		<data name="TXTERRPAR" type="char" length="20" usage="inputoutput" />
+	</program>
+</pcml>

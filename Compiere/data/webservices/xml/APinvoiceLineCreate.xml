@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><C_InvoiceLine>
+<C_Invoice_ID>
+<Value>1000162</Value>
+</C_Invoice_ID>
+
+<M_Product_ID>
+<Info>Plum Tree</Info>
+</M_Product_ID>
+
+<C_UOM_ID>
+<Info>Each</Info>
+</C_UOM_ID>
+
+<QtyEntered>
+<Value>1</Value>
+</QtyEntered>
+
+<C_Tax_ID>
+<Info>Standard</Info>
+</C_Tax_ID>
+
+<PriceEntered>
+<Value>25</Value>
+</PriceEntered>
+
+<PriceActual>
+<Value>25</Value>
+</PriceActual>
+</C_InvoiceLine>

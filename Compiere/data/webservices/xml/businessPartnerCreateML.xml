@@ -1,0 +1,16 @@
+<C_BPartner>
+<Value><Value>Crazy Town</Value></Value>
+
+<Name><Value>Crazy Town</Value></Name>
+
+<C_BP_Group_ID><Info>Vendors</Info></C_BP_Group_ID>
+<IsCustomer>
+<Label>Customer</Label>
+<Value>N</Value>
+</IsCustomer>
+
+<IsVendor>
+<Label>Vendor</Label>
+<Value>Y</Value>
+</IsVendor>
+</C_BPartner>

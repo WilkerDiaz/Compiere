@@ -1,0 +1,939 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.22" id="1">
+    <property name="createdBy">Eclipse BIRT Designer Version 4.3.0.v201306041519 Build &lt;4.3.0.v20130611-1045></property>
+    <property name="units">in</property>
+    <property name="iconFile">/templates/blank_report.gif</property>
+    <property name="bidiLayoutOrientation">ltr</property>
+    <property name="imageDPI">96</property>
+    <data-sources>
+        <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="Compiere" id="7">
+            <list-property name="privateDriverProperties">
+                <ex-property>
+                    <name>metadataBidiFormatStr</name>
+                    <value>ILYNN</value>
+                </ex-property>
+                <ex-property>
+                    <name>disabledMetadataBidiFormatStr</name>
+                </ex-property>
+                <ex-property>
+                    <name>contentBidiFormatStr</name>
+                    <value>ILYNN</value>
+                </ex-property>
+                <ex-property>
+                    <name>disabledContentBidiFormatStr</name>
+                </ex-property>
+            </list-property>
+            <property name="odaDriverClass">oracle.jdbc.driver.OracleDriver</property>
+            <property name="odaURL">jdbc:oracle:thin:@192.168.1.139:1521:compiere</property>
+            <property name="odaUser">compiere</property>
+            <encrypted-property name="odaPassword" encryptionID="base64">czEwZTkwOWQ=</encrypted-property>
+        </oda-data-source>
+    </data-sources>
+    <data-sets>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="Inventario" id="8">
+            <list-property name="columnHints">
+                <structure>
+                    <property name="columnName">UBICACION</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">UBICACION</text-property>
+                    <text-property name="heading">UBICACION</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">CODIGO_PRODUCTO</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">CODIGO_PRODUCTO</text-property>
+                    <text-property name="heading">CODIGO_PRODUCTO</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">NOMBRE_PRODUCTO</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">NOMBRE_PRODUCTO</text-property>
+                    <text-property name="heading">NOMBRE_PRODUCTO</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">REFERENCIA_PROVEEDOR</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">REFERENCIA_PROVEEDOR</text-property>
+                    <text-property name="heading">REFERENCIA_PROVEEDOR</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">CATEGORIA</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">CATEGORIA</text-property>
+                    <text-property name="heading">CATEGORIA</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">DEPARTAMENTO</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">DEPARTAMENTO</text-property>
+                    <text-property name="heading">DEPARTAMENTO</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">LINEA</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">LINEA</text-property>
+                    <text-property name="heading">LINEA</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">SECCION</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">SECCION</text-property>
+                    <text-property name="heading">SECCION</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">MARCA</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">MARCA</text-property>
+                    <text-property name="heading">MARCA</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">CODIGO_PROVEEDOR</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">CODIGO_PROVEEDOR</text-property>
+                    <text-property name="heading">CODIGO_PROVEEDOR</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">NOMBRE_PROVEEDOR</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">NOMBRE_PROVEEDOR</text-property>
+                    <text-property name="heading">NOMBRE_PROVEEDOR</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">FECHA_LLEGADA</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">FECHA_LLEGADA</text-property>
+                    <text-property name="heading">FECHA_LLEGADA</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">INVENTARIO</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">INVENTARIO</text-property>
+                    <text-property name="heading">INVENTARIO</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">OC</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">OC</text-property>
+                    <text-property name="heading">OC</text-property>
+                </structure>
+            </list-property>
+            <list-property name="parameters"/>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">UBICACION</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">CODIGO_PRODUCTO</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">NOMBRE_PRODUCTO</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">REFERENCIA_PROVEEDOR</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">5</property>
+                        <property name="name">CATEGORIA</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">6</property>
+                        <property name="name">DEPARTAMENTO</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">7</property>
+                        <property name="name">LINEA</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">8</property>
+                        <property name="name">SECCION</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">9</property>
+                        <property name="name">MARCA</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">10</property>
+                        <property name="name">CODIGO_PROVEEDOR</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">11</property>
+                        <property name="name">NOMBRE_PROVEEDOR</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">12</property>
+                        <property name="name">FECHA_LLEGADA</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">13</property>
+                        <property name="name">INVENTARIO</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">14</property>
+                        <property name="name">OC</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">Compiere</property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">UBICACION</property>
+                    <property name="nativeName">UBICACION</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">CODIGO_PRODUCTO</property>
+                    <property name="nativeName">CODIGO_PRODUCTO</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">NOMBRE_PRODUCTO</property>
+                    <property name="nativeName">NOMBRE_PRODUCTO</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">4</property>
+                    <property name="name">REFERENCIA_PROVEEDOR</property>
+                    <property name="nativeName">REFERENCIA_PROVEEDOR</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">5</property>
+                    <property name="name">CATEGORIA</property>
+                    <property name="nativeName">CATEGORIA</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">6</property>
+                    <property name="name">DEPARTAMENTO</property>
+                    <property name="nativeName">DEPARTAMENTO</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">7</property>
+                    <property name="name">LINEA</property>
+                    <property name="nativeName">LINEA</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">8</property>
+                    <property name="name">SECCION</property>
+                    <property name="nativeName">SECCION</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">9</property>
+                    <property name="name">MARCA</property>
+                    <property name="nativeName">MARCA</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">10</property>
+                    <property name="name">CODIGO_PROVEEDOR</property>
+                    <property name="nativeName">CODIGO_PROVEEDOR</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">11</property>
+                    <property name="name">NOMBRE_PROVEEDOR</property>
+                    <property name="nativeName">NOMBRE_PROVEEDOR</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">12</property>
+                    <property name="name">FECHA_LLEGADA</property>
+                    <property name="nativeName">FECHA_LLEGADA</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">13</property>
+                    <property name="name">INVENTARIO</property>
+                    <property name="nativeName">INVENTARIO</property>
+                    <property name="dataType">decimal</property>
+                    <property name="nativeDataType">2</property>
+                </structure>
+                <structure>
+                    <property name="position">14</property>
+                    <property name="name">OC</property>
+                    <property name="nativeName">OC</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+            </list-property>
+            <xml-property name="queryText"><![CDATA[SELECT * FROM XX_ProductInventoryGlobal
+ORDER BY Codigo_Producto,  Ubicacion, Fecha_Llegada]]></xml-property>
+            <xml-property name="designerValues"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<model:DesignValues xmlns:design="http://www.eclipse.org/datatools/connectivity/oda/design" xmlns:model="http://www.eclipse.org/birt/report/model/adapter/odaModel">
+  <Version>2.0</Version>
+  <design:ResultSets derivedMetaData="true">
+    <design:resultSetDefinitions>
+      <design:resultSetColumns>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>UBICACION</design:name>
+              <design:position>1</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>22</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>UBICACION</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>UBICACION</design:label>
+            <design:formattingHints>
+              <design:displaySize>22</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>CODIGO_PRODUCTO</design:name>
+              <design:position>2</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>20</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>CODIGO_PRODUCTO</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>CODIGO_PRODUCTO</design:label>
+            <design:formattingHints>
+              <design:displaySize>20</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>NOMBRE_PRODUCTO</design:name>
+              <design:position>3</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>120</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>NOMBRE_PRODUCTO</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>NOMBRE_PRODUCTO</design:label>
+            <design:formattingHints>
+              <design:displaySize>120</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>REFERENCIA_PROVEEDOR</design:name>
+              <design:position>4</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>255</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>REFERENCIA_PROVEEDOR</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>REFERENCIA_PROVEEDOR</design:label>
+            <design:formattingHints>
+              <design:displaySize>255</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>CATEGORIA</design:name>
+              <design:position>5</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>80</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>CATEGORIA</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>CATEGORIA</design:label>
+            <design:formattingHints>
+              <design:displaySize>80</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>DEPARTAMENTO</design:name>
+              <design:position>6</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>80</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>DEPARTAMENTO</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>DEPARTAMENTO</design:label>
+            <design:formattingHints>
+              <design:displaySize>80</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>LINEA</design:name>
+              <design:position>7</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>80</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>LINEA</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>LINEA</design:label>
+            <design:formattingHints>
+              <design:displaySize>80</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>SECCION</design:name>
+              <design:position>8</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>80</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>SECCION</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>SECCION</design:label>
+            <design:formattingHints>
+              <design:displaySize>80</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>MARCA</design:name>
+              <design:position>9</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>120</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>MARCA</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>MARCA</design:label>
+            <design:formattingHints>
+              <design:displaySize>120</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>CODIGO_PROVEEDOR</design:name>
+              <design:position>10</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>40</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>CODIGO_PROVEEDOR</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>CODIGO_PROVEEDOR</design:label>
+            <design:formattingHints>
+              <design:displaySize>40</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>NOMBRE_PROVEEDOR</design:name>
+              <design:position>11</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>60</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>NOMBRE_PROVEEDOR</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>NOMBRE_PROVEEDOR</design:label>
+            <design:formattingHints>
+              <design:displaySize>60</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>FECHA_LLEGADA</design:name>
+              <design:position>12</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>10</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>FECHA_LLEGADA</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>FECHA_LLEGADA</design:label>
+            <design:formattingHints>
+              <design:displaySize>10</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>INVENTARIO</design:name>
+              <design:position>13</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>2</design:nativeDataTypeCode>
+            <design:precision>0</design:precision>
+            <design:scale>-127</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>INVENTARIO</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>INVENTARIO</design:label>
+            <design:formattingHints>
+              <design:displaySize>22</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>OC</design:name>
+              <design:position>14</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>30</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>OC</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>OC</design:label>
+            <design:formattingHints>
+              <design:displaySize>30</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+      </design:resultSetColumns>
+      <design:criteria/>
+    </design:resultSetDefinitions>
+  </design:ResultSets>
+</model:DesignValues>]]></xml-property>
+        </oda-data-set>
+    </data-sets>
+    <styles>
+        <style name="report" id="4">
+            <property name="fontFamily">sans-serif</property>
+            <property name="fontSize">10pt</property>
+        </style>
+        <style name="crosstab-cell" id="5">
+            <property name="borderBottomColor">#CCCCCC</property>
+            <property name="borderBottomStyle">solid</property>
+            <property name="borderBottomWidth">1pt</property>
+            <property name="borderLeftColor">#CCCCCC</property>
+            <property name="borderLeftStyle">solid</property>
+            <property name="borderLeftWidth">1pt</property>
+            <property name="borderRightColor">#CCCCCC</property>
+            <property name="borderRightStyle">solid</property>
+            <property name="borderRightWidth">1pt</property>
+            <property name="borderTopColor">#CCCCCC</property>
+            <property name="borderTopStyle">solid</property>
+            <property name="borderTopWidth">1pt</property>
+        </style>
+        <style name="crosstab" id="6">
+            <property name="borderBottomColor">#CCCCCC</property>
+            <property name="borderBottomStyle">solid</property>
+            <property name="borderBottomWidth">1pt</property>
+            <property name="borderLeftColor">#CCCCCC</property>
+            <property name="borderLeftStyle">solid</property>
+            <property name="borderLeftWidth">1pt</property>
+            <property name="borderRightColor">#CCCCCC</property>
+            <property name="borderRightStyle">solid</property>
+            <property name="borderRightWidth">1pt</property>
+            <property name="borderTopColor">#CCCCCC</property>
+            <property name="borderTopStyle">solid</property>
+            <property name="borderTopWidth">1pt</property>
+        </style>
+    </styles>
+    <page-setup>
+        <simple-master-page name="Simple MasterPage" id="2">
+            <property name="type">custom</property>
+            <property name="height">11in</property>
+            <property name="width">25in</property>
+            <page-footer>
+                <text id="3">
+                    <property name="contentType">html</property>
+                    <text-property name="content"><![CDATA[<value-of>new Date()</value-of>]]></text-property>
+                </text>
+            </page-footer>
+        </simple-master-page>
+    </page-setup>
+    <body>
+        <table id="217">
+            <property name="canShrink">true</property>
+            <property name="width">100%</property>
+            <property name="dataSet">Inventario</property>
+            <list-property name="boundDataColumns">
+                <structure>
+                    <property name="name">UBICACION</property>
+                    <text-property name="displayName">UBICACION</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["UBICACION"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">CODIGO_PRODUCTO</property>
+                    <text-property name="displayName">CODIGO_PRODUCTO</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["CODIGO_PRODUCTO"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">NOMBRE_PRODUCTO</property>
+                    <text-property name="displayName">NOMBRE_PRODUCTO</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["NOMBRE_PRODUCTO"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">REFERENCIA_PROVEEDOR</property>
+                    <text-property name="displayName">REFERENCIA_PROVEEDOR</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["REFERENCIA_PROVEEDOR"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">CATEGORIA</property>
+                    <text-property name="displayName">CATEGORIA</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["CATEGORIA"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">DEPARTAMENTO</property>
+                    <text-property name="displayName">DEPARTAMENTO</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["DEPARTAMENTO"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">LINEA</property>
+                    <text-property name="displayName">LINEA</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["LINEA"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">SECCION</property>
+                    <text-property name="displayName">SECCION</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["SECCION"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">MARCA</property>
+                    <text-property name="displayName">MARCA</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["MARCA"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">CODIGO_PROVEEDOR</property>
+                    <text-property name="displayName">CODIGO_PROVEEDOR</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["CODIGO_PROVEEDOR"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">NOMBRE_PROVEEDOR</property>
+                    <text-property name="displayName">NOMBRE_PROVEEDOR</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["NOMBRE_PROVEEDOR"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">FECHA_LLEGADA</property>
+                    <text-property name="displayName">FECHA_LLEGADA</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["FECHA_LLEGADA"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">INVENTARIO</property>
+                    <text-property name="displayName">INVENTARIO</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["INVENTARIO"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">OC</property>
+                    <text-property name="displayName">OC</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["OC"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+            </list-property>
+            <column id="291"/>
+            <column id="292">
+                <property name="width">1.5in</property>
+            </column>
+            <column id="293"/>
+            <column id="294"/>
+            <column id="295">
+                <property name="width">1in</property>
+            </column>
+            <column id="296">
+                <property name="width">1.3in</property>
+            </column>
+            <column id="297">
+                <property name="width">1in</property>
+            </column>
+            <column id="298">
+                <property name="width">1in</property>
+            </column>
+            <column id="299"/>
+            <column id="300"/>
+            <column id="301"/>
+            <column id="302">
+                <property name="width">1.5in</property>
+            </column>
+            <column id="303">
+                <property name="width">1in</property>
+            </column>
+            <column id="304"/>
+            <header>
+                <row id="218">
+                    <cell id="219">
+                        <label id="220">
+                            <text-property name="text">UBICACION</text-property>
+                        </label>
+                    </cell>
+                    <cell id="221">
+                        <label id="222">
+                            <text-property name="text">CODIGO_PRODUCTO</text-property>
+                        </label>
+                    </cell>
+                    <cell id="223">
+                        <label id="224">
+                            <text-property name="text">NOMBRE_PRODUCTO</text-property>
+                        </label>
+                    </cell>
+                    <cell id="225">
+                        <label id="226">
+                            <text-property name="text">REFERENCIA_PROVEEDOR</text-property>
+                        </label>
+                    </cell>
+                    <cell id="227">
+                        <label id="228">
+                            <text-property name="text">CATEGORIA</text-property>
+                        </label>
+                    </cell>
+                    <cell id="229">
+                        <label id="230">
+                            <text-property name="text">DEPARTAMENTO</text-property>
+                        </label>
+                    </cell>
+                    <cell id="231">
+                        <label id="232">
+                            <text-property name="text">LINEA</text-property>
+                        </label>
+                    </cell>
+                    <cell id="233">
+                        <label id="234">
+                            <text-property name="text">SECCION</text-property>
+                        </label>
+                    </cell>
+                    <cell id="235">
+                        <label id="236">
+                            <text-property name="text">MARCA</text-property>
+                        </label>
+                    </cell>
+                    <cell id="237">
+                        <label id="238">
+                            <text-property name="text">CODIGO_PROVEEDOR</text-property>
+                        </label>
+                    </cell>
+                    <cell id="239">
+                        <label id="240">
+                            <text-property name="text">NOMBRE_PROVEEDOR</text-property>
+                        </label>
+                    </cell>
+                    <cell id="241">
+                        <label id="242">
+                            <text-property name="text">FECHA_LLEGADA</text-property>
+                        </label>
+                    </cell>
+                    <cell id="243">
+                        <label id="244">
+                            <text-property name="text">INVENTARIO</text-property>
+                        </label>
+                    </cell>
+                    <cell id="245">
+                        <label id="246">
+                            <text-property name="text">OC</text-property>
+                        </label>
+                    </cell>
+                </row>
+            </header>
+            <detail>
+                <row id="247">
+                    <cell id="248">
+                        <data id="249">
+                            <property name="resultSetColumn">UBICACION</property>
+                        </data>
+                    </cell>
+                    <cell id="250">
+                        <data id="251">
+                            <property name="resultSetColumn">CODIGO_PRODUCTO</property>
+                        </data>
+                    </cell>
+                    <cell id="252">
+                        <data id="253">
+                            <property name="resultSetColumn">NOMBRE_PRODUCTO</property>
+                        </data>
+                    </cell>
+                    <cell id="254">
+                        <data id="255">
+                            <property name="resultSetColumn">REFERENCIA_PROVEEDOR</property>
+                        </data>
+                    </cell>
+                    <cell id="256">
+                        <data id="257">
+                            <property name="resultSetColumn">CATEGORIA</property>
+                        </data>
+                    </cell>
+                    <cell id="258">
+                        <data id="259">
+                            <property name="resultSetColumn">DEPARTAMENTO</property>
+                        </data>
+                    </cell>
+                    <cell id="260">
+                        <data id="261">
+                            <property name="resultSetColumn">LINEA</property>
+                        </data>
+                    </cell>
+                    <cell id="262">
+                        <data id="263">
+                            <property name="resultSetColumn">SECCION</property>
+                        </data>
+                    </cell>
+                    <cell id="264">
+                        <data id="265">
+                            <property name="resultSetColumn">MARCA</property>
+                        </data>
+                    </cell>
+                    <cell id="266">
+                        <data id="267">
+                            <property name="resultSetColumn">CODIGO_PROVEEDOR</property>
+                        </data>
+                    </cell>
+                    <cell id="268">
+                        <data id="269">
+                            <property name="resultSetColumn">NOMBRE_PROVEEDOR</property>
+                        </data>
+                    </cell>
+                    <cell id="270">
+                        <data id="271">
+                            <property name="resultSetColumn">FECHA_LLEGADA</property>
+                        </data>
+                    </cell>
+                    <cell id="272">
+                        <data id="273">
+                            <property name="resultSetColumn">INVENTARIO</property>
+                        </data>
+                    </cell>
+                    <cell id="274">
+                        <data id="275">
+                            <property name="resultSetColumn">OC</property>
+                        </data>
+                    </cell>
+                </row>
+            </detail>
+            <footer>
+                <row id="276">
+                    <cell id="277"/>
+                    <cell id="278"/>
+                    <cell id="279"/>
+                    <cell id="280"/>
+                    <cell id="281"/>
+                    <cell id="282"/>
+                    <cell id="283"/>
+                    <cell id="284"/>
+                    <cell id="285"/>
+                    <cell id="286"/>
+                    <cell id="287"/>
+                    <cell id="288"/>
+                    <cell id="289"/>
+                    <cell id="290"/>
+                </row>
+            </footer>
+        </table>
+    </body>
+</report>

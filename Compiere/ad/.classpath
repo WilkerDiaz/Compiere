@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" path="test"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry combineaccessrules="false" exported="true" kind="src" path="/tools"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/common"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/jboss"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/interfaces"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
+	<classpathentry exported="true" kind="lib" path="/tools/lib/junitperf-1.9.1.jar"/>
+	<classpathentry kind="lib" path="/lib/jPDF.jar"/>
+	<classpathentry exported="true" kind="lib" path="/interfaces/Interfaces.jar"/>
+	<classpathentry kind="lib" path="/tools/lib/google-collect-snapshot-20080820.jar"/>
+	<classpathentry kind="lib" path="/lib/oracle.jar"/>
+	<classpathentry kind="lib" path="/lib/postgreSQL.jar"/>
+	<classpathentry kind="output" path="lib"/>
+</classpath>

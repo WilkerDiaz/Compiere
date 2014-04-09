@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><!-- Create a move line from locator FP-1-1-1-1 to FP-1-1-1-2 should result in an error while trying to complete the document --><M_MovementLine>
+<M_Movement_ID>
+<Value>1000034</Value>
+</M_Movement_ID>
+
+<M_Product_ID>
+<Info>Gardenia</Info>
+</M_Product_ID>
+
+<M_Locator_ID>
+<Info>US Distribution Center_FP-1-1-1-10</Info>
+</M_Locator_ID>
+
+<M_LocatorTo_ID>
+<Info>HQ Warehouse_Default HQ Locator</Info>
+</M_LocatorTo_ID>
+
+<MovementQty>
+<Value>5</Value>
+</MovementQty>
+
+</M_MovementLine>

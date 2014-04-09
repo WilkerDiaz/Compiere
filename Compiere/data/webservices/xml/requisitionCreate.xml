@@ -1,0 +1,20 @@
+<M_Requisition>
+<AD_User_ID>
+<Info>GardenAdmin
+</Info>
+</AD_User_ID>
+
+<DateRequired>
+<Value>05/23/2009</Value>
+</DateRequired>
+
+<C_DocType_ID>
+<Info>Purchase Requisition</Info>
+</C_DocType_ID>
+
+<Description>
+<Label>Description</Label>
+<Value>Requisitions Web Services</Value>
+</Description>
+
+</M_Requisition>

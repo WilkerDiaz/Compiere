@@ -1,0 +1,36 @@
+<C_Order>
+<C_BPartner_ID>
+<Info>Joe Block</Info>
+</C_BPartner_ID>
+
+<C_BPartner_Location_ID>
+<Info>Hartford</Info>
+</C_BPartner_Location_ID>
+
+<C_DocTypeTarget_ID>
+<Info>POS Order</Info>
+</C_DocTypeTarget_ID>
+
+<M_PriceList_ID>
+<Info>Standard</Info>
+</M_PriceList_ID>
+
+<SalesRep_ID>
+<Info>GardenAdmin</Info>
+</SalesRep_ID>
+<C_Currency_ID>
+
+<Label>Currency</Label>
+<Info>USD</Info>
+</C_Currency_ID>
+
+<DateOrdered>
+<Value>03/11/2009</Value>
+</DateOrdered>
+
+<Description>
+<Label>Description</Label>
+<Value>POS Order Web Services</Value>
+</Description>
+
+</C_Order>

@@ -1,0 +1,30 @@
+<M_Movement>
+
+<AD_Client_ID>
+<Info>GardenWorld</Info>
+</AD_Client_ID>
+
+<AD_Org_ID>
+<Info>HQ</Info>
+</AD_Org_ID>
+
+<C_DocType_ID>
+<Info>Material Movement</Info>
+</C_DocType_ID>
+
+<MovementDate>
+<Label>Movement Date</Label>
+<Value>01/22/2010</Value>
+</MovementDate>
+
+<Description>
+<Label>Description</Label>
+<Value>Test Web Service Inv Move </Value>
+</Description>
+
+<IsActive>
+<Label>Active</Label>
+<Value>Y</Value>
+</IsActive>
+
+</M_Movement>

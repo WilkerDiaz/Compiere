@@ -1,0 +1,1048 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.22" id="1">
+    <property name="createdBy">Eclipse BIRT Designer Version 2.6.2.r262_v20110209 Build &lt;2.6.2.v20110214-1523></property>
+    <property name="units">in</property>
+    <property name="iconFile">/templates/grouped_listing.gif</property>
+    <property name="cheatSheet">org.eclipse.birt.report.designer.ui.cheatsheet.groupedlisting</property>
+    <property name="bidiLayoutOrientation">ltr</property>
+    <property name="imageDPI">96</property>
+    <parameters>
+        <scalar-parameter name="fechaHasta" id="47">
+            <property name="hidden">false</property>
+            <property name="valueType">static</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">23/04/2013</value>
+            </simple-property-list>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="tipoFactura" id="211">
+            <property name="hidden">true</property>
+            <property name="valueType">static</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">S</value>
+            </simple-property-list>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="tipoOrder" id="212">
+            <property name="hidden">true</property>
+            <property name="valueType">static</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">Nacional</value>
+            </simple-property-list>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+    </parameters>
+    <data-sources>
+        <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="Compiere" id="44">
+            <list-property name="privateDriverProperties">
+                <ex-property>
+                    <name>contentBidiFormatStr</name>
+                    <value>ILYNN</value>
+                </ex-property>
+                <ex-property>
+                    <name>metadataBidiFormatStr</name>
+                    <value>ILYNN</value>
+                </ex-property>
+                <ex-property>
+                    <name>disabledMetadataBidiFormatStr</name>
+                </ex-property>
+                <ex-property>
+                    <name>disabledContentBidiFormatStr</name>
+                </ex-property>
+            </list-property>
+            <property name="odaDriverClass">oracle.jdbc.OracleDriver</property>
+            <property name="odaURL">jdbc:oracle:thin:@192.168.1.139:1521:compiere</property>
+            <property name="odaUser">compiere</property>
+            <encrypted-property name="odaPassword" encryptionID="base64">czEwZTkwOWQ=</encrypted-property>
+        </oda-data-source>
+    </data-sources>
+    <data-sets>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="Principal" id="45">
+            <property name="nullsOrdering">nulls lowest</property>
+            <list-property name="parameters">
+                <structure>
+                    <property name="name">fechaHasta</property>
+                    <property name="paramName">fechaHasta</property>
+                    <property name="dataType">date</property>
+                    <property name="position">1</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">tipoFact</property>
+                    <property name="paramName">tipoFactura</property>
+                    <property name="dataType">string</property>
+                    <property name="position">2</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">tipoOrd</property>
+                    <property name="paramName">tipoOrder</property>
+                    <property name="dataType">string</property>
+                    <property name="position">3</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">tipoOrd2</property>
+                    <property name="paramName">tipoOrder</property>
+                    <property name="dataType">string</property>
+                    <property name="position">4</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">PARTNER</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">DOCORDERCONTRACT</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">DOCINVPAY</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">FECHAMOV</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">5</property>
+                        <property name="name">CATEGORIA</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">6</property>
+                        <property name="name">TIPODOCUMENTO</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">7</property>
+                        <property name="name">ORGANIZACION</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">8</property>
+                        <property name="name">CONDICIONPAGO</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">9</property>
+                        <property name="name">COMPANIA</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">10</property>
+                        <property name="name">FECHAACTUAL</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">11</property>
+                        <property name="name">HORAACTUAL</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">12</property>
+                        <property name="name">MONTO</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">13</property>
+                        <property name="name">IC</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">14</property>
+                        <property name="name">NAME</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">Compiere</property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">PARTNER</property>
+                    <property name="nativeName">PARTNER</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">DOCORDERCONTRACT</property>
+                    <property name="nativeName">DOCORDERCONTRACT</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">DOCINVPAY</property>
+                    <property name="nativeName">DOCINVPAY</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">4</property>
+                    <property name="name">FECHAMOV</property>
+                    <property name="nativeName">FECHAMOV</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">5</property>
+                    <property name="name">CATEGORIA</property>
+                    <property name="nativeName">CATEGORIA</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">6</property>
+                    <property name="name">TIPODOCUMENTO</property>
+                    <property name="nativeName">TIPODOCUMENTO</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">7</property>
+                    <property name="name">ORGANIZACION</property>
+                    <property name="nativeName">ORGANIZACION</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">8</property>
+                    <property name="name">CONDICIONPAGO</property>
+                    <property name="nativeName">CONDICIONPAGO</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">9</property>
+                    <property name="name">COMPANIA</property>
+                    <property name="nativeName">COMPANIA</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">10</property>
+                    <property name="name">FECHAACTUAL</property>
+                    <property name="nativeName">FECHAACTUAL</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">11</property>
+                    <property name="name">HORAACTUAL</property>
+                    <property name="nativeName">HORAACTUAL</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">12</property>
+                    <property name="name">MONTO</property>
+                    <property name="nativeName">MONTO</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">13</property>
+                    <property name="name">IC</property>
+                    <property name="nativeName">IC</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">14</property>
+                    <property name="name">NAME</property>
+                    <property name="nativeName">NAME</property>
+                    <property name="dataType">string</property>
+                </structure>
+            </list-property>
+            <xml-property name="queryText"><![CDATA[select DISTINCT par.value ||' '|| par.name as partner,
+(case when inv.C_Order_ID > 0 then ord.documentNo
+      when inv.XX_Contract_ID > 0 then con.value
+      else TO_NCHAR(0)
+ end) as docOrderContract, 
+ inv.DocumentNo as docInvPay,
+(case when inv.XX_InvoiceType = 'I' then to_char(inv.XX_InvoiceReceiptDate,'dd/MM/yy')
+else to_char(inv.DateInvoiced,'dd/MM/yy')
+end) as fechaMov,
+cat.name as categoria,
+--(case when UPPER(B.DESCRIPTION) LIKE '%ANTICIPO%' THEN 'Anticipo' 
+-- else to_char(doc.name)
+-- end) as tipoDocumento,
+B.DESCRIPTION as tipoDocumento,
+org.name as organizacion,
+pat.name as condicionPago,
+adc.name as compania,
+to_char(sysdate,'dd/MM/yyyy') as fechaActual,
+to_char(sysdate,'HH:MM:ss') as horaActual,
+b.PayAmt monto,
+cur.CurSymbol as ic, par.name
+from C_PaySelection a, C_PaySelectionLine b, C_BPartner par, C_INVOICE inv, XX_Contract con, 
+C_Order ord, C_Currency cur, AD_Client adc, C_DocType doc, C_PaymentTerm pat, AD_Org org, XX_VMR_Department dep, XX_VMR_Category cat
+where PAYDATE = to_date(to_char(?,'yyyy-mm-dd'), 'yyyy-mm-dd' )
+AND a.C_PaySelection_ID = b.C_PaySelection_ID 
+AND inv.C_BPartner_ID = par.C_BPartner_ID 
+AND b.C_INVOICE_ID = inv.C_INVOICE_ID
+AND inv.C_Order_ID = ord.C_Order_ID (+)
+AND inv.XX_Contract_ID = con.XX_Contract_ID (+)
+AND inv.C_Currency_ID = cur.C_Currency_ID
+AND adc.AD_Client_ID = inv.AD_Client_ID
+AND inv.C_DocTypeTarget_ID = doc.C_DocType_ID
+AND inv.C_PaymentTerm_ID = pat.C_PaymentTerm_ID
+AND inv.AD_Org_ID = org.AD_Org_ID
+AND inv.XX_VMR_Department_ID = dep.XX_VMR_Department_ID (+)
+AND dep.XX_VMR_Category_ID = cat.XX_VMR_Category_ID (+)
+AND XX_INVOICETYPE = ? 
+AND ((inv.C_Currency_ID = 205 AND ?='Nacional') OR (inv.C_Currency_ID <> 205 AND ?='Importada'))
+order by par.name]]></xml-property>
+        </oda-data-set>
+    </data-sets>
+    <styles>
+        <style name="report" id="38">
+            <property name="fontFamily">sans-serif</property>
+            <property name="fontSize">10pt</property>
+        </style>
+        <style name="crosstab-cell" id="41">
+            <property name="borderBottomColor">#CCCCCC</property>
+            <property name="borderBottomStyle">solid</property>
+            <property name="borderBottomWidth">1pt</property>
+            <property name="borderLeftColor">#CCCCCC</property>
+            <property name="borderLeftStyle">solid</property>
+            <property name="borderLeftWidth">1pt</property>
+            <property name="borderRightColor">#CCCCCC</property>
+            <property name="borderRightStyle">solid</property>
+            <property name="borderRightWidth">1pt</property>
+            <property name="borderTopColor">#CCCCCC</property>
+            <property name="borderTopStyle">solid</property>
+            <property name="borderTopWidth">1pt</property>
+        </style>
+        <style name="crosstab" id="42">
+            <property name="borderBottomColor">#CCCCCC</property>
+            <property name="borderBottomStyle">solid</property>
+            <property name="borderBottomWidth">1pt</property>
+            <property name="borderLeftColor">#CCCCCC</property>
+            <property name="borderLeftStyle">solid</property>
+            <property name="borderLeftWidth">1pt</property>
+            <property name="borderRightColor">#CCCCCC</property>
+            <property name="borderRightStyle">solid</property>
+            <property name="borderRightWidth">1pt</property>
+            <property name="borderTopColor">#CCCCCC</property>
+            <property name="borderTopStyle">solid</property>
+            <property name="borderTopWidth">1pt</property>
+        </style>
+        <style name="letra" id="48">
+            <property name="fontFamily">monospace</property>
+        </style>
+    </styles>
+    <page-setup>
+        <simple-master-page name="Simple MasterPage" id="2">
+            <property name="orientation">landscape</property>
+            <property name="overflow">hidden</property>
+            <page-footer>
+                <auto-text id="209">
+                    <property name="style">letra</property>
+                    <property name="fontSize">9pt</property>
+                    <property name="paddingLeft">8pt</property>
+                    <property name="textAlign">left</property>
+                    <property name="type">page-number</property>
+                </auto-text>
+            </page-footer>
+        </simple-master-page>
+    </page-setup>
+    <body>
+        <table name="table1" id="13">
+            <property name="width">10.479166666666666in</property>
+            <property name="dataSet">Principal</property>
+            <list-property name="boundDataColumns">
+                <structure>
+                    <property name="name">COMPANIA</property>
+                    <text-property name="displayName">COMPANIA</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["COMPANIA"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">HORAACTUAL</property>
+                    <text-property name="displayName">HORAACTUAL</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["HORAACTUAL"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">FECHAACTUAL</property>
+                    <text-property name="displayName">FECHAACTUAL</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["FECHAACTUAL"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">DOCORDERCONTRACT</property>
+                    <text-property name="displayName">DOCORDERCONTRACT</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["DOCORDERCONTRACT"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">TIPODOCUMENTO</property>
+                    <text-property name="displayName">TIPODOCUMENTO</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["TIPODOCUMENTO"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">CATEGORIA</property>
+                    <text-property name="displayName">CATEGORIA</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["CATEGORIA"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">ORGANIZACION</property>
+                    <text-property name="displayName">ORGANIZACION</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["ORGANIZACION"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">CONDICIONPAGO</property>
+                    <text-property name="displayName">CONDICIONPAGO</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["CONDICIONPAGO"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">MONTO</property>
+                    <text-property name="displayName">MONTO</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["MONTO"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">montoPartner</property>
+                    <property name="dataType">float</property>
+                    <simple-property-list name="aggregateOn">
+                        <value>PARTNER</value>
+                    </simple-property-list>
+                    <property name="aggregateFunction">SUM</property>
+                    <list-property name="arguments">
+                        <structure>
+                            <property name="name">Expression</property>
+                            <expression name="value" type="javascript">row["MONTO"]</expression>
+                        </structure>
+                    </list-property>
+                </structure>
+                <structure>
+                    <property name="name">totalGeneral</property>
+                    <property name="dataType">float</property>
+                    <property name="aggregateFunction">SUM</property>
+                    <list-property name="arguments">
+                        <structure>
+                            <property name="name">Expression</property>
+                            <expression name="value" type="javascript">row["montoPartner"]</expression>
+                        </structure>
+                    </list-property>
+                </structure>
+                <structure>
+                    <property name="name">IC</property>
+                    <text-property name="displayName">IC</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["IC"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">DOCINVPAY</property>
+                    <text-property name="displayName">DOCINVPAY</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["DOCINVPAY"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">FECHAMOV</property>
+                    <text-property name="displayName">FECHAMOV</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["FECHAMOV"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">PARTNER</property>
+                    <text-property name="displayName">PARTNER</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["PARTNER"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+            </list-property>
+            <property name="pageBreakInterval">50</property>
+            <list-property name="sort">
+                <structure>
+                    <expression name="key" type="javascript">row["PARTNER"]</expression>
+                    <property name="direction">asc</property>
+                    <property name="strength">-1</property>
+                </structure>
+            </list-property>
+            <column id="35">
+                <property name="width">0.8125in</property>
+            </column>
+            <column id="116">
+                <property name="width">0.9895833333333334in</property>
+            </column>
+            <column id="125">
+                <property name="width">1.0104166666666667in</property>
+            </column>
+            <column id="167">
+                <property name="width">2.96875in</property>
+            </column>
+            <column id="36">
+                <property name="width">0.9479166666666666in</property>
+            </column>
+            <column id="177">
+                <property name="width">2.1770833333333335in</property>
+            </column>
+            <column id="187">
+                <property name="width">1.1875in</property>
+            </column>
+            <column id="242">
+                <property name="width">0.3229166666666667in</property>
+            </column>
+            <header>
+                <row id="58">
+                    <property name="height">1.5520833333333333in</property>
+                    <cell id="59">
+                        <property name="colSpan">8</property>
+                        <property name="rowSpan">1</property>
+                        <grid id="275">
+                            <property name="height">1.6354166666666667in</property>
+                            <property name="width">10.40625in</property>
+                            <column id="276">
+                                <property name="width">0.78125in</property>
+                            </column>
+                            <column id="277">
+                                <property name="width">4.166666666666667in</property>
+                            </column>
+                            <column id="278">
+                                <property name="width">4.541666666666667in</property>
+                            </column>
+                            <column id="279">
+                                <property name="width">0.9166666666666666in</property>
+                            </column>
+                            <row id="280">
+                                <property name="height">0.4479166666666667in</property>
+                                <cell id="281">
+                                    <property name="colSpan">4</property>
+                                    <property name="rowSpan">1</property>
+                                    <data id="282">
+                                        <property name="style">letra</property>
+                                        <property name="fontSize">20pt</property>
+                                        <property name="resultSetColumn">COMPANIA</property>
+                                    </data>
+                                </cell>
+                            </row>
+                            <row id="283">
+                                <property name="height">0.28125in</property>
+                                <cell id="284">
+                                    <label id="285">
+                                        <property name="style">letra</property>
+                                        <text-property name="text">Hora:</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="286">
+                                    <data id="287">
+                                        <property name="style">letra</property>
+                                        <structure name="dateTimeFormat">
+                                            <property name="category">Medium Date</property>
+                                            <property name="pattern">Medium Date</property>
+                                        </structure>
+                                        <property name="textAlign">left</property>
+                                        <property name="resultSetColumn">HORAACTUAL</property>
+                                    </data>
+                                </cell>
+                                <cell id="288">
+                                    <label id="289">
+                                        <property name="style">letra</property>
+                                        <property name="paddingRight">3pt</property>
+                                        <property name="textAlign">right</property>
+                                        <text-property name="text">Fecha:</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="290">
+                                    <data id="291">
+                                        <property name="style">letra</property>
+                                        <structure name="dateTimeFormat">
+                                            <property name="category">Medium Date</property>
+                                            <property name="pattern">Medium Date</property>
+                                        </structure>
+                                        <property name="textAlign">left</property>
+                                        <property name="resultSetColumn">FECHAACTUAL</property>
+                                    </data>
+                                </cell>
+                            </row>
+                            <row id="292">
+                                <property name="height">0.40625in</property>
+                                <cell id="293">
+                                    <property name="colSpan">4</property>
+                                    <property name="rowSpan">1</property>
+                                    <grid id="294">
+                                        <property name="width">10.3125in</property>
+                                        <column id="295">
+                                            <property name="width">5.854166666666667in</property>
+                                        </column>
+                                        <column id="296">
+                                            <property name="width">1.0104166666666667in</property>
+                                        </column>
+                                        <column id="297">
+                                            <property name="width">3.4479166666666665in</property>
+                                        </column>
+                                        <row id="298">
+                                            <cell id="299">
+                                                <label id="300">
+                                                    <property name="style">letra</property>
+                                                    <property name="fontSize">11pt</property>
+                                                    <property name="fontWeight">bold</property>
+                                                    <property name="paddingTop">5pt</property>
+                                                    <property name="textAlign">right</property>
+                                                    <text-property name="text">DEFINITIVO DE PAGOS A PROVEEDORES DE</text-property>
+                                                </label>
+                                            </cell>
+                                            <cell id="301">
+                                                <data id="302">
+                                                    <property name="style">letra</property>
+                                                    <property name="fontSize">11pt</property>
+                                                    <property name="fontWeight">bold</property>
+                                                    <property name="paddingTop">5pt</property>
+                                                    <property name="paddingLeft">3pt</property>
+                                                    <structure name="stringFormat">
+                                                        <property name="category">></property>
+                                                        <property name="pattern">></property>
+                                                    </structure>
+                                                    <list-property name="boundDataColumns">
+                                                        <structure>
+                                                            <property name="name">tipoFactura</property>
+                                                            <expression name="expression" type="javascript">params["tipoFactura"]</expression>
+                                                            <property name="dataType">string</property>
+                                                        </structure>
+                                                    </list-property>
+                                                    <property name="resultSetColumn">tipoFactura</property>
+                                                </data>
+                                            </cell>
+                                            <cell id="303">
+                                                <data id="304">
+                                                    <property name="style">letra</property>
+                                                    <property name="fontSize">11pt</property>
+                                                    <property name="fontWeight">bold</property>
+                                                    <property name="paddingTop">5pt</property>
+                                                    <property name="paddingLeft">10pt</property>
+                                                    <structure name="stringFormat">
+                                                        <property name="category">></property>
+                                                        <property name="pattern">></property>
+                                                    </structure>
+                                                    <property name="textAlign">left</property>
+                                                    <list-property name="boundDataColumns">
+                                                        <structure>
+                                                            <property name="name">tipoOrder</property>
+                                                            <expression name="expression" type="javascript">params["tipoOrder"].substring(0,8)</expression>
+                                                            <property name="dataType">string</property>
+                                                        </structure>
+                                                    </list-property>
+                                                    <property name="resultSetColumn">tipoOrder</property>
+                                                </data>
+                                            </cell>
+                                        </row>
+                                    </grid>
+                                </cell>
+                            </row>
+                            <row id="307">
+                                <property name="height">0.40625in</property>
+                                <cell id="308"/>
+                                <cell id="309">
+                                    <label id="313">
+                                        <property name="style">letra</property>
+                                        <property name="fontSize">10pt</property>
+                                        <property name="fontWeight">bold</property>
+                                        <property name="paddingTop">1pt</property>
+                                        <property name="textAlign">right</property>
+                                        <text-property name="text">Fecha Hasta: </text-property>
+                                    </label>
+                                </cell>
+                                <cell id="310">
+                                    <data id="314">
+                                        <property name="textAlign">left</property>
+                                        <list-property name="boundDataColumns">
+                                            <structure>
+                                                <property name="name">fechaHasta</property>
+                                                <expression name="expression" type="javascript">params["fechaHasta"]</expression>
+                                                <property name="dataType">string</property>
+                                            </structure>
+                                        </list-property>
+                                        <property name="resultSetColumn">fechaHasta</property>
+                                    </data>
+                                </cell>
+                                <cell id="311"/>
+                            </row>
+                        </grid>
+                    </cell>
+                </row>
+                <row id="14">
+                    <cell id="15">
+                        <property name="colSpan">1</property>
+                        <property name="rowSpan">1</property>
+                        <label id="107">
+                            <property name="style">letra</property>
+                            <property name="fontSize">9pt</property>
+                            <property name="borderBottomColor">#000000</property>
+                            <property name="borderBottomStyle">dashed</property>
+                            <property name="borderBottomWidth">thin</property>
+                            <property name="borderTopColor">#000000</property>
+                            <property name="borderTopStyle">dashed</property>
+                            <property name="borderTopWidth">thin</property>
+                            <property name="paddingTop">2pt</property>
+                            <property name="paddingBottom">5pt</property>
+                            <property name="textAlign">center</property>
+                            <text-property name="text">Documento Origen</text-property>
+                        </label>
+                    </cell>
+                    <cell id="109">
+                        <label id="153">
+                            <property name="style">letra</property>
+                            <property name="fontSize">9pt</property>
+                            <property name="borderBottomColor">#000000</property>
+                            <property name="borderBottomStyle">dashed</property>
+                            <property name="borderBottomWidth">thin</property>
+                            <property name="borderTopColor">#000000</property>
+                            <property name="borderTopStyle">dashed</property>
+                            <property name="borderTopWidth">thin</property>
+                            <property name="paddingTop">2pt</property>
+                            <property name="paddingBottom">5pt</property>
+                            <property name="textAlign">center</property>
+                            <text-property name="text">Documento Movimiento</text-property>
+                        </label>
+                    </cell>
+                    <cell id="118">
+                        <label id="154">
+                            <property name="style">letra</property>
+                            <property name="fontSize">9pt</property>
+                            <property name="borderBottomColor">#000000</property>
+                            <property name="borderBottomStyle">dashed</property>
+                            <property name="borderBottomWidth">thin</property>
+                            <property name="borderTopColor">#000000</property>
+                            <property name="borderTopStyle">dashed</property>
+                            <property name="borderTopWidth">thin</property>
+                            <property name="paddingTop">2pt</property>
+                            <property name="paddingBottom">5pt</property>
+                            <property name="textAlign">center</property>
+                            <text-property name="text">Fecha Movimiento</text-property>
+                        </label>
+                    </cell>
+                    <cell id="160">
+                        <label id="158">
+                            <property name="style">letra</property>
+                            <property name="fontSize">9pt</property>
+                            <property name="borderBottomColor">#000000</property>
+                            <property name="borderBottomStyle">dashed</property>
+                            <property name="borderBottomWidth">thin</property>
+                            <property name="borderTopColor">#000000</property>
+                            <property name="borderTopStyle">dashed</property>
+                            <property name="borderTopWidth">thin</property>
+                            <property name="paddingTop">9pt</property>
+                            <property name="paddingBottom">8pt</property>
+                            <property name="textAlign">center</property>
+                            <text-property name="text">Tipo Movimiento</text-property>
+                        </label>
+                    </cell>
+                    <cell id="62">
+                        <label id="168">
+                            <property name="style">letra</property>
+                            <property name="fontSize">9pt</property>
+                            <property name="borderBottomColor">#000000</property>
+                            <property name="borderBottomStyle">dashed</property>
+                            <property name="borderBottomWidth">thin</property>
+                            <property name="borderTopColor">#000000</property>
+                            <property name="borderTopStyle">dashed</property>
+                            <property name="borderTopWidth">thin</property>
+                            <property name="paddingTop">9pt</property>
+                            <property name="paddingBottom">8pt</property>
+                            <property name="textAlign">center</property>
+                            <text-property name="text">Categoría</text-property>
+                        </label>
+                    </cell>
+                    <cell id="170">
+                        <label id="188">
+                            <property name="style">letra</property>
+                            <property name="fontSize">9pt</property>
+                            <property name="borderBottomColor">#000000</property>
+                            <property name="borderBottomStyle">dashed</property>
+                            <property name="borderBottomWidth">thin</property>
+                            <property name="borderTopColor">#000000</property>
+                            <property name="borderTopStyle">dashed</property>
+                            <property name="borderTopWidth">thin</property>
+                            <property name="paddingTop">9pt</property>
+                            <property name="paddingBottom">8pt</property>
+                            <property name="textAlign">center</property>
+                            <text-property name="text">Condicion Pago</text-property>
+                        </label>
+                    </cell>
+                    <cell id="180">
+                        <property name="colSpan">2</property>
+                        <property name="rowSpan">1</property>
+                        <label id="189">
+                            <property name="style">letra</property>
+                            <property name="fontSize">9pt</property>
+                            <property name="borderBottomColor">#000000</property>
+                            <property name="borderBottomStyle">dashed</property>
+                            <property name="borderBottomWidth">thin</property>
+                            <property name="borderTopColor">#000000</property>
+                            <property name="borderTopStyle">dashed</property>
+                            <property name="borderTopWidth">thin</property>
+                            <property name="paddingTop">9pt</property>
+                            <property name="paddingBottom">8pt</property>
+                            <property name="textAlign">center</property>
+                            <text-property name="text">Monto Movimiento</text-property>
+                        </label>
+                    </cell>
+                </row>
+            </header>
+            <group id="248">
+                <property name="groupName">PARTNER</property>
+                <expression name="keyExpr" type="javascript">row["PARTNER"]</expression>
+                <structure name="toc">
+                    <expression name="expressionValue" type="javascript">row["PARTNER"]</expression>
+                </structure>
+                <property name="hideDetail">false</property>
+                <header>
+                    <row id="249">
+                        <cell id="250">
+                            <property name="colSpan">4</property>
+                            <property name="rowSpan">1</property>
+                            <data id="305">
+                                <property name="style">letra</property>
+                                <property name="fontSize">10pt</property>
+                                <property name="fontWeight">bold</property>
+                                <property name="paddingTop">3pt</property>
+                                <property name="paddingBottom">1pt</property>
+                                <property name="whiteSpace">nowrap</property>
+                                <property name="resultSetColumn">PARTNER</property>
+                            </data>
+                        </cell>
+                        <cell id="257"/>
+                        <cell id="258"/>
+                        <cell id="259"/>
+                        <cell id="260"/>
+                    </row>
+                </header>
+                <footer>
+                    <row id="261">
+                        <cell id="262"/>
+                        <cell id="263"/>
+                        <cell id="264"/>
+                        <cell id="268"/>
+                        <cell id="269"/>
+                        <cell id="270"/>
+                        <cell id="271"/>
+                        <cell id="272"/>
+                    </row>
+                </footer>
+            </group>
+            <group id="18">
+                <property name="groupName">NewTableGroup1</property>
+                <property name="interval">none</property>
+                <property name="sortDirection">asc</property>
+                <expression name="keyExpr" type="javascript">row["PARTNER"]</expression>
+                <structure name="toc">
+                    <expression name="expressionValue" type="javascript">row["PARTNER"]</expression>
+                </structure>
+                <property name="repeatHeader">true</property>
+                <property name="hideDetail">false</property>
+                <property name="pageBreakAfter">auto</property>
+                <property name="pageBreakBefore">auto</property>
+                <property name="pageBreakInside">auto</property>
+                <header>
+                    <row id="19">
+                        <cell id="20"/>
+                        <cell id="111"/>
+                        <cell id="120"/>
+                        <cell id="162"/>
+                        <cell id="21"/>
+                        <cell id="172"/>
+                        <cell id="182"/>
+                        <cell id="237"/>
+                    </row>
+                </header>
+                <footer>
+                    <row id="23">
+                        <cell id="24"/>
+                        <cell id="113"/>
+                        <cell id="122"/>
+                        <cell id="164"/>
+                        <cell id="25">
+                            <property name="colSpan">2</property>
+                            <property name="rowSpan">1</property>
+                            <label id="205">
+                                <property name="style">letra</property>
+                                <property name="fontWeight">bold</property>
+                                <property name="paddingTop">1pt</property>
+                                <property name="paddingBottom">2pt</property>
+                                <property name="textAlign">left</property>
+                                <text-property name="text">Total ............</text-property>
+                            </label>
+                        </cell>
+                        <cell id="184">
+                            <data id="206">
+                                <property name="style">letra</property>
+                                <property name="fontWeight">bold</property>
+                                <property name="paddingTop">3pt</property>
+                                <property name="paddingBottom">2pt</property>
+                                <structure name="numberFormat">
+                                    <property name="category">Currency</property>
+                                    <property name="pattern">#,##0.00{RoundingMode=HALF_UP}</property>
+                                </structure>
+                                <property name="textAlign">right</property>
+                                <property name="allowExport">true</property>
+                                <property name="resultSetColumn">montoPartner</property>
+                            </data>
+                        </cell>
+                        <cell id="239">
+                            <data id="244">
+                                <property name="style">letra</property>
+                                <property name="fontSize">9pt</property>
+                                <property name="fontWeight">bold</property>
+                                <property name="paddingTop">3pt</property>
+                                <property name="paddingBottom">2pt</property>
+                                <property name="textAlign">center</property>
+                                <property name="resultSetColumn">IC</property>
+                            </data>
+                        </cell>
+                    </row>
+                </footer>
+            </group>
+            <detail>
+                <row id="27">
+                    <cell id="28">
+                        <data id="192">
+                            <property name="style">letra</property>
+                            <property name="fontSize">9pt</property>
+                            <property name="paddingTop">1pt</property>
+                            <property name="textAlign">center</property>
+                            <property name="resultSetColumn">DOCORDERCONTRACT</property>
+                        </data>
+                    </cell>
+                    <cell id="112">
+                        <data id="246">
+                            <property name="style">letra</property>
+                            <property name="fontSize">9pt</property>
+                            <property name="paddingTop">1pt</property>
+                            <property name="textAlign">center</property>
+                            <property name="whiteSpace">nowrap</property>
+                            <property name="resultSetColumn">DOCINVPAY</property>
+                        </data>
+                    </cell>
+                    <cell id="121">
+                        <data id="247">
+                            <property name="style">letra</property>
+                            <property name="fontSize">9pt</property>
+                            <property name="paddingTop">1pt</property>
+                            <property name="textAlign">center</property>
+                            <property name="whiteSpace">nowrap</property>
+                            <property name="resultSetColumn">FECHAMOV</property>
+                        </data>
+                    </cell>
+                    <cell id="163">
+                        <data id="198">
+                            <property name="style">letra</property>
+                            <property name="fontSize">9pt</property>
+                            <property name="paddingTop">1pt</property>
+                            <property name="paddingLeft">20pt</property>
+                            <property name="textAlign">left</property>
+                            <property name="resultSetColumn">TIPODOCUMENTO</property>
+                        </data>
+                    </cell>
+                    <cell id="29">
+                        <data id="199">
+                            <property name="style">letra</property>
+                            <property name="fontSize">9pt</property>
+                            <property name="paddingTop">1pt</property>
+                            <property name="textAlign">center</property>
+                            <property name="resultSetColumn">CATEGORIA</property>
+                        </data>
+                    </cell>
+                    <cell id="173">
+                        <data id="202">
+                            <property name="style">letra</property>
+                            <property name="fontSize">9pt</property>
+                            <property name="paddingTop">1pt</property>
+                            <property name="paddingLeft">5pt</property>
+                            <property name="textAlign">left</property>
+                            <property name="resultSetColumn">CONDICIONPAGO</property>
+                        </data>
+                    </cell>
+                    <cell id="183">
+                        <data id="204">
+                            <property name="style">letra</property>
+                            <property name="fontSize">9pt</property>
+                            <property name="paddingTop">1pt</property>
+                            <structure name="numberFormat">
+                                <property name="category">Currency</property>
+                                <property name="pattern">#,##0.00{RoundingMode=HALF_UP}</property>
+                            </structure>
+                            <property name="textAlign">right</property>
+                            <property name="resultSetColumn">MONTO</property>
+                        </data>
+                    </cell>
+                    <cell id="238">
+                        <data id="243">
+                            <property name="style">letra</property>
+                            <property name="fontSize">8pt</property>
+                            <property name="paddingTop">1pt</property>
+                            <property name="textAlign">center</property>
+                            <property name="resultSetColumn">IC</property>
+                        </data>
+                    </cell>
+                </row>
+            </detail>
+            <footer>
+                <row id="31">
+                    <cell id="32"/>
+                    <cell id="115"/>
+                    <cell id="124"/>
+                    <cell id="166"/>
+                    <cell id="33">
+                        <property name="colSpan">2</property>
+                        <property name="rowSpan">1</property>
+                        <label id="207">
+                            <property name="style">letra</property>
+                            <property name="fontSize">11pt</property>
+                            <property name="fontWeight">bold</property>
+                            <property name="paddingTop">10pt</property>
+                            <property name="textAlign">left</property>
+                            <text-property name="text">Total General .....</text-property>
+                        </label>
+                    </cell>
+                    <cell id="186">
+                        <data id="208">
+                            <property name="style">letra</property>
+                            <property name="fontSize">10pt</property>
+                            <property name="fontWeight">bold</property>
+                            <property name="paddingTop">10pt</property>
+                            <structure name="numberFormat">
+                                <property name="category">Currency</property>
+                                <property name="pattern">#,##0.00{RoundingMode=HALF_UP}</property>
+                            </structure>
+                            <property name="textAlign">right</property>
+                            <property name="resultSetColumn">totalGeneral</property>
+                        </data>
+                    </cell>
+                    <cell id="241">
+                        <data id="245">
+                            <property name="style">letra</property>
+                            <property name="fontSize">9pt</property>
+                            <property name="fontWeight">bold</property>
+                            <property name="paddingTop">10pt</property>
+                            <property name="textAlign">center</property>
+                            <property name="resultSetColumn">IC</property>
+                        </data>
+                    </cell>
+                </row>
+            </footer>
+        </table>
+    </body>
+</report>

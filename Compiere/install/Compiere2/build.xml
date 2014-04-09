@@ -1,0 +1,846 @@
+<!-- ====================================================== -->
+<!-- Compiere Distribution Setup                            -->
+<!-- Copyright 1999-2009 Compiere, Inc.               -->
+<!-- ====================================================== -->
+<!-- $Id: build.xml 8082 2009-09-17 23:17:21Z freyes $ -->
+
+<project name="setup" default="setup" basedir=".">
+
+	<description>
+	Setup/Deploy the Compiere Environment.
+	</description>
+
+	<property environment="env" />
+	<property name="envFile" value="CompiereEnv.properties" />
+ 	<property name="server" value="nas" />
+
+	<!-- ==================================================== -->
+	<!-- Init                                                 -->
+	<!-- ==================================================== -->
+	<target name="setupInit" 
+		description="initialization target">
+
+		<echo message="Compiere Server Setup ===================" />
+		<echo message="COMPIERE_HOME = ${env.COMPIERE_HOME}" />
+
+		<!-- create the time stamp and environment -->
+		<tstamp />
+		<available file="${envFile}" property="envFileExists" />
+		<fail message="**** RUN_setup was not successful - please re-run ****" unless="envFileExists" />
+		<property file="${envFile}" />
+		<filter filtersfile="${envFile}" />
+
+		<echo message="Environment   = ${envFile}" />
+		<echo message="Java VM       = ${COMPIERE_JAVA_TYPE}" />
+		<echo message="Database      = ${COMPIERE_DB_TYPE}" />
+		<echo message="Apps Server   = ${COMPIERE_APPS_TYPE}" />
+		<echo message="AppsDeployment= ${COMPIERE_APPS_DEPLOY}" />
+
+		<echo message="Ant Version   = ${ant.version}" />
+        <echo message="Java Home     = ${java.home}"/>
+        <echo message="Java Version  = ${java.version} ${java.vendor}"/>
+
+		<!-- Environment variables -->
+		<condition property="isWindows">
+			<os family="windows" />
+		</condition>
+		<condition property="isAppsJBoss">
+			<equals arg1="jboss" arg2="${COMPIERE_APPS_TYPE}" />
+		</condition>
+		<condition property="baseJars" value="" else="Compiere.jar,CompiereSLib.jar," >
+			<equals arg1="jboss" arg2="${COMPIERE_APPS_TYPE}" />
+		</condition>
+		<condition property="isAppsTomcat">
+			<equals arg1="tomcatOnly" arg2="${COMPIERE_APPS_TYPE}" />
+		</condition>
+		<condition property="isIBMWAS">
+			<equals arg1="ibmWAS" arg2="${COMPIERE_APPS_TYPE}" />
+		</condition>
+		<echo message="Windows=${isWindows} JBoss=${isAppsJBoss} Tomcat=${isAppsTomcat} WAS=${isIBMWAS}" />
+		<echo message="BaseJars=${baseJars}" />
+		
+		<!-- Test to see if CompiereSecure.properties exists -->
+		<available file="lib/CompiereSecure.properties" property="secure.exists" />
+
+		<!-- Test to see if myDBcopy.bat exists in window env -->
+		<condition property="DBcopy.win.exists">
+			<or>
+				<not>
+					<os family="windows" />
+				</not>
+				<available file="utils/myDBcopy.bat" property="DBcopy.win.exists" />
+			</or>
+		</condition>
+
+		<!-- Test to see if myDBcopy.sh exists in unix env -->
+		<condition property="DBcopy.unix.exists">
+			<or>
+				<os family="windows" />
+				<available file="utils/myDBcopy.sh" property="DBcopy.unix.exists" />
+			</or>
+		</condition>
+
+        <mkdir dir="lib/ext" />
+        <mkdir dir="lib/deploy" />
+
+		<!-- Test to see if lib/ext exists -->
+		<condition property="lib.ext.jar.exists">
+		  <and>
+  			<available type="dir" file="lib/ext" property="lib.ext.exists" />
+
+			<resourcecount when="greater" count="0">
+			  <fileset dir="lib/ext" includes="**/*.jar" />
+			</resourcecount>
+		  </and>
+		</condition>
+		<echo message="lib/ext= ${lib.ext.jar.exists}" />
+
+		<!-- Test to see if data/images exists -->
+		<condition property="data.images.png.exists">
+		  <and>
+  			<available type="dir" file="data/images" property="data.images.exists" />
+
+			<resourcecount when="greater" count="0">
+			  <fileset dir="data/images" includes="**/*.png" />
+			</resourcecount>
+		  </and>
+		</condition>
+		<echo message="data/images= ${data.images.png.exists}" />
+
+		<!-- Test to see if there are Component items to process -->
+		<condition property="component.exists">
+		  <or>
+  			<isset property="lib.ext.jar.exists" />
+  			<isset property="data.images.png.exists" />
+		  </or>
+		</condition>
+		
+		<!-- Test to see if apps.ear exists -->
+		<available file="lib/deploy/apps.ear" property="apps.ear.exists" />
+	</target>
+
+		
+	<!-- ==================================================== -->
+	<!-- Copy CompiereSecure.properties                              -->
+	<!-- ==================================================== -->
+	<target name="secureCopy" unless="secure.exists">
+		<copy file="lib/CompiereSecureDefault.properties" 
+			tofile="lib/CompiereSecure.properties" overwrite="no" />
+	</target>
+
+	
+	<!-- ==================================================== -->
+	<!-- Add CompiereSecure.properties to Compiere.jar        -->
+	<!-- ==================================================== -->
+	<target name="setupCompiere" if="secure.exists">
+		<mkdir dir="buildCompiere/org/compiere" />
+		
+		<copy file="lib/CompiereSecure.properties" 
+			todir="buildCompiere/org/compiere"
+			verbose="true"/>
+
+		<jar jarfile="lib/Compiere.jar" update="true" basedir="buildCompiere"/>
+
+		<delete dir="buildCompiere" />
+	</target>
+
+	
+	<!-- ==================================================== -->
+	<!-- Copy myDBcopy.bat                                    -->
+	<!-- ==================================================== -->
+	<target name="DBcopy.win" unless="DBcopy.win.exists">
+		<copy file="utils/myDBcopyTemplate.bat" 
+			tofile="utils/myDBcopy.bat" filtering="yes" overwrite="no" />
+	</target>
+
+	<!-- ==================================================== -->
+	<!-- Copy myDBcopy.sh                                     -->
+	<!-- ==================================================== -->
+	<target name="DBcopy.unix" unless="DBcopy.unix.exists">
+		<copy file="utils/myDBcopyTemplate.sh" 
+			tofile="utils/myDBcopy.sh" filtering="yes" overwrite="no" />
+	</target>
+
+	
+	<!-- ==================================================== -->
+	<!-- Windows Setup                                        -->
+	<!-- ==================================================== -->
+	<target name="setupWin" depends="setupInit, secureCopy, DBcopy.win" if="isWindows" 
+		description="Windows Setup">
+
+		<!--	Filter files Overwrite		-->
+		<copy file="utils/myEnvironmentTemplate.bat" 
+			tofile="utils/myEnvironment.bat" filtering="yes" overwrite="yes" />
+
+		<copy file="utils/RUN_GetCompiereTemplate.bat" 
+			tofile="utils/RUN_GetCompiere.bat" filtering="yes" overwrite="yes" />
+		<copy file="utils/RUN_PutExportTemplate.bat" 
+			tofile="utils/RUN_PutExport.bat" filtering="yes" overwrite="yes" />
+		<copy file="utils/RUN_WinEnvTemplate.bat" 
+			tofile="utils/RUN_WinEnv.bat" filtering="yes" overwrite="yes" />
+
+		<delete>
+			<fileset dir="." includes="**/*.sh" excludes="RUN_Compiere2.sh" />
+		</delete>
+	</target>
+
+
+	<!-- ==================================================== -->
+	<!-- Non Windows Setup                                    -->
+	<!-- ==================================================== -->
+	<target name="setupNonWin" depends="setupInit, secureCopy, DBcopy.unix" unless="isWindows" 
+		description="Non Windows Setup">
+
+		<!--	Filter files Overwrite		-->
+		<copy file="utils/myEnvironmentTemplate.sh" 
+			tofile="utils/myEnvironment.sh" filtering="yes" overwrite="yes" />
+
+		<copy file="utils/RUN_GetCompiereTemplate.sh" 
+			tofile="utils/RUN_GetCompiere.sh" filtering="yes" overwrite="yes" />
+		<copy file="utils/RUN_PutExportTemplate.sh" 
+			tofile="utils/RUN_PutExport.sh" filtering="yes" overwrite="yes" />
+		<copy file="utils/RUN_UnixEnvTemplate.sh" 
+			tofile="utils/RUN_UnixEnv.sh" filtering="yes" overwrite="yes" />
+
+		<!--	Fix OS stuff	-->
+		<fixcrlf srcdir="." eol="lf" eof="remove" includes="**/*.sh" />
+		<fixcrlf srcdir="jboss/bin" eol="lf" eof="remove" includes="run.conf" />
+		<fixcrlf srcdir="jboss/bin" eol="lf" eof="remove" includes="**/.sh" />
+		<chmod dir="." perm="ugo+x" includes="**/*.sh" />
+		<chmod dir="jboss/bin" perm="ugo+x" includes="**/*.sh" />
+
+		<delete>
+			<fileset dir="." includes="*.bat" excludes="RUN_Compiere2.bat" />
+			<fileset dir="utils" includes="**/*.bat" />
+		</delete>
+	</target>
+
+	
+	<!-- ==================================================== -->
+	<!-- Create ejb remote stub for WAS                       -->
+	<!-- ==================================================== -->
+	<target name="setupWasJar" depends="setupInit" if="isIBMWAS" 
+		description="Add ejb stub class">
+		<mkdir dir="buildEjbStub" />
+		<mkdir dir="buildEjbStub/output" />
+		<mkdir dir="buildEjbStub/CompiereJar" />
+
+		<!-- Call ejbdeploy to create the ejb remote stub -->
+		<exec executable="${env.WAS_HOME}/bin/ejbdeploy.bat">
+		  <arg value="lib/compiereRoot.jar"/> 
+		  <arg value="buildEjbStub/output"/> 
+		  <arg value="buildEjbStub/compiereRoot1.jar"/> 
+		  <arg value="-cp"/>
+		  <arg value="lib/Compiere.jar"/>
+		</exec>
+
+		<!-- Copy the compiereRoot.jar to lib -->
+		<copy file="buildEjbStub/compiereRoot1.jar"
+			tofile="lib/compiereRoot.jar" overwrite="yes"/>
+
+		<!-- Take care of the Compiere.jar -->
+		<unjar src="lib/Compiere.jar" dest="buildEjbStub/CompiereJar"/>
+
+		<!-- Add ejb remote stub to Compiere.jar -->
+		<copy todir="buildEjbStub/CompiereJar/org/compiere/interfaces" flatten="yes">
+		  <fileset dir="buildEjbStub/output" includes="**/**/**/**/**/**/**/**/_Server*_Stub.* **/**/**/**/**/**/**/**/_Status*_Stub.*"/>
+		</copy>
+
+		<!-- Rebuild Compiere.jar -->
+		<jar jarfile="buildEjbStub/Compiere1.jar">
+		   <fileset dir="buildEjbStub/CompiereJar"/>
+		</jar>
+
+		<!-- Copy the Compiere.jar to lib -->
+		<copy file="buildEjbStub/Compiere1.jar"
+			tofile="lib/Compiere.jar" overwrite="yes"/>
+
+		<delete dir="buildEjbStub" />
+	</target>
+
+	<!-- ==================================================== -->
+	<!-- WAS client ear - has to call it explicitly           -->
+	<!-- ==================================================== -->
+	<target name="setupWasClient" description="Setup WAS Client Ear" if="isIBMWAS">
+		<mkdir dir="buildWasClientEar" />
+		<unjar src="lib/WebSphereClientRuntimeBase.ear" dest="buildWasClientEar" />
+		<mkdir dir="buildWasClientWar" />
+		<unjar src="buildWasClientEar/WebSphereClientRuntimeWeb.war" dest="buildWasClientWar" />
+		
+		<!-- Sign WAS Jar 		-->
+		<signjar alias="${COMPIERE_KEYSTORECODEALIAS}" 
+			storepass="${COMPIERE_KEYSTOREPASS}" keystore="${COMPIERE_KEYSTORE}">
+			<fileset dir="buildWasClientWar/Runtime">
+				<include name="**/WebSphereJre/*.jar" />
+				<include name="**/WebSphereJars/*.jar" />
+			</fileset>
+		</signjar>
+		
+		<!-- Build WAS Client War -->
+		<delete file="buildWasClientEar/WebSphereClientRuntimeWeb.war" failonerror="no" />
+		<jar jarfile="buildWasClientEar/WebSphereClientRuntimeWeb.war">
+			<fileset dir="buildWasClientWar" />
+		</jar>
+		<delete dir="buildWasClientWar" />
+		
+		<!-- Build WAS Client Ear -->
+		<jar jarfile="lib/WebSphereClientRuntime.ear">
+			<fileset dir="buildWasClientEar" />
+		</jar>
+		<delete dir="buildWasClientEar" />
+	</target>
+
+
+	<!-- ==================================================== -->
+	<!-- Add jar & images from components to Compiere.jar     -->
+	<!-- ==================================================== -->
+	<target name="setupComp" depends="setupInit" unless="isAppsTomcat" if="component.exists"
+		description="Setup Compiere Lib">
+
+		<mkdir dir="buildComp" />
+		<unjar src="lib/Compiere.jar" dest="buildComp"/>
+
+		<!-- Add jar files from components to Compiere.jar -->
+		<unjar dest="buildComp">
+		  <patternset>
+	            <exclude name="META-INF/**/*"/>
+		  </patternset>
+		  <fileset dir="lib/ext" includes="**/*.jar" excludes="**/c*Server.jar" />
+		</unjar>
+
+		<copy todir="buildComp/org/compiere/images/" failonerror="false" verbose="true">
+		  <fileset dir="data/images" includes="**/*.png"/>
+		</copy>
+
+		<!-- Rebuild Compiere.jar -->
+		<jar jarfile="Compiere1.jar" manifest="buildComp/META-INF/MANIFEST.MF" index="true">
+		   <fileset dir="buildComp"/>
+		</jar>
+
+		<!-- Copy Compiere.jar to lib -->
+		<copy file="Compiere1.jar"
+			tofile="lib/Compiere.jar" overwrite="yes"/>
+
+		<delete dir="buildComp" /> 
+		<delete file="Compiere1.jar" />  
+	</target>
+
+
+	<!-- ==================================================== -->
+	<!-- Compiere Client Lib                                  -->
+	<!-- ==================================================== -->
+	<target name="setupCLib" depends="setupInit" unless="isAppsTomcat" 
+		description="Setup Compiere Client Lib">
+
+		<!-- Delete Old		-->
+		<delete file="lib/CompiereCLib.jar" failonerror="no" />
+		<delete file="lib/CClient.jar" failonerror="no" />
+		<delete file="lib/CTools.jar" failonerror="no" />
+		<delete file="lib/jPDFPrinter.jar" failonerror="no" />
+
+		<mkdir dir="buildCLib" />
+		<unjar src="lib/CCTools.jar" dest="buildCLib" />
+		<unjar src="lib/jPDF.jar" dest="buildCLib" />
+		<unjar src="lib/${COMPIERE_DB_PATH}.jar" dest="buildCLib" />
+		<unjar src="lib/${COMPIERE_APPS_TYPE}.jar" dest="buildCLib" />
+		<copy file="Environment.properties" todir="buildCLib/org/compiere/startup" overwrite="yes" />
+
+		<!-- Create CompiereCLib.jar file 	-->
+		<jar jarfile="lib/CompiereCLib.jar" index="yes">
+			<fileset dir="buildCLib" />
+			<manifest>
+				<attribute name="Specification-Title" value="Compiere Client Library" />
+				<attribute name="Specification-Version" value="${COMPIERE_MAIN_VERSION}" />
+				<attribute name="Specification-Vendor" value="(C) 2009 Compiere, Inc." />
+				<attribute name="Implementation-Title" value="CompiereCLib ${COMPIERE_MAIN_VERSION}" />
+				<attribute name="Implementation-Version" value="${COMPIERE_MAIN_VERSION} ${DSTAMP}-${TSTAMP}" />
+				<attribute name="Implementation-Vendor" value="Compiere, Inc." />
+				<attribute name="Implementation-URL" value="http://www.compiere.com" />
+			</manifest>
+		</jar>
+
+		<echo message="KeyStore=${COMPIERE_KEYSTORE} - Alias=${COMPIERE_KEYSTORECODEALIAS}" />
+		<!-- Sign CompiereCLib Jar 		-->
+		<signjar jar="lib/CompiereCLib.jar" alias="${COMPIERE_KEYSTORECODEALIAS}" 
+			storepass="${COMPIERE_KEYSTOREPASS}" keystore="${COMPIERE_KEYSTORE}" />
+
+		<!-- Sign Compiere Jar 		-->
+		<copy file="lib/Compiere.jar" tofile="buildCLib/Compiere1.jar" overwrite="yes" />
+		<signjar jar="buildCLib/Compiere1.jar" alias="${COMPIERE_KEYSTORECODEALIAS}" 
+			storepass="${COMPIERE_KEYSTOREPASS}" keystore="${COMPIERE_KEYSTORE}" />
+		<copy file="buildCLib/Compiere1.jar" tofile="lib/Compiere.jar" overwrite="yes" />
+
+		<delete dir="buildCLib" />
+	</target>
+
+	<!-- ==================================================== -->
+	<!-- Compiere Server Lib                                  -->
+	<!-- ==================================================== -->
+	<target name="setupSLib" depends="setupInit" 
+		description="Setup Compiere Server Lib"
+		unless="isIBMWAS">
+
+		<!-- Delete Old		-->
+		<delete file="lib/CompiereSLib.jar" failonerror="no" />
+		<delete file="lib/CServer.jar" failonerror="no" />
+
+		<mkdir dir="buildSLib" />
+		<unjar src="lib/CSTools.jar" dest="buildSLib" />
+		<unjar src="lib/jPDF.jar" dest="buildSLib" />
+
+		<!-- Selected Database	-->
+		<unjar src="lib/${COMPIERE_DB_PATH}.jar" dest="buildSLib" />
+		<copy file="Environment.properties" todir="buildSLib/org/compiere/startup" overwrite="yes" />
+
+		<!-- Create CompiereSLib.jar file 	-->
+		<jar jarfile="lib/CompiereSLib.jar" index="yes">
+			<fileset dir="buildSLib" />
+			<manifest>
+				<attribute name="Specification-Title" value="Compiere Server Library" />
+				<attribute name="Specification-Version" value="${COMPIERE_MAIN_VERSION}" />
+				<attribute name="Specification-Vendor" value="(C) 2009 Compiere, Inc." />
+				<attribute name="Implementation-Title" value="CompiereSLib ${COMPIERE_MAIN_VERSION}" />
+				<attribute name="Implementation-Version" value="${COMPIERE_MAIN_VERSION} ${DSTAMP}-${TSTAMP}" />
+				<attribute name="Implementation-Vendor" value="Compiere, Inc." />
+				<attribute name="Implementation-URL" value="http://www.compiere.com" />
+			</manifest>
+		</jar>
+
+		<!-- Sign CompiereSLib Jar 		-->
+		<signjar jar="lib/CompiereSLib.jar" alias="${COMPIERE_KEYSTORECODEALIAS}" 
+			storepass="${COMPIERE_KEYSTOREPASS}" keystore="${COMPIERE_KEYSTORE}" />
+		<delete dir="buildSLib" />
+		<!-- Sign CompiereRoot Jar 		-->
+		<signjar jar="lib/compiereRoot.jar" alias="${COMPIERE_KEYSTORECODEALIAS}" 
+			storepass="${COMPIERE_KEYSTOREPASS}" keystore="${COMPIERE_KEYSTORE}" />
+		<!-- Sign CompiereApps Jar 		-->
+		<signjar jar="lib/compiereApps.jar" alias="${COMPIERE_KEYSTORECODEALIAS}" 
+			storepass="${COMPIERE_KEYSTOREPASS}" keystore="${COMPIERE_KEYSTORE}" />
+	</target>
+
+	<!-- ==================================================== -->
+	<!-- Compiere Server Lib - for WAS                        -->
+	<!-- ==================================================== -->
+	<target name="setupWASSLib" depends="setupInit" 
+		description="Setup Compiere Server Lib"
+		if="isIBMWAS">
+
+		<!-- Delete Old		-->
+		<delete file="lib/CompiereSLib.jar" failonerror="no" />
+		<delete file="lib/CServer.jar" failonerror="no" />
+
+		<mkdir dir="buildSLib" />
+		<unjar src="lib/${COMPIERE_APPS_TYPE}.jar" dest="buildSLib" />
+		<delete dir="buildSLib/javax" />
+		<unjar src="lib/CSTools.jar" dest="buildSLib" />
+		<unjar src="lib/jPDF.jar" dest="buildSLib" />
+
+		<!-- Selected Database	-->
+		<unjar src="lib/${COMPIERE_DB_PATH}.jar" dest="buildSLib" />
+		<copy file="Environment.properties" todir="buildSLib/org/compiere/startup" overwrite="yes" />
+
+		<!-- Create CompiereSLib.jar file 	-->
+		<jar jarfile="lib/CompiereSLib.jar" index="yes">
+			<fileset dir="buildSLib" />
+			<manifest>
+				<attribute name="Specification-Title" value="Compiere Server Library" />
+				<attribute name="Specification-Version" value="${COMPIERE_MAIN_VERSION}" />
+				<attribute name="Specification-Vendor" value="(C) 2009 Compiere, Inc." />
+				<attribute name="Implementation-Title" value="CompiereSLib ${COMPIERE_MAIN_VERSION}" />
+				<attribute name="Implementation-Version" value="${COMPIERE_MAIN_VERSION} ${DSTAMP}-${TSTAMP}" />
+				<attribute name="Implementation-Vendor" value="Compiere, Inc." />
+				<attribute name="Implementation-URL" value="http://www.compiere.com" />
+			</manifest>
+		</jar>
+
+		<!-- Sign CompiereSLib Jar 		-->
+		<signjar jar="lib/CompiereSLib.jar" alias="${COMPIERE_KEYSTORECODEALIAS}" 
+			storepass="${COMPIERE_KEYSTOREPASS}" keystore="${COMPIERE_KEYSTORE}" />
+
+		<!-- Clean up the tmp dir -->
+		<delete dir="buildSLib" />
+
+		<!-- Sign CompiereRoot Jar 		-->
+		<signjar jar="lib/compiereRoot.jar" alias="${COMPIERE_KEYSTORECODEALIAS}" 
+			storepass="${COMPIERE_KEYSTOREPASS}" keystore="${COMPIERE_KEYSTORE}" />
+		<!-- Sign CompiereApps Jar 		-->
+		<signjar jar="lib/compiereApps.jar" alias="${COMPIERE_KEYSTORECODEALIAS}" 
+			storepass="${COMPIERE_KEYSTOREPASS}" keystore="${COMPIERE_KEYSTORE}" />
+	</target>
+
+	<!-- ==================================================== -->
+	<!-- Copy compiereDirect.jnlp for jboss                   -->
+	<!-- ==================================================== -->
+	<target name="copyJnlp" description="Copy compiereDirect.jnlp" unless="isIBMWAS">
+		<copy file="${basedir}/utils/compiereDirectTemplate.jnlp" 
+			tofile="${basedir}/lib/compiereDirect.jnlp" filtering="yes" overwrite="yes" />
+	</target>		
+	
+	<!-- ==================================================== -->
+	<!-- Copy compiereDirect.jnlp for WAS                   -->
+	<!-- ==================================================== -->
+	<target name="copyWasJnlp" description="Copy compiereDirect.jnlp" if="isIBMWAS">
+		<copy file="${basedir}/utils/compiereDirectTemplate_was.jnlp" 
+			tofile="${basedir}/lib/compiereDirect.jnlp" filtering="yes" overwrite="yes" />
+	</target>		
+				
+	<!-- ==================================================== -->
+	<!-- Setup Lib                                            -->
+	<!-- ==================================================== -->
+	<target name="setupLib" depends="setupInit, setupCompiere, setupWin, setupNonWin, setupWasJar, setupComp,setupCLib, setupSLib, setupWASSLib, copyJnlp, copyWasJnlp" 
+		description="Setup Compiere Lib directory">
+
+		<!--	Filter files Overwrite			-->
+		<copy file="${basedir}/utils/ftpPutExportTemplate.txt" 
+			tofile="${basedir}/utils/ftpPutExport.txt" filtering="yes" overwrite="yes" />
+		<copy file="${basedir}/utils/ftpGetCompiereTemplate.txt" 
+			tofile="${basedir}/utils/ftpGetCompiere.txt" filtering="yes" overwrite="yes" />
+
+		<!--	Create Client Zip		-->
+		<zip zipfile="${basedir}/lib/Compiere2Client.zip">
+			<zipfileset dir="." prefix="Compiere2" 
+				includes="*.html" />
+			<zipfileset dir="." prefix="Compiere2" 
+				includes="RUN_Compiere2.*" />
+			<zipfileset dir="utils" prefix="Compiere2" 
+				includes="WinEnv.js" />
+			<zipfileset dir="lib" prefix="Compiere2/lib" 
+				includes="Compiere2.exe,*.ico,Compiere.jar,CompiereCLib.jar,compiereDirect.jnlp,index.html,*.0" />
+		</zip>
+
+		<!--	Save properties		-->
+		<copy file="CompiereEnv.properties" 
+			tofile="CompiereEnv.properties.save" />
+		<copy file="CompiereBECO.properties" 
+			tofile="CompiereBECO.properties.save" />
+	</target>
+
+	
+	<!-- ==================================================== -->
+	<!-- Setup CompiereRoot.war                               -->
+	<!-- ==================================================== -->
+	<target name="setupCompiereRootWar" depends="setupLib" 
+		description="Setup compiereRoot.war Libraries" unless="isIBMWAS">
+		
+		<!-- Create compiereRoot war		-->
+		<zip destfile="${basedir}/lib/compiereRoot.war">
+			<!-- copy Base	-->
+			<zipfileset src="${basedir}/lib/compiereRootBase.war" />
+			<!-- copy to compiereHome	-->
+			<zipfileset dir="${basedir}/lib" 
+				includes="Compiere2Client.zip,Compiere.jar,CompiereCLib.jar,*.jnlp,*.0,*.html" 
+				prefix="compiereHome" />
+		</zip>
+	</target>
+	
+	<!-- ==================================================== -->
+	<!-- Setup CompiereRoot.war                               -->
+	<!-- ==================================================== -->
+	<target name="setupWasCompiereRootWar" depends="setupLib" 
+		description="Setup compiereRoot.war Libraries" if="isIBMWAS">
+		
+		<!-- Create compiereRoot war		-->
+		<zip destfile="${basedir}/lib/compiereRoot.war">
+			<!-- copy Base	-->
+			<zipfileset src="${basedir}/lib/compiereRootBase_was.war" />
+			<!-- copy to compiereHome	-->
+			<zipfileset dir="${basedir}/lib" 
+				includes="Compiere2Client.zip,Compiere.jar,CompiereCLib.jar,*.jnlp,*.0,*.html" 
+				prefix="compiereHome" />
+		</zip>
+	</target>
+
+	<!-- ==================================================== -->
+	<!-- Update apps.war with Server and swf files from components  -->
+	<!-- ==================================================== -->
+	<target name="updAppsEar" depends="setupInit" if="apps.ear.exists"
+		description="Update apps.war with server jar and swf files from components">
+		
+		<unzip src="lib/deploy/apps.ear" dest="lib/deploy">
+			<patternset>
+				<include name="apps.war"/>
+			</patternset>
+		</unzip>
+		
+		<war destfile="lib/deploy/apps.war" update="true">
+			<lib dir="lib/ext" includes="c*Server.jar" prefix="WEB-INF/lib/"/>
+			<fileset dir="lib/deploy" includes="*.swf" />
+		</war>
+		
+		<zip destfile="lib/deploy/apps.ear" update="true" >
+			<fileset dir="lib/deploy" includes="apps.war" />
+		</zip>
+		
+		<delete file="lib/deploy/apps.war" />
+	</target>
+	
+	<!-- ==================================================== -->
+	<!-- Setup EAR Libraries                                  -->
+	<!-- ==================================================== -->
+	<target name="setupEAR" depends="setupLib, setupCompiereRootWar, setupWasCompiereRootWar" 
+		description="Setup Compiere EAR Libraries">
+
+		<!-- Build compiereRoot ear		-->
+		<ear destfile="${basedir}/lib/compiereRoot.ear" appxml="${basedir}/lib/compiereRoot.xml">
+			<fileset dir="${basedir}/lib" includes="${baseJars} compiereRoot.jar,compiereRoot.war" />
+			<manifest>
+				<attribute name="Specification-Title" value="CompiereRoot" />
+				<attribute name="Specification-Version" value="${COMPIERE_MAIN_VERSION}" />
+				<attribute name="Specification-Vendor" value="(C) 2009 Compiere, Inc." />
+				<attribute name="Implementation-Title" value="CompiereRoot" />
+				<attribute name="Implementation-Version" value="${COMPIERE_MAIN_VERSION} ${DSTAMP}-${TSTAMP}" />
+				<attribute name="Implementation-URL" value="http://www.compiere.org" />
+			</manifest>
+		</ear>
+
+		<!-- Create compiereWebStore war		-->
+		<zip destfile="${basedir}/lib/compiereWebStore.war">
+			<!-- copy Base	-->
+			<zipfileset src="${basedir}/lib/compiereWebStoreBase.war" />
+			<!-- copy to compiereHome	-->
+			<zipfileset dir="${basedir}/lib" 
+				includes="${baseJars} compiereApps.jar" 
+				prefix="WEB-INF/lib" />
+		</zip>
+
+		<!-- Build compiereWebStore ear		-->
+		<ear destfile="${basedir}/lib/compiereWebStore.ear" appxml="${basedir}/lib/compiereWebStore.xml">
+			<fileset dir="${basedir}/lib" includes="compiereWebStore.war" />
+			<manifest>
+				<attribute name="Specification-Title" value="CompiereWebStore" />
+				<attribute name="Specification-Version" value="${COMPIERE_MAIN_VERSION}" />
+				<attribute name="Specification-Vendor" value="(C) 2009 Compiere, Inc." />
+				<attribute name="Implementation-Title" value="CompiereWebStore" />
+				<attribute name="Implementation-Version" value="${COMPIERE_MAIN_VERSION} ${DSTAMP}-${TSTAMP}" />
+				<attribute name="Implementation-URL" value="http://www.compiere.org" />
+			</manifest>
+		</ear>
+
+		<!-- Create compiereWebCM war		-->
+		<zip destfile="${basedir}/lib/compiereWebCM.war">
+			<!-- copy Base	-->
+			<zipfileset src="${basedir}/lib/compiereWebCMbase.war" />
+			<!-- copy to compiereHome	-->
+			<zipfileset dir="${basedir}/lib" 
+				includes="${baseJars},Compiere2.ico" 
+				prefix="WEB-INF/lib" />
+		</zip>
+
+		<!-- Build compiereWebCM ear		-->
+		<ear destfile="${basedir}/lib/compiereWebCM.ear" appxml="${basedir}/lib/compiereWebCM.xml">
+			<fileset dir="${basedir}/lib" includes="compiereWebCM.war" />
+			<manifest>
+				<attribute name="Specification-Title" value="CompiereWebCM" />
+				<attribute name="Specification-Version" value="${COMPIERE_MAIN_VERSION}" />
+				<attribute name="Specification-Vendor" value="(C) 2009 Compiere, Inc." />
+				<attribute name="Implementation-Title" value="CompiereWebCM" />
+				<attribute name="Implementation-Version" value="${COMPIERE_MAIN_VERSION} ${DSTAMP}-${TSTAMP}" />
+				<attribute name="Implementation-URL" value="http://www.compiere.org" />
+			</manifest>
+		</ear>
+
+	</target>
+
+
+	<!-- ==================================================== -->
+	<!-- Setup JBoss Server                                   -->
+	<!-- ==================================================== -->
+	<target name="setupJBoss" depends="setupLib, setupEAR, updAppsEar" if="isAppsJBoss" 
+		description="Setup JBoss Application Server">
+
+		<!-- Filter JBoss Templates Conf	-->
+		<copy file="${basedir}/jboss/server/compiere/conf/jboss-serviceTemplate.xml" 
+			tofile="${basedir}/jboss/server/compiere/conf/jboss-service.xml" 
+			filtering="yes" overwrite="yes" />
+
+		<!-- Filter JBoss Templates HTTP Invoker	-->
+		<copy file="${basedir}/jboss/server/compiere/deploy/http-invoker.sar/META-INF/jboss-serviceTemplate.xml" 
+			tofile="${basedir}/jboss/server/compiere/deploy/http-invoker.sar/META-INF/jboss-service.xml" 
+			filtering="yes" overwrite="yes" />
+
+		<!-- Filter Tomcat  				-->
+		<copy file="${basedir}/jboss/server/compiere/deploy/jboss-web.deployer/serverTemplate.xml" 
+			tofile="${basedir}/jboss/server/compiere/deploy/jboss-web.deployer/server.xml" 
+			filtering="yes" overwrite="yes" />
+
+		<!-- Delete Old		-->
+		<delete file="${basedir}/jboss/server/compiere/lib/CClient.jar" failonerror="no" />
+		<delete file="${basedir}/jboss/server/compiere/lib/CSTools.jar" failonerror="no" />
+		<delete file="${basedir}/jboss/server/compiere/lib/CServer.jar" failonerror="no" />
+		<delete file="${basedir}/jboss/server/compiere/lib/jPDFPrinter.jar" failonerror="no" />
+		<delete file="${basedir}/jboss/server/compiere/lib/oracle.jar" failonerror="no" />
+		<delete file="${basedir}/jboss/server/compiere/lib/db2.jar" failonerror="no" />
+
+		<!-- Copy			-->
+		<echo message="AppsDeployment= ${COMPIERE_APPS_DEPLOY}" />
+		<copy file="${basedir}/lib/Compiere.jar" todir="${COMPIERE_APPS_DEPLOY}/../lib" overwrite="yes" />
+		<copy file="${basedir}/lib/CompiereSLib.jar" todir="${COMPIERE_APPS_DEPLOY}/../lib" overwrite="yes" />
+		<copy file="${basedir}/lib/compiereRoot.ear" todir="${COMPIERE_APPS_DEPLOY}" />
+		<copy file="${basedir}/lib/compiereWebStore.ear" todir="${COMPIERE_APPS_DEPLOY}" />
+		<copy file="${basedir}/lib/compiereWebCM.ear" todir="${COMPIERE_APPS_DEPLOY}" />
+		<copy todir="${COMPIERE_APPS_DEPLOY}" verbose="true">
+		  <fileset dir="lib/deploy" includes="**/*.war, **/*.ear"/>
+		</copy>
+	</target>
+	
+
+	<!-- ==================================================== -->
+	<!-- Setup Tomcat Server                                  -->
+	<!-- ==================================================== -->
+	<target name="setupTomcat" depends="setupLib, setupEAR" if="isAppsTomcat" 
+		description="Setup Tomcat Web Container">
+
+		<!-- Should delete but needed if you change your mind
+	  	<delete file="lib/RUN_Compiere2.bat" failonerror="false" />
+  		<delete file="lib/RUN_Compiere2.sh" failonerror="false" />
+	  	<delete dir="utils" failonerror="false" />
+  		-->
+
+		<echo message="AppsDeployment= ${COMPIERE_APPS_DEPLOY}" />
+
+		<!-- Filter conf/server.xml		-->
+		<copy file="lib/tomcatServerTemplate.xml" 
+			tofile="${COMPIERE_APPS_DEPLOY}/conf/server.xml" filtering="yes" overwrite="yes" />
+
+		<!-- Copy to /shared/lib		-->
+		<copy file="${basedir}/lib/Compiere.jar" 
+			todir="${COMPIERE_APPS_DEPLOY}/shared/lib" />
+		<copy file="${basedir}/lib/CompiereSLib.jar" 
+			todir="${COMPIERE_APPS_DEPLOY}/shared/lib" />
+		<copy file="${basedir}/lib/compiereApps.jar" 
+			todir="${COMPIERE_APPS_DEPLOY}/shared/lib" />
+		<copy file="${basedir}/lib/j2ee.jar" 
+			todir="${COMPIERE_APPS_DEPLOY}/shared/lib" />
+
+		<!-- Copy to /webapps and rename for context	-->
+		<delete file="${COMPIERE_APPS_DEPLOY}/webapps/compiere.war" failonerror="no" />
+		<delete dir="${COMPIERE_APPS_DEPLOY}/webapps/compiere" failonerror="no" />
+		<copy file="${basedir}/lib/compiereApps.war" 
+			tofile="${COMPIERE_APPS_DEPLOY}/webapps/compiere.war" overwrite="yes" />
+
+		<delete file="${COMPIERE_APPS_DEPLOY}/webapps/wstore.war" failonerror="no" />
+		<delete dir="${COMPIERE_APPS_DEPLOY}/webapps/wstore" failonerror="no" />
+		<copy file="${basedir}/lib/compiereWebStore.war" 
+			tofile="${COMPIERE_APPS_DEPLOY}/webapps/wstore.war" overwrite="yes" />
+
+		<echo message="----------------------------------------------------------" />
+		<echo message="This is a dedicated Web Container Configuration" />
+		<echo message="You canNOT run the Application (RUN_Compiere) locally!" />
+		<echo message="Use WebStart from your primary Application Server!" />
+		<echo message="----------------------------------------------------------" />
+	</target>
+
+
+	<!-- ==================================================== -->
+	<!-- Deploy J2EE Server                                   -->
+	<!-- ==================================================== -->
+	<target name="setupDeploy" depends="setupJBoss, setupTomcat" 
+		description="Deploy Compiere Application Server">
+		<echo message="AppsDeployment= ${COMPIERE_APPS_DEPLOY}" />
+	</target>
+
+	<!-- ==================================================== -->
+	<!-- Setup (Main)                                         -->
+	<!-- ==================================================== -->
+	<target name="setup" depends="runJBoss" 
+		description="Setup Compiere">
+	</target>
+
+	<!-- ==================================================== -->
+	<!-- Star JBoss                                           -->
+	<!-- ==================================================== -->
+	<target name="runJBoss" depends="setupDeploy" 
+			description="Run JBoss Server">
+	<exec executable="${basedir}/utils/RUN_Server2.sh" spawn="true">
+	    </exec>
+	    <echo>+-----------------------------+</echo>
+	    <echo>| J B O S S   S T A R T E D   |</echo>
+	    <echo>+-----------------------------+</echo>	
+	</target>
+	
+	<!-- ==================================================== -->
+	<!-- Test - Copy                                          -->
+	<!-- ==================================================== -->
+	<target name="testsystemCopy"
+		description="Copy Compiere to Test System">
+
+		<delete dir="lib" />
+		<delete dir="jboss" />
+		<delete dir="log" />
+		<unzip src="\\\\Dev1\\Compiere\\Install\\Compiere_263.zip" 
+			overwrite="true" />
+	</target>
+
+	<!-- ==================================================== -->
+	<!-- Test - Import DB                                     -->
+	<!-- ==================================================== -->
+	<target name="testsystemImport" depends="setup"
+		description="Import Compiere DB">
+		
+		<exec command="${basedir}/lib/RUN_CompiereImport" />
+	</target>
+
+	<!-- ==================================================== -->
+	<!-- Test - Setup                                         -->
+	<!-- ==================================================== -->
+	<target name="testsystemSetup" depends="testsystemCopy, testsystemImport"
+		description="Set up Test System">
+		
+	</target>
+
+	<!-- ==================================================== -->
+	<!-- Shutting down server, setting up compiere and importing database -->
+	<!-- ==================================================== -->
+	<target name="cleanall" description="shutdown,setting up and importing database">
+
+		<echo message="================Compiere Server Shutdown ===================" />
+		<echo message="OS      = ${os.name}" />
+
+		<!-- Shutting down server by calling the RUN_Stop.bat  or RUN_Stop.sh script in compiere2 dir	-->
+		<exec dir="${env.COMPIERE_HOME}\utils" executable="cmd" os="Windows XP, Windows 2000, Windows NT" >
+		  <arg line="/c RUN_Stop.bat"/>
+		</exec>
+
+		<exec dir="${env.COMPIERE_HOME}\utils" executable="/bin/sh" os="SunOS,unix">
+		  <arg value="-c" />
+		  <arg value="RUN_Stop.sh" />
+		</exec>
+
+		<echo message="================Compiere Server Shutdown Complete===================" />
+		<sleep seconds="2"/>
+		<!-- Deleting all the log files, jboss dir and log dir in ${env.COMPIERE_HOME} directory -->
+		<delete>
+			<fileset dir="${env.COMPIERE_HOME}" includes="*.log" />
+		</delete>
+		<delete dir="${env.COMPIERE_HOME}\jboss" />
+		<delete dir="${env.COMPIERE_HOME}\log" />
+
+		<echo message="=========== ftp to nas and download the current build==============="/>
+		<ftp action= "get" 
+			server="${server}" 
+			userid="guest" 
+			password="">
+			<fileset  dir="${env.COMPIERE_HOME}">
+				<include name="**/Compiere_263.zip"/>	
+			</fileset>
+		</ftp>
+
+		<!-- unzip and overwrite them and delete the downloaded directory -->
+		<unzip src="${env.COMPIERE_HOME}/Disk 1/Compiere_263.zip" dest="${env.COMPIERE_HOME}\..\"  overwrite="yes" />
+		<delete dir="${env.COMPIERE_HOME}/Disk 1"/>
+
+		<echo message="======================Setup compiere==============================" /> 
+		<ant inheritAll="false" dir="${env.COMPIERE_HOME}" target="setup"/>
+ 
+		<!-- Importing the database --> 
+		<exec dir="${env.COMPIERE_HOME}\utils" executable="cmd" os="Windows XP, Windows 2000, Windows NT" >
+		  <arg line="/c  RUN_ImportCompiere.bat"/>
+		</exec>
+		<exec dir="${env.COMPIERE_HOME}\utils" executable="/bin/sh" os="SunOS,unix">
+		  <arg value="-c" />
+		  <arg value="RUN_ImportCompiere.sh" />
+		</exec>
+ 
+	</target>
+
+</project>

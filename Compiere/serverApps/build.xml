@@ -1,0 +1,154 @@
+<?xml version="1.0"?>
+<!-- ============================================= -->
+<!-- Compiere Server Application                   -->
+<!-- ============================================= -->
+<!-- $Id$-->
+
+<project name="compiereApps" default="main" basedir=".">
+
+	<property environment="env" />
+
+	<property name="src.dir" value="${basedir}/src" />
+	<property name="src.main.dir" value="${src.dir}/main" />
+	<property name="src.client.dir" value="${src.main.dir}/client" />
+	<property name="src.ejb.dir" value="${src.main.dir}/ejb" />
+	<property name="src.servlet.dir" value="${src.main.dir}/servlet" />
+	<property name="src.resources.dir" value="${src.dir}/resources" />
+	<property name="src.web.dir" value="${src.dir}/web" />
+	<property name="src.server.dir" value="${src.main.dir}/server" />
+
+	<property name="build.dir" value="${basedir}/build" />
+	<property name="build.tmp.dir" value="${build.dir}/tmp" />
+	<property name="build.deploy.dir" value="${build.dir}/deploy" />
+	<property name="build.war.dir" value="${build.dir}/war" />
+	<property name="build.jar.dir" value="${build.dir}/jar" />
+
+
+	<target name="serverAppsInit">
+		<echo message="=========== Build Server Application" />
+		<tstamp />
+	</target>
+
+
+	<path id="base.path">
+		<pathelement location="../lib/Compiere.jar" />
+		<pathelement location="../lib/CSTools.jar" />
+		<pathelement location="../tools/lib/j2ee.jar" />
+
+		<pathelement location="${build.classes.dir}" />
+	</path>
+
+
+	<!-- =========================================== -->
+	<!-- Compiles the source code                    -->
+	<!-- =========================================== -->
+	<target name="serverAppsCompile" depends="serverAppsInit">
+
+		<!--	Compile Web		-->
+		<mkdir dir="${build.war.dir}" />
+		<path id="web.path">
+			<path refid="base.path" />
+			<pathelement location="${servlet-lib.path}" />
+		</path>
+
+		<javac destdir="${build.war.dir}" 
+			debug="on" deprecation="off" optimize="on" 
+			classpathref="web.path">
+			<src path="${src.servlet.dir}" />
+		</javac>
+
+		<copy todir="${build.war.dir}">
+			<fileset dir="${src.servlet.dir}">
+				<include name="**/images/*" />
+				<include name="**/*.gif" />
+				<include name="**/*.jpg" />
+				<include name="**/*.wav" />
+				<include name="**/*.htm" />
+				<include name="**/*.html" />
+				<include name="**/*.properties" />
+				<exclude name="**/package.html" />
+			</fileset>
+		</copy>
+
+	</target>
+	
+		
+	<!-- =========================================== -->
+	<!-- Creates the jar archives                    -->
+	<!-- =========================================== -->
+	<target name="serverAppsJar" depends="serverAppsCompile">
+		<mkdir dir="${build.jar.dir}" />
+
+		<!--	Jar Apps Code			-->
+		<jar jarfile="${build.jar.dir}/compiereApps.jar">
+			<fileset dir="${build.war.dir}" includes="**/*.*">
+			</fileset>
+			<manifest>
+				<attribute name="Specification-Title" value="CompiereApps" />
+				<attribute name="Specification-Version" value="${env.COMPIERE_VERSION}" />
+				<attribute name="Specification-Vendor" value="(C) 2006 ComPiere, Inc." />
+				<attribute name="Implementation-Title" value="CompiereApps ${env.COMPIERE_VERSION}" />
+				<attribute name="Implementation-Version" value="${env.COMPIERE_VERSION} ${DSTAMP}-${TSTAMP}" />
+				<attribute name="Implementation-Vendor" value="${env.COMPIERE_VENDOR}" />
+				<attribute name="Implementation-URL" value="http://www.compiere.com" />
+				<attribute name="Class-Path" value="Compiere.jar CompiereSLib.jar" />
+			</manifest>
+		</jar>
+	</target>
+	
+
+	<!-- =========================================== -->
+	<!-- Creates the war archives                    -->
+	<!-- =========================================== -->
+	<target name="serverAppsWar" depends="serverAppsJar">
+		<mkdir dir="${build.deploy.dir}" />
+
+		<!--	War Web Descriptor		-->
+		<war warfile="${build.deploy.dir}/compiereAppsBase.war" 
+			webxml="${src.web.dir}/WEB-INF/web.xml">
+			<fileset dir="${src.web.dir}" excludes="**/web.xml,**/lib/**,**/classes/**"/>
+			<manifest>
+				<attribute name="Specification-Title" value="CompiereAppsWar" />
+				<attribute name="Specification-Version" value="${env.COMPIERE_VERSION}" />
+				<attribute name="Specification-Vendor" value="(C) 2006 ComPiere, Inc." />
+				<attribute name="Implementation-Title" value="CompiereAppsWar ${env.COMPIERE_VERSION}" />
+				<attribute name="Implementation-Version" value="${env.COMPIERE_VERSION} ${DSTAMP}-${TSTAMP}" />
+				<attribute name="Implementation-Vendor" value="${env.COMPIERE_VENDOR}" />
+				<attribute name="Implementation-URL" value="http://www.compiere.com" />
+			</manifest>
+		</war>
+	</target>
+
+	<!-- =========================================== -->
+	<!-- Creates the server binary                   -->
+	<!-- =========================================== -->
+	<target name="serverAppsDeployServer" depends="serverAppsWar">
+		<copy todir="../lib">
+			<fileset dir="${build.deploy.dir}" 
+				includes="*.jar,*.war,*.ear" />
+			<fileset dir="${build.jar.dir}" 
+				includes="*.jar,*.war,*.ear" />
+		</copy>
+	</target>
+
+
+	<!-- =========================================== -->
+	<!-- Creates the binary structure                -->
+	<!-- =========================================== -->
+	<target name="main" depends="serverAppsDeployServer">
+		<copy file="src/ear/application.xml" 
+			tofile="../lib/compiereApps.xml" />
+	</target>
+
+
+	<!-- =========================================== -->
+	<!-- Cleans up the current build                 -->
+	<!-- =========================================== -->
+	<target name="clean">
+		<delete dir="${build.dir}" />
+		<delete file="../lib/compiereAppsBase.war" failonerror="false" />
+		<delete file="../lib/compiereApps.war" failonerror="false" />
+		<delete file="../lib/compiereApps.jar" failonerror="false" />
+	</target>
+
+</project>

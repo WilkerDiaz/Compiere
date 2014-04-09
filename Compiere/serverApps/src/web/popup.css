@@ -1,0 +1,35 @@
+/* Compiere HTML UI (c) Jorg Janke */
+/* $Id: popup.css,v 1.1 2006/04/21 18:03:35 jjanke Exp $ */
+
+body	{
+	background-color: #F7F4FF;
+	color: #000000;
+}
+
+.Cerror{
+	background: #FF4A4A;
+}
+
+.Cmandatory{
+	background: #9DFFFF;
+}
+
+.popupTable	{
+	border-left: none;
+	border-right: none;
+	margin: 0px;
+	padding: 2px;
+}
+
+.popupHeader	{
+	border-top: none;
+}
+
+.popupCenter	{
+	border-bottom: 1px solid #000000;
+	border-top: 1px solid #000000;
+}
+
+.popupFooter	{
+	border-bottom: none;
+}

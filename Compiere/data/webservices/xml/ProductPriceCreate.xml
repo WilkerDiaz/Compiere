@@ -1,0 +1,22 @@
+<M_ProductPrices>
+  <M_ProductPrice>		 
+    <IsActive>
+      <Value>Y</Value>
+    </IsActive>
+    <M_PriceList_Version_ID>
+      <Value>103</Value>
+    </M_PriceList_Version_ID>
+    <M_Product_ID>
+      <Value>146</Value>
+    </M_Product_ID>
+    <PriceLimit>
+      <Value>25</Value>
+    </PriceLimit>
+    <PriceList>
+      <Value>65</Value>
+    </PriceList>
+    <PriceStd>
+      <Value>25</Value>
+    </PriceStd>		
+  </M_ProductPrice>
+</M_ProductPrices>

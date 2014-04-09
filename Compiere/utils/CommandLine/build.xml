@@ -1,0 +1,172 @@
+<!-- ====================================================== -->
+<!-- Compiere Install                                       -->
+<!-- Copyright 1999-2010 Compiere, Inc.                     -->
+<!-- ====================================================== -->
+<!-- $Id: build.xml 8439 2010-02-16 22:47:26Z freyes $ -->
+
+<project name="install" default="refreshCompiere" basedir=".">
+
+	<property environment="env"/>
+		
+	<!-- Platform independent trick to get hostname -->
+	<property name="env.COMPUTERNAME" value="${env.HOSTNAME}"/>
+    <property name="hostname" value="${env.COMPUTERNAME}"/>
+
+<!-- =================================================================== -->
+<!-- Load CompiereEnv.properties                                         -->
+<!-- =================================================================== -->
+	<target name="loadEnvFile">	
+	  	<path id="install.path">
+			<pathelement location="${env.COMPIERE_HOME}/lib/CInstall.jar" />
+			<pathelement location="${env.COMPIERE_HOME}/lib/CompiereInstall.jar" />
+			<pathelement location="${env.COMPIERE_HOME}/lib/jPDF.jar" />
+			<pathelement location="${env.COMPIERE_HOME}/lib/CCTools.jar" />
+			<pathelement location="${env.COMPIERE_HOME}/lib/oracle.jar" />
+			<pathelement location="${env.COMPIERE_HOME}/lib/jboss.jar" />
+			<pathelement location="${env.COMPIERE_HOME}/lib/postgreSQL.jar" />
+		</path>
+	
+		<!-- Read Compiere properties file -->
+		<property name="envFile" location="${env.COMPIERE_HOME}/CompiereEnv.properties" />
+		<available file="${envFile}" property="envFileExists" />
+		<fail message="**** ERROR: Unable to find ${envFile}. Execute RUN_setup for COMPIERE_HOME ${env.COMPIERE_HOME} ****" unless="envFileExists" />
+		<echo message="Reading environment file ${envFile}" />
+		<property file="${envFile}" />
+
+		<condition property="jboss.already.running" >
+			<socket server="${COMPIERE_APPS_SERVER}" port="${COMPIERE_JNP_PORT}"/>
+		</condition>
+		
+		<condition property="isSubscriber" >  
+			<and>
+				<isset property="env.CL_SYSTEM_NAME"/> 
+				<isset property="env.CL_WEBSTORE_EMAIL"/>
+				<isset property="env.CL_WEBSTORE_PASS"/>
+			</and>
+		</condition>
+		<condition property="subscriberInfo" value="--sysname ${env.CL_SYSTEM_NAME} --email ${env.CL_WEBSTORE_EMAIL} --password ${env.CL_WEBSTORE_PASS}" else="" >
+			<!-- <equals arg1="${isSubscriber}" arg2="true"/>-->
+			<isset property="isSubscriber"/>
+		</condition> <!-- TODO TODO -->					
+		
+		<property name="Compiere.zip" value="${env.COMPIERE_INSTALL}/Compiere_${env.COMPIERE_VERSION_FILE}.zip" />
+		
+		<echo message="OS                   = ${os.name}" />
+        <echo message="COMPIERE_HOME        = ${env.COMPIERE_HOME}"/>
+        <echo message="COMPIERE_INSTALL zip = ${Compiere.zip}"/>
+		<echo message="Database             = ${COMPIERE_DB_URL} # ${COMPIERE_DB_USER}" />
+		<echo message="Subscriber Info: ${subscriberInfo}"/>
+		<echo message="Apps Server running? ${jboss.already.running}"/>
+	
+		<!--Being over-cautious, do not run the script for different db server or Reference schema -->
+	    <condition property="isRestricted">
+			<or>
+				<contains string="${COMPIERE_DB_USER}" substring="reference" casesensitive="false" />
+				<not> <contains string="${COMPIERE_DB_SERVER}" substring="${hostname}" casesensitive="false"/> </not>
+			</or>
+		</condition>
+		<fail message="Can't run this script on ${COMPIERE_DB_USER} @ ${COMPIERE_DB_SERVER}/${COMPIERE_DB_NAME}" 
+			if="isRestricted"/>	
+	</target>
+
+<!-- =================================================================== -->
+<!-- Unzip Compiere  		                                             -->
+<!-- =================================================================== -->		
+	<target name="unzipCompiere" description="Update COMPIERE_HOME with zip file from COMPIERE_INSTALL" depends="loadEnvFile, stopAppsServer">
+        
+        <echo message="================  Unzip Compiere_${env.COMPIERE_VERSION_FILE}.zip  ===================" />      
+        <available file="${Compiere.zip}" property="Compiere.zip.exists" />
+  	    <fail message="Unable to find Compiere zip file ${Compiere.zip}." unless="Compiere.zip.exists"/>          
+		
+        <echo message="Delete lib and jboss folders" />		
+		<delete dir="${env.COMPIERE_HOME}/jboss" />
+        <!-- <delete dir="${env.COMPIERE_HOME}/lib" /> -->
+        <delete>
+            <fileset dir="${env.COMPIERE_HOME}/lib" excludes="**/CInstall.jar"/>
+        </delete>
+
+        <property name="unzip.dir" location="${env.COMPIERE_HOME}/.." />
+        <echo message="Unzip Compiere_${env.COMPIERE_VERSION_FILE}.zip to ${unzip.dir}"/>
+		<unzip src="${Compiere.zip}" dest="${unzip.dir}"  overwrite="yes" />
+	</target>      	
+	
+<!-- =================================================================== -->
+<!-- File Install (code refresh)		 		                         -->
+<!-- Must set the following environment variables: CL_SYSTEM_NAME, CL_WEBSTORE_EMAIL, CL_WEBSTORE_PASS -->
+<!-- =================================================================== -->		
+	<target name="fileInstall" description="RUN_setup File Install" depends="stopAppsServer"> <!-- @@@ if="isSubscriber"> -->
+		<!-- For DB install set installDB to "install-db y" before calling this target -->
+		<property name="installDB" value="--install-db n"/>
+		<echo message="================ ${installDB} ===================" />
+		<java classname="com.compiere.client.CommandLineInstall" failonerror="true" fork="true" maxmemory="256m">
+			<sysproperty key="COMPIERE_HOME" value="${env.COMPIERE_HOME}"/>
+			<arg line="--sysname ${env.CL_SYSTEM_NAME} --email ${env.CL_WEBSTORE_EMAIL} --pwd ${env.CL_WEBSTORE_PASS} ${installDB} " />
+			<classpath refid="install.path"/>
+		</java>
+	</target>
+
+<!-- =================================================================== -->
+<!-- File and DB Install 		                                         -->
+<!-- Must set the environment variables CL_SYSTEM_NAME, CL_WEBSTORE_EMAIL-->
+<!-- and CL_WEBSTORE_PASS to install Professional or Enterprise          -->
+<!-- =================================================================== -->		
+	<target name="dbInstall" description="RUN_setup File Install *and* DBImport"> <!-- if="isSubscriber">-->
+		
+		<property name="installDB" value="--install-db y"/>
+		<echo message="."/>
+		<ant inheritAll="true" target="fileInstall"/>
+		<echo message="done file install"/>
+		<java classname="com.compiere.client.UpdateLicense" failonerror="true" fork="true">
+			<sysproperty key="COMPIERE_HOME" value="${env.COMPIERE_HOME}"/>
+			<arg line="--sysname ${env.CL_SYSTEM_NAME} --email ${CL_WEBSTORE_EMAIL} --password ${CL_WEBSTORE_PASS}"/>
+			<classpath refid="install.path"/>
+		</java> 
+	</target>
+	
+<!-- =================================================================== -->
+<!-- Stop Apps Server 		                                             -->
+<!-- =================================================================== -->	
+	<target name="stopAppsServer" description="Stop JBoss" depends="loadEnvFile" if="jboss.already.running">
+		<echo message="================ Stop Apps Server ===================" />
+		<echo message="server=${COMPIERE_APPS_SERVER} JNP port=${COMPIERE_JNP_PORT}"/>
+		<exec dir="${env.COMPIERE_HOME}/utils" executable="cmd" osfamily="windows" >
+		  <arg line="/c RUN_Server2Stop.bat"/>
+		</exec>
+		<exec dir="${env.COMPIERE_HOME}/utils" executable="RUN_Server2Stop.sh" osfamily="unix" resolveexecutable="true">
+		</exec>
+		<echo message="Ignore errors Failed to connect to server / Connection refused when stopping the Apps Server"/>
+
+		<waitfor timeoutproperty="jboss.running" maxwait="3" maxwaitunit="minute">
+			<not><socket server="${COMPIERE_APPS_SERVER}" port="${COMPIERE_JNP_PORT}"/></not>
+		</waitfor>     
+		<fail message="Couldn't stop JBoss. ${COMPIERE_APPS_SERVER} is still listening on port ${COMPIERE_JNP_PORT}" if="jboss.running"/>		
+
+		<!-- Wait a few more seconds to release all ports/files -->
+		<sleep seconds="3"/>    
+	</target>	
+	
+<!-- =================================================================== -->
+<!-- Start Apps Server 		                                             -->
+<!-- =================================================================== -->	
+	<target name="startAppsServer" description="Start JBoss" depends="loadEnvFile" >
+		<echo message="================ Start Apps Server ===================" />
+		<echo message="server=${COMPIERE_APPS_SERVER} JNP port=${COMPIERE_JNP_PORT}"/>
+		<exec dir="${env.COMPIERE_HOME}/utils" executable="cmd" osfamily="windows" spawn="true" >
+		  <arg line="/c RUN_Server2.bat"/>
+		</exec>
+		<exec dir="${env.COMPIERE_HOME}/utils" executable="RUN_Server2.sh" osfamily="unix" resolveexecutable="true" spawn="true">
+		</exec>
+
+		<waitfor timeoutproperty="jboss.not.started" maxwait="3" maxwaitunit="minute">
+			<socket server="${COMPIERE_APPS_SERVER}" port="${COMPIERE_JNP_PORT}"/>
+		</waitfor>     
+		<fail message="Couldn't start JBoss. Server ${COMPIERE_APPS_SERVER} JNP port ${COMPIERE_JNP_PORT}" if="jboss.not.started"/>		
+	</target>		
+	
+<!-- =================================================================== -->
+<!-- Refresh Compiere  		                                             -->
+<!-- =================================================================== -->		
+	<target name="refreshCompiere" description="Update COMPIERE_HOME and refresh DB" depends="unzipCompiere, dbInstall, startAppsServer">
+	</target>
+	
+</project>	

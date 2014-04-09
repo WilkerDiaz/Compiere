@@ -1,0 +1,2608 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.22" id="1">
+    <property name="createdBy">Eclipse BIRT Designer Version 2.6.2.r262_v20110209 Build &lt;2.6.2.v20110214-1523></property>
+    <property name="units">in</property>
+    <property name="iconFile">/templates/grouped_listing.gif</property>
+    <property name="cheatSheet">org.eclipse.birt.report.designer.ui.cheatsheet.groupedlisting</property>
+    <property name="layoutPreference">auto layout</property>
+    <property name="bidiLayoutOrientation">ltr</property>
+    <property name="imageDPI">96</property>
+    <parameters>
+        <scalar-parameter name="fechaDesde" id="46">
+            <property name="hidden">true</property>
+            <property name="valueType">static</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">01/04/2013</value>
+            </simple-property-list>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="fechaHasta" id="47">
+            <property name="hidden">true</property>
+            <property name="valueType">static</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">30/04/2013</value>
+            </simple-property-list>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="mesX" id="143">
+            <property name="hidden">true</property>
+            <property name="valueType">static</property>
+            <property name="isRequired">true</property>
+            <property name="dataType">integer</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">3</value>
+            </simple-property-list>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="proveedor" id="652">
+            <property name="hidden">true</property>
+            <property name="valueType">static</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">1054564</value>
+            </simple-property-list>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="pais" id="653">
+            <property name="hidden">true</property>
+            <property name="valueType">static</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">339</value>
+            </simple-property-list>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+    </parameters>
+    <data-sources>
+        <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="Compiere" id="43">
+            <list-property name="privateDriverProperties">
+                <ex-property>
+                    <name>contentBidiFormatStr</name>
+                    <value>ILYNN</value>
+                </ex-property>
+                <ex-property>
+                    <name>metadataBidiFormatStr</name>
+                    <value>ILYNN</value>
+                </ex-property>
+                <ex-property>
+                    <name>disabledMetadataBidiFormatStr</name>
+                </ex-property>
+                <ex-property>
+                    <name>disabledContentBidiFormatStr</name>
+                </ex-property>
+            </list-property>
+            <property name="odaDriverClass">oracle.jdbc.OracleDriver</property>
+            <property name="odaURL">jdbc:oracle:thin:@192.168.1.139:1521:compiere</property>
+            <property name="odaUser">compiere</property>
+            <encrypted-property name="odaPassword" encryptionID="base64">czEwZTkwOWQ=</encrypted-property>
+        </oda-data-source>
+    </data-sources>
+    <data-sets>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="Principal" id="44">
+            <list-property name="parameters">
+                <structure>
+                    <property name="name">fechaDesdePag</property>
+                    <property name="paramName">fechaDesde</property>
+                    <property name="dataType">string</property>
+                    <property name="position">1</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">fechaHastaPag</property>
+                    <property name="paramName">fechaHasta</property>
+                    <property name="dataType">string</property>
+                    <property name="position">2</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">mesX</property>
+                    <property name="paramName">mesX</property>
+                    <property name="dataType">integer</property>
+                    <property name="position">3</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">fechaDesdeDoc</property>
+                    <property name="paramName">fechaDesde</property>
+                    <property name="dataType">string</property>
+                    <property name="position">4</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">fechaHastaDoc</property>
+                    <property name="paramName">fechaHasta</property>
+                    <property name="dataType">string</property>
+                    <property name="position">5</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">fechaDesdeDoc1</property>
+                    <property name="paramName">fechaDesde</property>
+                    <property name="dataType">string</property>
+                    <property name="position">6</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">fechaHastaDoc1</property>
+                    <property name="paramName">fechaHasta</property>
+                    <property name="dataType">string</property>
+                    <property name="position">7</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">proveedor2Doc</property>
+                    <property name="paramName">proveedor</property>
+                    <property name="dataType">integer</property>
+                    <property name="position">8</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">proveedor1Doc</property>
+                    <property name="paramName">proveedor</property>
+                    <property name="dataType">integer</property>
+                    <property name="position">9</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">proveedor3Doc</property>
+                    <property name="paramName">proveedor</property>
+                    <property name="dataType">integer</property>
+                    <property name="position">10</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">fechaDesdeAnt</property>
+                    <property name="paramName">fechaDesde</property>
+                    <property name="dataType">string</property>
+                    <property name="position">11</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">fechaHastaAnt</property>
+                    <property name="paramName">fechaHasta</property>
+                    <property name="dataType">string</property>
+                    <property name="position">12</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">proveedor1Ant</property>
+                    <property name="paramName">proveedor</property>
+                    <property name="dataType">integer</property>
+                    <property name="position">13</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">proveedor2Ant</property>
+                    <property name="paramName">proveedor</property>
+                    <property name="dataType">integer</property>
+                    <property name="position">14</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">proveedor3Ant</property>
+                    <property name="paramName">proveedor</property>
+                    <property name="dataType">integer</property>
+                    <property name="position">15</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">fechaDesdeIVA</property>
+                    <property name="paramName">fechaDesde</property>
+                    <property name="dataType">string</property>
+                    <property name="position">16</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">fechaHastaIVA</property>
+                    <property name="paramName">fechaHasta</property>
+                    <property name="dataType">string</property>
+                    <property name="position">17</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">proveedor1IVA</property>
+                    <property name="paramName">proveedor</property>
+                    <property name="dataType">string</property>
+                    <property name="position">18</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">proveedor2IVA</property>
+                    <property name="paramName">proveedor</property>
+                    <property name="dataType">string</property>
+                    <property name="position">19</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">proveedor3IVA</property>
+                    <property name="paramName">proveedor</property>
+                    <property name="dataType">string</property>
+                    <property name="position">20</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">fechaDesdeISLR</property>
+                    <property name="paramName">fechaDesde</property>
+                    <property name="dataType">string</property>
+                    <property name="position">21</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">fechaHastaISLR</property>
+                    <property name="paramName">fechaHasta</property>
+                    <property name="dataType">string</property>
+                    <property name="position">22</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">proveedor1ISLR</property>
+                    <property name="paramName">proveedor</property>
+                    <property name="dataType">string</property>
+                    <property name="position">23</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">proveedor2ISLR</property>
+                    <property name="paramName">proveedor</property>
+                    <property name="dataType">string</property>
+                    <property name="position">24</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">proveedor3ISLR</property>
+                    <property name="paramName">proveedor</property>
+                    <property name="dataType">string</property>
+                    <property name="position">25</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">fechaDesdeAju</property>
+                    <property name="paramName">fechaDesde</property>
+                    <property name="dataType">string</property>
+                    <property name="position">26</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">fechaHastaAju</property>
+                    <property name="paramName">fechaHasta</property>
+                    <property name="dataType">string</property>
+                    <property name="position">27</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">proveedor1Aju</property>
+                    <property name="paramName">proveedor</property>
+                    <property name="dataType">string</property>
+                    <property name="position">28</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">proveedor2Aju</property>
+                    <property name="paramName">proveedor</property>
+                    <property name="dataType">string</property>
+                    <property name="position">29</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">proveedor3aju</property>
+                    <property name="paramName">proveedor</property>
+                    <property name="dataType">string</property>
+                    <property name="position">30</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">COMPANIA</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">PARTNER</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">DATEIP</property>
+                        <property name="dataType">date-time</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">DOCOCCON</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">5</property>
+                        <property name="name">DOCINVPAY</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">6</property>
+                        <property name="name">DOCUMENT</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">7</property>
+                        <property name="name">DATEDUE</property>
+                        <property name="dataType">date-time</property>
+                    </structure>
+                    <structure>
+                        <property name="position">8</property>
+                        <property name="name">TYPE</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">9</property>
+                        <property name="name">NUM</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">10</property>
+                        <property name="name">NAME</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">11</property>
+                        <property name="name">AMOUNT</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">12</property>
+                        <property name="name">HABER</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">13</property>
+                        <property name="name">DEBE</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">Compiere</property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">COMPANIA</property>
+                    <property name="nativeName">COMPANIA</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">PARTNER</property>
+                    <property name="nativeName">PARTNER</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">DATEIP</property>
+                    <property name="nativeName">DATEIP</property>
+                    <property name="dataType">date-time</property>
+                </structure>
+                <structure>
+                    <property name="position">4</property>
+                    <property name="name">DOCOCCON</property>
+                    <property name="nativeName">DOCOCCON</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">5</property>
+                    <property name="name">DOCINVPAY</property>
+                    <property name="nativeName">DOCINVPAY</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">6</property>
+                    <property name="name">DOCUMENT</property>
+                    <property name="nativeName">DOCUMENT</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">7</property>
+                    <property name="name">DATEDUE</property>
+                    <property name="nativeName">DATEDUE</property>
+                    <property name="dataType">date-time</property>
+                </structure>
+                <structure>
+                    <property name="position">8</property>
+                    <property name="name">TYPE</property>
+                    <property name="nativeName">TYPE</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">9</property>
+                    <property name="name">NUM</property>
+                    <property name="nativeName">NUM</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">10</property>
+                    <property name="name">NAME</property>
+                    <property name="nativeName">NAME</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">11</property>
+                    <property name="name">AMOUNT</property>
+                    <property name="nativeName">AMOUNT</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">12</property>
+                    <property name="name">HABER</property>
+                    <property name="nativeName">HABER</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">13</property>
+                    <property name="name">DEBE</property>
+                    <property name="nativeName">DEBE</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+            </list-property>
+            <xml-property name="queryText"><![CDATA[with
+pago as
+    (select 
+    (select trl.name as name
+    from AD_REF_LIST lis, AD_REF_LIST_TRL trl 
+    where lis.AD_Reference_ID=214 
+    and lis.AD_REF_LIST_ID = trl.AD_REF_LIST_ID
+    and value = pag.TenderType) as typePay, 
+    pag.CheckNo as numCheck, 
+    ban.name as nameBan, 
+    pag.C_BPartner_ID as idPartner,
+    sel.C_Invoice_ID as idInvoice,
+    pag.DocumentNo as document
+    from C_payment pag
+    inner join C_BankAccount cba on (pag.C_BankAccount_ID = cba.C_BankAccount_ID)
+    inner join C_Bank ban on (cba.C_Bank_ID = ban.C_Bank_ID)
+    inner join C_PaySelectionCheck sch on (pag.C_Payment_ID = sch.C_Payment_ID)
+    inner join C_PaySelectionLine sel on (sel.C_PaySelection_ID = sch.C_PaySelection_ID)
+    where pag.DocStatus = 'CO'
+    and pag.XX_DateFinalPay is not null
+    and pag.created between to_date(?,'dd/MM/yyyy') and to_date(?,'dd/MM/yyyy')),
+saldo as
+    (select XX_AmountMonthNational as amount, C_BPartner_ID as partner, XX_Month as month
+    from XX_VCN_BalanceByPartner
+    where XX_INVOICETYPE = 'S' and XX_Month = ?)
+select adc.name as compania, par.name||'   '||par.value as partner, 
+inv.Created as dateIP,
+(case when inv.C_Order_ID > 0 then ord.DocumentNo
+ else con.value
+ end) as docOCCon, inv.DocumentNo as docInvPay,  
+to_char(doc.name) as document, inv.XX_DueDate as dateDue, 
+(case when pag.typePay = 'Cheque' then 'CHE' 
+ when pag.typePay = 'Transferencia' then 'TRA' end) as type,
+pag.numCheck as num, pag.nameBan as name, 
+coalesce(sal.amount,0) as amount,
+(case when (sum(inv.GrandTotal) > 0) then sum(inv.GrandTotal) else 0 end) as haber,
+(case when (sum(inv.GrandTotal) < 0) then sum((inv.GrandTotal)*-1) else 0 end) as debe
+from C_Invoice inv
+inner join AD_Client adc on (adc.AD_Client_ID = inv.AD_Client_ID)
+inner join C_BPartner par on (par.C_BPartner_ID = inv.C_BPartner_ID)
+left outer join C_Order ord on (ord.C_Order_ID = inv.C_Order_ID)
+inner join C_DocType doc on (doc.C_DocType_ID = inv.C_DocTypeTarget_ID)
+left outer join pago pag on (par.C_BPartner_ID = pag.idPartner and inv.C_Invoice_ID = pag.idInvoice)
+left outer join saldo sal on (par.C_BPartner_ID = sal.partner)
+left outer join C_Country cou on (ord.C_Country_ID = cou.C_Country_ID) 
+left outer join XX_Contract con on (inv.XX_Contract_ID = con.XX_Contract_ID)
+where inv.DocStatus = 'CO'
+and inv.XX_InvoiceType = 'S'
+and ((inv.XX_Contract_ID is not null or inv.C_Order_ID is not null) 
+and (ord.XX_OrderType = 'Nacional' or con.XX_ContractType = 'Nacional')
+and (ord.XX_InvoiceDate is not null or inv.XX_Contract_ID is not null) or 
+(inv.XX_Contract_ID is null or inv.C_Order_ID is  null))
+and (ord.XX_InvoicingStatus = 'AP' or inv.XX_INVOICINGSTATUSCONTRACT = 'AP')
+and ((inv.XX_ApprovalDate is not null
+and inv.XX_ApprovalDate between to_date(?,'dd/MM/yyyy') and to_date(?,'dd/MM/yyyy')) or
+(inv.XX_ApprovalDate is null and inv.created between to_date(?,'dd/MM/yyyy') and to_date(?,'dd/MM/yyyy')
+and inv.XX_CONTROLNUMBER = ' ')
+or (inv.XX_ACCOUNTPAYABLESTATUS = 'P' and pag.numCheck is not null))
+and inv.C_Currency_ID = 205
+and ((par.C_BPartner_ID = ? and ? <> 0) or ? = 0)
+group by adc.name, par.value, par.name, inv.Created, ord.DocumentNo, inv.DocumentNo, 
+doc.name, inv.XX_DueDate, pag.typePay, pag.numCheck, pag.nameBan, sal.amount, con.value, inv.C_Order_ID
+union
+select adc.name as compania, par.name||'   '||par.value as partner, 
+pay.DateTrx as dateInvPay, ord.DocumentNo as docOCCon, pay.DocumentNo as docInvPay, 
+'Anticipo' as document, null as dateDue, 
+(case when pag.typePay = 'Cheque' then 'CHE' 
+ when pag.typePay = 'Transferencia' then 'TRA' end) as type, 
+pag.numCheck as num, pag.nameBan as name,  
+coalesce(sal.amount,0) as amount, 0 as haber, (pay.PayAmt) as debe
+from C_Payment pay
+inner join AD_Client adc on (adc.AD_Client_ID = pay.AD_Client_ID)
+inner join C_BPartner par on (par.C_BPartner_ID = pay.C_BPartner_ID)
+left outer join C_Order ord on (ord.C_Order_ID = pay.C_Order_ID)
+inner join C_DocType doc on (doc.C_DocType_ID = pay.C_DocType_ID)
+left outer join pago pag on (pay.documentNo = pag.document and pay.C_BPartner_ID = pag.idPartner)
+left outer join saldo sal on (par.C_BPartner_ID = sal.partner)
+left outer join C_Country cou on (ord.C_Country_ID = cou.C_Country_ID) 
+left outer join XX_Contract con on (pay.XX_Contract_ID = con.XX_Contract_ID)
+where pay.DocStatus = 'CO'
+and pay.XX_IsAdvance = 'Y'
+and pay.C_Currency_ID = 205
+and ((ord.XX_InvoiceDate is not null and ord.XX_POType = 'POA' and ord.XX_PurchaseType in ('SE')) or pay.XX_Contract_ID is not null) 
+and pay.DateTrx between to_date(?,'dd/MM/yyyy') and to_date(?,'dd/MM/yyyy')
+and ((par.C_BPartner_ID = ? and ? <> 0) or ? = 0)
+group by adc.name, par.value, par.name, pay.DateTrx, ord.DocumentNo, pay.DocumentNo, 
+doc.name, par.C_BPartner_ID, pag.typePay, pag.numCheck, pag.nameBan, pay.PayAmt, sal.amount
+union
+select adc.name as compania, par.name||'   '||par.value as partner, 
+iva.XX_ApprovalDate as dateInvPay, 
+(case when iva.C_Order_ID > 0 then ord.DocumentNo
+ else con.value
+ end) as docOCCon, iva.DocumentNo as docInvPay, 
+'Retencion IVA' as document, null as dateDue, 
+(case when pag.typePay = 'Cheque' then 'CHE' 
+ when pag.typePay = 'Transferencia' then 'TRA' end) as type, 
+pag.numCheck as num, pag.nameBan as name,  
+coalesce(sal.amount,0) as amount, 
+0 as haber,coalesce(((select WithholdingTaxInvoice(iva.C_Invoice_ID) from dual)),null) as debe
+from C_Invoice iva
+inner join AD_Client adc on (adc.AD_Client_ID = iva.AD_Client_ID)
+inner join C_BPartner par on (par.C_BPartner_ID = iva.C_BPartner_ID)
+left outer join C_Order ord on (ord.C_Order_ID = iva.C_Order_ID)
+left outer join C_Country cou on (ord.C_Country_ID = cou.C_Country_ID)
+left outer join saldo sal on (par.C_BPartner_ID = sal.partner)
+left outer join pago pag on (par.C_BPartner_ID = pag.idPartner and iva.C_Invoice_ID = pag.idInvoice) 
+left outer join XX_Contract con on (iva.XX_Contract_ID = con.XX_Contract_ID)
+where iva.DocStatus = 'CO'
+and iva.XX_InvoiceType = 'S'
+and ((iva.XX_Contract_ID is not null or iva.C_Order_ID is not null) 
+and (ord.XX_OrderType = 'Nacional' or con.XX_ContractType = 'Nacional')
+and ((ord.XX_POType = 'POA' and ord.XX_PurchaseType in ('SE')) or con.XX_Contract_ID is not null) or
+(iva.XX_Contract_ID is null or iva.C_Order_ID is  null)) 
+and (ord.XX_InvoicingStatus = 'AP' or iva.XX_INVOICINGSTATUSCONTRACT = 'AP')
+and ((iva.XX_ApprovalDate is not null
+and iva.XX_ApprovalDate between to_date(?,'dd/MM/yyyy') and to_date(?,'dd/MM/yyyy'))
+or (iva.XX_ACCOUNTPAYABLESTATUS = 'P' and pag.numCheck is not null))
+and ((par.C_BPartner_ID = ? and ? <> 0) or ? = 0)
+group by adc.name, par.value, par.name, iva.XX_ApprovalDate, ord.DocumentNo, iva.DocumentNo, 
+par.C_BPartner_ID, pag.typePay, pag.numCheck, pag.nameBan, iva.C_Invoice_ID, sal.amount, 
+con.value, iva.C_Order_ID
+having (select WithholdingTaxInvoice(iva.C_Invoice_ID) from dual)>0
+union
+select adc.name as compania, par.name||'   '||par.value as partner, 
+islr.XX_ApprovalDate as dateInvPay, 
+(case when islr.C_Order_ID > 0 then ord.DocumentNo
+ else con.value
+ end) as docOCCon, islr.DocumentNo as docInvPay, 
+'Retencion ISLR' as document, null as dateDue, 
+(case when pag.typePay = 'Cheque' then 'CHE' 
+ when pag.typePay = 'Transferencia' then 'TRA' end) as type, 
+pag.numCheck as num, pag.nameBan as name,  
+coalesce(sal.amount,0) as amount,
+null as haber, (nvl((select sum(a.XX_RetainedAmount) from XX_VCN_ISLRAMOUNT a where islr.C_Invoice_ID = a.C_Invoice_ID),null)) as debe
+from C_Invoice islr
+inner join AD_Client adc on (adc.AD_Client_ID = islr.AD_Client_ID)
+inner join C_BPartner par on (par.C_BPartner_ID = islr.C_BPartner_ID)
+left outer join C_Order ord on (ord.C_Order_ID = islr.C_Order_ID)
+left outer join C_Country cou on (ord.C_Country_ID = cou.C_Country_ID)
+left outer join saldo sal on (par.C_BPartner_ID = sal.partner)
+left outer join pago pag on (par.C_BPartner_ID = pag.idPartner and islr.C_Invoice_ID = pag.idInvoice) 
+left outer join XX_Contract con on (islr.XX_Contract_ID = con.XX_Contract_ID)
+where islr.DocStatus = 'CO'
+and islr.XX_InvoiceType = 'S'
+and ((islr.XX_Contract_ID is not null or islr.C_Order_ID is not null) 
+and (ord.XX_OrderType = 'Nacional' or con.XX_ContractType = 'Nacional')
+and ((ord.XX_POType = 'POA' and ord.XX_PurchaseType in ('SE')) or con.XX_Contract_ID is not null) or
+(islr.XX_Contract_ID is null or islr.C_Order_ID is  null)) 
+and (ord.XX_InvoicingStatus = 'AP' or islr.XX_INVOICINGSTATUSCONTRACT = 'AP')
+and ((islr.XX_ApprovalDate is not null
+and islr.XX_ApprovalDate between to_date(?,'dd/MM/yyyy') and to_date(?,'dd/MM/yyyy'))
+or (islr.XX_ACCOUNTPAYABLESTATUS = 'P' and pag.numCheck is not null))
+and ((par.C_BPartner_ID = ? and ? <> 0) or ? = 0)
+group by adc.name, par.value, par.name, islr.XX_ApprovalDate, ord.DocumentNo, islr.DocumentNo, 
+par.C_BPartner_ID, pag.typePay, pag.numCheck, pag.nameBan, islr.C_Invoice_ID, sal.amount, 
+con.value, islr.C_Order_ID
+having (select sum(a.XX_RetainedAmount) from XX_VCN_ISLRAMOUNT a where islr.C_Invoice_ID = a.C_Invoice_ID)>0
+union
+select adc.name as compania, par.name||'   '||par.value as partner, 
+aju.Created as dateIP,  null, aju.DocumentNo as docInvPay,  
+TO_CHAR(doc.name) as document, aju.XX_DueDate as dateDue, 
+(case when pay.typePay = 'Cheque' then 'CHE' 
+ when pay.typePay = 'Transferencia' then 'TRA' end) as type,
+pay.numCheck as num, pay.nameBan as name, coalesce(sal.amount,0) as amount,
+(case when (sum(aju.GrandTotal) > 0) then sum(aju.GrandTotal) else 0 end) as haber,
+(case when (sum(aju.GrandTotal) < 0) then sum((aju.GrandTotal)*-1) else 0 end) as debe
+from C_Invoice aju
+inner join AD_Client adc on (adc.AD_Client_ID = aju.AD_Client_ID)
+inner join C_BPartner par on (par.C_BPartner_ID = aju.C_BPartner_ID)
+inner join C_DocType doc on (doc.C_DocType_ID = aju.C_DocTypeTarget_ID)
+left outer join pago pay on (par.C_BPartner_ID = pay.idPartner and aju.C_Invoice_ID = pay.idInvoice)
+left outer join saldo sal on (par.C_BPartner_ID = sal.partner)
+left outer join C_Country cou on (aju.C_Currency_ID = cou.C_Currency_ID) 
+where aju.DocStatus = 'CO'
+and aju.XX_InvoiceType = 'S'
+and (doc.name = 'Ajuste Contable Negativo' or doc.name = 'Ajuste Contable Positivo')
+and aju.XX_InvoiceType = 'S'
+and aju.XX_ApprovalDate is not null
+and aju.XX_ApprovalDate between to_date(?,'dd/MM/yyyy') and to_date(?,'dd/MM/yyyy')
+and ((par.C_BPartner_ID = ? and ? <> 0) or ? = 0)
+group by adc.name, par.value, par.name, aju.Created, aju.DocumentNo, 
+doc.name, aju.XX_DueDate, pay.typePay, pay.numCheck, pay.nameBan, sal.amount, aju.description
+order by 2,4,5,6
+]]></xml-property>
+        </oda-data-set>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="Compra" id="357">
+            <list-property name="parameters">
+                <structure>
+                    <property name="name">fechaDesde</property>
+                    <property name="paramName">fechaDesde</property>
+                    <property name="dataType">string</property>
+                    <property name="position">1</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">fechaHasta</property>
+                    <property name="paramName">fechaHasta</property>
+                    <property name="dataType">string</property>
+                    <property name="position">2</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">fechaDesde1</property>
+                    <property name="paramName">fechaDesde</property>
+                    <property name="dataType">string</property>
+                    <property name="position">3</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">fechaHasta1</property>
+                    <property name="paramName">fechaHasta</property>
+                    <property name="dataType">string</property>
+                    <property name="position">4</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">proveedor1</property>
+                    <property name="paramName">proveedor</property>
+                    <property name="dataType">integer</property>
+                    <property name="position">5</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">proveedor2</property>
+                    <property name="paramName">proveedor</property>
+                    <property name="dataType">integer</property>
+                    <property name="position">6</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">proveedor3</property>
+                    <property name="paramName">proveedor</property>
+                    <property name="dataType">integer</property>
+                    <property name="position">7</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">COMPRA</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">Compiere</property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">COMPRA</property>
+                    <property name="nativeName">COMPRA</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+            </list-property>
+            <xml-property name="queryText"><![CDATA[select coalesce(sum(inv.grandTotal),0) as compra
+from C_Invoice inv
+inner join C_DocType doc on (doc.C_DocType_ID = inv.C_DocTypeTarget_ID)
+left outer join C_Order ord on (ord.C_Order_ID = inv.C_Order_ID)
+inner join C_BPartner par on (par.C_BPartner_ID = inv.C_BPartner_ID)
+left outer join C_Payment pag on (par.C_BPartner_ID = inv.C_BPartner_id)
+left outer join C_PaySelectionCheck sch on (pag.C_Payment_ID = sch.C_Payment_ID)
+left outer join C_PaySelectionLine sel on (sel.C_PaySelection_ID = sch.C_PaySelection_ID  and inv.C_Invoice_ID = sel.C_Invoice_ID)
+left outer join XX_Contract con on (inv.XX_Contract_ID = con.XX_Contract_ID)
+left outer join C_Country cou on (ord.C_Country_ID = cou.C_Country_ID or (inv.C_Currency_ID = cou.C_Currency_ID)) 
+where (doc.name in ('Factura','Débito','Crédito')
+or (doc.name = 'Crédito' and inv.description not in ('Carta Compromiso','Aporte a Publicidad')))
+and inv.XX_InvoiceType = 'S'
+and inv.DocStatus = 'CO'
+and ((inv.XX_Contract_ID is not null or inv.C_Order_ID is not null) 
+and (ord.XX_OrderType = 'Nacional' or con.XX_ContractType = 'Nacional')
+and (ord.XX_InvoiceDate is not null or inv.XX_Contract_ID is not null) or 
+(inv.XX_Contract_ID is null or inv.C_Order_ID is  null))
+and (ord.XX_InvoicingStatus = 'AP' or inv.XX_INVOICINGSTATUSCONTRACT = 'AP')
+and ((inv.XX_ApprovalDate is not null
+and inv.XX_ApprovalDate between to_date(?,'dd/MM/yyyy') and to_date(?,'dd/MM/yyyy')) or
+(inv.XX_ApprovalDate is null and inv.created between to_date(?,'dd/MM/yyyy') and to_date(?,'dd/MM/yyyy')
+and inv.XX_CONTROLNUMBER = ' ')
+or (inv.XX_ACCOUNTPAYABLESTATUS = 'P' and pag.CheckNo is not null))
+and inv.C_Currency_ID = 205
+and ((par.C_BPartner_ID = ? and ? <> 0) or ? = 0)]]></xml-property>
+            <xml-property name="designerValues"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<model:DesignValues xmlns:design="http://www.eclipse.org/datatools/connectivity/oda/design" xmlns:model="http://www.eclipse.org/birt/report/model/adapter/odaModel">
+  <Version>2.0</Version>
+  <design:ResultSets derivedMetaData="true">
+    <design:resultSetDefinitions>
+      <design:resultSetColumns>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>SUM(INV.GRANDTOTAL)</design:name>
+              <design:position>1</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>2</design:nativeDataTypeCode>
+            <design:precision>0</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>SUM(INV.GRANDTOTAL)</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>SUM(INV.GRANDTOTAL)</design:label>
+            <design:formattingHints>
+              <design:displaySize>22</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+      </design:resultSetColumns>
+      <design:criteria/>
+    </design:resultSetDefinitions>
+  </design:ResultSets>
+</model:DesignValues>]]></xml-property>
+        </oda-data-set>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="Devolucion" id="358">
+            <list-property name="parameters">
+                <structure>
+                    <property name="name">fechaDesde</property>
+                    <property name="paramName">fechaDesde</property>
+                    <property name="dataType">string</property>
+                    <property name="position">1</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">fechaHasta</property>
+                    <property name="paramName">fechaHasta</property>
+                    <property name="dataType">string</property>
+                    <property name="position">2</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">proveedor1</property>
+                    <property name="paramName">proveedor</property>
+                    <property name="dataType">integer</property>
+                    <property name="position">3</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">proveedor2</property>
+                    <property name="paramName">proveedor</property>
+                    <property name="dataType">integer</property>
+                    <property name="position">4</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">proveedor3</property>
+                    <property name="paramName">proveedor</property>
+                    <property name="dataType">integer</property>
+                    <property name="position">5</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">pais1</property>
+                    <property name="paramName">pais</property>
+                    <property name="dataType">integer</property>
+                    <property name="position">6</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">pais2</property>
+                    <property name="paramName">pais</property>
+                    <property name="dataType">integer</property>
+                    <property name="position">7</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">pais3</property>
+                    <property name="paramName">pais</property>
+                    <property name="dataType">integer</property>
+                    <property name="position">8</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">DEVOLUCION</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">Compiere</property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">DEVOLUCION</property>
+                    <property name="nativeName">DEVOLUCION</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+            </list-property>
+            <xml-property name="queryText"><![CDATA[select coalesce(sum(inv.grandTotal),0) as devolucion
+from C_Invoice inv
+inner join C_DocType doc on (doc.C_DocType_ID = inv.C_DocTypeTarget_ID)
+left outer join C_Order ord on (ord.C_Order_ID = inv.C_Order_ID)
+inner join C_BPartner par on (par.C_BPartner_ID = inv.C_BPartner_ID)
+left outer join XX_Contract con on (inv.XX_Contract_ID = con.XX_Contract_ID)
+left outer join C_Country cou on (ord.C_Country_ID = cou.C_Country_ID or (inv.C_Currency_ID = cou.C_Currency_ID)) 
+where doc.name = 'Crédito'
+and inv.description like 'Devolución a Tienda%'
+and inv.XX_InvoiceType = 'S'
+and inv.DocStatus = 'CO'
+and (ord.XX_OrderType = 'Nacional' or con.XX_ContractType = 'Nacional')
+and (ord.XX_InvoiceDate is not null or inv.XX_Contract_ID is not null)
+and (ord.XX_InvoicingStatus = 'AP' or inv.XX_InvoicingStatusContract = 'AP')
+and inv.XX_ApprovalDate between to_date(?,'dd/MM/yyyy') and to_date(?,'dd/MM/yyyy')
+and ((par.C_BPartner_ID = ? and ? <> 0) or ? = 0)
+and ((cou.C_Country_ID = ? and ? <> 0) or ? = 0)]]></xml-property>
+        </oda-data-set>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="Retencion IVA" id="359">
+            <list-property name="parameters">
+                <structure>
+                    <property name="name">fechaDesde</property>
+                    <property name="paramName">fechaDesde</property>
+                    <property name="dataType">string</property>
+                    <property name="position">1</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">fechaHasta</property>
+                    <property name="paramName">fechaHasta</property>
+                    <property name="dataType">string</property>
+                    <property name="position">2</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">proveedor1</property>
+                    <property name="paramName">proveedor</property>
+                    <property name="dataType">integer</property>
+                    <property name="position">3</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">proveedor2</property>
+                    <property name="paramName">proveedor</property>
+                    <property name="dataType">integer</property>
+                    <property name="position">4</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">proveedor3</property>
+                    <property name="paramName">proveedor</property>
+                    <property name="dataType">integer</property>
+                    <property name="position">5</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">TRETENCION</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">Compiere</property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">TRETENCION</property>
+                    <property name="nativeName">TRETENCION</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+            </list-property>
+            <xml-property name="queryText"><![CDATA[select sum(coalesce((select WithholdingTaxInvoice(inv.C_Invoice_ID) from dual),0)) as tRetencion
+from C_Invoice inv
+left outer join C_Order ord on (ord.C_Order_ID = inv.C_Order_ID)
+inner join C_BPartner par on (par.C_BPartner_ID = inv.C_BPartner_ID)
+left outer join C_Payment pag on (par.C_BPartner_ID = inv.C_BPartner_id)
+left outer join C_PaySelectionCheck sch on (pag.C_Payment_ID = sch.C_Payment_ID)
+left outer join C_PaySelectionLine sel on (sel.C_PaySelection_ID = sch.C_PaySelection_ID  and inv.C_Invoice_ID = sel.C_Invoice_ID)
+left outer join XX_Contract con on (inv.XX_Contract_ID = con.XX_Contract_ID)
+left outer join C_Country cou on (ord.C_Country_ID = cou.C_Country_ID or (inv.C_Currency_ID = cou.C_Currency_ID)) 
+where inv.DocStatus = 'CO'
+and inv.XX_InvoiceType = 'S'
+and ((inv.XX_Contract_ID is not null or inv.C_Order_ID is not null) 
+and (ord.XX_OrderType = 'Nacional' or con.XX_ContractType = 'Nacional')
+and ((ord.XX_POType = 'POA' and ord.XX_PurchaseType in ('SE')) or con.XX_Contract_ID is not null) or
+(inv.XX_Contract_ID is null or inv.C_Order_ID is  null)) 
+and (ord.XX_InvoicingStatus = 'AP' or inv.XX_INVOICINGSTATUSCONTRACT = 'AP')
+and ((inv.XX_ApprovalDate is not null
+and inv.XX_ApprovalDate between to_date(?,'dd/MM/yyyy') and to_date(?,'dd/MM/yyyy'))
+or (inv.XX_ACCOUNTPAYABLESTATUS = 'P' and pag.CheckNo is not null))
+and ((par.C_BPartner_ID = ? and ? <> 0) or ? = 0)]]></xml-property>
+        </oda-data-set>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="AjusteNeg" id="360">
+            <list-property name="parameters">
+                <structure>
+                    <property name="name">fechaDesde</property>
+                    <property name="paramName">fechaDesde</property>
+                    <property name="dataType">string</property>
+                    <property name="position">1</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">fechaHasta</property>
+                    <property name="paramName">fechaHasta</property>
+                    <property name="dataType">string</property>
+                    <property name="position">2</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">proveedor1</property>
+                    <property name="paramName">proveedor</property>
+                    <property name="dataType">integer</property>
+                    <property name="position">3</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">proveedor2</property>
+                    <property name="paramName">proveedor</property>
+                    <property name="dataType">integer</property>
+                    <property name="position">4</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">proveedor3</property>
+                    <property name="paramName">proveedor</property>
+                    <property name="dataType">integer</property>
+                    <property name="position">5</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">pais1</property>
+                    <property name="paramName">pais</property>
+                    <property name="dataType">integer</property>
+                    <property name="position">6</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">pais2</property>
+                    <property name="paramName">pais</property>
+                    <property name="dataType">integer</property>
+                    <property name="position">7</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">pais3</property>
+                    <property name="paramName">pais</property>
+                    <property name="dataType">integer</property>
+                    <property name="position">8</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">AJUSNEG</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">Compiere</property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">AJUSNEG</property>
+                    <property name="nativeName">AJUSNEG</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+            </list-property>
+            <xml-property name="queryText"><![CDATA[select coalesce(sum(inv.grandTotal),0) as ajusNeg
+from C_Invoice inv
+inner join C_DocType doc on (doc.C_DocType_ID = inv.C_DocTypeTarget_ID)
+--left outer join C_Order ord on (ord.C_Order_ID = inv.C_Order_ID)
+inner join C_BPartner par on (par.C_BPartner_ID = inv.C_BPartner_ID)
+--left outer join XX_Contract con on (inv.XX_Contract_ID = con.XX_Contract_ID)
+left outer join C_Country cou on (inv.C_Currency_ID = cou.C_Currency_ID) 
+where inv.XX_ApprovalDate between to_date(?,'dd/MM/yyyy') and to_date(?,'dd/MM/yyyy')
+and doc.name = 'Ajuste Contable Negativo'
+and inv.XX_InvoiceType = 'S'
+and inv.DocStatus = 'CO'
+--and (ord.XX_OrderType = 'Nacional' or con.XX_ContractType = 'Nacional')
+--and (ord.XX_InvoiceDate is not null or inv.XX_Contract_ID is not null)
+and inv.XX_InvoicingStatusContract = 'AP' 
+--or con.XX_InvoicingStatus = 'AP')
+and ((par.C_BPartner_ID = ? and ? <> 0) or ? = 0)
+and ((cou.C_Country_ID = ? and ? <> 0) or ? = 0)]]></xml-property>
+        </oda-data-set>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="AjustePos" id="361">
+            <list-property name="parameters">
+                <structure>
+                    <property name="name">fechaDesde</property>
+                    <property name="paramName">fechaDesde</property>
+                    <property name="dataType">string</property>
+                    <property name="position">1</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">fechaHasta</property>
+                    <property name="paramName">fechaHasta</property>
+                    <property name="dataType">string</property>
+                    <property name="position">2</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">proveedor1</property>
+                    <property name="paramName">proveedor</property>
+                    <property name="dataType">integer</property>
+                    <property name="position">3</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">proveedor2</property>
+                    <property name="paramName">proveedor</property>
+                    <property name="dataType">integer</property>
+                    <property name="position">4</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">proveedor3</property>
+                    <property name="paramName">proveedor</property>
+                    <property name="dataType">integer</property>
+                    <property name="position">5</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">pais1</property>
+                    <property name="paramName">pais</property>
+                    <property name="dataType">integer</property>
+                    <property name="position">6</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">pais2</property>
+                    <property name="paramName">pais</property>
+                    <property name="dataType">integer</property>
+                    <property name="position">7</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">pais3</property>
+                    <property name="paramName">pais</property>
+                    <property name="dataType">integer</property>
+                    <property name="position">8</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">AJUSPOS</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">Compiere</property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">AJUSPOS</property>
+                    <property name="nativeName">AJUSPOS</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+            </list-property>
+            <xml-property name="queryText"><![CDATA[select coalesce(sum(inv.grandTotal),0) as ajusPos
+from C_Invoice inv
+inner join C_DocType doc on (doc.C_DocType_ID = inv.C_DocTypeTarget_ID)
+--left outer join C_Order ord on (ord.C_Order_ID = inv.C_Order_ID)
+inner join C_BPartner par on (par.C_BPartner_ID = inv.C_BPartner_ID)
+--left outer join XX_Contract con on (inv.XX_Contract_ID = con.XX_Contract_ID)
+left outer join C_Country cou on (inv.C_Currency_ID = cou.C_Currency_ID) 
+where inv.XX_ApprovalDate between to_date(?,'dd/MM/yyyy') and to_date(?,'dd/MM/yyyy')
+and doc.name = 'Ajuste Contable Positivo'
+and inv.XX_InvoiceType = 'S'
+and inv.DocStatus = 'CO'
+--and (ord.XX_OrderType = 'Nacional' or con.XX_ContractType = 'Nacional')
+--and (ord.XX_InvoiceDate is not null or inv.XX_Contract_ID is not null)
+--and (ord.XX_InvoicingStatus = 'AP' or con.XX_InvoicingStatus = 'AP')
+and inv.XX_InvoicingStatusContract ='AP'
+and ((par.C_BPartner_ID = ? and ? <> 0) or ? = 0)
+and ((cou.C_Country_ID = ? and ? <> 0) or ? = 0)]]></xml-property>
+        </oda-data-set>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="Retencion ISLR" id="714">
+            <list-property name="parameters">
+                <structure>
+                    <property name="name">fechaDesde</property>
+                    <property name="paramName">fechaDesde</property>
+                    <property name="dataType">string</property>
+                    <property name="position">1</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">fechaHasta</property>
+                    <property name="paramName">fechaHasta</property>
+                    <property name="dataType">string</property>
+                    <property name="position">2</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">proveedor1</property>
+                    <property name="paramName">proveedor</property>
+                    <property name="dataType">integer</property>
+                    <property name="position">3</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">proveedor2</property>
+                    <property name="paramName">proveedor</property>
+                    <property name="dataType">integer</property>
+                    <property name="position">4</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">proveedor3</property>
+                    <property name="paramName">proveedor</property>
+                    <property name="dataType">integer</property>
+                    <property name="position">5</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">RETENISLR</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">Compiere</property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">RETENISLR</property>
+                    <property name="nativeName">RETENISLR</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+            </list-property>
+            <xml-property name="queryText"><![CDATA[select sum(coalesce((select sum(a.XX_RetainedAmount) from XX_VCN_ISLRAMOUNT a where inv.C_Invoice_ID = a.C_Invoice_ID),0)) as retenISLR
+from C_Invoice inv
+left outer join C_Order ord on (ord.C_Order_ID = inv.C_Order_ID)
+inner join C_BPartner par on (par.C_BPartner_ID = inv.C_BPartner_ID)
+left outer join C_Payment pag on (par.C_BPartner_ID = inv.C_BPartner_id)
+left outer join C_PaySelectionCheck sch on (pag.C_Payment_ID = sch.C_Payment_ID)
+left outer join C_PaySelectionLine sel on (sel.C_PaySelection_ID = sch.C_PaySelection_ID  and inv.C_Invoice_ID = sel.C_Invoice_ID)
+left outer join XX_Contract con on (inv.XX_Contract_ID = con.XX_Contract_ID)
+left outer join C_Country cou on (ord.C_Country_ID = cou.C_Country_ID or (inv.C_Currency_ID = cou.C_Currency_ID)) 
+where inv.DocStatus = 'CO'
+and inv.XX_InvoiceType = 'S'
+and ((inv.XX_Contract_ID is not null or inv.C_Order_ID is not null) 
+and (ord.XX_OrderType = 'Nacional' or con.XX_ContractType = 'Nacional')
+and ((ord.XX_POType = 'POA' and ord.XX_PurchaseType in ('SE')) or con.XX_Contract_ID is not null) or
+(inv.XX_Contract_ID is null or inv.C_Order_ID is  null)) 
+and (ord.XX_InvoicingStatus = 'AP' or inv.XX_INVOICINGSTATUSCONTRACT = 'AP')
+and ((inv.XX_ApprovalDate is not null
+and inv.XX_ApprovalDate between to_date(?,'dd/MM/yyyy') and to_date(?,'dd/MM/yyyy'))
+or (inv.XX_ACCOUNTPAYABLESTATUS = 'P' and pag.CheckNo is not null))
+and ((par.C_BPartner_ID = ? and ? <> 0) or ? = 0)]]></xml-property>
+        </oda-data-set>
+    </data-sets>
+    <styles>
+        <style name="report" id="38">
+            <property name="fontFamily">sans-serif</property>
+            <property name="fontSize">10pt</property>
+        </style>
+        <style name="crosstab-cell" id="41">
+            <property name="borderBottomColor">#CCCCCC</property>
+            <property name="borderBottomStyle">solid</property>
+            <property name="borderBottomWidth">1pt</property>
+            <property name="borderLeftColor">#CCCCCC</property>
+            <property name="borderLeftStyle">solid</property>
+            <property name="borderLeftWidth">1pt</property>
+            <property name="borderRightColor">#CCCCCC</property>
+            <property name="borderRightStyle">solid</property>
+            <property name="borderRightWidth">1pt</property>
+            <property name="borderTopColor">#CCCCCC</property>
+            <property name="borderTopStyle">solid</property>
+            <property name="borderTopWidth">1pt</property>
+        </style>
+        <style name="crosstab" id="42">
+            <property name="borderBottomColor">#CCCCCC</property>
+            <property name="borderBottomStyle">solid</property>
+            <property name="borderBottomWidth">1pt</property>
+            <property name="borderLeftColor">#CCCCCC</property>
+            <property name="borderLeftStyle">solid</property>
+            <property name="borderLeftWidth">1pt</property>
+            <property name="borderRightColor">#CCCCCC</property>
+            <property name="borderRightStyle">solid</property>
+            <property name="borderRightWidth">1pt</property>
+            <property name="borderTopColor">#CCCCCC</property>
+            <property name="borderTopStyle">solid</property>
+            <property name="borderTopWidth">1pt</property>
+        </style>
+        <style name="letra" id="136">
+            <property name="fontFamily">monospace</property>
+        </style>
+    </styles>
+    <page-setup>
+        <simple-master-page name="Simple MasterPage" id="2">
+            <property name="orientation">landscape</property>
+            <property name="leftMargin">0.07291666666666667in</property>
+            <property name="rightMargin">0in</property>
+            <page-footer>
+                <grid id="785">
+                    <column id="786"/>
+                    <column id="787">
+                        <property name="width">6.21875in</property>
+                    </column>
+                    <column id="788">
+                        <property name="width">0.96875in</property>
+                    </column>
+                    <row id="789">
+                        <cell id="790"/>
+                        <cell id="792"/>
+                        <cell id="794">
+                            <auto-text id="796">
+                                <property name="type">page-number</property>
+                            </auto-text>
+                        </cell>
+                    </row>
+                </grid>
+            </page-footer>
+        </simple-master-page>
+    </page-setup>
+    <body>
+        <table name="table1" id="13">
+            <property name="borderBottomStyle">none</property>
+            <property name="borderLeftWidth">medium</property>
+            <property name="borderRightWidth">medium</property>
+            <property name="width">10.895833333333334in</property>
+            <property name="dataSet">Principal</property>
+            <list-property name="boundDataColumns">
+                <structure>
+                    <property name="name">PARTNER</property>
+                    <text-property name="displayName">PARTNER</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["PARTNER"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">DOCUMENT</property>
+                    <text-property name="displayName">DOCUMENT</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["DOCUMENT"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">DEBE</property>
+                    <text-property name="displayName">DEBE</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["DEBE"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">HABER</property>
+                    <text-property name="displayName">HABER</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["HABER"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">COMPANIA</property>
+                    <text-property name="displayName">COMPANIA</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["COMPANIA"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">NUM</property>
+                    <text-property name="displayName">NUM</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["NUM"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">NAME</property>
+                    <text-property name="displayName">NAME</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["NAME"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">TYPE</property>
+                    <text-property name="displayName">TYPE</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["TYPE"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">Aggregation</property>
+                    <property name="dataType">decimal</property>
+                    <property name="aggregateFunction">SUM</property>
+                    <list-property name="arguments">
+                        <structure>
+                            <property name="name">Expression</property>
+                            <expression name="value" type="javascript">row["DEBE"]</expression>
+                        </structure>
+                    </list-property>
+                </structure>
+                <structure>
+                    <property name="name">Aggregation_1</property>
+                    <property name="dataType">float</property>
+                    <property name="aggregateFunction">SUM</property>
+                    <list-property name="arguments">
+                        <structure>
+                            <property name="name">Expression</property>
+                            <expression name="value" type="javascript">row["HABER"]</expression>
+                        </structure>
+                    </list-property>
+                </structure>
+                <structure>
+                    <property name="name">Agre1</property>
+                    <property name="dataType">float</property>
+                    <property name="aggregateFunction">SUM</property>
+                    <list-property name="arguments">
+                        <structure>
+                            <property name="name">Expression</property>
+                            <expression name="value" type="javascript">row["DEBE"]</expression>
+                        </structure>
+                    </list-property>
+                </structure>
+                <structure>
+                    <property name="name">Agre2</property>
+                    <property name="dataType">float</property>
+                    <property name="aggregateFunction">SUM</property>
+                    <list-property name="arguments">
+                        <structure>
+                            <property name="name">Expression</property>
+                            <expression name="value" type="javascript">row["HABER"]</expression>
+                        </structure>
+                    </list-property>
+                </structure>
+                <structure>
+                    <property name="name">Grupo2Agre1</property>
+                    <property name="dataType">float</property>
+                    <property name="aggregateFunction">SUM</property>
+                    <list-property name="arguments">
+                        <structure>
+                            <property name="name">Expression</property>
+                            <expression name="value" type="javascript">row["DEBE"]</expression>
+                        </structure>
+                    </list-property>
+                </structure>
+                <structure>
+                    <property name="name">totalHaber</property>
+                    <property name="dataType">float</property>
+                    <property name="aggregateFunction">SUM</property>
+                    <list-property name="arguments">
+                        <structure>
+                            <property name="name">Expression</property>
+                            <expression name="value" type="javascript">row["HABER"]</expression>
+                        </structure>
+                    </list-property>
+                </structure>
+                <structure>
+                    <property name="name">AMOUNT</property>
+                    <text-property name="displayName">AMOUNT</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["AMOUNT"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">Aggregation_2</property>
+                    <property name="dataType">decimal</property>
+                    <property name="aggregateFunction">SUM</property>
+                    <list-property name="arguments">
+                        <structure>
+                            <property name="name">Expression</property>
+                            <expression name="value" type="javascript">row["totalDebe"]</expression>
+                        </structure>
+                    </list-property>
+                </structure>
+                <structure>
+                    <property name="name">DOCOCCON</property>
+                    <text-property name="displayName">DOCOCCON</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["DOCOCCON"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">DOCINVPAY</property>
+                    <text-property name="displayName">DOCINVPAY</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["DOCINVPAY"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">DATEDUE</property>
+                    <text-property name="displayName">DATEDUE</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["DATEDUE"]</expression>
+                    <property name="dataType">date-time</property>
+                </structure>
+                <structure>
+                    <property name="name">DATEIP</property>
+                    <text-property name="displayName">DATEIP</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["DATEIP"]</expression>
+                    <property name="dataType">date-time</property>
+                </structure>
+                <structure>
+                    <property name="name">subTSaldo</property>
+                    <property name="dataType">float</property>
+                    <simple-property-list name="aggregateOn">
+                        <value>PARTNER</value>
+                    </simple-property-list>
+                    <property name="aggregateFunction">SUM</property>
+                    <list-property name="arguments">
+                        <structure>
+                            <property name="name">Expression</property>
+                            <expression name="value" type="javascript">if (dataSetRow["NAME"] ==null)&#13;
+{&#13;
+	dataSetRow["AMOUNT"]+(row["HABER"]-row["DEBE"]);&#13;
+	}&#13;
+	else&#13;
+	dataSetRow["AMOUNT"];</expression>
+                        </structure>
+                    </list-property>
+                </structure>
+                <structure>
+                    <property name="name">totalDebe</property>
+                    <property name="dataType">float</property>
+                    <property name="aggregateFunction">SUM</property>
+                    <list-property name="arguments">
+                        <structure>
+                            <property name="name">Expression</property>
+                            <expression name="value" type="javascript">row["DEBE"]</expression>
+                        </structure>
+                    </list-property>
+                </structure>
+                <structure>
+                    <property name="name">totalSaldo</property>
+                    <property name="dataType">float</property>
+                    <property name="aggregateFunction">SUM</property>
+                    <list-property name="arguments">
+                        <structure>
+                            <property name="name">Expression</property>
+                            <expression name="value" type="javascript">row["subTSaldo"]</expression>
+                        </structure>
+                    </list-property>
+                </structure>
+                <structure>
+                    <property name="name">count</property>
+                    <property name="dataType">float</property>
+                    <simple-property-list name="aggregateOn">
+                        <value>PARTNER</value>
+                    </simple-property-list>
+                    <property name="aggregateFunction">SUM</property>
+                    <list-property name="arguments">
+                        <structure>
+                            <property name="name">Expression</property>
+                            <expression name="value" type="javascript">1;</expression>
+                        </structure>
+                    </list-property>
+                </structure>
+            </list-property>
+            <property name="pageBreakInterval">50</property>
+            <list-property name="sort">
+                <structure>
+                    <expression name="key" type="javascript">row["PARTNER"]</expression>
+                    <property name="direction">asc</property>
+                    <property name="strength">-1</property>
+                </structure>
+                <structure>
+                    <expression name="key" type="javascript">row["DOCOCCON"]</expression>
+                    <property name="direction">asc</property>
+                    <property name="strength">-1</property>
+                </structure>
+            </list-property>
+            <column id="35">
+                <property name="width">0.8958333333333334in</property>
+            </column>
+            <column id="36">
+                <property name="width">0.84375in</property>
+            </column>
+            <column id="141">
+                <property name="width">1.0208333333333333in</property>
+            </column>
+            <column id="37">
+                <property name="width">1.4270833333333333in</property>
+            </column>
+            <column id="163">
+                <property name="width">0.9895833333333334in</property>
+            </column>
+            <column id="347">
+                <property name="width">0.5416666666666666in</property>
+            </column>
+            <column id="239">
+                <property name="width">0.7708333333333334in</property>
+            </column>
+            <column id="255">
+                <property name="width">0.8645833333333334in</property>
+            </column>
+            <column id="156">
+                <property name="width">1.28125in</property>
+            </column>
+            <column id="150">
+                <property name="width">1.1979166666666667in</property>
+            </column>
+            <column id="246">
+                <property name="width">1.0625in</property>
+            </column>
+            <header>
+                <row id="605">
+                    <property name="height">1.6979166666666667in</property>
+                    <cell id="606">
+                        <property name="colSpan">11</property>
+                        <property name="rowSpan">1</property>
+                        <property name="height">10pt</property>
+                        <property name="marginLeft">auto</property>
+                        <data id="52">
+                            <property name="style">letra</property>
+                            <property name="fontSize">20pt</property>
+                            <property name="paddingTop">8pt</property>
+                            <property name="paddingLeft">1pt</property>
+                            <property name="paddingBottom">8pt</property>
+                            <property name="dataSet">Principal</property>
+                            <list-property name="boundDataColumns">
+                                <structure>
+                                    <property name="name">COMPANIA</property>
+                                    <text-property name="displayName">COMPANIA</text-property>
+                                    <expression name="expression" type="javascript">dataSetRow["COMPANIA"]</expression>
+                                    <property name="dataType">string</property>
+                                </structure>
+                            </list-property>
+                            <property name="resultSetColumn">COMPANIA</property>
+                        </data>
+                        <label id="12">
+                            <property name="fontFamily">monospace</property>
+                            <property name="fontWeight">bold</property>
+                            <property name="textUnderline">none</property>
+                            <property name="paddingTop">5pt</property>
+                            <property name="paddingLeft">1pt</property>
+                            <property name="paddingBottom">3pt</property>
+                            <property name="textAlign">center</property>
+                            <text-property name="text">CIERRE DE CUENTAS POR PAGAR DE PROVEEDORES DE SERVICIOS NACIONAL</text-property>
+                        </label>
+                        <label id="755">
+                            <property name="style">letra</property>
+                            <property name="fontSize">11pt</property>
+                            <property name="fontWeight">bold</property>
+                            <text-property name="text">DETALLADO</text-property>
+                        </label>
+                        <grid id="221">
+                            <property name="width">10.71875in</property>
+                            <column id="222">
+                                <property name="width">4.364583333333333in</property>
+                            </column>
+                            <column id="223">
+                                <property name="width">1.1145833333333333in</property>
+                            </column>
+                            <column id="224">
+                                <property name="width">0.8125in</property>
+                            </column>
+                            <column id="225">
+                                <property name="width">4.427083333333333in</property>
+                            </column>
+                            <row id="226">
+                                <cell id="227">
+                                    <label id="231">
+                                        <property name="style">letra</property>
+                                        <property name="paddingLeft">2pt</property>
+                                        <property name="paddingBottom">15pt</property>
+                                        <property name="textAlign">right</property>
+                                        <text-property name="text">Desde:</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="228">
+                                    <property name="textAlign">right</property>
+                                    <data id="233">
+                                        <property name="style">letra</property>
+                                        <property name="paddingBottom">15pt</property>
+                                        <structure name="dateTimeFormat">
+                                            <property name="category">Medium Date</property>
+                                            <property name="pattern">Medium Date</property>
+                                        </structure>
+                                        <property name="textAlign">left</property>
+                                        <list-property name="boundDataColumns">
+                                            <structure>
+                                                <property name="name">fechaDesde</property>
+                                                <expression name="expression" type="javascript">params["fechaDesde"]</expression>
+                                                <property name="dataType">string</property>
+                                            </structure>
+                                        </list-property>
+                                        <property name="resultSetColumn">fechaDesde</property>
+                                    </data>
+                                </cell>
+                                <cell id="229">
+                                    <label id="232">
+                                        <property name="style">letra</property>
+                                        <property name="paddingLeft">2pt</property>
+                                        <property name="paddingBottom">15pt</property>
+                                        <property name="paddingRight">1pt</property>
+                                        <property name="textAlign">right</property>
+                                        <text-property name="text">Hasta:</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="230">
+                                    <data id="234">
+                                        <property name="style">letra</property>
+                                        <property name="paddingBottom">15pt</property>
+                                        <structure name="dateTimeFormat">
+                                            <property name="category">Medium Date</property>
+                                            <property name="pattern">Medium Date</property>
+                                        </structure>
+                                        <property name="textAlign">left</property>
+                                        <list-property name="boundDataColumns">
+                                            <structure>
+                                                <property name="name">fechaHasta</property>
+                                                <expression name="expression" type="javascript">params["fechaHasta"]</expression>
+                                                <property name="dataType">string</property>
+                                            </structure>
+                                        </list-property>
+                                        <property name="resultSetColumn">fechaHasta</property>
+                                    </data>
+                                </cell>
+                            </row>
+                        </grid>
+                    </cell>
+                </row>
+                <row id="14">
+                    <cell id="15">
+                        <property name="height">10pt</property>
+                        <property name="marginLeft">auto</property>
+                        <label id="118">
+                            <property name="style">letra</property>
+                            <property name="borderBottomColor">#000000</property>
+                            <property name="borderBottomStyle">dashed</property>
+                            <property name="borderBottomWidth">thin</property>
+                            <property name="borderTopColor">#000000</property>
+                            <property name="borderTopStyle">dashed</property>
+                            <property name="borderTopWidth">thin</property>
+                            <property name="paddingTop">3pt</property>
+                            <property name="paddingLeft">1pt</property>
+                            <property name="paddingBottom">3pt</property>
+                            <text-property name="text">Fecha Mov</text-property>
+                        </label>
+                    </cell>
+                    <cell id="16">
+                        <property name="height">10pt</property>
+                        <property name="marginLeft">auto</property>
+                        <label id="133">
+                            <property name="style">letra</property>
+                            <property name="borderBottomColor">#000000</property>
+                            <property name="borderBottomStyle">dashed</property>
+                            <property name="borderBottomWidth">thin</property>
+                            <property name="borderTopColor">#000000</property>
+                            <property name="borderTopStyle">dashed</property>
+                            <property name="borderTopWidth">thin</property>
+                            <property name="paddingTop">3pt</property>
+                            <property name="paddingBottom">3pt</property>
+                            <property name="textAlign">center</property>
+                            <text-property name="text">OC/Cont</text-property>
+                        </label>
+                    </cell>
+                    <cell id="137">
+                        <property name="height">10pt</property>
+                        <property name="marginLeft">auto</property>
+                        <label id="132">
+                            <property name="style">letra</property>
+                            <property name="borderBottomColor">#000000</property>
+                            <property name="borderBottomStyle">dashed</property>
+                            <property name="borderBottomWidth">thin</property>
+                            <property name="borderTopColor">#000000</property>
+                            <property name="borderTopStyle">dashed</property>
+                            <property name="borderTopWidth">thin</property>
+                            <property name="paddingTop">3pt</property>
+                            <property name="paddingBottom">3pt</property>
+                            <property name="textAlign">center</property>
+                            <text-property name="text">Nro Mov</text-property>
+                        </label>
+                    </cell>
+                    <cell id="17">
+                        <property name="height">10pt</property>
+                        <property name="marginLeft">auto</property>
+                        <label id="144">
+                            <property name="style">letra</property>
+                            <property name="borderBottomColor">#000000</property>
+                            <property name="borderBottomStyle">dashed</property>
+                            <property name="borderBottomWidth">thin</property>
+                            <property name="borderTopColor">#000000</property>
+                            <property name="borderTopStyle">dashed</property>
+                            <property name="borderTopWidth">thin</property>
+                            <property name="paddingTop">3pt</property>
+                            <property name="paddingBottom">3pt</property>
+                            <property name="textAlign">center</property>
+                            <text-property name="text">Tipo Mov</text-property>
+                        </label>
+                    </cell>
+                    <cell id="159">
+                        <property name="height">10pt</property>
+                        <property name="marginLeft">auto</property>
+                        <property name="textAlign">center</property>
+                        <label id="157">
+                            <property name="style">letra</property>
+                            <property name="borderBottomColor">#000000</property>
+                            <property name="borderBottomStyle">dashed</property>
+                            <property name="borderBottomWidth">thin</property>
+                            <property name="borderTopColor">#000000</property>
+                            <property name="borderTopStyle">dashed</property>
+                            <property name="borderTopWidth">thin</property>
+                            <property name="paddingTop">3pt</property>
+                            <property name="paddingBottom">3pt</property>
+                            <text-property name="text">Fecha Vcto</text-property>
+                        </label>
+                    </cell>
+                    <cell id="343">
+                        <property name="height">10pt</property>
+                        <property name="marginLeft">auto</property>
+                        <property name="textAlign">center</property>
+                        <label id="348">
+                            <property name="style">letra</property>
+                            <property name="fontSize">10pt</property>
+                            <property name="borderBottomColor">#000000</property>
+                            <property name="borderBottomStyle">dashed</property>
+                            <property name="borderBottomWidth">thin</property>
+                            <property name="borderTopColor">#000000</property>
+                            <property name="borderTopStyle">dashed</property>
+                            <property name="borderTopWidth">thin</property>
+                            <property name="paddingTop">3pt</property>
+                            <property name="paddingBottom">3pt</property>
+                            <text-property name="text">F.P.</text-property>
+                        </label>
+                    </cell>
+                    <cell id="329">
+                        <property name="height">10pt</property>
+                        <property name="marginLeft">auto</property>
+                        <property name="textAlign">center</property>
+                        <label id="337">
+                            <property name="style">letra</property>
+                            <property name="borderBottomColor">#000000</property>
+                            <property name="borderBottomStyle">dashed</property>
+                            <property name="borderBottomWidth">thin</property>
+                            <property name="borderTopColor">#000000</property>
+                            <property name="borderTopStyle">dashed</property>
+                            <property name="borderTopWidth">thin</property>
+                            <property name="paddingTop">3pt</property>
+                            <property name="paddingBottom">3pt</property>
+                            <text-property name="text">Che/Tra</text-property>
+                        </label>
+                    </cell>
+                    <cell id="330">
+                        <property name="height">10pt</property>
+                        <property name="marginLeft">auto</property>
+                        <property name="textAlign">center</property>
+                        <label id="339">
+                            <property name="style">letra</property>
+                            <property name="borderBottomColor">#000000</property>
+                            <property name="borderBottomStyle">dashed</property>
+                            <property name="borderBottomWidth">thin</property>
+                            <property name="borderTopColor">#000000</property>
+                            <property name="borderTopStyle">dashed</property>
+                            <property name="borderTopWidth">thin</property>
+                            <property name="paddingTop">3pt</property>
+                            <property name="paddingBottom">3pt</property>
+                            <text-property name="text">Banco</text-property>
+                        </label>
+                    </cell>
+                    <cell id="152">
+                        <property name="height">10pt</property>
+                        <property name="marginLeft">auto</property>
+                        <property name="textAlign">center</property>
+                        <label id="164">
+                            <property name="style">letra</property>
+                            <property name="borderBottomColor">#000000</property>
+                            <property name="borderBottomStyle">dashed</property>
+                            <property name="borderBottomWidth">thin</property>
+                            <property name="borderTopColor">#000000</property>
+                            <property name="borderTopStyle">dashed</property>
+                            <property name="borderTopWidth">thin</property>
+                            <property name="paddingTop">3pt</property>
+                            <property name="paddingBottom">3pt</property>
+                            <property name="textAlign">center</property>
+                            <text-property name="text">Debe</text-property>
+                        </label>
+                    </cell>
+                    <cell id="146">
+                        <property name="height">10pt</property>
+                        <property name="marginLeft">auto</property>
+                        <label id="166">
+                            <property name="style">letra</property>
+                            <property name="borderBottomColor">#000000</property>
+                            <property name="borderBottomStyle">dashed</property>
+                            <property name="borderBottomWidth">thin</property>
+                            <property name="borderTopColor">#000000</property>
+                            <property name="borderTopStyle">dashed</property>
+                            <property name="borderTopWidth">thin</property>
+                            <property name="paddingTop">3pt</property>
+                            <property name="paddingBottom">3pt</property>
+                            <property name="textAlign">center</property>
+                            <text-property name="text">Haber</text-property>
+                        </label>
+                    </cell>
+                    <cell id="242">
+                        <property name="height">10pt</property>
+                        <property name="marginLeft">auto</property>
+                        <label id="247">
+                            <property name="style">letra</property>
+                            <property name="borderBottomColor">#000000</property>
+                            <property name="borderBottomStyle">dashed</property>
+                            <property name="borderBottomWidth">thin</property>
+                            <property name="borderTopColor">#000000</property>
+                            <property name="borderTopStyle">dashed</property>
+                            <property name="borderTopWidth">thin</property>
+                            <property name="paddingTop">3pt</property>
+                            <property name="paddingBottom">3pt</property>
+                            <property name="textAlign">center</property>
+                            <text-property name="text">Saldo</text-property>
+                        </label>
+                    </cell>
+                </row>
+            </header>
+            <group id="18">
+                <property name="groupName">PARTNER</property>
+                <property name="interval">none</property>
+                <property name="sortDirection">asc</property>
+                <expression name="keyExpr" type="javascript">row["PARTNER"]</expression>
+                <structure name="toc">
+                    <expression name="expressionValue" type="javascript">row["PARTNER"]</expression>
+                </structure>
+                <property name="repeatHeader">true</property>
+                <property name="hideDetail">false</property>
+                <property name="pageBreakAfter">auto</property>
+                <property name="pageBreakBefore">auto</property>
+                <property name="pageBreakInside">auto</property>
+                <header>
+                    <row id="19">
+                        <cell id="20">
+                            <property name="colSpan">5</property>
+                            <property name="rowSpan">1</property>
+                            <property name="height">10pt</property>
+                            <property name="marginLeft">auto</property>
+                            <data id="290">
+                                <property name="style">letra</property>
+                                <property name="fontSize">9pt</property>
+                                <property name="fontWeight">bold</property>
+                                <property name="paddingTop">5pt</property>
+                                <property name="paddingLeft">3pt</property>
+                                <property name="paddingBottom">5pt</property>
+                                <property name="resultSetColumn">PARTNER</property>
+                            </data>
+                        </cell>
+                        <cell id="344">
+                            <property name="height">10pt</property>
+                            <property name="marginLeft">auto</property>
+                        </cell>
+                        <cell id="236">
+                            <property name="height">10pt</property>
+                            <property name="marginLeft">auto</property>
+                        </cell>
+                        <cell id="252">
+                            <property name="height">10pt</property>
+                            <property name="marginLeft">auto</property>
+                        </cell>
+                        <cell id="153">
+                            <property name="height">10pt</property>
+                            <property name="marginLeft">auto</property>
+                        </cell>
+                        <cell id="147">
+                            <property name="height">10pt</property>
+                            <property name="marginLeft">auto</property>
+                        </cell>
+                        <cell id="243">
+                            <property name="height">10pt</property>
+                            <property name="marginLeft">auto</property>
+                            <data id="558">
+                                <property name="style">letra</property>
+                                <property name="fontSize">9pt</property>
+                                <property name="fontWeight">bold</property>
+                                <property name="paddingTop">5pt</property>
+                                <property name="paddingBottom">5pt</property>
+                                <structure name="numberFormat">
+                                    <property name="category">Currency</property>
+                                    <property name="pattern">#,##0.00</property>
+                                </structure>
+                                <property name="textAlign">right</property>
+                                <property name="resultSetColumn">AMOUNT</property>
+                            </data>
+                        </cell>
+                    </row>
+                </header>
+                <footer>
+                    <row id="773">
+                        <cell id="774"/>
+                        <cell id="775"/>
+                        <cell id="776"/>
+                        <cell id="777"/>
+                        <cell id="778"/>
+                        <cell id="779"/>
+                        <cell id="780"/>
+                        <cell id="781"/>
+                        <cell id="782">
+                            <property name="colSpan">2</property>
+                            <property name="rowSpan">1</property>
+                            <label id="669">
+                                <property name="style">letra</property>
+                                <property name="fontSize">8pt</property>
+                                <property name="fontWeight">bold</property>
+                                <property name="paddingTop">10pt</property>
+                                <property name="paddingBottom">5pt</property>
+                                <property name="textAlign">left</property>
+                                <text-property name="text">Sub-Total Proveedor ........</text-property>
+                            </label>
+                        </cell>
+                        <cell id="784">
+                            <data id="768">
+                                <property name="style">letra</property>
+                                <property name="fontSize">8pt</property>
+                                <property name="fontWeight">bold</property>
+                                <property name="paddingTop">10pt</property>
+                                <property name="paddingRight">2pt</property>
+                                <structure name="numberFormat">
+                                    <property name="category">Currency</property>
+                                    <property name="pattern">#,##0.00{RoundingMode=HALF_UP}</property>
+                                </structure>
+                                <property name="textAlign">right</property>
+                                <property name="resultSetColumn">subTSaldo</property>
+                            </data>
+                        </cell>
+                    </row>
+                </footer>
+            </group>
+            <group id="559">
+                <property name="groupName">TOTAL</property>
+                <property name="interval">none</property>
+                <property name="sortDirection">asc</property>
+                <expression name="keyExpr" type="javascript">row["AMOUNT"]</expression>
+                <structure name="toc">
+                    <expression name="expressionValue" type="javascript">row["AMOUNT"]</expression>
+                    <property name="TOCStyle">letra</property>
+                </structure>
+                <property name="repeatHeader">true</property>
+                <property name="hideDetail">false</property>
+                <property name="pageBreakAfter">auto</property>
+                <property name="pageBreakBefore">auto</property>
+                <property name="pageBreakInside">auto</property>
+            </group>
+            <detail>
+                <row id="27">
+                    <cell id="28">
+                        <property name="height">10pt</property>
+                        <property name="marginLeft">auto</property>
+                        <data id="767">
+                            <property name="style">letra</property>
+                            <property name="fontSize">8pt</property>
+                            <structure name="dateTimeFormat">
+                                <property name="category">Short Date</property>
+                                <property name="pattern">Short Date</property>
+                            </structure>
+                            <property name="textAlign">center</property>
+                            <property name="whiteSpace">nowrap</property>
+                            <property name="resultSetColumn">DATEIP</property>
+                        </data>
+                    </cell>
+                    <cell id="29">
+                        <property name="height">10pt</property>
+                        <property name="marginLeft">auto</property>
+                        <data id="621">
+                            <property name="style">letra</property>
+                            <property name="fontSize">8pt</property>
+                            <property name="textAlign">center</property>
+                            <property name="resultSetColumn">DOCOCCON</property>
+                        </data>
+                    </cell>
+                    <cell id="139">
+                        <property name="height">10pt</property>
+                        <property name="marginLeft">auto</property>
+                        <data id="757">
+                            <property name="style">letra</property>
+                            <property name="fontSize">8pt</property>
+                            <property name="textAlign">center</property>
+                            <property name="whiteSpace">nowrap</property>
+                            <property name="resultSetColumn">DOCINVPAY</property>
+                        </data>
+                    </cell>
+                    <cell id="30">
+                        <property name="height">10pt</property>
+                        <property name="marginLeft">auto</property>
+                        <data id="145">
+                            <property name="style">letra</property>
+                            <property name="fontSize">8pt</property>
+                            <property name="textAlign">left</property>
+                            <property name="resultSetColumn">DOCUMENT</property>
+                        </data>
+                    </cell>
+                    <cell id="161">
+                        <property name="height">10pt</property>
+                        <property name="marginLeft">auto</property>
+                        <data id="758">
+                            <property name="style">letra</property>
+                            <property name="fontSize">8pt</property>
+                            <structure name="dateTimeFormat">
+                                <property name="category">Short Date</property>
+                                <property name="pattern">Short Date</property>
+                            </structure>
+                            <property name="textAlign">center</property>
+                            <property name="whiteSpace">nowrap</property>
+                            <property name="resultSetColumn">DATEDUE</property>
+                        </data>
+                    </cell>
+                    <cell id="345">
+                        <property name="height">10pt</property>
+                        <property name="marginLeft">auto</property>
+                        <data id="349">
+                            <property name="style">letra</property>
+                            <property name="fontSize">8pt</property>
+                            <property name="textAlign">center</property>
+                            <property name="resultSetColumn">TYPE</property>
+                        </data>
+                    </cell>
+                    <cell id="331">
+                        <property name="height">10pt</property>
+                        <property name="marginLeft">auto</property>
+                        <data id="338">
+                            <property name="style">letra</property>
+                            <property name="fontSize">8pt</property>
+                            <property name="textAlign">center</property>
+                            <property name="resultSetColumn">NUM</property>
+                        </data>
+                    </cell>
+                    <cell id="332">
+                        <property name="height">10pt</property>
+                        <property name="marginLeft">auto</property>
+                        <data id="340">
+                            <property name="style">letra</property>
+                            <property name="fontSize">8pt</property>
+                            <property name="textAlign">center</property>
+                            <property name="resultSetColumn">NAME</property>
+                        </data>
+                    </cell>
+                    <cell id="154">
+                        <property name="height">10pt</property>
+                        <property name="marginLeft">auto</property>
+                        <data id="165">
+                            <property name="style">letra</property>
+                            <property name="fontSize">8pt</property>
+                            <structure name="numberFormat">
+                                <property name="category">Currency</property>
+                                <property name="pattern">#,##0.00</property>
+                            </structure>
+                            <property name="textAlign">right</property>
+                            <property name="resultSetColumn">DEBE</property>
+                        </data>
+                    </cell>
+                    <cell id="148">
+                        <property name="height">10pt</property>
+                        <property name="marginLeft">auto</property>
+                        <data id="167">
+                            <property name="style">letra</property>
+                            <property name="fontSize">8pt</property>
+                            <structure name="numberFormat">
+                                <property name="category">Currency</property>
+                                <property name="pattern">#,##0.00</property>
+                            </structure>
+                            <property name="textAlign">right</property>
+                            <property name="resultSetColumn">HABER</property>
+                        </data>
+                    </cell>
+                    <cell id="244">
+                        <property name="height">10pt</property>
+                        <property name="marginLeft">auto</property>
+                    </cell>
+                </row>
+            </detail>
+            <footer>
+                <row id="31">
+                    <property name="height">0.4270833333333333in</property>
+                    <cell id="32">
+                        <property name="height">10pt</property>
+                        <property name="marginLeft">auto</property>
+                    </cell>
+                    <cell id="33">
+                        <property name="height">10pt</property>
+                        <property name="marginLeft">auto</property>
+                    </cell>
+                    <cell id="140">
+                        <property name="height">10pt</property>
+                        <property name="marginLeft">auto</property>
+                    </cell>
+                    <cell id="34">
+                        <property name="height">10pt</property>
+                        <property name="marginLeft">auto</property>
+                    </cell>
+                    <cell id="162">
+                        <property name="colSpan">3</property>
+                        <property name="rowSpan">1</property>
+                        <property name="height">10pt</property>
+                        <property name="marginLeft">auto</property>
+                        <label id="670">
+                            <property name="style">letra</property>
+                            <property name="fontSize">10pt</property>
+                            <property name="fontWeight">bold</property>
+                            <property name="paddingTop">10pt</property>
+                            <property name="textAlign">left</property>
+                            <text-property name="text">Total General .......</text-property>
+                        </label>
+                    </cell>
+                    <cell id="334">
+                        <property name="height">10pt</property>
+                        <property name="marginLeft">auto</property>
+                    </cell>
+                    <cell id="155">
+                        <property name="height">10pt</property>
+                        <property name="marginLeft">auto</property>
+                        <data id="770">
+                            <property name="style">letra</property>
+                            <property name="fontSize">9pt</property>
+                            <property name="fontWeight">bold</property>
+                            <property name="paddingTop">10pt</property>
+                            <property name="paddingRight">2pt</property>
+                            <structure name="numberFormat">
+                                <property name="category">Currency</property>
+                                <property name="pattern">#,##0.00{RoundingMode=HALF_UP}</property>
+                            </structure>
+                            <property name="textAlign">right</property>
+                            <property name="resultSetColumn">totalDebe</property>
+                        </data>
+                    </cell>
+                    <cell id="149">
+                        <property name="height">10pt</property>
+                        <property name="marginLeft">auto</property>
+                        <data id="557">
+                            <property name="style">letra</property>
+                            <property name="fontSize">9pt</property>
+                            <property name="fontWeight">bold</property>
+                            <property name="paddingTop">10pt</property>
+                            <property name="paddingLeft">2pt</property>
+                            <structure name="numberFormat">
+                                <property name="category">Currency</property>
+                                <property name="pattern">#,##0.00</property>
+                            </structure>
+                            <property name="textAlign">right</property>
+                            <property name="resultSetColumn">totalHaber</property>
+                        </data>
+                    </cell>
+                    <cell id="245">
+                        <property name="height">10pt</property>
+                        <property name="marginLeft">auto</property>
+                        <data id="771">
+                            <property name="style">letra</property>
+                            <property name="fontSize">9pt</property>
+                            <property name="fontWeight">bold</property>
+                            <property name="paddingTop">10pt</property>
+                            <property name="paddingRight">2pt</property>
+                            <structure name="numberFormat">
+                                <property name="category">Currency</property>
+                                <property name="pattern">#,##0.00{RoundingMode=HALF_UP}</property>
+                            </structure>
+                            <property name="textAlign">right</property>
+                            <property name="resultSetColumn">totalSaldo</property>
+                        </data>
+                    </cell>
+                </row>
+                <row id="617">
+                    <property name="height">0.4270833333333333in</property>
+                    <cell id="618">
+                        <property name="colSpan">11</property>
+                        <property name="rowSpan">1</property>
+                        <property name="height">10pt</property>
+                        <property name="marginLeft">auto</property>
+                        <table id="362">
+                            <property name="width">5.09375in</property>
+                            <property name="dataSet">Compra</property>
+                            <list-property name="boundDataColumns">
+                                <structure>
+                                    <property name="name">COMPRA</property>
+                                    <text-property name="displayName">COMPRA</text-property>
+                                    <expression name="expression" type="javascript">dataSetRow["COMPRA"]</expression>
+                                    <property name="dataType">decimal</property>
+                                </structure>
+                            </list-property>
+                            <column id="372">
+                                <property name="width">3.0416666666666665in</property>
+                            </column>
+                            <column id="373">
+                                <property name="width">2.0520833333333335in</property>
+                            </column>
+                            <detail>
+                                <row id="366">
+                                    <cell id="367">
+                                        <label id="376">
+                                            <property name="style">letra</property>
+                                            <property name="fontSize">12pt</property>
+                                            <property name="fontWeight">bold</property>
+                                            <property name="paddingTop">25pt</property>
+                                            <property name="paddingLeft">5pt</property>
+                                            <property name="paddingBottom">5pt</property>
+                                            <text-property name="text">Total Compras</text-property>
+                                        </label>
+                                    </cell>
+                                    <cell id="368">
+                                        <property name="paddingTop">5pt</property>
+                                        <property name="paddingBottom">5pt</property>
+                                        <data id="712">
+                                            <property name="style">letra</property>
+                                            <property name="fontWeight">bold</property>
+                                            <property name="paddingTop">25pt</property>
+                                            <structure name="numberFormat">
+                                                <property name="category">Currency</property>
+                                                <property name="pattern">#,##0.00{RoundingMode=HALF_UP}</property>
+                                            </structure>
+                                            <property name="textAlign">right</property>
+                                            <property name="whiteSpace">nowrap</property>
+                                            <property name="resultSetColumn">COMPRA</property>
+                                        </data>
+                                    </cell>
+                                </row>
+                            </detail>
+                        </table>
+                        <table id="377">
+                            <property name="width">5.104166666666667in</property>
+                            <property name="dataSet">Devolucion</property>
+                            <list-property name="boundDataColumns">
+                                <structure>
+                                    <property name="name">DEVOLUCION</property>
+                                    <text-property name="displayName">DEVOLUCION</text-property>
+                                    <expression name="expression" type="javascript">dataSetRow["DEVOLUCION"]</expression>
+                                    <property name="dataType">decimal</property>
+                                </structure>
+                            </list-property>
+                            <column id="387">
+                                <property name="width">3.0625in</property>
+                            </column>
+                            <column id="388">
+                                <property name="width">2.0416666666666665in</property>
+                            </column>
+                            <detail>
+                                <row id="381">
+                                    <cell id="382">
+                                        <label id="391">
+                                            <property name="style">letra</property>
+                                            <property name="fontSize">12pt</property>
+                                            <property name="fontWeight">bold</property>
+                                            <property name="paddingTop">5pt</property>
+                                            <property name="paddingLeft">5pt</property>
+                                            <property name="paddingBottom">5pt</property>
+                                            <text-property name="text">Total Devoluciones</text-property>
+                                        </label>
+                                    </cell>
+                                    <cell id="383">
+                                        <data id="713">
+                                            <property name="style">letra</property>
+                                            <property name="fontWeight">bold</property>
+                                            <property name="paddingTop">5pt</property>
+                                            <structure name="numberFormat">
+                                                <property name="category">Currency</property>
+                                                <property name="pattern">#,##0.00{RoundingMode=HALF_UP}</property>
+                                            </structure>
+                                            <property name="textAlign">right</property>
+                                            <property name="whiteSpace">nowrap</property>
+                                            <property name="resultSetColumn">DEVOLUCION</property>
+                                        </data>
+                                    </cell>
+                                </row>
+                            </detail>
+                        </table>
+                        <table id="418">
+                            <property name="width">5.104166666666667in</property>
+                            <property name="dataSet">AjustePos</property>
+                            <list-property name="boundDataColumns">
+                                <structure>
+                                    <property name="name">AJUSPOS</property>
+                                    <text-property name="displayName">AJUSPOS</text-property>
+                                    <expression name="expression" type="javascript">dataSetRow["AJUSPOS"]</expression>
+                                    <property name="dataType">decimal</property>
+                                </structure>
+                            </list-property>
+                            <column id="428">
+                                <property name="width">3.0833333333333335in</property>
+                            </column>
+                            <column id="429">
+                                <property name="width">2.0208333333333335in</property>
+                            </column>
+                            <detail>
+                                <row id="422">
+                                    <cell id="423">
+                                        <label id="431">
+                                            <property name="style">letra</property>
+                                            <property name="fontSize">12pt</property>
+                                            <property name="fontWeight">bold</property>
+                                            <property name="paddingTop">5pt</property>
+                                            <property name="paddingLeft">5pt</property>
+                                            <property name="paddingBottom">5pt</property>
+                                            <text-property name="text">Total Ajustes Contables (+)</text-property>
+                                        </label>
+                                    </cell>
+                                    <cell id="424">
+                                        <data id="711">
+                                            <property name="style">letra</property>
+                                            <property name="fontWeight">bold</property>
+                                            <property name="paddingTop">5pt</property>
+                                            <structure name="numberFormat">
+                                                <property name="category">Currency</property>
+                                                <property name="pattern">#,##0.00{RoundingMode=HALF_UP}</property>
+                                            </structure>
+                                            <property name="textAlign">right</property>
+                                            <property name="whiteSpace">nowrap</property>
+                                            <property name="resultSetColumn">AJUSPOS</property>
+                                        </data>
+                                    </cell>
+                                </row>
+                            </detail>
+                        </table>
+                        <table id="456">
+                            <property name="width">5.114583333333333in</property>
+                            <property name="dataSet">AjusteNeg</property>
+                            <list-property name="boundDataColumns">
+                                <structure>
+                                    <property name="name">AJUSNEG</property>
+                                    <text-property name="displayName">AJUSNEG</text-property>
+                                    <expression name="expression" type="javascript">dataSetRow["AJUSNEG"]</expression>
+                                    <property name="dataType">decimal</property>
+                                </structure>
+                            </list-property>
+                            <column id="466">
+                                <property name="width">3.1041666666666665in</property>
+                            </column>
+                            <column id="467">
+                                <property name="width">2.0104166666666665in</property>
+                            </column>
+                            <detail>
+                                <row id="460">
+                                    <cell id="461">
+                                        <label id="469">
+                                            <property name="style">letra</property>
+                                            <property name="fontSize">12pt</property>
+                                            <property name="fontWeight">bold</property>
+                                            <property name="paddingTop">5pt</property>
+                                            <property name="paddingLeft">5pt</property>
+                                            <property name="paddingBottom">5pt</property>
+                                            <text-property name="text">Total Ajustes Contables (-)</text-property>
+                                        </label>
+                                    </cell>
+                                    <cell id="462">
+                                        <data id="710">
+                                            <property name="style">letra</property>
+                                            <property name="fontWeight">bold</property>
+                                            <property name="paddingTop">5pt</property>
+                                            <structure name="numberFormat">
+                                                <property name="category">Currency</property>
+                                                <property name="pattern">#,##0.00{RoundingMode=HALF_UP}</property>
+                                            </structure>
+                                            <property name="textAlign">right</property>
+                                            <property name="whiteSpace">nowrap</property>
+                                            <property name="resultSetColumn">AJUSNEG</property>
+                                        </data>
+                                    </cell>
+                                </row>
+                            </detail>
+                        </table>
+                        <table id="510">
+                            <property name="width">5.114583333333333in</property>
+                            <list-property name="boundDataColumns">
+                                <structure>
+                                    <property name="name">ACUERDOS</property>
+                                    <text-property name="displayName">ACUERDOS</text-property>
+                                    <expression name="expression" type="javascript">dataSetRow["ACUERDOS"]</expression>
+                                    <property name="dataType">decimal</property>
+                                </structure>
+                                <structure>
+                                    <property name="name">Column Binding</property>
+                                    <text-property name="displayName">RETENISLR</text-property>
+                                    <expression name="expression" type="javascript">dataSetRow["RETENISLR"]</expression>
+                                    <property name="dataType">string</property>
+                                </structure>
+                            </list-property>
+                            <column id="520">
+                                <property name="width">3.0833333333333335in</property>
+                            </column>
+                            <column id="521">
+                                <property name="width">2.03125in</property>
+                            </column>
+                            <detail>
+                                <row id="514">
+                                    <cell id="515">
+                                        <label id="674">
+                                            <property name="style">letra</property>
+                                            <property name="fontSize">12pt</property>
+                                            <property name="fontWeight">bold</property>
+                                            <property name="paddingTop">5pt</property>
+                                            <property name="paddingLeft">5pt</property>
+                                            <property name="paddingBottom">5pt</property>
+                                            <property name="textAlign">left</property>
+                                            <text-property name="text">Total Retenciones I.S.L.R.</text-property>
+                                        </label>
+                                    </cell>
+                                    <cell id="516">
+                                        <data id="727">
+                                            <property name="style">letra</property>
+                                            <property name="fontWeight">bold</property>
+                                            <property name="paddingTop">5pt</property>
+                                            <structure name="numberFormat">
+                                                <property name="category">Currency</property>
+                                                <property name="pattern">#,##0.00{RoundingMode=HALF_UP}</property>
+                                            </structure>
+                                            <property name="textAlign">right</property>
+                                            <property name="whiteSpace">nowrap</property>
+                                            <property name="resultSetColumn">Column Binding</property>
+                                        </data>
+                                    </cell>
+                                </row>
+                            </detail>
+                        </table>
+                        <table id="715">
+                            <property name="width">5.145833333333333in</property>
+                            <property name="dataSet">Retencion ISLR</property>
+                            <list-property name="boundDataColumns">
+                                <structure>
+                                    <property name="name">RETENISLR</property>
+                                    <text-property name="displayName">RETENISLR</text-property>
+                                    <expression name="expression" type="javascript">dataSetRow["RETENISLR"]</expression>
+                                    <property name="dataType">decimal</property>
+                                </structure>
+                                <structure>
+                                    <property name="name">Column Binding</property>
+                                    <text-property name="displayName">TRETENCION</text-property>
+                                    <expression name="expression" type="javascript">dataSetRow["TRETENCION"]</expression>
+                                    <property name="dataType">string</property>
+                                </structure>
+                            </list-property>
+                            <column id="725">
+                                <property name="width">3.0729166666666665in</property>
+                            </column>
+                            <column id="726">
+                                <property name="width">2.0729166666666665in</property>
+                            </column>
+                            <header>
+                                <row id="716">
+                                    <cell id="717">
+                                        <label id="754">
+                                            <property name="style">letra</property>
+                                            <property name="fontSize">12pt</property>
+                                            <property name="fontWeight">bold</property>
+                                            <property name="paddingTop">5pt</property>
+                                            <property name="paddingLeft">5pt</property>
+                                            <property name="paddingBottom">5pt</property>
+                                            <text-property name="text">Total Retenciones I.V.A.</text-property>
+                                        </label>
+                                    </cell>
+                                    <cell id="718">
+                                        <data id="753">
+                                            <property name="style">letra</property>
+                                            <property name="fontWeight">bold</property>
+                                            <property name="paddingTop">5pt</property>
+                                            <structure name="numberFormat">
+                                                <property name="category">Currency</property>
+                                                <property name="pattern">#,##0.00{RoundingMode=HALF_UP}</property>
+                                            </structure>
+                                            <property name="textAlign">right</property>
+                                            <property name="whiteSpace">nowrap</property>
+                                            <property name="resultSetColumn">Column Binding</property>
+                                        </data>
+                                    </cell>
+                                </row>
+                            </header>
+                        </table>
+                        <table id="741">
+                            <property name="width">5.114583333333333in</property>
+                            <property name="dataSet">Retencion IVA</property>
+                            <list-property name="boundDataColumns">
+                                <structure>
+                                    <property name="name">TRETENCION</property>
+                                    <text-property name="displayName">TRETENCION</text-property>
+                                    <expression name="expression" type="javascript">dataSetRow["TRETENCION"]</expression>
+                                    <property name="dataType">decimal</property>
+                                </structure>
+                            </list-property>
+                            <column id="751">
+                                <property name="width">3.0729166666666665in</property>
+                            </column>
+                            <column id="752">
+                                <property name="width">2.0416666666666665in</property>
+                            </column>
+                            <detail>
+                                <row id="745">
+                                    <cell id="746"/>
+                                    <cell id="747"/>
+                                </row>
+                            </detail>
+                        </table>
+                    </cell>
+                </row>
+            </footer>
+        </table>
+    </body>
+</report>

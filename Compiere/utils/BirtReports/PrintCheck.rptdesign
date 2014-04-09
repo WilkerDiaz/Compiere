@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.22" id="1">
+    <property name="createdBy">Eclipse BIRT Designer Version 4.3.1.v201309091055 Build &lt;4.3.1.v20130917-1035></property>
+    <list-property name="includeScripts">
+        <property>JS/covertirNumLetrasCheque.js</property>
+    </list-property>
+    <property name="units">in</property>
+    <property name="iconFile">/templates/blank_report.gif</property>
+    <property name="layoutPreference">auto layout</property>
+    <property name="bidiLayoutOrientation">ltr</property>
+    <property name="imageDPI">96</property>
+    <parameters>
+        <scalar-parameter name="total" id="295">
+            <text-property name="helpText">monto total</text-property>
+            <text-property name="promptText">monto total</text-property>
+            <property name="valueType">static</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="beneficiario" id="296">
+            <text-property name="helpText">beneficiario</text-property>
+            <text-property name="promptText">beneficiario</text-property>
+            <property name="valueType">static</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="formato" id="300">
+            <text-property name="helpText">formato</text-property>
+            <text-property name="promptText">formato</text-property>
+            <property name="valueType">static</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+    </parameters>
+    <styles>
+        <style name="report" id="4">
+            <property name="fontFamily">sans-serif</property>
+            <property name="fontSize">10pt</property>
+        </style>
+        <style name="crosstab-cell" id="5">
+            <property name="borderBottomColor">#CCCCCC</property>
+            <property name="borderBottomStyle">solid</property>
+            <property name="borderBottomWidth">1pt</property>
+            <property name="borderLeftColor">#CCCCCC</property>
+            <property name="borderLeftStyle">solid</property>
+            <property name="borderLeftWidth">1pt</property>
+            <property name="borderRightColor">#CCCCCC</property>
+            <property name="borderRightStyle">solid</property>
+            <property name="borderRightWidth">1pt</property>
+            <property name="borderTopColor">#CCCCCC</property>
+            <property name="borderTopStyle">solid</property>
+            <property name="borderTopWidth">1pt</property>
+        </style>
+        <style name="crosstab" id="6">
+            <property name="borderBottomColor">#CCCCCC</property>
+            <property name="borderBottomStyle">solid</property>
+            <property name="borderBottomWidth">1pt</property>
+            <property name="borderLeftColor">#CCCCCC</property>
+            <property name="borderLeftStyle">solid</property>
+            <property name="borderLeftWidth">1pt</property>
+            <property name="borderRightColor">#CCCCCC</property>
+            <property name="borderRightStyle">solid</property>
+            <property name="borderRightWidth">1pt</property>
+            <property name="borderTopColor">#CCCCCC</property>
+            <property name="borderTopStyle">solid</property>
+            <property name="borderTopWidth">1pt</property>
+        </style>
+    </styles>
+    <page-setup>
+        <simple-master-page name="Simple MasterPage" id="2">
+            <property name="type">custom</property>
+            <property name="topMargin">0.01in</property>
+            <property name="leftMargin">0.010416666666666666in</property>
+            <property name="bottomMargin">0.01in</property>
+            <property name="rightMargin">0.010416666666666666in</property>
+            <property name="height">81mm</property>
+            <property name="width">179mm</property>
+            <property name="headerHeight">0in</property>
+            <property name="footerHeight">0in</property>
+        </simple-master-page>
+    </page-setup>
+    <body>
+        <grid id="7">
+            <property name="height">1.8645833333333333in</property>
+            <property name="width">6.104166666666667in</property>
+            <column id="8">
+                <property name="width">0.65625in</property>
+            </column>
+            <column id="9">
+                <property name="width">2.2291666666666665in</property>
+            </column>
+            <column id="10">
+                <property name="width">3.21875in</property>
+            </column>
+            <row id="11">
+                <property name="height">0.84375in</property>
+                <cell id="12"/>
+                <cell id="13">
+                    <property name="colSpan">2</property>
+                    <property name="rowSpan">1</property>
+                    <data id="301">
+                        <property name="marginTop">20pt</property>
+                        <property name="marginRight">0pt</property>
+                        <property name="textAlign">right</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">formato</property>
+                                <expression name="expression" type="javascript">params["formato"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                        </list-property>
+                        <property name="resultSetColumn">formato</property>
+                    </data>
+                </cell>
+            </row>
+            <row id="15">
+                <cell id="16"/>
+                <cell id="17">
+                    <property name="colSpan">2</property>
+                    <property name="rowSpan">1</property>
+                    <data id="299">
+                        <property name="fontFamily">"Arial"</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">beneficiario</property>
+                                <expression name="expression" type="javascript">params["beneficiario"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                        </list-property>
+                        <property name="resultSetColumn">beneficiario</property>
+                    </data>
+                </cell>
+            </row>
+            <row id="19">
+                <property name="height">0.4375in</property>
+                <cell id="20"/>
+                <cell id="21">
+                    <property name="colSpan">2</property>
+                    <property name="rowSpan">1</property>
+                    <data id="298">
+                        <property name="fontFamily">"Arial"</property>
+                        <property name="textAlign">left</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">total</property>
+                                <expression name="expression" type="javascript">covertirNumLetrasCheque(params["total"]);</expression>
+                                <property name="dataType">string</property>
+                                <property name="allowExport">true</property>
+                            </structure>
+                        </list-property>
+                        <property name="resultSetColumn">total</property>
+                    </data>
+                </cell>
+            </row>
+            <row id="23">
+                <property name="height">0.3125in</property>
+                <cell id="24">
+                    <property name="colSpan">3</property>
+                    <property name="rowSpan">1</property>
+                    <data id="283">
+                        <property name="fontFamily">"Arial"</property>
+                        <property name="fontSize">10pt</property>
+                        <property name="textAlign">left</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">BANCO</property>
+                                <text-property name="displayName">Primero</text-property>
+                                <expression name="expression" type="javascript">var fecha="Caracas, "; &#13;
+var year= BirtDateTime.year(BirtDateTime.today()); var mes = BirtDateTime.month(BirtDateTime.today()); var dia = BirtDateTime.day(BirtDateTime.today());&#13;
+//DIA&#13;
+fecha= fecha + dia+" de ";&#13;
+//MES&#13;
+	if(mes==1) fecha= fecha+"Enero"; 	if(mes==2) fecha= fecha+"Febrero"; 	if(mes==3) fecha= fecha+"Marzo"; 	if(mes==4) fecha= fecha+"Abril";&#13;
+	if(mes==5) fecha= fecha+"Mayo"; 	if(mes==6) fecha= fecha+"Junio"; 	if(mes==7) fecha= fecha+"Julio"; 	if(mes==8) fecha= fecha+"Agosto";&#13;
+	if(mes==9) fecha= fecha+"Septiembre"; 	if(mes==10) fecha= fecha+"Octubre"; 	if(mes==11) fecha= fecha+"Noviembre"; 	if(mes==12) fecha= fecha+"Diciembre";		&#13;
+//YEAR&#13;
+fecha= fecha+"                  "+year;&#13;
+//IMPRIMIR FECHA&#13;
+fecha;</expression>
+                                <property name="dataType">string</property>
+                                <property name="allowExport">true</property>
+                            </structure>
+                        </list-property>
+                        <property name="resultSetColumn">BANCO</property>
+                    </data>
+                </cell>
+            </row>
+        </grid>
+    </body>
+</report>

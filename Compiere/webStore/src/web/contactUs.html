@@ -1,0 +1,1829 @@
+﻿<html>
+<head>
+<title>Contact Us</title>
+<meta name="description" content="Compiere Lead Example">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+<body>
+
+<h1>Contact Us</h1>
+<p>Example static form forwarding to http://www.compiere.com after submission.</p>
+<form id="C_Lead" method="postapplication/x-www-form-urlencoded" 
+	action="/wstore/leadServlet/" enctype="application/x-www-form-urlencoded">
+	
+	<!--  GardenWorld Example	 Forward to Page -->
+	<input name="AD_Client_ID" type="hidden" value="11"/>
+	<input name="AD_Org_ID" type="hidden" value="0"/>
+	<input name="SalesRep_ID" type="hidden" value=""/>
+	<input name="C_BPartnerSR_ID" type="hidden" value=""/>
+	<input name="R_Source_ID" type="hidden" value="100"/>
+	<input name="C_Campaign_ID" type="hidden" value=""/>
+
+	<input name="ForwardTo" type="hidden" value="http://www.compiere.com"/>
+	<input name="ErrorTo" type="hidden" value="http://www.compiere.com"/>
+	
+	<input name="R_InterestArea_ID" type="hidden" value=""/>
+
+	<table border="0">
+		<tr>
+			<td valign="top" align="right">
+				<label id="NameL" for="Name" title="Alphanumeric identifier of the entity">
+					Subject
+				</label>
+			</td>
+			<td valign="top" align="left">
+				<input name="Name" type="text" size="60" value=""/>
+			</td>
+		</tr>
+		<tr>
+			<td valign="top" align="right">
+				<label id="DescriptionL" for="Description" title="Optional short description of the record">
+					Description
+				</label>
+			</td>
+			<td valign="top" align="left">
+				<textarea cols="60" name="Description" rows="3"></textarea>
+			</td>
+		</tr>
+		<tr>
+			<td valign="top" align="right">
+				<label id="HelpL" for="Help" title="Comment or Hint">
+					Comment/Help
+				</label>
+			</td>
+			<td valign="top" align="left">
+				<textarea cols="60" name="Help" rows="3"></textarea>
+			</td>
+		</tr>
+		<tr>
+			<td valign="top" align="right">
+				<label id="SummaryL" for="Summary" title="Textual summary of this request">
+					Summary
+				</label>
+			</td>
+			<td valign="top" align="left">
+				<textarea cols="60" name="Summary" rows="3"></textarea>
+			</td>
+		</tr>
+	
+	
+		<!--  Contact -->
+		<tr>
+			<td colspan="2">
+			<hr />
+			</td>
+		</tr>
+		<tr>
+			<td valign="top" align="right">
+				<label id="ContactNameL" for="ContactName" title="Business Partner Contact Name">
+					Contact Name
+				</label>
+			</td>
+			<td valign="top" align="left">
+				<input name="ContactName" type="text" size="60" value=""/>
+			</td>
+		</tr>
+		<tr>
+			<td valign="top" align="right">
+				<label id="EMailL" for="EMail" size="60" title="Electronic Mail Address">
+					EMail Address
+				</label>
+			</td>
+			<td valign="top" align="left">
+				<input name="EMail" type="text" value=""/>
+			</td>
+		</tr>
+		<tr>
+			<td valign="top" align="right">
+				<label id="C_Greeting_IDL" for="C_Greeting_ID" title="Greeting to print on correspondence">
+					Greeting
+				</label>
+			</td>
+			<td valign="top" align="left">
+				<select name="C_Greeting_ID">
+					<option value="" label=""></option>
+					<option value="100">
+						Mr
+					</option>
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<td valign="top" align="right">
+				<label id="TitleL" for="Title" title="Name this entity is referred to as">
+					Title
+				</label>
+			</td>
+			<td valign="top" align="left">
+				<input name="Title" type="text" size="60" value=""/>
+			</td>
+		</tr>
+		<tr>
+			<td valign="top" align="right">
+				<label id="C_Job_IDL" for="C_Job_ID" title="Job Position">
+					Position
+				</label>
+			</td>
+			<td valign="top" align="left">
+				<select name="C_Job_ID">
+					<option value="" label=""></option>
+					<option value="103">
+						BP Payables Contact
+					</option>
+					<option value="102">
+						BP Primary Contact
+					</option>
+					<option value="100">
+						Manager
+					</option>
+					<option value="101">
+						Sales
+					</option>
+				</select>
+			</td>
+		</tr>
+	
+		<tr>
+			<td valign="top" align="right">
+				<label id="PhoneL" for="Phone" title="Identifies a telephone number">
+					Phone
+				</label>
+			</td>
+			<td valign="top" align="left">
+				<input name="Phone" type="text" size="30" value=""/>
+			</td>
+		</tr>
+		<tr>
+			<td valign="top" align="right">
+				<label id="Phone2L" for="Phone2" size="30" title="Identifies an alternate telephone number.">
+					2nd Phone
+				</label>
+			</td>
+			<td valign="top" align="left">
+				<input name="Phone2" type="text" size="30" value=""/>
+			</td>
+		</tr>
+		<tr>
+			<td valign="top" align="right">
+				<label id="FaxL" for="Fax" title="Facsimile number">
+					Fax
+				</label>
+			</td>
+			<td valign="top" align="left">
+				<input name="Fax" type="text" size="30" value=""/>
+			</td>
+		</tr>
+	
+	
+		<!--  Business Partner -->
+		<tr>
+			<td colspan="2">
+			<hr />
+			</td>
+		</tr>
+		<tr>
+			<td valign="top" align="right">
+				<label id="BPNameL" for="BPName" title="Business Partner Name">
+					BP Name
+				</label>
+			</td>
+			<td valign="top" align="left">
+				<input name="BPName" type="text" size="60" value=""/>
+			</td>
+		</tr>
+		<tr>
+			<td valign="top" align="right">
+				<label id="URLL" for="URL" title="Full URL address - e.g. http://www.compiere.org">
+					URL
+				</label>
+			</td>
+			<td valign="top" align="left">
+				<input name="URL" type="text" size="60" value=""/>
+			</td>
+		</tr>
+		<tr>
+			<td valign="top" align="right">
+				<label id="C_IndustryCode_IDL" for="C_IndustryCode_ID" title="Business Partner Industry Classification">
+					Industry Code
+				</label>
+			</td>
+			<td valign="top" align="left">
+				<select name="C_IndustryCode_ID">
+					<option value="" label=""></option>
+				</select>
+			</td>
+		</tr>
+
+		<tr>
+			<td valign="top" align="right">
+				<label id="DUNSL" for="DUNS" title="Dun &amp; Bradstreet Number">
+					D-U-N-S
+				</label>
+			</td>
+			<td valign="top" align="left">
+				<input name="DUNS" type="text" value=""/>
+			</td>
+		</tr>
+		<tr>
+			<td valign="top" align="right">
+				<label id="C_BP_Size_IDL" for="C_BP_Size_ID" title="Business Partner Size">
+					BP Size
+				</label>
+			</td>
+			<td valign="top" align="left">
+				<select name="C_BP_Size_ID">
+					<option value="" label=""></option>
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<td valign="top" align="right">
+				<label id="SalesVolumeL" for="SalesVolume" title="Total Volume of Sales in Thousands of Currency">
+					Sales Volume in 1.000
+				</label>
+			</td>
+			<td valign="top" align="left">
+				<input name="SalesVolume" type="text" value=""/>
+			</td>
+		</tr>
+		<tr>
+			<td valign="top" align="right">
+				<label id="NumberEmployeesL" for="NumberEmployees" title="Number of employees">
+					Employees
+				</label>
+			</td>
+			<td valign="top" align="left">
+				<input name="NumberEmployees" type="text" value=""/>
+			</td>
+		</tr>
+		<tr>
+			<td valign="top" align="right">
+				<label id="NAICSL" for="NAICS" title="Standard Industry Code or its successor NAIC - http://www.osha.gov/oshstats/sicser.html">
+					NAICS/SIC
+				</label>
+			</td>
+			<td valign="top" align="left">
+				<input name="NAICS" type="text" value=""/>
+			</td>
+		</tr>
+	
+		<tr>
+			<td valign="top" align="right">
+				<label id="C_BP_Group_IDL" for="C_BP_Group_ID" title="Business Partner Group">
+					Business Partner Group
+				</label>
+			</td>
+			<td valign="top" align="left">
+				<select name="C_BP_Group_ID">
+					<option value="" label=""></option>
+					<option value="105">
+						Staff
+					</option>
+					<option value="103">
+						Standard Customers
+					</option>
+					<option value="104">
+						Vendors
+					</option>
+				</select>
+			</td>
+		</tr>
+	
+		
+		<!--  Address -->
+		<tr>
+			<td colspan="2">
+			<hr />
+			</td>
+		</tr>
+		<tr>
+			<td valign="top" align="right">
+				<label id="Address1L" for="Address1" title="Address line 1 for this location">
+					Address 1
+				</label>
+			</td>
+			<td valign="top" align="left">
+				<input name="Address1" type="text" size="60" value=""/>
+			</td>
+		</tr>
+		<tr>
+			<td valign="top" align="right">
+				<label id="Address2L" for="Address2" title="Address line 2 for this location">
+					Address 2
+				</label>
+			</td>
+			<td valign="top" align="left">
+				<input name="Address2" type="text" size="60" value=""/>
+			</td>
+		</tr>
+		
+		<tr>
+			<td valign="top" align="right">
+				<label id="CityL" for="City" title="Identifies a City">
+					City
+				</label>
+			</td>
+			<td valign="top" align="left">
+				<input name="City" type="text" size="60" value=""/>
+			</td>
+		</tr>
+		<tr>
+			<td valign="top" align="right">
+				<label id="RegionNameL" for="RegionName" title="Name of the Region">
+					Region
+				</label>
+			</td>
+			<td valign="top" align="left">
+				<input name="RegionName" type="text" value=""/>
+			</td>
+		</tr>
+		<tr>
+			<td valign="top" align="right">
+				<label id="PostalL" for="Postal" title="Postal code">
+					ZIP
+				</label>
+			</td>
+			<td valign="top" align="left">
+				<input name="Postal" type="text" value=""/>
+			</td>
+		</tr>
+		
+		<tr>
+			<td valign="top" align="right">
+				<label id="C_Country_IDL" for="C_Country_ID" title="Country ">
+					Country
+				</label>
+			</td>
+			<td valign="top" align="left">
+				<select name="C_Country_ID">
+					<option value="" label=""></option>
+					<option value="110">
+						Afghanistan
+					</option>
+					<option value="111">
+						Albania
+					</option>
+					<option value="112">
+						Algeria
+					</option>
+					<option value="113">
+						American Samoa
+					</option>
+					<option value="114">
+						Andorra
+					</option>
+					<option value="115">
+						Angola
+					</option>
+					<option value="116">
+						Anguilla
+					</option>
+					<option value="117">
+						Antarctica
+					</option>
+					<option value="118">
+						Antigua And Barbuda
+					</option>
+					<option value="119">
+						Argentina
+					</option>
+					<option value="120">
+						Armenia
+					</option>
+					<option value="121">
+						Aruba
+					</option>
+					<option value="122">
+						Australia
+					</option>
+					<option value="108">
+						Austria
+					</option>
+					<option value="124">
+						Azerbaijan
+					</option>
+					<option value="125">
+						Bahamas
+					</option>
+					<option value="126">
+						Bahrain
+					</option>
+					<option value="127">
+						Bangladesh
+					</option>
+					<option value="128">
+						Barbados
+					</option>
+					<option value="129">
+						Belarus
+					</option>
+					<option value="103">
+						Belgium
+					</option>
+					<option value="131">
+						Belize
+					</option>
+					<option value="132">
+						Benin
+					</option>
+					<option value="133">
+						Bermuda
+					</option>
+					<option value="134">
+						Bhutan
+					</option>
+					<option value="135">
+						Bolivia
+					</option>
+					<option value="136">
+						Bosnia And Herzegovina
+					</option>
+					<option value="137">
+						Botswana
+					</option>
+					<option value="138">
+						Bouvet Island
+					</option>
+					<option value="139">
+						Brazil
+					</option>
+					<option value="140">
+						British Indian Ocean Territory
+					</option>
+					<option value="141">
+						Brunei Darussalam
+					</option>
+					<option value="142">
+						Bulgaria
+					</option>
+					<option value="143">
+						Burkina Faso
+					</option>
+					<option value="144">
+						Burundi
+					</option>
+					<option value="145">
+						Cambodia
+					</option>
+					<option value="146">
+						Cameroon
+					</option>
+					<option value="109">
+						Canada
+					</option>
+					<option value="148">
+						Cape Verde
+					</option>
+					<option value="149">
+						Cayman Islands
+					</option>
+					<option value="150">
+						Central African Republic
+					</option>
+					<option value="151">
+						Chad
+					</option>
+					<option value="152">
+						Chile
+					</option>
+					<option value="153">
+						China
+					</option>
+					<option value="154">
+						Christmas Island
+					</option>
+					<option value="155">
+						Cocos (keeling) Islands
+					</option>
+					<option value="156">
+						Colombia
+					</option>
+					<option value="157">
+						Comoros
+					</option>
+					<option value="158">
+						Congo
+					</option>
+					<option value="159">
+						Congo The Democratic Republic Of The
+					</option>
+					<option value="160">
+						Cook Islands
+					</option>
+					<option value="161">
+						Costa Rica
+					</option>
+					<option value="162">
+						Cote D'ivoire
+					</option>
+					<option value="163">
+						Croatia
+					</option>
+					<option value="164">
+						Cuba
+					</option>
+					<option value="165">
+						Cyprus
+					</option>
+					<option value="166">
+						Czech Republic
+					</option>
+					<option value="167">
+						Denmark
+					</option>
+					<option value="168">
+						Djibouti
+					</option>
+					<option value="169">
+						Dominica
+					</option>
+					<option value="170">
+						Dominican Republic
+					</option>
+					<option value="171">
+						Ecuador
+					</option>
+					<option value="172">
+						Egypt
+					</option>
+					<option value="173">
+						El Salvador
+					</option>
+					<option value="174">
+						Equatorial Guinea
+					</option>
+					<option value="175">
+						Eritrea
+					</option>
+					<option value="176">
+						Estonia
+					</option>
+					<option value="177">
+						Ethiopia
+					</option>
+					<option value="178">
+						Falkland Islands (malvinas)
+					</option>
+					<option value="179">
+						Faroe Islands
+					</option>
+					<option value="180">
+						Fiji
+					</option>
+					<option value="181">
+						Finland
+					</option>
+					<option value="102">
+						France
+					</option>
+					<option value="183">
+						French Guiana
+					</option>
+					<option value="184">
+						French Polynesia
+					</option>
+					<option value="185">
+						French Southern Territories
+					</option>
+					<option value="186">
+						Gabon
+					</option>
+					<option value="187">
+						Gambia
+					</option>
+					<option value="188">
+						Georgia
+					</option>
+					<option value="101">
+						Germany - Deutschland
+					</option>
+					<option value="190">
+						Ghana
+					</option>
+					<option value="191">
+						Gibraltar
+					</option>
+					<option value="192">
+						Greece
+					</option>
+					<option value="193">
+						Greenland
+					</option>
+					<option value="194">
+						Grenada
+					</option>
+					<option value="195">
+						Guadeloupe
+					</option>
+					<option value="196">
+						Guam
+					</option>
+					<option value="197">
+						Guatemala
+					</option>
+					<option value="198">
+						Guinea
+					</option>
+					<option value="199">
+						Guinea-bissau
+					</option>
+					<option value="200">
+						Guyana
+					</option>
+					<option value="201">
+						Haiti
+					</option>
+					<option value="202">
+						Heard Island And Mcdonald Islands
+					</option>
+					<option value="203">
+						Holy See (vatican City State)
+					</option>
+					<option value="204">
+						Honduras
+					</option>
+					<option value="205">
+						Hong Kong
+					</option>
+					<option value="206">
+						Hungary
+					</option>
+					<option value="207">
+						Iceland
+					</option>
+					<option value="208">
+						India
+					</option>
+					<option value="209">
+						Indonesia
+					</option>
+					<option value="210">
+						Iran Islamic Republic Of
+					</option>
+					<option value="211">
+						Iraq
+					</option>
+					<option value="212">
+						Ireland
+					</option>
+					<option value="213">
+						Israel
+					</option>
+					<option value="214">
+						Italy
+					</option>
+					<option value="215">
+						Jamaica
+					</option>
+					<option value="216">
+						Japan
+					</option>
+					<option value="217">
+						Jordan
+					</option>
+					<option value="218">
+						Kazakhstan
+					</option>
+					<option value="219">
+						Kenya
+					</option>
+					<option value="220">
+						Kiribati
+					</option>
+					<option value="221">
+						Korea Democratic People's Republic Of
+					</option>
+					<option value="222">
+						Korea Republic Of
+					</option>
+					<option value="223">
+						Kuwait
+					</option>
+					<option value="224">
+						Kyrgyzstan
+					</option>
+					<option value="225">
+						Lao People's Democratic Republic
+					</option>
+					<option value="226">
+						Latvia
+					</option>
+					<option value="227">
+						Lebanon
+					</option>
+					<option value="228">
+						Lesotho
+					</option>
+					<option value="229">
+						Liberia
+					</option>
+					<option value="230">
+						Libyan Arab Jamahiriya
+					</option>
+					<option value="231">
+						Liechtenstein
+					</option>
+					<option value="232">
+						Lithuania
+					</option>
+					<option value="233">
+						Luxembourg
+					</option>
+					<option value="234">
+						Macao
+					</option>
+					<option value="235">
+						Macedonia Former Yugoslav Republic Of
+					</option>
+					<option value="236">
+						Madagascar
+					</option>
+					<option value="237">
+						Malawi
+					</option>
+					<option value="238">
+						Malaysia
+					</option>
+					<option value="239">
+						Maldives
+					</option>
+					<option value="240">
+						Mali
+					</option>
+					<option value="241">
+						Malta
+					</option>
+					<option value="242">
+						Marshall Islands
+					</option>
+					<option value="243">
+						Martinique
+					</option>
+					<option value="244">
+						Mauritania
+					</option>
+					<option value="245">
+						Mauritius
+					</option>
+					<option value="246">
+						Mayotte
+					</option>
+					<option value="247">
+						Mexico
+					</option>
+					<option value="248">
+						Micronesia Federated States Of
+					</option>
+					<option value="249">
+						Moldova Republic Of
+					</option>
+					<option value="250">
+						Monaco
+					</option>
+					<option value="251">
+						Mongolia
+					</option>
+					<option value="252">
+						Montserrat
+					</option>
+					<option value="253">
+						Morocco
+					</option>
+					<option value="254">
+						Mozambique
+					</option>
+					<option value="255">
+						Myanmar
+					</option>
+					<option value="256">
+						Namibia
+					</option>
+					<option value="257">
+						Nauru
+					</option>
+					<option value="105">
+						Nederland
+					</option>
+					<option value="258">
+						Nepal
+					</option>
+					<option value="260">
+						Netherlands Antilles
+					</option>
+					<option value="261">
+						New Caledonia
+					</option>
+					<option value="262">
+						New Zealand
+					</option>
+					<option value="263">
+						Nicaragua
+					</option>
+					<option value="264">
+						Niger
+					</option>
+					<option value="265">
+						Nigeria
+					</option>
+					<option value="266">
+						Niue
+					</option>
+					<option value="267">
+						Norfolk Island
+					</option>
+					<option value="268">
+						Northern Mariana Islands
+					</option>
+					<option value="269">
+						Norway
+					</option>
+					<option value="270">
+						Oman
+					</option>
+					<option value="271">
+						Pakistan
+					</option>
+					<option value="272">
+						Palau
+					</option>
+					<option value="273">
+						Palestinian Territory Occupied
+					</option>
+					<option value="274">
+						Panama
+					</option>
+					<option value="275">
+						Papua New Guinea
+					</option>
+					<option value="276">
+						Paraguay
+					</option>
+					<option value="277">
+						Peru
+					</option>
+					<option value="278">
+						Philippines
+					</option>
+					<option value="279">
+						Pitcairn
+					</option>
+					<option value="280">
+						Poland
+					</option>
+					<option value="281">
+						Portugal
+					</option>
+					<option value="282">
+						Puerto Rico
+					</option>
+					<option value="283">
+						Qatar
+					</option>
+					<option value="284">
+						Reunion
+					</option>
+					<option value="285">
+						Romania
+					</option>
+					<option value="286">
+						Russian Federation
+					</option>
+					<option value="287">
+						Rwanda
+					</option>
+					<option value="288">
+						Saint Helena
+					</option>
+					<option value="289">
+						Saint Kitts And Nevis
+					</option>
+					<option value="290">
+						Saint Lucia
+					</option>
+					<option value="291">
+						Saint Pierre And Miquelon
+					</option>
+					<option value="292">
+						Saint Vincent And The Grenadines
+					</option>
+					<option value="293">
+						Samoa
+					</option>
+					<option value="294">
+						San Marino
+					</option>
+					<option value="295">
+						Sao Tome And Principe
+					</option>
+					<option value="296">
+						Saudi Arabia
+					</option>
+					<option value="297">
+						Senegal
+					</option>
+					<option value="298">
+						Seychelles
+					</option>
+					<option value="299">
+						Sierra Leone
+					</option>
+					<option value="300">
+						Singapore
+					</option>
+					<option value="301">
+						Slovakia
+					</option>
+					<option value="302">
+						Slovenia
+					</option>
+					<option value="303">
+						Solomon Islands
+					</option>
+					<option value="304">
+						Somalia
+					</option>
+					<option value="305">
+						South Africa
+					</option>
+					<option value="306">
+						South Georgia And The South Sandwich Islands
+					</option>
+					<option value="106">
+						Spain
+					</option>
+					<option value="308">
+						Sri Lanka
+					</option>
+					<option value="309">
+						Sudan
+					</option>
+					<option value="310">
+						Suriname
+					</option>
+					<option value="311">
+						Svalbard And Jan Mayen
+					</option>
+					<option value="312">
+						Swaziland
+					</option>
+					<option value="313">
+						Sweden
+					</option>
+					<option value="107">
+						Switzerland
+					</option>
+					<option value="315">
+						Syrian Arab Republic
+					</option>
+					<option value="316">
+						Taiwan
+					</option>
+					<option value="317">
+						Tajikistan
+					</option>
+					<option value="318">
+						Tanzania United Republic Of
+					</option>
+					<option value="319">
+						Thailand
+					</option>
+					<option value="320">
+						Timor-leste
+					</option>
+					<option value="321">
+						Togo
+					</option>
+					<option value="322">
+						Tokelau
+					</option>
+					<option value="323">
+						Tonga
+					</option>
+					<option value="324">
+						Trinidad And Tobago
+					</option>
+					<option value="325">
+						Tunisia
+					</option>
+					<option value="326">
+						Turkey
+					</option>
+					<option value="327">
+						Turkmenistan
+					</option>
+					<option value="328">
+						Turks And Caicos Islands
+					</option>
+					<option value="329">
+						Tuvalu
+					</option>
+					<option value="330">
+						Uganda
+					</option>
+					<option value="331">
+						Ukraine
+					</option>
+					<option value="332">
+						United Arab Emirates
+					</option>
+					<option value="333">
+						United Kingdom
+					</option>
+					<option value="100">
+						United States
+					</option>
+					<option value="335">
+						United States Minor Outlying Islands
+					</option>
+					<option value="336">
+						Uruguay
+					</option>
+					<option value="337">
+						Uzbekistan
+					</option>
+					<option value="338">
+						Vanuatu
+					</option>
+					<option value="339">
+						Venezuela
+					</option>
+					<option value="340">
+						Viet Nam
+					</option>
+					<option value="341">
+						Virgin Islands British
+					</option>
+					<option value="342">
+						Virgin Islands U.s.
+					</option>
+					<option value="343">
+						Wallis And Futuna
+					</option>
+					<option value="344">
+						Western Sahara
+					</option>
+					<option value="345">
+						Yemen
+					</option>
+					<option value="346">
+						Yugoslavia
+					</option>
+					<option value="347">
+						Zambia
+					</option>
+					<option value="348">
+						Zimbabwe
+					</option>
+				</select>
+			</td>
+		</tr>
+
+		<tr>
+			<td valign="top" align="right">
+				<label id="C_Region_IDL" for="C_Region_ID" title="Identifies a geographical Region">
+					Region
+				</label>
+			</td>
+			<td valign="top" align="left">
+				<select name="C_Region_ID">
+					<option value="" label=""></option>
+					<option value="176">
+						ACT
+					</option>
+					<option value="177">
+						AGS
+					</option>
+					<option value="118">
+						AK
+					</option>
+					<option value="114">
+						AL
+					</option>
+					<option value="144">
+						AR
+					</option>
+					<option value="145">
+						AZ
+					</option>
+					<option value="235">
+						Albacete
+					</option>
+					<option value="156">
+						Alberta
+					</option>
+					<option value="236">
+						Alicante
+					</option>
+					<option value="237">
+						Almería 
+					</option>
+					<option value="232">
+						Antártida e Islas del Atlántico Sur 
+					</option>
+					<option value="238">
+						Asturias 
+					</option>
+					<option value="178">
+						B.C.
+					</option>
+					<option value="179">
+						B.C.S
+					</option>
+					<option value="240">
+						Badajoz
+					</option>
+					<option value="242">
+						Barcelona
+					</option>
+					<option value="157">
+						British Columbia
+					</option>
+					<option value="209">
+						Buenos Aires
+					</option>
+					<option value="243">
+						Burgos
+					</option>
+					<option value="103">
+						CA
+					</option>
+					<option value="180">
+						CAMP
+					</option>
+					<option value="183">
+						CHIH
+					</option>
+					<option value="182">
+						CHIS
+					</option>
+					<option value="149">
+						CO
+					</option>
+					<option value="208">
+						COAH
+					</option>
+					<option value="181">
+						COL
+					</option>
+					<option value="102">
+						CT
+					</option>
+					<option value="246">
+						Cantabria
+					</option>
+					<option value="247">
+						Castellón
+					</option>
+					<option value="210">
+						Catamarca 
+					</option>
+					<option value="248">
+						Ceuta
+					</option>
+					<option value="211">
+						Chaco 
+					</option>
+					<option value="212">
+						Chubut 
+					</option>
+					<option value="213">
+						Ciudad Autónoma de Buenos Aires
+					</option>
+					<option value="249">
+						Ciudad Real
+					</option>
+					<option value="215">
+						Corrientes 
+					</option>
+					<option value="252">
+						Cuenca
+					</option>
+					<option value="244">
+						Cáceres 
+					</option>
+					<option value="245">
+						Cádiz
+					</option>
+					<option value="250">
+						Córdoba
+					</option>
+					<option value="214">
+						Córdoba 
+					</option>
+					<option value="184">
+						D.F.
+					</option>
+					<option value="286">
+						DC
+					</option>
+					<option value="115">
+						DE
+					</option>
+					<option value="185">
+						DGO
+					</option>
+					<option value="216">
+						Entre Ríos
+					</option>
+					<option value="113">
+						FL
+					</option>
+					<option value="217">
+						Formosa 
+					</option>
+					<option value="120">
+						GA
+					</option>
+					<option value="187">
+						GRO
+					</option>
+					<option value="186">
+						GTO
+					</option>
+					<option value="253">
+						Gerona
+					</option>
+					<option value="254">
+						Granada
+					</option>
+					<option value="255">
+						Guadalajara
+					</option>
+					<option value="256">
+						Guipúzcoa
+					</option>
+					<option value="188">
+						HGO
+					</option>
+					<option value="150">
+						HI
+					</option>
+					<option value="257">
+						Huelva
+					</option>
+					<option value="258">
+						Huesca
+					</option>
+					<option value="124">
+						IA
+					</option>
+					<option value="147">
+						ID
+					</option>
+					<option value="127">
+						IL
+					</option>
+					<option value="125">
+						IN
+					</option>
+					<option value="241">
+						Islas Baleares
+					</option>
+					<option value="189">
+						JAL
+					</option>
+					<option value="259">
+						Jaén
+					</option>
+					<option value="218">
+						Jujuy 
+					</option>
+					<option value="138">
+						KS
+					</option>
+					<option value="130">
+						KY
+					</option>
+					<option value="131">
+						LA
+					</option>
+					<option value="251">
+						La Coruña
+					</option>
+					<option value="219">
+						La Pampa
+					</option>
+					<option value="220">
+						La Rioja
+					</option>
+					<option value="272">
+						La Rioja
+					</option>
+					<option value="270">
+						Las Palmas
+					</option>
+					<option value="260">
+						León
+					</option>
+					<option value="262">
+						Lugo
+					</option>
+					<option value="261">
+						Lérida
+					</option>
+					<option value="104">
+						MA
+					</option>
+					<option value="154">
+						MD
+					</option>
+					<option value="105">
+						ME
+					</option>
+					<option value="190">
+						MEX
+					</option>
+					<option value="152">
+						MI
+					</option>
+					<option value="191">
+						MICH
+					</option>
+					<option value="123">
+						MN
+					</option>
+					<option value="137">
+						MO
+					</option>
+					<option value="192">
+						MOR
+					</option>
+					<option value="135">
+						MS
+					</option>
+					<option value="136">
+						MT
+					</option>
+					<option value="263">
+						Madrid
+					</option>
+					<option value="158">
+						Manitoba
+					</option>
+					<option value="265">
+						Melilla
+					</option>
+					<option value="221">
+						Mendoza
+					</option>
+					<option value="222">
+						Misiones
+					</option>
+					<option value="266">
+						Murcia
+					</option>
+					<option value="264">
+						Málaga
+					</option>
+					<option value="194">
+						N.L.
+					</option>
+					<option value="193">
+						NAY
+					</option>
+					<option value="129">
+						NC
+					</option>
+					<option value="121">
+						ND
+					</option>
+					<option value="139">
+						NE
+					</option>
+					<option value="106">
+						NH
+					</option>
+					<option value="109">
+						NJ
+					</option>
+					<option value="141">
+						NM
+					</option>
+					<option value="170">
+						NSW
+					</option>
+					<option value="172">
+						NT
+					</option>
+					<option value="148">
+						NV
+					</option>
+					<option value="108">
+						NY
+					</option>
+					<option value="267">
+						Navarra
+					</option>
+					<option value="223">
+						Neuquén
+					</option>
+					<option value="159">
+						New Brunswick
+					</option>
+					<option value="160">
+						Newfoundland and Labrador
+					</option>
+					<option value="162">
+						Northwest Territories
+					</option>
+					<option value="161">
+						Nova Scotia
+					</option>
+					<option value="163">
+						Nunavut
+					</option>
+					<option value="195">
+						OAX
+					</option>
+					<option value="126">
+						OH
+					</option>
+					<option value="133">
+						OK
+					</option>
+					<option value="142">
+						OR
+					</option>
+					<option value="164">
+						Ontario
+					</option>
+					<option value="268">
+						Orense
+					</option>
+					<option value="110">
+						PA
+					</option>
+					<option value="196">
+						PUE
+					</option>
+					<option value="269">
+						Palencia
+					</option>
+					<option value="271">
+						Pontevedra
+					</option>
+					<option value="165">
+						Prince Edward Island
+					</option>
+					<option value="198">
+						Q.ROO
+					</option>
+					<option value="174">
+						QLD
+					</option>
+					<option value="197">
+						QRO
+					</option>
+					<option value="166">
+						Québec
+					</option>
+					<option value="107">
+						RI
+					</option>
+					<option value="224">
+						Río Negro 
+					</option>
+					<option value="199">
+						S.L.P.
+					</option>
+					<option value="171">
+						SA
+					</option>
+					<option value="128">
+						SC
+					</option>
+					<option value="122">
+						SD
+					</option>
+					<option value="200">
+						SIN
+					</option>
+					<option value="201">
+						SON
+					</option>
+					<option value="273">
+						Salamanca
+					</option>
+					<option value="225">
+						Salta
+					</option>
+					<option value="226">
+						San Juan
+					</option>
+					<option value="227">
+						San Luis 
+					</option>
+					<option value="228">
+						Santa Cruz
+					</option>
+					<option value="274">
+						Santa Cruz de Tenerife
+					</option>
+					<option value="229">
+						Santa Fe
+					</option>
+					<option value="230">
+						Santiago del Estero
+					</option>
+					<option value="167">
+						Saskatchewan
+					</option>
+					<option value="275">
+						Segovia
+					</option>
+					<option value="276">
+						Sevilla
+					</option>
+					<option value="277">
+						Soria
+					</option>
+					<option value="202">
+						TAB
+					</option>
+					<option value="203">
+						TAMPS
+					</option>
+					<option value="175">
+						TAS
+					</option>
+					<option value="204">
+						TLAX
+					</option>
+					<option value="119">
+						TN
+					</option>
+					<option value="132">
+						TX
+					</option>
+					<option value="278">
+						Tarragona
+					</option>
+					<option value="279">
+						Teruel
+					</option>
+					<option value="231">
+						Tierra del Fuego
+					</option>
+					<option value="280">
+						Toledo
+					</option>
+					<option value="233">
+						Tucumán
+					</option>
+					<option value="146">
+						UT
+					</option>
+					<option value="111">
+						VA
+					</option>
+					<option value="205">
+						VER
+					</option>
+					<option value="169">
+						VIC
+					</option>
+					<option value="155">
+						VT
+					</option>
+					<option value="281">
+						Valencia
+					</option>
+					<option value="282">
+						Valladolid
+					</option>
+					<option value="283">
+						Vizcaya
+					</option>
+					<option value="173">
+						WA
+					</option>
+					<option value="116">
+						WA
+					</option>
+					<option value="153">
+						WI
+					</option>
+					<option value="112">
+						WV
+					</option>
+					<option value="140">
+						WY
+					</option>
+					<option value="206">
+						YUC
+					</option>
+					<option value="168">
+						Yukon
+					</option>
+					<option value="207">
+						ZAC
+					</option>
+					<option value="284">
+						Zamora
+					</option>
+					<option value="285">
+						Zaragoza
+					</option>
+					<option value="234">
+						Álava 
+					</option>
+					<option value="239">
+						Ávila
+					</option>
+					<option value="417">
+						&#19977;&#37325;&#30476;
+					</option>
+					<option value="419">
+						&#20140;&#37117;&#24220;
+					</option>
+					<option value="434">
+						&#20304;&#36032;&#30476;
+					</option>
+					<option value="421">
+						&#20853;&#24235;&#30476;
+					</option>
+					<option value="396">
+						&#21271;&#28023;&#36947;
+					</option>
+					<option value="406">
+						&#21315;&#33865;&#30476;
+					</option>
+					<option value="423">
+						&#21644;&#27468;&#23665;&#30476;
+					</option>
+					<option value="405">
+						&#22524;&#29577;&#30476;
+					</option>
+					<option value="437">
+						&#22823;&#20998;&#30476;
+					</option>
+					<option value="420">
+						&#22823;&#38442;&#24220;
+					</option>
+					<option value="422">
+						&#22856;&#33391;&#30476;
+					</option>
+					<option value="399">
+						&#23470;&#22478;&#30476;
+					</option>
+					<option value="438">
+						&#23470;&#23822;&#30476;
+					</option>
+					<option value="410">
+						&#23500;&#23665;&#30476;
+					</option>
+					<option value="428">
+						&#23665;&#21475;&#30476;
+					</option>
+					<option value="401">
+						&#23665;&#24418;&#30476;
+					</option>
+					<option value="413">
+						&#23665;&#26792;&#30476;
+					</option>
+					<option value="414">
+						&#23696;&#38428;&#30476;
+					</option>
+					<option value="426">
+						&#23713;&#23665;&#30476;
+					</option>
+					<option value="398">
+						&#23721;&#25163;&#30476;
+					</option>
+					<option value="425">
+						&#23798;&#26681;&#30476;
+					</option>
+					<option value="427">
+						&#24195;&#23798;&#30476;
+					</option>
+					<option value="429">
+						&#24499;&#23798;&#30476;
+					</option>
+					<option value="431">
+						&#24859;&#23195;&#30476;
+					</option>
+					<option value="416">
+						&#24859;&#30693;&#30476;
+					</option>
+					<option value="409">
+						&#26032;&#28511;&#30476;
+					</option>
+					<option value="407">
+						&#26481;&#20140;&#37117;
+					</option>
+					<option value="440">
+						&#27798;&#32260;&#30476;
+					</option>
+					<option value="418">
+						&#28363;&#36032;&#30476;
+					</option>
+					<option value="436">
+						&#29066;&#26412;&#30476;
+					</option>
+					<option value="411">
+						&#30707;&#24029;&#30476;
+					</option>
+					<option value="408">
+						&#31070;&#22856;&#24029;&#30476;
+					</option>
+					<option value="412">
+						&#31119;&#20117;&#30476;
+					</option>
+					<option value="433">
+						&#31119;&#23713;&#30476;
+					</option>
+					<option value="402">
+						&#31119;&#23798;&#30476;
+					</option>
+					<option value="400">
+						&#31179;&#30000;&#30476;
+					</option>
+					<option value="404">
+						&#32676;&#39340;&#30476;
+					</option>
+					<option value="403">
+						&#33576;&#22478;&#30476;
+					</option>
+					<option value="435">
+						&#38263;&#23822;&#30476;
+					</option>
+					<option value="397">
+						&#38738;&#26862;&#30476;
+					</option>
+					<option value="415">
+						&#38745;&#23713;&#30476;
+					</option>
+					<option value="430">
+						&#39321;&#24029;&#30476;
+					</option>
+					<option value="432">
+						&#39640;&#30693;&#30476;
+					</option>
+					<option value="424">
+						&#40165;&#21462;&#30476;
+					</option>
+					<option value="439">
+						&#40575;&#20816;&#23798;&#30476;
+					</option>
+				</select>
+			</td>
+		</tr>
+				
+		<tr>
+			<td colspan="2">
+			<hr />
+			</td>
+		</tr>
+		<tr>
+			<td valign="top" align="right">
+				<label id="Custom1L" for="Custom1" title="Custom Field Example 1">
+					Custom Field 1
+				</label>
+			</td>
+			<td valign="top" align="left">
+				<input name="Custom1" type="text" size="60" value=""/>
+			</td>
+		</tr>
+		<tr>
+			<td valign="top" align="right">
+				<label id="Custom2L" for="Custom2" title="Custom Field Example 2">
+					Custom Field 2
+				</label>
+			</td>
+			<td valign="top" align="left">
+				<input name="Custom2" type="checkbox" checked/>
+				<input name="Custom2b" type="checkbox"/>
+			</td>
+		</tr>
+		<tr>
+			<td valign="top" align="right">
+				<label id="Custom3L" for="Custom3" title="Custom Field Example 3">
+					Custom Field 3
+				</label>
+			</td>
+			<td valign="top" align="left">
+				<select name="Custom3">
+					<option value="1" label="Label1">one</option>
+					<option value="2" label="Label2">two</option>
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2">
+			<hr />
+			</td>
+		</tr>
+		<tr>
+			<td valign="top" align="right">
+				<input name="Reset" type="reset" value="Reset"/>
+			</td>
+			<td valign="top" align="left">
+				<input name="Submit" type="submit" value="Submit"/>
+			</td>	
+		</tr>
+	</table>
+</form>
+
+
+</body>
+</html>

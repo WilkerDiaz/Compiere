@@ -1,0 +1,90 @@
+<!-- ============================================= -->
+<!-- Application Dictionary                        -->
+<!-- ============================================= -->
+<!-- $Header: $ -->
+
+<project name="ad" default="distAD" basedir=".">
+
+  <description>
+    This buildfile is used to build the AD subproject within 
+    the Compiere project.
+  </description>
+
+  <!-- set global properties for this build -->
+  <property name="src" value="src"/>
+  <property name="build.dir" value="build"/>
+  <property name="dist.dir" value="."/>
+  <property name="lib.dir" value="../lib"/>
+  <property name="toolslib.dir" value="../tools/lib"/>
+  <property name="jar.name" value="AD"/>
+
+  <!-- set path to include the necessary jar files for javac -->
+  <path id="project.class.path">
+    <pathelement path="${classpath}"/>
+    <pathelement path="${lib.dir}/CCTools.jar"/>
+    <pathelement path="../common/Common.jar"/>
+    <pathelement path="../interfaces/Interfaces.jar"/>
+
+    <pathelement path="${lib.dir}/postgreSQL.jar"/>
+    <pathelement path="${lib.dir}/oracle.jar"/>
+    <pathelement path="${lib.dir}/sqlServer.jar"/>
+    <pathelement path="${lib.dir}/db2.jar"/>
+ 
+    <pathelement path="${lib.dir}/jboss.jar"/>
+
+    <pathelement path="${lib.dir}/jPDF.jar"/>
+    <pathelement path="${toolslib.dir}/junit.jar"/>
+    <pathelement path="${toolslib.dir}/gwt-servlet.jar"/>
+  	<pathelement path="${toolslib.dir}/google-collect-snapshot-20080820.jar"/>
+
+  </path>
+
+
+  <target name="initAD" description="initialization target">
+    <echo message="=========== Build AD"/>
+    <!-- create the time stamp -->
+    <tstamp/>
+    <!-- create the build directory structure used by compile -->
+    <mkdir dir="${build.dir}"/>
+    <!-- check for the distribution directory -->
+    <available file="${dist.dir}" type="dir" property="dist.dir.exists"/>
+  </target>
+
+  
+  <target name="compileAD" depends="initAD">
+    <!-- compile the java code from ${src} into ${build.dir} -->
+    <javac srcdir="${src}" destdir="${build.dir}" deprecation="on" debug="on">
+      <classpath refid="project.class.path"/>
+    </javac>
+    <!-- copy all image & sound files from src to the build directory -->
+    <copy todir="${build.dir}">
+      <fileset dir="${src}">
+        <include name="**/images/*"/>
+        <include name="**/*.gif"/>
+        <include name="**/*.jpg"/>
+        <include name="**/*.wav"/>
+        <include name="**/*.htm"/>
+        <include name="**/*.html"/>
+        <include name="**/*.properties"/>
+        <exclude name="**/package.html"/>
+      </fileset>
+    </copy>
+  </target>
+
+
+  <!-- =========================================== -->
+  <!-- Distribution                                -->
+  <!-- =========================================== -->
+  <target name="distAD" depends="compileAD">
+    <!-- put everything from ${build.dir} into the ${jar.name}.jar file -->
+    <jar jarfile="${dist.dir}/${jar.name}.jar" basedir="${build.dir}"/>
+  </target>
+
+
+  <target name="clean">
+    <!-- Delete the ${build.dir} directory trees -->
+    <delete dir="${build.dir}"/>
+    <delete file="${dist.dir}/${jar.name}.jar" failonerror="false"/>
+  </target>
+
+</project>

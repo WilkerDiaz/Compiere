@@ -1,0 +1,30 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<jnlp spec = "1.6+" version = "3.6.2" 
+	codebase = "$$context/compiereHome" 
+	href = "$$context/compiere.jnlp">  
+	<information>
+		<title>Compiere Client 3.6.2 $$context</title>
+		<vendor>ComPiere, Inc.</vendor>
+		<homepage href = "http://www.compiere.org"/>
+		<offline-allowed/>
+		<description>Compiere ERP+CRM ($$context) - Smart Business Solution for Distribution and Service - globally</description>
+		<description kind = "short">Compiere ERP+CRM ($$context)</description>
+		<description kind = "one-line">Compiere ERP+CRM</description>
+		<description kind = "tooltip">Compiere ERP+CRM ($$context)</description>
+		<icon href = "$$context/C32.gif"/>
+		<shortcut online="true">
+			<desktop/>
+			<menu submenu="Compiere 3.6.2 $$context"/>
+		</shortcut>
+	</information>  
+	<resources>
+		<j2se version = "1.6.0_*" href = "http://java.sun.com/products/autodl/j2se" initial-heap-size = "256m" max-heap-size = "1024m"/>
+		<jar href = "Compiere.jar" main = "true" download = "eager"/>
+		<jar href = "CompiereCLib.jar" main = "false" download = "eager"/>
+		<property name="compiereJNLP" value="$$context"/> 
+	</resources>  
+	<application-desc main-class = "org.compiere.Compiere"/>  
+	<security>
+		<all-permissions/>  
+	</security>
+</jnlp>

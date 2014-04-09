@@ -1,0 +1,386 @@
+/******************************************************************************
+ * The contents of this file are subject to the   Compiere License  Version 1.1
+ * ("License"); You may not use this file except in compliance with the License
+ * You may obtain a copy of the License at http://www.compiere.org/license.html
+ * Software distributed under the License is distributed on an  "AS IS"  basis,
+ * WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License for
+ * the specific language governing rights and limitations under the License.
+ * The Original Code is Compiere ERP & CRM Smart Business Solution. The Initial
+ * Developer of the Original Code is Jorg Janke. Portions created by Jorg Janke
+ * are Copyright (C) 1999-2005 Jorg Janke.
+ * All parts are Copyright (C) 1999-2005 ComPiere, Inc.  All Rights Reserved.
+ * Contributor(s): ______________________________________.
+ *****************************************************************************/
+package org.compiere.db;
+
+import java.math.*;
+import java.sql.*;
+import javax.sql.*;
+import org.compiere.dbPort.*;
+import org.compiere.util.*;
+
+/**
+ *  PostgreSQL Database Port
+ *
+ *  @author     Jorg Janke
+ *  @version    $Id: DB_PostgreSQL.java.txt 8244 2009-12-04 23:25:29Z freyes $
+ */
+public class DB_PostgreSQL implements CompiereDatabase
+{
+	/**
+	 *  PostgreSQL Database
+	 */
+	public DB_PostgreSQL()
+	{
+	}   //  DB_PostgreSQL
+
+	/** Driver                  */
+	private org.postgresql.Driver   s_driver = null;
+
+	/** Default Port            */
+	public static final int         DEFAULT_PORT = 5432;
+
+	/** Statement Converter     */
+	private Convert         m_convert = new Convert(Database.DB_POSTGRESQL);
+	/** Connection String       */
+	private String          m_connection;
+	/** Cached Database Name	*/
+	private String			m_dbName = null;
+
+	/**
+	 *  Get Database Name
+	 *  @return database short name
+	 */
+	public String getName()
+	{
+		return Database.DB_POSTGRESQL;
+	}   //  getName
+
+	/**
+	 *  Get Database Description
+	 *  @return database long name and version
+	 */
+	public String getDescription()
+	{
+		return s_driver.toString();
+	}   //  getDescription
+
+	/**
+	 *  Get Standard JDBC Port
+	 *  @return standard port
+	 */
+	public int getStandardPort()
+	{
+		return DEFAULT_PORT;
+	}   //  getStandardPort
+
+	/**
+	 *  Get and register Database Driver
+	 *  @return Driver
+	 */
+	public java.sql.Driver getDriver() throws SQLException
+	{
+		if (s_driver == null)
+		{
+			s_driver = new org.postgresql.Driver();
+			DriverManager.registerDriver (s_driver);
+			DriverManager.setLoginTimeout (Database.CONNECTION_TIMEOUT);
+		}
+		return s_driver;
+	}   //  getDriver
+
+	/**
+	 *  Get Database Connection String.
+	 *  Requirements:
+	 *      - createdb -E UNICODE compiere
+	 *  @param connection Connection Descriptor
+	 *  @return connection String
+	 */
+	public String getConnectionURL (CConnection connection)
+	{
+		//  jdbc:postgresql://hostname:portnumber/databasename?encoding=UNICODE
+		StringBuffer sb = new StringBuffer("jdbc:postgresql:");
+		sb.append("//").append(connection.getDbHost())
+			.append(":").append(connection.getDbPort())
+			.append("/").append(connection.getDbName())
+			.append("?encoding=UNICODE");
+		m_connection = sb.toString();
+		return m_connection;
+	}   //  getConnectionString
+
+	/**
+	 * 	Get Connection URL
+	 *	@param dbHost db Host
+	 *	@param dbPort db Port
+	 *	@param dbName sb Name
+	 *	@param userName user name
+	 *	@return connection url
+	 */
+	public String getConnectionURL (String dbHost, int dbPort, String dbName,
+		String userName)
+	{
+		return "jdbc:postgresql://" 
+			+ dbHost + ":" + dbPort + "/" + dbName;
+	}	//	getConnectionURL
+
+	/**
+	 * 	Get JDBC Catalog
+	 *	@return catalog (database name)
+	 */
+	public String getCatalog()
+	{
+		if (m_dbName != null)
+			return m_dbName;
+	//	log.severe("Database Name not set (yet) - call getConnectionURL first");
+		return null;
+	}	//	getCatalog
+	
+	/**
+	 * 	Get JDBC Schema
+	 *	@return schema (dbo)
+	 */
+	public String getSchema()
+	{
+		return null;
+	}	//	getSchema
+
+	/**
+	 *  Supports BLOB
+	 *  @return true if BLOB is supported
+	 */
+	public boolean supportsBLOB()
+	{
+		return false;
+	}   //  supportsBLOB
+
+	/**
+	 *  String Representation
+	 *  @return info
+	 */
+	public String toString()
+	{
+		StringBuffer sb = new StringBuffer("DB_PostgreSQL[");
+		sb.append(m_connection)
+			.append("]");
+		return sb.toString();
+	}   //  toString
+
+	/**
+	 * 	Get Status
+	 * 	@return status info
+	 */
+	public String getStatus()
+	{
+		return "";
+	}	//	getStatus
+
+	/**************************************************************************
+	 *  Convert an individual Oracle Style statements to target database statement syntax
+	 *
+	 *  @param oraStatement
+	 *  @return converted Statement
+	 */
+	public String convertStatement (String oraStatement)
+	{
+		String retValue[] = m_convert.convert(oraStatement);
+		if (retValue == null)
+			throw new IllegalArgumentException
+				("DB_PostgreSQL.convertStatement - Not Converted (" + oraStatement + ") - "
+					+ m_convert.getConversionError());
+		if (retValue.length != 1)
+			throw new IllegalArgumentException
+				("DB_PostgreSQL.convertStatement - Convert Command Number=" + retValue.length
+					+ " (" + oraStatement + ") - " + m_convert.getConversionError());
+		//  Diagnostics (show changed, but not if AD_Error
+		if (!oraStatement.equals(retValue[0]) && retValue[0].indexOf("AD_Error") == -1)
+			System.out.println("PostgreSQL =>" + retValue[0] + "<= <" + oraStatement + ">");
+		//
+		return retValue[0];
+	}   //  convertStatement
+
+	
+	/**
+	 *  Get Name of System User
+	 *  @return e.g. sa, system
+	 */
+	public String getSystemUser()
+	{
+		return "sa";
+	}	//	getSystemUser
+
+	/**
+	 *  Get Name of System Database
+	 *  @param databaseName database Name
+	 *  @return e.g. master or database Name
+	 */
+	public String getSystemDatabase(String databaseName)
+	{
+		return "master";
+	}	//	getSystemDatabase
+
+	
+	/**
+	 *  Create SQL TO Date String from Timestamp
+	 *
+	 *  @param  time Date to be converted
+	 *  @param  dayOnly true if time set to 00:00:00
+	 *  @return date function
+	 */
+	public String TO_DATE (Timestamp time, boolean dayOnly)
+	{
+		return "";
+	}	//	TO_DATE
+
+	/**
+	 *  Create SQL for formatted Date, Number
+	 *
+	 *  @param  columnName  the column name in the SQL
+	 *  @param  displayType Display Type
+	 *  @param  AD_Language 6 character language setting (from Env.LANG_*)
+	 *
+	 *  @return TRIM(TO_CHAR(columnName,'9G999G990D00','NLS_NUMERIC_CHARACTERS='',.'''))
+	 *      or TRIM(TO_CHAR(columnName,'TM9')) depending on DisplayType and Language
+	 *  @see org.compiere.util.DisplayType
+	 *  @see org.compiere.util.Env
+	 *
+	 **/
+	public String TO_CHAR (String columnName, int displayType, String AD_Language)
+	{
+		return "";
+	}	//	TO_CHAR
+
+	/**
+	 * 	Return number as string for INSERT statements with correct precision
+	 *	@param number number
+	 *	@param displayType display Type
+	 *	@return number as string
+	 */
+	public String TO_NUMBER (BigDecimal number, int displayType)
+	{
+		if (number == null)
+			return "NULL";
+		BigDecimal result = number;
+		int scale = DisplayType.getDefaultPrecision(displayType);
+		if (scale > number.scale())
+		{
+			try
+			{
+				result = number.setScale(scale, BigDecimal.ROUND_HALF_UP);
+			}
+			catch (Exception e)
+			{
+		//		log.severe("Number=" + number + ", Scale=" + " - " + e.getMessage());
+			}
+		}
+		return result.toString();
+	}	//	TO_NUMBER
+
+	
+	/**
+	 * 	Get SQL Commands
+	 *	@param cmdType CMD_*
+	 *	@return array of commands to be executed
+	 */
+	public String[] getCommands (int cmdType)
+	{
+		if (CMD_CREATE_USER == cmdType)
+			return new String[]
+			{
+			
+			};
+		//
+		if (CMD_CREATE_DATABASE == cmdType)
+			return new String[]
+			{
+			
+			};
+		//
+		if (CMD_DROP_DATABASE == cmdType)
+			return new String[]
+			{
+			
+			};
+		//
+		return null;
+	}	//	getCommands
+
+	
+	/**************************************************************************
+	 *  Get RowSet
+	 * 	@param rs ResultSet
+	 *  @return RowSet
+	 *  @throws SQLException
+	 */
+	public RowSet getRowSet (java.sql.ResultSet rs) throws SQLException
+	{
+		throw new UnsupportedOperationException("PostgreSQL does not support RowSets");
+	}	//	getRowSet
+	
+	/**
+	 * 	Get Cached Connection on Server
+	 *	@param connection info
+	 *  @param autoCommit true if autocommit connection
+	 *  @param transactionIsolation Connection transaction level
+	 *	@return connection or null
+	 */
+	public Connection getCachedConnection (CConnection connection, boolean autoCommit, int transactionIsolation)
+	{
+		throw new UnsupportedOperationException("Not supported/implemented");
+	}
+
+	/**
+	 * 	Create DataSource (Client)
+	 *	@param connection connection
+	 *	@return data dource
+	 */
+	public DataSource getDataSource(CConnection connection)
+	{
+		throw new UnsupportedOperationException("Not supported/implemented");
+	}
+
+	/**
+	 * 	Create Pooled DataSource (Server)
+	 *	@param connection connection
+	 *	@return data dource
+	 */
+	public ConnectionPoolDataSource createPoolDataSource(CConnection connection)
+	{
+		throw new UnsupportedOperationException("Not supported/implemented");
+	}
+	
+	/**
+	 * 	Get Connection from Driver
+	 *	@param connection info
+	 *	@return connection or null
+	 */
+	public Connection getDriverConnection (CConnection connection) throws SQLException
+	{
+		getDriver();
+		return DriverManager.getConnection (getConnectionURL (connection), 
+			connection.getDbUid(), connection.getDbPwd());
+	}	//	getDriverConnection
+
+	/**
+	 * 	Get Driver Connection
+	 *	@param dbUrl URL
+	 *	@param dbUid user
+	 *	@param dbPwd password
+	 *	@return connection
+	 *	@throws SQLException
+	 */
+	public Connection getDriverConnection (String dbUrl, String dbUid, String dbPwd) 
+		throws SQLException
+	{
+		getDriver();
+		return DriverManager.getConnection (dbUrl, dbUid, dbPwd);
+	}	//	getDriverConnection
+
+	/**
+	 * 	Close
+	 */
+	public void close()
+	{
+		
+	}	//	close
+
+}   //  DB_PostgreSQL
